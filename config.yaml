@@ -1,0 +1,33 @@
+---
+site:
+  title: Sedimental
+  author: Mahmoud Hashemi
+  tagline: Accretionary thoughts by Mahmoud Hashemi
+  copyright: >-
+    &copy; 2015 Mahmoud Hashemi <img height="14" src="/img/by-sa.png" />
+  primary_links:
+    - text: About
+      href: /about.html
+    - text: Github
+      href: https://github.com/mahmoud
+    - text: Twitter
+      href: https://twitter.com/mhashemi
+    - text: Hatnote
+      href: https://blog.hatnote.com
+      desc: Wikipedia-based projects
+  analytics_code: UA-63517417-1
+
+dev:
+  server_host: 0.0.0.0
+  server_port: 8080
+  base_url: /
+  autorefresh: 0
+
+prod:
+  canonical_domain: http://sedimental.org
+  canonical_base_path: /
+  remote_host: sedimental.org
+  remote_user: mahmoud
+  remote_path: /home/mahmoud/sedimental/public
+  # rsync_cmd: rsync
+  # rsync_flags: avzP
