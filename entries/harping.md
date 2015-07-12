@@ -4,7 +4,7 @@ title: Harping up the wrong tree
 
 http://www.curatormagazine.com/alex-miller-jr/the-wikipedian-harp/
 
-Purposes served by Listen to Wikipedia:
+Harpers to the left, please. Purposes served by Listen to Wikipedia:
 
   * Sounds nice enough, as witnessed with the author's own
     students. Ambient and functional.
@@ -12,8 +12,8 @@ Purposes served by Listen to Wikipedia:
     lonely tasks. With Listen to Wikipedia you hear your comrades hard
     at work.
   * This is the key[^firstmistake] mistake of the author. Listen to
-    Wikipedia, as all Hatnote projects, exist as engagement
-    tools. They make editing and participating more accessible.
+    Wikipedia, along with each of the rest of the Hatnote projects,
+    exists as an engagement tool, helping people read and edit Wikipedia.
   * Scroll down to see the dozens of non-English languages
     supported. Most of these are wikis that may see one edit per
     minute. An editor on those sites can switch to other tasks until a
@@ -38,7 +38,7 @@ appreciate -- the millions of edits and thousands of editors taken for
 granted.
 
 Nature doesn't need Coleridge's fizzly passions. On the modern
-Internet, we find Wikipedia stuck between poets and profits, neither
+Internet, we find Wikipedia stuck between poets and profits.
 
 Wikipedia's openness allows occasional vandalism, and the openness
 complements this with allowances for administrative automation to
