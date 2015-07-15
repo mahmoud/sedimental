@@ -3,7 +3,7 @@ title: Wikipedia and IFTTT: A Technical Guide
 ---
 Here at Hatnote we build on Wikipedia a lot. And while we love building projects like [Listen to Wikipedia](http://listen.hatnote.com/) and [The Weeklypedia](http://weekly.hatnote.com/), we have to admit programming, integrating, and maintaining reliable services can be [a lot of work](https://github.com/hatnote/). Creating cool and functional Wikipedia projects remains out of reach of most busy Internet denizens. Until today.
 
-With the aim of bringing Wikipedia to the wider web, [Stephen](https://twitter.com/sklaporte) and [I](https://twitter.com/mhashemi) are pleased to have worked with [Wikimedia](https://en.wikipedia.org/wiki/Wikimedia_Foundation) and [IFTTT](https://en.wikipedia.org/wiki/IFTTT) to build [the brand-new Wikipedia IFTTT channel](https://ifttt.com/wikipedia). This post is your usage and technical guide to all things Wikipedia+IFTTT. For the official announcement, [see the Wikimedia blog](http://blog.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/).
+With the aim of bringing Wikipedia to the wider web, [Stephen](https://twitter.com/sklaporte) and [I](https://twitter.com/mhashemi) are pleased to have worked with [Wikimedia](https://en.wikipedia.org/wiki/Wikimedia_Foundation) and [IFTTT](https://en.wikipedia.org/wiki/IFTTT) to build [the brand-new Wikipedia IFTTT channel](https://ifttt.com/wikipedia). This post is your 10-minute usage and technical guide to all things Wikipedia+IFTTT. For the official announcement, [see the Wikimedia blog](http://blog.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/).
 
 ![IFTTT Logo](https://40.media.tumblr.com/c9936d5d5f024d3d9be123c86c336794/tumblr_nrhes0PCQW1r07l56o1_1280.png)
 
@@ -69,13 +69,15 @@ Categories are full of promise, and we eagerly anticipate the community’s leve
 
 >Second, Categories often assume an unpredictable tree structure, wherein parent categories do not automatically contain their subcategories’ members. Furthermore, [cycles can exist](https://en.wikipedia.org/wiki/Help:Categories). Finally, due to the way pages are added and removed to Categories, it is possible for a page to appear to be added to a Category multiple times, simply due to editing snafus. Do not actually rely on the Presidential phone call for your think tank’s next strategy summit.
 
+Most of these complexities are manageable through other means. For instance, if one wanted to monitor a Category's Subcategories, one would simply have to do a bit more mousework, and set up multiple Recipes to perform the same Action, as we've done in the examples for this next Trigger.
+
 ## <a href="#edits_to_articles_in_a_category" name="edits_to_articles_in_a_category">Edits to Articles in a Category</a>
 
 Some would argue the most complex Trigger, but for those who have been following along so far, you can probably guess exactly what this will and won’t do. Use the **[Edits to Articles in a Category Trigger](https://ifttt.com/channels/wikipedia/triggers/1444240077-new-edit-to-article-in-category)** to simultaneously monitor multiple articles related to a specific topic.
 
 From Fact #4, we know that if the topic is too broad, the edit speed may outpace IFTTT’s effectiveness. From Fact #2 and #3 we know that Categories mean different things to different communities. From Fact #6 we know that a given Category may not always be what it appears. And finally, from Fact #1 we know that Categories don’t apply across languages, so we recommend disabling the language customization field for published Category-based recipes.
 
-Add in the Talk-page caveat from the previous Trigger and it’s been a long road, but we’re already reaping the returns. For instance, using the [Tweet about Wikipedia Updates in a Category Recipe](https://ifttt.com/recipes/306840-tweet-about-wikipedia-updates-in-a-category), there are already two special-interest Twitter accounts running solely off Wikipedia with no specific programming overhead whatsoever:
+Add in the Talk-page caveat from the previous Trigger and it’s been a long road, but we’re already reaping the returns. For instance, using the [Tweet about Wikipedia Updates in a Category Recipe](https://ifttt.com/recipes/306840-tweet-about-wikipedia-updates-in-a-category), there are already three special-interest Twitter accounts running solely off Wikipedia with no specific programming overhead whatsoever:
 
 * [@LISedits](https://twitter.com/LISEdits): Tweets about Library Sciences. [We’ve heard librarians love Wikipedia.](https://www.youtube.com/watch?v=gZKkIsWJOt8)
 * [@medstubs](https://twitter.com/medstubs): Tweets about newly posted medical articles that could use contributions
@@ -99,6 +101,6 @@ The very astute might notice that all the Wikipedia IFTTT features are Triggers 
 
 Many thanks to [Ori](https://github.com/atdt), [Dario](https://twitter.com/ReaderMeter), [Ed](https://twitter.com/edsu), [Niki](https://twitter.com/kikisurvives), [Yuvi](https://github.com/yuvipanda), Kirsten, and many others for their hard work and feedback during the Wikipedia+IFTTT development.
 
-We hope you found the guide useful. If you build anything, tweet it with hashtag [#wpifttt](https://twitter.com/search?q=%23wpifttt) and CC us (our handles are linked below). Happy automating!
+We hope you found the guide useful. If you build anything, tweet it out and CC us, our handles are linked below. Happy automating!
 
 -- [Mahmoud](https://twitter.com/mhashemi) and [Stephen](https://twitter.com/sklaporte)
