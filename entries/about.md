@@ -4,13 +4,12 @@ publish_date: May 10, 2015
 special: true
 ---
 
-<!-- TODO: portrait -->
+**sed·i·men·tal** /ˌsedəˈmen(t)əl/ *adjective* - of or relating to gradual accumulation of sentiment.
 
-Here are a few facts of an autobiographical nature:
+<img title="Yours truly" src="/uploads/me_1.jpg" width=200>
 
-* I write words, at least some of the time.
-* I run Python, at least some of the time.
+Hi! I'm Mahmoud Hashemi. I write software and words in
+California. For the time being I do one of these things better than the other,
+so excuse the terseness of this page.
 
-My PGP key fingerprint looks a little like:
-
-`ABCD 92F2 EDE7 BEEF DEED A3CF 4567 4756 ED87 1234`
+You can email me at mahmoud@hatnote.com.

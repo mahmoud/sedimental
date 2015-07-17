@@ -1,6 +1,6 @@
 ---
 title: A New Post
-publish_date: May 6th, 2015
+# publish_date: May 6th, 2015
 tags:
   - meta
   - reference

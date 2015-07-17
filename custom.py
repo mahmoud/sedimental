@@ -60,11 +60,11 @@ def _chert_post_load(chert_obj):
             parts.append({'rendered_content': rendered_content})
         else:
             parts.append(part)
-    chert_obj.html_renderer.register_path('./list.html', name='list.html')
-    html = chert_obj.html_renderer.render('list.html', ctx)
-    with open('site/tmp.html', 'wb') as f:
-        f.write(html)
-    import pdb;pdb.set_trace()
+    #chert_obj.html_renderer.register_path('./list.html', name='list.html')
+    #html = chert_obj.html_renderer.render('list.html', ctx)
+    #with open('site/tmp.html', 'wb') as f:
+    #    f.write(html)
+    #import pdb;pdb.set_trace()
 
 
 def chert_pre_audit(chert_obj):
