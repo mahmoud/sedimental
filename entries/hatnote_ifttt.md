@@ -1,6 +1,7 @@
 ---
-title: Wikipedia and IFTTT: A Technical Guide
+title: "Wikipedia and IFTTT: A Technical Guide"
 ---
+
 Here at Hatnote we build on Wikipedia a lot. And while we love building projects like [Listen to Wikipedia](http://listen.hatnote.com/) and [The Weeklypedia](http://weekly.hatnote.com/), we have to admit programming, integrating, and maintaining reliable services can be [a lot of work](https://github.com/hatnote/). Creating cool and functional Wikipedia projects remains out of reach of most busy Internet denizens. Until today.
 
 With the aim of bringing Wikipedia to the wider web, [Stephen](https://twitter.com/sklaporte) and [I](https://twitter.com/mhashemi) are pleased to have worked with [Wikimedia](https://en.wikipedia.org/wiki/Wikimedia_Foundation) and [IFTTT](https://en.wikipedia.org/wiki/IFTTT) to build [the brand-new Wikipedia IFTTT channel](https://ifttt.com/wikipedia). This post is your 10-minute usage and technical guide to all things Wikipedia+IFTTT. For the official announcement, [see the Wikimedia blog](http://blog.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/).
