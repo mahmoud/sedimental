@@ -1,0 +1,280 @@
+---
+title: Podcasts
+list_type: multidoc
+# list_style: theme_template.html
+# field_type_map:
+#   field_name: datetime, link, auto (text/number/object/list), (other types?)
+field_title_map:
+  ep_length: Episode Length
+  ep_count: Episode Count
+  dl_link: Download
+field_key_map:
+  # special fields: title, description, date, tags, image, title_link
+  review: description
+---
+There are a lot of great audio periodicals out there, and as with
+mobile applications, the pathways for discovery are limited to say
+the least.
+
+Rather than just qualitative scores, the ratings used here have
+specific meanings:
+
+>  5 - I listen to every episode and regularly recommend it to others.<br/>
+>  4 - I listen to every episode.<br/>
+>  3 - I listen to episodes, but don't sweat missed ones.<br/>
+>  2 - I listen to select episodes, based on title and description.<br/>
+>  1 - I started listening and I stopped.<br/>
+
+I've always been drawn to history and science podcasts more than
+entertainment and commentary.
+
+<!--
+Main tones:
+
+  * News
+  * Documentary
+  * Conversational
+  * Historical
+-->
+---
+title: Hardcore History
+rating: 5
+ep_length: 2+ hours
+ep_count: 55+
+dl_link: http://feeds.feedburner.com/dancarlin/history?format=html
+review: >-
+
+  My first foray into internet broadcasting, I listened to Hardcore
+  History for years before finishing it and being forced to search for
+  similarly green pastures.
+
+  I'm no historian. I don't memorize dates and place names. I look to
+  take two practical things from history literature: identifiable
+  themes and common metaphor.
+
+  Themes are the gateway to human nature as it has transpired in the
+  past. How have different people and cultures handled power and
+  decline and everything in between? The present has far more in
+  common with the past than school-taught history led me to believe,
+  and I have Dan Carlin's careful arrangements for making me certain
+  of this.
+
+  I derive great personal use and pleasure from a complex graph of
+  historical themes and trends. But, for communicative purposes,
+  shared metaphor is the most succinct tool history has to
+  offer. People are moved by the stories of great persons and peoples
+  throughout the ages. Hardcore History is built of those stories. For
+  those who say Hardcore History overdramatic: the name should have
+  been a hint that it offers more than just dry facts. That
+  non-tenure-track[^not_comp] component sets Hardcore History apart
+  from a genre full of the alternative.
+
+  Hardcore History does at least one other thing uniquely well. It
+  tells a good metahistory, how history has been produced, recorded,
+  and interpreted over the years. No other show has been able to
+  strike the same qualifying balance of endorsement and caveat without
+  distracting from the key narratives.
+
+  [^not_comp]: No offense to meant to any professors; I realize there
+  are many who can be as passionate. Not that it's a
+  competition. Hardcore History would not be possible without the hard
+  work of Historians Like You™.
+
+  Early episodes are shorter and more thematic than specific, so I
+  recommend starting from the beginning.
+---
+title: 99% Invisible
+ep_length: 15 minutes
+ep_count: 170+
+rating: 5
+dl_link: http://99percentinvisible.org/category/episode/
+feed_link: http://feeds.99percentinvisible.org/99percentinvisible
+---
+title: Song Exploder
+ep_length: 15 minutes
+ep_count: 40+
+rating: 5
+dl_link: http://songexploder.net/episodes
+feed_link: http://feed.songexploder.net/songexploder?format=xml
+---
+title: Nature Podcast
+ep_length: 30 minutes
+rating: 5
+dl_link: http://www.nature.com/nature/podcast/archive.html
+review: >-
+
+  I hate the news. Even when the reporting is decent, it's almost
+  always depressing. Science news runs the opposite course. Every
+  story is overflowing with progress and promise. Occasionally there's
+  a retraction, but even that speaks to accountability. The Nature
+  Podcast embodies all of this as a pleasant and upbeat selection on
+  an arbitrary blend of science news as deemed important by the most
+  important science journal of our day.
+
+  Even so, the Nature Podcast isn't ostentatious. Like the journal,
+  it's British, but the content is entirely international. The
+  majority of stories are ones covered in the journal, but attention
+  is always paid to non-Nature stories. Most of the stories featured
+  are deliberately relatable, not just the most impactful relative to
+  their field. To run down the list in priority order of Nature
+  Podcast coverage:
+
+    1. Space
+    2. Cures for diseases
+    3. Neurology and neurosciences
+    4. Genetic research
+    5. Dinosaurs and cavemen
+    6. Robots
+    7. Other science (biology, physics, chemistry, materials, meta)
+
+  They're big on "extras", parallel episodes in the same feed as the
+  weekly podcast. One series of extras focuses on sound (appropriate
+  for the medium), another on predictions, and yet another
+  interviewing the reporters on their reactions and passionsabout
+  current stories. They even have a whole separate podcast for
+  neurosciences. I've given them all a try and a pass. Their
+  documentary and conversational formats just aren't up to the quality
+  of other programs. But I will continue to listen to every episode of
+  the main Nature Podcast. For a weekly optimism booster shot, it
+  can't be beat!
+
+---
+title: Thinking Allowed
+ep_length: 30 minutes
+ep_freq: weekly
+rating: 5
+dl_link: http://www.bbc.co.uk/programmes/b006qy05/episodes/downloads
+feed_link: http://www.bbc.co.uk/programmes/b006qy05/episodes/downloads.rss
+review: >-
+
+  Currently my highest-rated BBC program. Thinking Allowed's approach
+  to current Western social issues may be as strong as the wordplay in
+  its name. Undeniably British, but an easy majority of episodes are
+  relevant to Western life. The host, Laurie Taylor, is full of care
+  and charisma. As a rule, the guests are well-spoken and
+  qualified. It follows that the conversations are predictably
+  educational and engaging, especially for being unrehearsed and
+  seemingly only lightly edited.
+
+  In fact, the format is almost too engaging. Only 30 minutes long,
+  they pack in two issues per episode, separated by letters from
+  listeners. I appreciate that two issues cuts the chance of episode
+  missing totally. But the issues are usually strong, and I lament
+  when a guest is cut short, right when the issue starts getting
+  interesting. If I had to venture a further critique, it would be to
+  nitpick and point out that this is the only top-tier podcast where I
+  consistently hear breathing. Then again, that could just be the
+  fast-paced, constructive conversation.
+
+---
+title: BBC World Service Documentaries
+ep_length: 30 minutes
+ep_count: 300+
+rating: 2
+dl_link: http://www.bbc.co.uk/programmes/p02nq0lx/episodes/downloads
+review: >-
+
+  The most normal news-like program to which I'll subject myself. The
+  equation, in a nutshell: take a popular news story and do a deeper
+  dive. These stories often rely on human interest. Sometimes there's
+  an episode or a series providing an reasonable overview of a topic,
+  those can be ok. The episode format varies, but the production
+  quality is always high. After listening for over a year, there's
+  definitely a Western political slant. But this isn't Al-Jazeera
+  International, it's the BBC.
+
+  The release schedule is more surprising. Some months 20+ episodes
+  come out, other times a week or two will go by with one episode. My
+  experience is one to three worthwhile episodes per month, with
+  titles and descriptions being pretty good indicators. BBC World
+  Service signal to noise is low, but the signal is still worthwhile.
+
+---
+title: A History of Ideas
+ep_length: 15 minutes
+ep_count: 50+
+rating: 3
+dl_link: http://www.bbc.co.uk/programmes/b04bwydw/episodes/downloads
+review: >-
+
+  Billed as philosophical, but strongly campaigns for modern reference
+  and relatability, leading me to classify it as closer to "Thinking
+  Allowed" than a history or a philosophy podcast. The unique format
+  has each episode featuring typically four guests, each assigned
+  under 15 minutes to present a take or angle on a broader
+  philosophical issue. There are some high highs and some low lows
+  among the subtopics, hosts, and presentations, especially the
+  tedious, semi-conversational introductory segments. But summing up
+  all remaining segments, coverage usually ends up back in the black.
+
+  BBC actually presents the podcast and radio differently. They slice
+  up these longer episodes into the individual segments. This is a bit
+  harder to navigate at first, but in the long run makes it a lot
+  easier to prefilter undesirable clips like the introductions. The
+  guest hosts almost always reintroduce themselves and end up
+  restating everything they said in their introduction
+  anyways. Overall a very fine show.
+
+---
+title: A Brief History of Mathematics
+ep_length: 15 minutes
+ep_count: 10
+rating: 5
+dl_link: http://www.bbc.co.uk/programmes/b00srz5b/episodes/downloads
+feed_link: http://www.bbc.co.uk/programmes/b00srz5b/episodes/downloads.rss
+---
+title: O'Reilly Radar
+ep_length: 30 minutes
+ep_count: 35+
+rating: 2
+dl_link: https://soundcloud.com/oreilly-radar/sets/oreilly-radar-podcast
+---
+title: O'Reilly Data Show
+ep_length: 30 minutes
+ep_count: 15+
+rating: 1
+dl_link: https://soundcloud.com/oreilly-radar/sets/the-oreilly-data-show-podcast
+---
+title: Invisibilia
+ep_length: 1 hour
+rating: 5
+ep_count: 6+
+dl_link: http://www.npr.org/podcasts/510307/invisibilia
+feed_link: http://www.npr.org/templates/rss/podcast.php?id=510307
+---
+title: The Partially Examined Life
+ep_length: 2+ hours
+ep_count: 120+
+rating: 3
+dl_link: http://www.partiallyexaminedlife.com/category/podcast-episodes/?order=ASC
+feed_link: http://feeds2.feedburner.com/ThePartiallyExaminedLife
+---
+title: 12 Byzantine Rulers
+ep_length: 25 minutes
+ep_count: 17
+rating: 4
+dl_link: http://12byzantinerulers.com/
+---
+title: Norman Centuries
+ep_length: 25 minutes
+ep_count: 20
+rating: 4
+dl_link: http://normancenturies.com/
+---
+title: Stuff You Missed In History Class
+ep_length: 30 minutes
+ep_count: 700+
+rating: 1
+dl_link: http://www.missedinhistory.com/podcasts/archive/
+---
+title: Radiolab
+ep_length: 1 hour
+ep_count: 80+
+rating: 2
+dl_link: http://www.radiolab.org/archive/
+---
+title: Here's The Thing
+ep_length: 30 minutes
+ep_count: 50+
+rating: 2
+dl_link: http://www.wnyc.org/shows/heresthething/episode-archive/
