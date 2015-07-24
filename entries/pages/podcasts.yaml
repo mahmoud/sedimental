@@ -8,9 +8,16 @@ field_title_map:
   ep_length: Episode Length
   ep_count: Episode Count
   dl_link: Download
+  feed_link: Subscribe
 field_key_map:
   # special fields: title, description, date, tags, image, title_link
   review: description
+  dl_link: link  # TODO: autodetect based on URL regex?
+  feed_link: link
+
+# false, count, or noun-based ("Myth #1") (ordinal template?)
+ordinal_mode: false
+date_format: %Y
 ---
 There are a lot of great audio periodicals out there, and as with
 mobile applications, the pathways for discovery are limited to say
@@ -19,14 +26,14 @@ the least.
 Rather than just qualitative scores, the ratings used here have
 specific meanings:
 
->  5 - I listen to every episode and regularly recommend it to others.<br/>
->  4 - I listen to every episode.<br/>
->  3 - I listen to episodes, but don't sweat missed ones.<br/>
->  2 - I listen to select episodes, based on title and description.<br/>
->  1 - I started listening and I stopped.<br/>
+>  **5** - I listen to every episode and regularly recommend it to others.<br/>
+>  **4** - I listen to every episode.<br/>
+>  **3** - I listen to episodes, but don't sweat missed ones.<br/>
+>  **2** - I listen to select episodes, based on title and description.<br/>
+>  **1** - I started listening and I stopped.<br/>
 
-I've always been drawn to history and science podcasts more than
-entertainment and commentary.
+I'm drawn to history and science podcasts more than entertainment,
+news, and commentary.
 
 <!--
 Main tones:
