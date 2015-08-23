@@ -2,22 +2,25 @@
 title: Podcasts
 list_type: multidoc
 # list_style: theme_template.html
-# field_type_map:
-#   field_name: datetime, link, auto (text/number/object/list), (other types?)
-field_title_map:
+
+field_label_map:
   ep_length: Episode Length
   ep_count: Episode Count
   dl_link: Download
   feed_link: Subscribe
-field_key_map:
-  # special fields: title, description, date, tags, image, title_link
-  review: description
-  dl_link: link  # TODO: autodetect based on URL regex?
+field_type_map:
+  dl_link: link
   feed_link: link
+field_role_map:
+  # special fields: title, content, date, tags, main_image, main_link
+  content: review
+
+# built-in roles: ['title', 'content', 'date', 'summary', 'image', 'source']
+# built-in attr types: link, image, default
 
 # false, count, or noun-based ("Myth #1") (ordinal template?)
 ordinal_mode: false
-date_format: %Y
+date_format: "%Y"
 ---
 There are a lot of great audio periodicals out there, and as with
 mobile applications, the pathways for discovery are limited to say

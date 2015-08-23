@@ -12,7 +12,7 @@ def chert_post_load(chert_obj):
     try:
         return _chert_post_load(chert_obj)
     except Exception as e:
-        import pdb;pdb.post_mortem()
+        #import pdb;pdb.post_mortem()
         raise
 
 
