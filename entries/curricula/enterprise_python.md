@@ -209,3 +209,9 @@ succeed through concrete specifications.
 
 All forms of testing is a process to improve one or more aspects of the above.
 Scalability is the result of a strong balance of all of the above.
+
+
+### TODO
+
+* Refactoring
+* Design Patterns
