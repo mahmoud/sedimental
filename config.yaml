@@ -19,6 +19,9 @@ site:
       href: /atom.xml
   analytics_code: UA-63517417-1
 
+theme:
+  name: sedimental
+
 dev:
   server_host: 0.0.0.0
   server_port: 8080
