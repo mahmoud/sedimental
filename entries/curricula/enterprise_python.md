@@ -2,12 +2,12 @@
 title: Enterprise Python Curriculum
 ---
 
-Enterprise software is the discipline of scaling up. But not usually
-in terms of volume and performance, but in terms of complexity and
-roles involved. Scaling technology is easy compared to scaling people
-and processes. In addition to preparing you for practical Python
+Enterprise software is the discipline of scaling up. Not in terms of
+volume and performance, but in terms of complexity and people
+involved. Scaling technology is easy compared to scaling human
+processes. In addition to preparing you for practical Python
 development, this course will teach you how to form and justify the
-technical positions necessary to drive successful projects.
+technical positions necessary to drive projects to success.
 
 Basic outline:
 
@@ -32,12 +32,12 @@ Beginners come from all walks. If you've done one of the following you're as rea
     * [Learn Python the Hard Way](http://learnpythonthehardway.org)
 
 A single run through of one of the above and you're ready to benefit
-from this course. Especially if you've done at least one Python
-project of 500 lines or more since the reading. You should know the
-fundamentals of the language, this course will teach you how to apply
-them. Along the way we'll be covering well-known architectural
-concepts and operating systems features, as viewed through the window
-of Python.
+from this course. Especially if you've applied the knowledge by
+attempting at least one Python project of 500 lines or more after the
+reading. You should know the fundamentals of the language, this course
+will teach you how to apply them. Along the way we'll be covering
+well-known architectural concepts and operating systems features, as
+viewed through the window of Python.
 
 ### What is Python?
 
@@ -65,6 +65,27 @@ reasons why larger enterprises invest in Python.
   * Popularity - A broad hiring base
   * Learnability - Train when you can't hire
   * Applicability - Many areas means easy cross-pollination
+
+### When to use Python
+
+*"Whenever you can!"*
+
+Python is very much a general-purpose language. ([Run through list](https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/#python-is-for-scripting))
+
+Within enterprise it has been well-accepted into most applications:
+
+  * Network Infrastructure (DNS)
+  * Cloud computing (OpenStack, Boto)
+  * Configuration management
+  * ETL and data analysis, including Big Data (Hadoop, Disco)
+  * Email and VoIP
+
+Notable exceptions are mobile and web frontend, where there are viable
+inroads being made, but just not enterprise.
+
+### (Other) Myths of Enterprise Python
+
+Selections from [Myths of Enterprise Python](https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/)
 
 ## Architecture and design
 
@@ -130,11 +151,75 @@ itself. In some cases a higher-level language can be used, but the
 point is that the developer should be able to easily review test cases
 when errors are found.
 
+### Code Review
+
+Code review often, but by request of the author only. The author must
+exercise judgement as to which commits need review and who should
+review them. For most commits, junior team members review senior
+developers' commits and vice versa. For important commits, senior
+should review senior. For deciding when to review, if there's doubt,
+there should be a review.
+
+Keep code reviews small, 50 lines or less. As code gets larger,
+suggestions become harder to make, as more suggestions would entail
+significant backtracking and rearchitecture. As a result, suggested
+changes tend to stay the same size, regardless of the size of code
+being reviewed.
+
+### Technology and Architectural Review
+
+Always favor on-time completion. Only use "hot" technologies when you
+are sure they are fully under your control. Dependencies cascade
+catastrophically.
+
+Touting new technologies can sometimes have upsides in politics and
+developer morale, but generally can't make up for delivery
+slippage. If you're using Python in the enterprise, count your lucky
+stars and focus on building a reputation for consistency before
+attempting to break the mold. If you're really in a rush, build a side
+project or prototype to help build buy-in.
+
 ### Security
+
+CPython has many inherent security advantages. It's simple,
+consistent, mature, and represents good engineering
+fundamentals. Built-in support for building security features is
+limited, but this is actually a security benefit, as building security
+promises in is a good way to get in hot water (see Java and Flash
+security disclosures).
+
+* Python Fortify certification
+
+Automated security analysis of Python projects depends more on the
+type of project than the particular detail that it's written in
+Python. Python websites receive different attacks than GUI
 
 ### Profiling
 
 ### Debugging
+
+### Source Control, Issue Tracking, and Continuous Integration
+
+Generally teams in enterprise don't have much control over what
+technologies are used here. Regardless of the options, always use
+source control. Python itself uses hg, which is written in Python, but
+other DVCSes like the more popular git and less popular fossil are
+free and scale well to teams of all sizes.
+
+A centralized mirroring service such as the Enterprise version of
+Github or Bitbucket is strongly recommended. Avoid issue tracking
+systems which do not tightly integrate with your version control. Less
+is more. Stick to the issue tracker built into your version control as
+long as possible. Separate systems *will* result in out of date
+information, miscommunications, and release delays.
+
+Continuous integration takes many forms. Python has a good native
+offering in buildbot, and great support in Jenkins and Travis CI.
+
+In general, try to use what's already hosted in your environment. If
+you can avoid running your own version of these developer services,
+you will have more time to focus on development. That said, if you're
+stuck with ClearCase and ClearQuest, maybe it's a devop's life for you.
 
 ### Choosing a development environment
 
