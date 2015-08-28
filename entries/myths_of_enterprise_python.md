@@ -1,11 +1,11 @@
 ---
 title: 10 Myths of Enterprise Python
-publish_date: August 22, 2015
+publish_date: August 25, 2015
 tags:
   - code
   - work
 edits:
-  - ['2015-08-22', 'Retired eBay Now link and swapped Balanced link for Venmo']
+  - ['2015-08-25', 'Retired eBay Now link and swapped Balanced link for Venmo']
 ---
 
 *(Originally posted [on the PayPal Engineering blog][orig_post], reproduced here
