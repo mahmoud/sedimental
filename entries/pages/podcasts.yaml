@@ -6,6 +6,7 @@ list_type: multidoc
 field_label_map:
   ep_length: Episode Length
   ep_count: Episode Count
+  ep_freq: Episode Frequency
   dl_link: Download
   feed_link: Subscribe
 field_type_map:
@@ -19,12 +20,11 @@ field_role_map:
 # built-in attr types: link, image, default
 
 # false, count, or noun-based ("Myth #1") (ordinal template?)
-ordinal_mode: false
+ordinal_format: ""
 date_format: "%Y"
 ---
 There are a lot of great audio periodicals out there, and as with
-mobile applications, the pathways for discovery are limited to say
-the least.
+everything mobile, the pathways for discovery are limited.
 
 Rather than just qualitative scores, the ratings used here have
 specific meanings:
@@ -46,6 +46,7 @@ Main tones:
   * Conversational
   * Historical
 -->
+[TOC]
 ---
 title: Hardcore History
 rating: 5
