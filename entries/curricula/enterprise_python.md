@@ -132,6 +132,8 @@ CPython's consistency is the key to its success at these scales.
 * Within the process, use explicit contexts instead of mutating global
   state.
 
+## Engineering Practices
+
 ### When to Test
 
 Test-driven development (TDD) is a pretty recognizable concept. But it
@@ -298,5 +300,29 @@ Scalability is the result of a strong balance of all of the above.
 
 ### TODO
 
-* Refactoring
-* Design Patterns
+  * Refactoring
+  * Design Patterns
+
+#### Demos
+
+  * Decorator tutorial
+  * Code Review tutorial
+  * Debugging demo
+  * Profiling demo
+
+#### Python-flavored Python
+
+  * Inheritance
+  * What is self?
+  * Everything is an object
+  * Everything is a dict
+  * Everything is public (everything is an interface)
+
+#### Iterate by interaction
+
+  * REPL
+  * pdb
+  * Source (__file__)
+  * inspect
+  * dis
+  * None of these is a security risk. Trying to obfuscate this is security by obscurity.
