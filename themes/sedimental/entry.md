@@ -2,13 +2,12 @@
 manual whitespace insertion. Use {~n} for newlines and {~s} for spaces.!}
 
 {#entry.loaded_parts}
-
 {^data_idx}
 {! non-data parts, sheer markdown text !}
 {content}
 {:else}
 ## {ordinal_text} {title}
-{~n}
+{~n}{~n}
 {#attrs}
 {@eq key=type value="default"}
    * {title}: {value}
@@ -23,5 +22,5 @@ manual whitespace insertion. Use {~n} for newlines and {~s} for spaces.!}
 {~n}
 {content}
 {/data_idx}
-{~n}{~n}
+{~n}{~n}---{~n}{~n}
 {/entry.loaded_parts}
