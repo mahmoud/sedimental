@@ -23,9 +23,13 @@ Basic outline:
 Beginners come from all walks. If you've done one of the following you're as ready as you need to be:
 
   * Taken a Beginning Python course
-    * link to oreilly course and a couple books
-  * read a beginning Python book
-    * links
+    * O'Reilly's [Introduction to Python](http://shop.oreilly.com/product/110000448.do)
+    * MIT's [Introduction to CS using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x7)
+  * Read a beginning Python book
+    * Topic-specific Python books tend to outshine the general ones
+    * [Data Science from Scratch](http://www.amazon.com/Data-Science-Scratch-Principles-Python-ebook/dp/B00W4DTP2A/)
+    * [Automate Boring Stuff with Python](http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994/)
+    * Or any other book you may have read with Python in the title
   * Done an online tutorial
     * [Python Tutorial](https://docs.python.org/2/tutorial/)
     * [How to Think Like a Computer Scientist](http://interactivepython.org/runestone/static/thinkcspy/index.html)
@@ -38,6 +42,11 @@ reading. You should know the fundamentals of the language, this course
 will teach you how to apply them. Along the way we'll be covering
 well-known architectural concepts and operating systems features, as
 viewed through the window of Python.
+
+(You'd be surprised how little CS and math you need to start being
+effective in an enterprise environment. Fluency with your development
+and deployment environments is far more critical, so comfort at the
+command line is a plus.)
 
 ### What is Python?
 
@@ -57,14 +66,14 @@ language). The vast majority of enterprise Python code runs on CPython
 Theoretical and aesthetic superiority arguments aside, there are many
 reasons why larger enterprises invest in Python.
 
-* Technical
-  * Platform cross-compatibility
-  * Wide deployment
-  * Community
-* Personal
-  * Popularity - A broad hiring base
-  * Learnability - Train when you can't hire
-  * Applicability - Many areas means easy cross-pollination
+  * Technical
+      * Platform cross-compatibility
+      * Wide deployment
+      * Community
+  * Personal
+      * Popularity - A broad hiring base
+      * Learnability - Train when you can't hire
+      * Applicability - Many areas means easy cross-pollination
 
 ### When to use Python
 
@@ -233,15 +242,14 @@ editors which are highly extensible. This way you can start simple and
 customize for your workflows as you discover them.
 
 * Text editors
-  * emacs
-  * SublimeText
+    * emacs
+    * SublimeText
 * IDEs
-  * PyCharm
-  * WingIDE
+    * PyCharm
+    * WingIDE
 * Alternatives
-  * IPython Notebook
-  * IDLE
-
+    * IPython Notebook
+    * IDLE
 
 ## Considerations
 
@@ -254,10 +262,10 @@ developers be working on this?"
 
 At PayPal:
 
-* Local development
-  * 64-bit (Linux, Mac) and 32-bit (Windows)
-* Staging and production
-  * 32-bit Linux
+  * Local development
+      * 64-bit (Linux, Mac) and 32-bit (Windows)
+  * Staging and production
+      * 32-bit Linux
 
 At PayPal, 2.7 across the board. Basic in-house analytics service to
 track outliers and changing environment choices of developer
@@ -268,9 +276,9 @@ is a solid practice to avoid whole classes of surprises.
 
 For each environment have an answer for:
 
-* Who controls this environment?
-* Who else has access?
-* How frequently can deployments be made?
+  * Who controls this environment?
+  * Who else has access?
+  * How frequently can deployments be made?
 
 The answers to these questions have more important implications for
 your architectural priorities than any particular library
@@ -279,24 +287,23 @@ succeed through concrete specifications.
 
 ### Software Aspects
 
-* Performance
-  * Latency
-  * Throughput
-  * Utilization and efficiency
-* Security
-  * Preventing breaches
-* Monitoring
-  * Discovering that there *is* a problem
-* Transparency
-  * Finding the root cause of acute problems
-  * Avoiding acute problems before they happen
-  * Improving other aspects when there are no other problems
-* Agility (Maintenance, Development, and Deployment speed)
-* Reliability and predictability
+  * Performance
+      * Latency
+      * Throughput
+      * Utilization and efficiency
+  * Security
+      * Preventing breaches
+  * Monitoring
+      * Discovering that there *is* a problem
+  * Transparency
+      * Finding the root cause of acute problems
+      * Avoiding acute problems before they happen
+      * Improving other aspects when there are no other problems
+  * Agility (Maintenance, Development, and Deployment speed)
+  * Reliability and predictability
 
 All forms of testing is a process to improve one or more aspects of the above.
 Scalability is the result of a strong balance of all of the above.
-
 
 ### TODO
 
@@ -312,17 +319,54 @@ Scalability is the result of a strong balance of all of the above.
 
 #### Python-flavored Python
 
-  * Inheritance
+  * Modules
+  * Types
   * What is self?
-  * Everything is an object
-  * Everything is a dict
-  * Everything is public (everything is an interface)
+  * Inheritance
+  * 3 Everythings
+    * Everything is an object
+    * Everything is a dict
+    * Everything is public (everything is an interface)
 
 #### Iterate by interaction
 
   * REPL
   * pdb
-  * Source (__file__)
+  * Source (`module.__file__`)
   * inspect
   * dis
-  * None of these is a security risk. Trying to obfuscate this is security by obscurity.
+
+None of these is a security risk. Trying to obfuscate this is security by obscurity.
+
+#### Other Resources
+
+  * Blogs
+      * pythontesting.net
+      * pythondoeswhat.blogspot.com
+      * Planet Python
+  * Podcasts
+      * Talk Python to Me
+      * From python import podcast
+      * podcast `__init__`
+  * Interactive
+      * http://www.pythontutor.com/
+      * http://interactivepython.org/runestone/static/thinkcspy/index.html
+      * Jupyter
+      * bitbucket.org/gregmalcolm/python_koans
+
+#### What this course is not
+
+  * An in-depth analysis and comparison of frameworks used by large enterprises
+      * Large enterprises are often marked by their proprietary
+      technologies, tailored to their use case. Portability and
+      cross-applicability are not a given.
+  * An abstract cookbook of challenges and architectures which may or
+    may not apply to enterprise work.
+      * Same as above, use cases vary widely, and so must solutions.
+      * Object Relational Mappings, Asynchronous IO, WSGI, and a
+        thousand other relevant technologies may be relevant in your
+        current position, but even just a brief summary of each would
+        be as long as the rest of the course. Better to search out
+        blog posts and other detailed sources.
+      * By focusing on developing good fundamentals, intuitions and
+        habits, we aim to ensure you get the most out of the course
