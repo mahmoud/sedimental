@@ -1,6 +1,6 @@
 {#entry.loaded_parts}
 {^data_idx}
-<p>{content}</p>
+<p>{content_html|s}</p>
 {:else}
 {?ordinal_text}
 <h3>{title}</h3>
@@ -19,7 +19,7 @@
 {/value}{/links}
 </ul>
 {/attrs}
-{?content}<p>{content}</p>{/content}
+{?content}<p>{content_html|s}</p>{/content}
 {/data_idx}
 <hr />
 {/entry.loaded_parts}

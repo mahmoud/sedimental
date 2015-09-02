@@ -8,8 +8,7 @@
 <div class="row">
   <div class="twelve columns entry-div">
     <h1>{headers.title}</h1>
-    {!#rendered_parts}<div class="part">{.|s}</div><hr/>{/rendered_parts!}
-      {entry.rendered_md_html|s}
+      {entry.content_html|s}
   </div>
   <p class="metadata-p">
     <a href="/{entry_id}{site.export_html_ext}" title="{publish_timestamp_local}" class="post-timestamp">{headers.publish_date}</a>
