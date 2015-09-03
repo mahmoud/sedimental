@@ -55,8 +55,8 @@ def _chert_post_load(chert_obj):
         if part is None:
             continue
         if isinstance(part, basestring):
-            rendered_content = chert_obj.md_renderer.convert(part)
-            chert_obj.md_renderer.reset()
+            rendered_content = chert_obj.md_converter.convert(part)
+            chert_obj.md_converter.reset()
             parts.append({'rendered_content': rendered_content})
         else:
             parts.append(part)
