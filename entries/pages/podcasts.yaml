@@ -53,7 +53,7 @@ rating: 5
 ep_length: 2+ hours
 ep_count: 55+
 dl_link: http://feeds.feedburner.com/dancarlin/history?format=html
-review: >-
+review: |
 
   My first foray into internet broadcasting, I listened to Hardcore
   History for years before finishing it and being forced to search for
@@ -112,7 +112,7 @@ title: Nature Podcast
 ep_length: 30 minutes
 rating: 5
 dl_link: http://www.nature.com/nature/podcast/archive.html
-review: >-
+review: |
 
   I hate the news. Even when the reporting is decent, it's almost
   always depressing. Science news runs the opposite course. Every
@@ -156,7 +156,7 @@ ep_freq: weekly
 rating: 5
 dl_link: http://www.bbc.co.uk/programmes/b006qy05/episodes/downloads
 feed_link: http://www.bbc.co.uk/programmes/b006qy05/episodes/downloads.rss
-review: >-
+review: |
 
   Currently my highest-rated BBC program. Thinking Allowed's approach
   to current Western social issues may be as strong as the wordplay in
@@ -183,7 +183,7 @@ ep_length: 30 minutes
 ep_count: 300+
 rating: 2
 dl_link: http://www.bbc.co.uk/programmes/p02nq0lx/episodes/downloads
-review: >-
+review: |
 
   The most normal news-like program to which I'll subject myself. The
   equation, in a nutshell: take a popular news story and do a deeper
@@ -206,7 +206,7 @@ ep_length: 15 minutes
 ep_count: 50+
 rating: 3
 dl_link: http://www.bbc.co.uk/programmes/b04bwydw/episodes/downloads
-review: >-
+review: |
 
   Billed as philosophical, but strongly campaigns for modern reference
   and relatability, leading me to classify it as closer to "Thinking
