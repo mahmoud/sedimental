@@ -1,5 +1,6 @@
 ---
 title: Enterprise Python Curriculum
+
 ---
 
 Enterprise software is the discipline of scaling up. Not in terms of
@@ -18,35 +19,45 @@ Basic outline:
 
 [TOC]
 
-## Review
+## Prerequisites
 
-Beginners come from all walks. If you've done one of the following you're as ready as you need to be:
+Beginners come from all walks. There are many ways to be prepared for
+this course. If you've done one of the following you're as ready as
+you need to be:
 
   * Taken a Beginning Python course
     * O'Reilly's [Introduction to Python](http://shop.oreilly.com/product/110000448.do)
     * MIT's [Introduction to CS using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x7)
+    * A college or AP-level programming course that used Python
   * Read a beginning Python book
-    * Topic-specific Python books tend to outshine the general ones
     * [Data Science from Scratch](http://www.amazon.com/Data-Science-Scratch-Principles-Python-ebook/dp/B00W4DTP2A/)
     * [Automate Boring Stuff with Python](http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994/)
     * Or any other book you may have read with Python in the title
+    * Topic-specific Python books tend to outshine the general ones
   * Done an online tutorial
     * [Python Tutorial](https://docs.python.org/2/tutorial/)
     * [How to Think Like a Computer Scientist](http://interactivepython.org/runestone/static/thinkcspy/index.html)
     * [Learn Python the Hard Way](http://learnpythonthehardway.org)
 
 A single run through of one of the above and you're ready to benefit
-from this course. Especially if you've applied the knowledge by
-attempting at least one Python project of 500 lines or more after the
-reading. You should know the fundamentals of the language, this course
-will teach you how to apply them. Along the way we'll be covering
-well-known architectural concepts and operating systems features, as
-viewed through the window of Python.
+from this course. As a further recommendation, try applying new
+knowledge by attempting at least one Python project of 500 lines or
+more.
 
-(You'd be surprised how little CS and math you need to start being
-effective in an enterprise environment. Fluency with your development
-and deployment environments is far more critical, so comfort at the
-command line is a plus.)
+Either way, you should already know the fundamentals of the Python
+language. This course will teach you how to apply those skills in a
+professional context. Along the way we'll be covering well-known
+architectural concepts and operating systems features, as viewed
+through the window of Python.
+
+You'd be surprised how little computer science and math knowledge it
+takes to start being effective in an enterprise environment. There
+will be some references to software engineering concepts, but nothing you
+can't look up afterwards. Fluency with your development and deployment
+environments is far more critical, so comfort at the command line is a
+plus.
+
+## Review
 
 ### What is Python?
 
@@ -54,12 +65,30 @@ command line is a plus.)
 * Runtime
 * Platform
 
-It's important to distinguish between these three because in
-enterprise environments these concepts often run together. It's
+In enterprise environments these concepts often run together. It's
 possible to use the Python language without using one of the primary
 environments or runtimes (as a DSL or crosscompiling to another
 language). The vast majority of enterprise Python code runs on CPython
 2, specifically CPython 2.7.
+
+### What is enterprise software?
+
+Enterprise software, as the name suggests, is software made to be used
+by a business. Enterprise software components are tailor-made and
+usually one of a kind. It often has a small userbase, so accurate
+requirements and feedback can be hard to obtain and incorporate.
+
+Enterprise software often has very stringent requirements. High
+performance, scalability, and reliability are the hallmark
+ideals. Components may have to run indefinitely: for years or decades
+with minimal maintenance. Businesses can demand a high degree of
+interoperability with their existing systems and processes, so
+components are specialized and often incorporate "legacy"
+specifications -- design decisions made long before the project at
+hand.
+
+Timelines very widely, but enterprise software still follows the
+general trend of acceleration. Customers expect usable results faster.
 
 ### Advantages of Python
 
@@ -285,7 +314,23 @@ your architectural priorities than any particular library
 choices. Python exists for practical projects, and practical projects
 succeed through concrete specifications.
 
+#### Packaging and Deployment
+
+Packaging starts by looking at your environment's existing deployment
+options. Here are some non-enterprise options we can rule out:
+
+  1. Push from local machine using FTP/SSH/etc.
+  2. Trigger the deployment machine to pull from version control
+  3. Pull from remote PyPI (pypi.python.org)
+
+
+
+Pay particular attention to the most *reliable* means of publishing
+and deploying packages and target that.
+
 ### Software Aspects
+
+The vocabulary of requirements.
 
   * Performance
       * Latency
@@ -303,12 +348,38 @@ succeed through concrete specifications.
   * Reliability and predictability
 
 All forms of testing is a process to improve one or more aspects of the above.
+
 Scalability is the result of a strong balance of all of the above.
+
+A stakeholder, presented with a simple checklist of the above will
+check off every aspect without exception. Every aspect is desirable,
+but time and resources are inevitably limited.
 
 ### TODO
 
+  * HLD template
+    * Stakeholders
+    * Timelines
+    * Environment
+    * Requirements (SLAs, etc.)
+    * Dependencies
+    * Architecture
+    * Testing strategy
+    * Contacts
   * Refactoring
   * Design Patterns
+      * Presented as applicable to every object-oriented language
+      * In reality much more language-oriented
+      * Specifically created to work around the design gaps of Java and C++ (and Smalltalk, I suppose)
+      * Technically they can be applied to Python. You can see a wide
+        selection in the [python-patterns](https://github.com/faif/python-patterns) repo
+      * However, most design patterns are superseded by design in Python
+      * To the degree that seeing traditional design patterns in a Python codebase is a warning flag
+      * Python introduces its own language-tailored design idioms:
+          * Decorator
+          * Context manager
+          * Descriptor protocol
+          * Iterators/generators
 
 #### Demos
 
@@ -340,6 +411,8 @@ None of these is a security risk. Trying to obfuscate this is security by obscur
 
 #### Other Resources
 
+  * Guides
+      * David Goodger's [brief guide to fundamental Python idioms](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#the-zen-of-python-1)
   * Blogs
       * pythontesting.net
       * pythondoeswhat.blogspot.com
@@ -353,6 +426,14 @@ None of these is a security risk. Trying to obfuscate this is security by obscur
       * http://interactivepython.org/runestone/static/thinkcspy/index.html
       * Jupyter
       * bitbucket.org/gregmalcolm/python_koans
+
+#### Evangelism ideas
+
+* Passion projects. Niche, but targetted at an underserved group that
+  will appreciate the work, not "the crowd" or hypothetical users
+* Stickers and other branding
+* Python Day
+
 
 #### What this course is not
 
