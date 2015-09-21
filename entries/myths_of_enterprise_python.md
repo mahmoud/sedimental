@@ -4,6 +4,7 @@ publish_date: August 25, 2015
 tags:
   - code
   - work
+  - python
 edits:
   - ['2015-08-25', 'Retired eBay Now link and swapped Balanced link for Venmo']
 ---
