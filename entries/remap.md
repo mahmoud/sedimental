@@ -15,40 +15,36 @@ title: 'Remap: Nested Data Multitool for Python'
 
 Data is everywhere, especially within itself. That's right, whether
 it's public APIs, document stores, or plain old configuration files,
-data will nest. And that nested data will find you.
+data *will* nest. And that nested data will find you.
 
 UI fads aside, developers have always liked flat. Even Python, so
 often turned to for data wrangling, only has succinct constructs for
-dealing with nested data. List comprehension, generator expressions,
-map/filter, and itertools are all built for working with flat
-data. The allure of "flat" data is likely a direct result of this
+dealing with flat data. List comprehension, generator expressions,
+map/filter, and itertools are all built for working with flat. In
+fact, the allure of "flat" data is likely a direct result of this
 common gap in most programming languages.
 
-So let's meet this adversary. Provided you forgive my taste in media,
-it's hard to fault data when it reads as well as this YAML:
+So let's meet this adversary. Provided you overlook my taste in media,
+it's hard to fault nested data when it reads as well as this YAML:
 
 ```yaml
 reviews:
   shows:
-    - title:
-      genre:
-      rating:
-      review:
-      tags:
-    - title:
-      genre:
-      rating:
-      tags:
+    - title: Star Trek - The Next Generation
+      rating: 10
+      review: Episodic AND deep. <3 Data.
+      tags: ['space']
+    - title: Monty Python's Flying Circus
+      rating: 10
+      tags: ['comedy']
   movies:
-    - title:
-      genre:
-      rating:
-      tags:
-    - title:
-      genre:
-      rating:
-      review:
-      tags:
+    - title: The Hitchiker's Guide to the Galaxy
+      rating: 6
+      tags: ['comedy', 'space', 'life']
+    - title: Monty Python's Meaning of Life
+      rating: 7
+      review: Better than Brian, but not a Holy Grail, nor Completely Different.
+      tags: ['comedy', 'life']
 ```
 
 And yet even this very straightforwardly nested data can be a hassle
