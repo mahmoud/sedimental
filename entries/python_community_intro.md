@@ -10,7 +10,7 @@ just created a new mailing list, ["PSF-Community"][psf_community],
 then autosubscribed a bunch of people and solicited introductions. At
 first I was surprised, but I was quickly charmed by
 [the response][list_archive] and joined in on the action. Here's what
-I wrote:
+I [wrote][archive]:
 
 > If Alex Martelli [is doing it][alex_email], then brace yourselves
 > because the floodgates are open.
@@ -72,6 +72,7 @@ didn't break too many camels backs.
 
 [psf_community]: https://mail.python.org/mailman/listinfo/psf-community
 [list_archive]: https://mail.python.org/pipermail/psf-community/2015-September/thread.html
+[archive]: https://mail.python.org/pipermail/psf-community/2015-September/000084.html
 [alex_email]: https://mail.python.org/pipermail/psf-community/2015-September/000081.html
 [live_cds]: https://en.wikipedia.org/wiki/Live_CD
 [primes]: https://en.wikipedia.org/wiki/Generating_primes#Prime_sieves
