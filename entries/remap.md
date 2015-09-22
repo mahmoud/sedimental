@@ -40,16 +40,22 @@ reviews:
   movies:
     - title: The Hitchiker's Guide to the Galaxy
       rating: 6
+      review: So great to see Mos Def getting good work.
       tags: ['comedy', 'space', 'life']
     - title: Monty Python's Meaning of Life
       rating: 7
       review: Better than Brian, but not a Holy Grail, nor Completely Different.
       tags: ['comedy', 'life']
+      prologue:
+        title: The Crimson Permanent Assurance
+        rating: 9
 ```
 
-And yet even this very straightforwardly nested data can be a hassle
-to manipulate. So what does one do with a more complex real-world
-case, exemplified by this excerpt from [a real GitHub API][events_api]
+And yet even this very straightforwardly nested data can be a real
+hassle to manipulate. How would one add a default review for entries
+without one? How would one convert the ratings to a 5-star scale? And
+what does all of this mean for more complex real-world cases,
+exemplified by this excerpt from [a real GitHub API][events_api]
 response:
 
 [events_api]: https://api.github.com/users/mahmoud/events
@@ -95,13 +101,28 @@ response:
 }]
 ```
 
-The astute reader will spot multiple inconsistencies and general complexity,
+The astute reader will spot some inconsistency and general complexity,
 but don't run away.
 
 <big>**Remap**, the [recursive][recursive] [map][map], is here to save the day.</big>
 
 [recursive]: https://en.wikipedia.org/wiki/Recursion_(computer_science)
 [map]: https://docs.python.org/2/library/functions.html#map
+
+Remap is a Pythonic traversal utility that creates a transformed copy
+of your nested data. It uses three callbacks -- `visit`, `enter`, and
+`exit` -- and is designed to accomplish the vast majority of tasks by
+passing only one function, usually `visit`. ]The API docs have full
+descriptions][remap_rtd], but the basic rundown is:
+
+  * `visit` transforms an individual item
+  * `enter` controls how container objects are created and traversed
+  * `exit` controls how new container objects are populated
+
+It may sound complex, but the examples shed a lot of light. So let's
+get remapping!
+
+[remap_rtd]: http://boltons.readthedocs.org/en/latest/iterutils.html#boltons.iterutils.remap
 
 # Normalize keys and values
 
@@ -130,7 +151,9 @@ def visit(path, key, value):
         return key, int(value)
     return key, value
 
-remap(event_list, visit=visit)
+remapped = remap(event_list, visit=visit)
+
+assert remapped[0]['id'] == 3165090957
 
 # You can even do it in one line:
 remap(event_list, lambda p, k, v: (k, int(v)) if k == 'id' else (k, v))
@@ -140,13 +163,102 @@ remap(event_list, lambda p, k, v: (k, int(v)) if k == 'id' else (k, v))
 
 # Drop empty values
 
+It also looks like GitHub's dropping of Gravatars has left an artifact
+in their API: a blank `'gravatar_id'` key. We can get rid of that, and
+any other blank strings in a jiffy:
+
+```python
+
+drop_blank = lambda p, k, v: v != ""
+remapped = remap(event_list, visit=drop_blank)
+
+assert 'gravatar_id' not in remapped[0]['actor']
+```
+
 # Convert dictionaries to OrderedDicts
+
+```
+def enter(path, key, value):
+    if isinstance(value, dict):
+        return OMD(), sorted(value.items())
+    return default_enter(path, key, value)
+```
 
 # Sort all lists
 
+```python
+def exit(*a, **kw):
+    ret = default_exit(*a, **kw)
+    if isinstance(ret, list):
+        ret.sort()
+    return ret
+
+remap(review_list, exit=exit)
+```
+
 # Collect interesting values
 
-# Add a common key
+```python
+all_tags = set()
+
+def enter(path, key, value):
+    try:
+        all_tags.update(value['tags'])
+    except:
+        pass
+    return default_enter(path, key, value)
+
+remap(review_map, enter=enter)
+
+print(all_tags)
+# set(['space', 'comedy', 'life'])
+```
+
+# Add common keys
+
+There are two ways to add to structures within your target. The first
+uses the `enter` callable and is suitable for making data consistent
+and adding data which can be overriden.
+
+```python
+
+base_review = {'title': '',
+               'rating': None,
+               'review': '',
+               'tags': []}
+
+def enter(path, key, value):
+    new_parent, new_items = default_enter(path, key, value)
+    try:
+        new_parent.update(base_obj)
+    except:
+        pass
+    return new_parent, new_items
+
+remapped = remap(review_list, enter=enter)
+
+assert review_list['shows'][1]['review'] == ''
+# True, the placeholder review is holding its place
+```
+
+The second method uses the `exit` callback to override values and
+calculate new values from the new data.
+
+```python
+def exit(path, key, old_parent, new_parent, new_items):
+    ret = default_exit(path, key, old_parent, new_parent, new_items)
+    try:
+        ret['review_length'] = len(ret['review'])
+    except:
+        pass
+    return ret
+
+remapped = remap(review_list, exit=exit)
+
+assert remapped['shows'][0]['review_length'] == 27
+assert remapped['movies'][0]['review_length'] == 42
+# True times two.
+```
 
 # Corner cases
 
@@ -183,9 +295,11 @@ dupe_ref = (my_obj, [my_obj])
 remapped = remap(dupe_ref)
 
 assert remapped[0] is remapped[-1][-1]
-# True
+# True, of course
 ```
 
 [repr]: https://docs.python.org/2/reference/datamodel.html#object.__repr__
 
 # Wrap-up
+
+Go nuts. File bugs. pprint is your friend.
