@@ -4,7 +4,7 @@ title: 'Remap: Nested Data Multitool for Python'
 
 > *This entry is the first in a series of "cookbooklets" showcasing
 > some of the more advanced [Boltons][boltons]. If all goes well, the
-> next 5 minutes minutes will literally save you 5 hours.*
+> next 5 minutes will literally save you 5 hours.*
 
 [TOC]
 
@@ -112,7 +112,7 @@ but don't run away.
 Remap is a Pythonic traversal utility that creates a transformed copy
 of your nested data. It uses three callbacks -- `visit`, `enter`, and
 `exit` -- and is designed to accomplish the vast majority of tasks by
-passing only one function, usually `visit`. ]The API docs have full
+passing only one function, usually `visit`. [The API docs have full
 descriptions][remap_rtd], but the basic rundown is:
 
   * `visit` transforms an individual item
@@ -126,24 +126,24 @@ get remapping!
 
 # Normalize keys and values
 
-First, let's create some Python references from the above.
+First, let's import the modules and data we'll need.
 
 ```python
 import json
 import yaml  # https://pypi.python.org/pypi/PyYAML
+from boltons.iterutils import remap  # https://pypi.python.org/pypi/boltons
 
 review_map = yaml.load(media_reviews)
 
 event_list = json.loads(github_events)
 ```
 
-The keen-eyed reader may have been noticed (and subsequently annoyed)
-by the inconsistent type of `id` in GitHub's
-API. `event['repo']['id']` is an integer, but `event['id']` is a
-string. In the event you wanted to compare two events' IDs, you would
-definitely not want to do [string comparison][string_cmp].
+Now let's turn back to that GitHub API data. Earlier one may have been
+annoyed by the inconsistent type of `id`. `event['repo']['id']` is an
+integer, but `event['id']` is a string. When sorting events by ID, you
+would definitely not want to do [string ordering][string_order].
 
-With remap this sort of operation couldn't be easier:
+With remap, fixing this sort inconsistency couldn't be easier:
 
 ```python
 def visit(path, key, value):
@@ -159,13 +159,13 @@ assert remapped[0]['id'] == 3165090957
 remap(event_list, lambda p, k, v: (k, int(v)) if k == 'id' else (k, v))
 ```
 
-[string_cmp]: https://en.wikipedia.org/wiki/Lexicographical_order
+[string_order]: https://en.wikipedia.org/wiki/Lexicographical_order
 
 # Drop empty values
 
-It also looks like GitHub's dropping of Gravatars has left an artifact
-in their API: a blank `'gravatar_id'` key. We can get rid of that, and
-any other blank strings in a jiffy:
+Next up, GitHub's dropping of Gravatars left an artifact in their API:
+a blank `'gravatar_id'` key. We can get rid of that item, and any
+other blank strings, in a jiffy:
 
 ```python
 
@@ -175,9 +175,16 @@ remapped = remap(event_list, visit=drop_blank)
 assert 'gravatar_id' not in remapped[0]['actor']
 ```
 
+When `visit` returns a single `bool` instead of a `(key, value)` pair,
+`True` carries over the original item unmodified and `False` drops the
+item from the remapped structure.
+
 # Convert dictionaries to OrderedDicts
 
-```
+```python
+# from collections import OrderedDict
+from boltons.dictutils import OrderedMultiDict as OMD
+
 def enter(path, key, value):
     if isinstance(value, dict):
         return OMD(), sorted(value.items())
@@ -264,7 +271,10 @@ assert remapped['movies'][0]['review_length'] == 42
 
 This whole guide has focused on data that came from "real-world"
 sources, such as JSON API responses. But there are certain rare cases
-which typically only arise from within Python code. Have a look:
+which typically only arise from within Python code:
+[self-referential objects][self_ref_loops]. These are objects that
+contain references to themselves or their parents. Have a look at this
+trivial example:
 
 ```python
 
@@ -273,8 +283,8 @@ self_ref.append([])
 ```
 
 The experienced programmer has probably seen this before, but most
-Python coders might even thinnk the second line is an error. It's a
-list containing itself, and it has the rather cool [`repr`][repr]:
+Python coders might even think the second line is an error. It's a
+list containing itself, and it has the rather cool [repr][repr]:
 `[[...]]`.
 
 Now, this is pretty rare, but reference loops do come up in
@@ -289,17 +299,86 @@ The more common corner case that arises is that of duplicate
 references, which remap also handles with no problem:
 
 ```python
-my_obj = object()
+my_set = set()
 
-dupe_ref = (my_obj, [my_obj])
+dupe_ref = (my_set, [my_set])
 remapped = remap(dupe_ref)
 
 assert remapped[0] is remapped[-1][-1]
 # True, of course
 ```
 
+Two references to the same set go in, two references to a copy of that
+set come out. That's right: only one copy is made, and then used
+twice, preserving the original structure.
+
+[self_ref_loops]: http://pythondoeswhat.blogspot.com/2015/09/loopy-references.html
 [repr]: https://docs.python.org/2/reference/datamodel.html#object.__repr__
 
 # Wrap-up
 
 Go nuts. File bugs. pprint is your friend.
+
+<!-- TODO: closing matroska image -->
+
+<!--
+"""The marker approach to solving self-reference problems in remap
+won't work because we can't rely on exit returning a
+traversable, mutable object. We may know that the marker is in the
+items going into exit but there's no guarantee it's not being
+filtered out or being made otherwise inaccessible for other reasons.
+
+On the other hand, having enter return the new parent instance
+before it's populated is a pretty workable solution. The division of
+labor stays clear and exit still has some override powers. Also
+note that only mutable structures can have self references (unless
+getting really nasty with the Python C API). The downside is that
+enter must do a bit more work and in the case of immutable
+collections, the new collection is discarded, as a new one has to be
+created from scratch by exit. The code is still pretty clear
+overall.
+
+Not that remap is supposed to be a speed demon, but here are some
+thoughts on performance. Memorywise, the registry grows linearly with
+the number of collections. The stack of course grows in proportion to
+the depth of the data. Many intermediate lists are created, but for
+most data list comprehensions are much faster than generators (and
+generator expressions). The ABC isinstance checks are going to be dog
+slow. As soon as a couple large enough use case cross my desk, I'll be
+sure to profile and optimize. It's not a question of if isinstance+ABC
+is slow, it's which pragmatic alternative passes tests while being
+faster.
+
+TODO Examples:
+
+  * sort all lists
+  * normalize all keys
+  * convert all dicts to OrderedDicts
+  * drop all Nones
+
+## Remap design principles
+
+Nested structures are common. Virtually all compact Python iterative
+interaction is flat (list comprehensions, map/filter, generator
+expressions, itertools, even other iterutils). remap is a succinct
+solution to both quick and dirty data wrangling, as well as expressive
+functional interaction with nested structures.
+
+* visit() should be able to handle 80% of my pragmatic use cases, and
+  the argument/return signature should be similarly pragmatic.
+* enter()/exit() are for more advanced use cases and the signature can
+  be more complex.
+* 95%+ of applications should be covered by passing in only one
+  callback.
+* Roundtripping should be the default. Don't repeat the faux pas of
+  HTMLParser where, despite the nice SAX-like interface, it is
+  impossible (or very difficult) to regenerate the input. Roundtripped
+  results compare as equal, realistically somewhere between copy.copy
+  and copy.deepcopy.
+* Leave streaming for another day. Generators can be handy, but the
+  vast majority of data is of easily manageable size. Besides, there's
+  no such thing as a streamable dictionary.
+
+"""
+
+-->
