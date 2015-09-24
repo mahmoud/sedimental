@@ -17,15 +17,26 @@ Data is everywhere, especially within itself. That's right, whether
 it's public APIs, document stores, or plain old configuration files,
 data *will* nest. And that nested data will find you.
 
-UI fads aside, developers have always liked flat. Even Python, so
-often turned to for data wrangling, only has succinct constructs for
-dealing with flat data. List comprehension, generator expressions,
-map/filter, and itertools are all built for working with flat. In
-fact, the allure of "flat" data is likely a direct result of this
-common gap in most programming languages.
+[UI fads][flat_design] aside, developers have always liked
+"flat". Even Python, so often turned to for data wrangling, only has
+succinct built-in constructs for dealing with flat
+data. [List comprehensions][list_comps],
+[generator expressions][gen_exp], [map][map]/[filter][filter], and
+[itertools][itertools] are all built for flat work. In fact, the
+allure of flat data is likely a direct result of this common gap in
+most programming languages.
 
-So let's meet this adversary. Provided you overlook my taste in media,
-it's hard to fault nested data when it reads as well as this YAML:
+[flat_design]: https://en.wikipedia.org/wiki/Flat_design
+[list_comps]: https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions
+[gen_exp]: https://docs.python.org/2/reference/expressions.html#generator-expressions
+[map]: https://docs.python.org/2/library/functions.html#map
+[filter]: https://docs.python.org/2/library/functions.html#filter
+[itertools]: https://docs.python.org/2/library/itertools.html
+
+So let's meet this nested adversary. Provided you overlook my taste in
+media, it's hard to fault nested data when it reads as well as this [YAML][yaml]:
+
+[yaml]: https://en.wikipedia.org/wiki/YAML
 
 ```yaml
 reviews:
@@ -141,7 +152,7 @@ event_list = json.loads(github_events)
 Now let's turn back to that GitHub API data. Earlier one may have been
 annoyed by the inconsistent type of `id`. `event['repo']['id']` is an
 integer, but `event['id']` is a string. When sorting events by ID, you
-would definitely not want to do [string ordering][string_order].
+would not want [string ordering][string_order].
 
 With remap, fixing this sort inconsistency couldn't be easier:
 
@@ -159,13 +170,40 @@ assert remapped[0]['id'] == 3165090957
 remap(event_list, lambda p, k, v: (k, int(v)) if k == 'id' else (k, v))
 ```
 
+By default, `visit` gets called on every item in the root structure,
+including [lists][list], [dicts][dict], and other containers, so let's take a closer
+look at its signature. `visit` takes three arguments we're going to
+see in all of remap's callbacks:
+
+[list]: https://docs.python.org/2/tutorial/datastructures.html#more-on-lists
+[dict]: https://docs.python.org/2/tutorial/datastructures.html#dictionaries
+[tuple]: https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
+
+  * `path`: a [tuple][tuple] of keys leading up to the current item
+  * `key`: the current item's key
+  * `value`: the current item's value
+
+`key` and `value` are exactly what you would guess they are, though it
+may bear mentioning that the `key` for a list item is its
+index. `path` refers to the keys of all the parents of the current
+item, sort of. For the commit author's name of the GitHub event, the
+path might look like `(0, 'payload', 'commits', 0, 'author')`, because
+the `name` key is located in the author of the first commit in the
+payload of the first event.
+
+As for the return signature of `visit`, it's very similar to the
+input. Just return the new (or old) `(key, value)` you want in the
+remapped output.
+
 [string_order]: https://en.wikipedia.org/wiki/Lexicographical_order
 
 # Drop empty values
 
-Next up, GitHub's dropping of Gravatars left an artifact in their API:
-a blank `'gravatar_id'` key. We can get rid of that item, and any
-other blank strings, in a jiffy:
+Next up, GitHub's distancing from [Gravatars][gravatar] left an
+artifact in their API: a blank `'gravatar_id'` key. We can get rid of
+that item, and any other blank strings, in a jiffy:
+
+[gravatar]: https://en.wikipedia.org/wiki/Gravatar
 
 ```python
 
@@ -175,11 +213,25 @@ remapped = remap(event_list, visit=drop_blank)
 assert 'gravatar_id' not in remapped[0]['actor']
 ```
 
-When `visit` returns a single `bool` instead of a `(key, value)` pair,
-`True` carries over the original item unmodified and `False` drops the
-item from the remapped structure.
+For your added convenience, when `visit` returns a single `bool`
+instead of a `(key, value)` pair, `True` carries over the original
+item unmodified and `False` drops the item from the remapped
+structure.
+
+With the ability to arbitrarily transform items, pass through old
+items, and drop items from the remapped structure, it's clear that the
+`visit` function makes the majority of recursive transformations
+trivial. So many tedious and error-prone lines of traversal code turn
+into one-liners that usually `remap` with a `visit` callback is all
+one needs. With that said, the next recipes focus on `remap`'s more
+advanced callable arguments, `enter` and `exit`.
 
 # Convert dictionaries to OrderedDicts
+
+So far we've looked at actions on remapping individual items, using
+the `visit` callable. Now we turn our attention to actions on
+containers, the parent objects of individual items. We'll start doing
+this by looking at the `enter` argument to `remap`.
 
 ```python
 # from collections import OrderedDict
@@ -189,13 +241,39 @@ def enter(path, key, value):
     if isinstance(value, dict):
         return OMD(), sorted(value.items())
     return default_enter(path, key, value)
+
+remapped = remap(review_list, enter=enter)
+assert remapped['reviews'].keys()[0] == 'movies'
+# True because 'reviews' is now ordered and 'movies' comes before 'shows'
 ```
+
+The `enter` callable controls both if and how an object is
+traversed. Like `visit`, it accepts `path`, `key`, and `value`. But
+instead of `(key, value)`, it returns a tuple of `(new_parent,
+items)`. `new_parent` is the container that will receive items
+remapped by the `visit` callable. `items` is an iterable of `(key,
+value)` pairs that will be passed to `visit`. Alternatively, `items`
+can be `False`, to tell remap that the current value should not be
+traversed, but that's getting pretty advanced. The API docs have some
+other `enter` details to consider.
+
+Also note how this code builds on the default remap logic by calling
+through to the `default_enter` function, imported from the same place
+as `remap` itself. Most practical use cases will want to do this, but
+of course the choice is yours.
 
 # Sort all lists
 
+The last example used `enter` to interact with containers before they
+were being traversed. This time, to sort all lists in a structure,
+we'll use the `remap`'s final callable argument: `exit`.
+
 ```python
-def exit(*a, **kw):
-    ret = default_exit(*a, **kw)
+
+from boltons.iterutils import remap, default_exit
+
+def exit(path, key, old_parent, new_parent, new_items):
+    ret = default_exit(path, key, old_parent, new_parent, new_items)
     if isinstance(ret, list):
         ret.sort()
     return ret
@@ -203,23 +281,69 @@ def exit(*a, **kw):
 remap(review_list, exit=exit)
 ```
 
+Similar to the `enter` example, we're building on `remap`'s default
+behavior by importing and calling `default_exit`. Looking at the
+arguments passed to `exit` and `default_exit`, there's the `path` and
+`key` that we're used to from `visit` and `enter`. `value` is there,
+too, but it's named `old_parent`, to differentiate it from the new
+value, appropriately called `new_parent`. At the point `exit` is
+called, `new_parent` is just an empty structure as constructed by
+`enter`, and `exit`'s job is to fill that new container with
+`new_items`, a list of `(key, value)` pairs returned by `remap`'s
+calls to `visit`. Still with me?
+
+Either way, here we don't interact with the arguments. We just call
+`default_exit` and work on its return value, `new_parent`, sorting it
+in-place if it's a `list`. Pretty simple! In fact, very astute readers
+have pointed out this can be done with `visit`, because `remap`'s very
+next step is to call `visit` with the `new_parent`. You'll have to
+forgive the contrived example and let it be a testament to the rarity
+of overriding `exit`. Without going into the details, `enter` and
+`exit` are most useful when teaching `remap` how to traverse
+nonstandard containers, such as non-iterable Python objects. As mentioned
+in the ["drop empty values"](#drop_empty_values) example, `remap` is
+designed to maximize the chances that the `visit` callback can be all
+you really need. Let's look at an advanced usage reason that's true.
+
+
 # Collect interesting values
 
+Sometimes you just want to traverse a nested structure, and you don't
+need the result. For instance, if we wanted to collect the full set of
+tags used in media reviews. Let's create a `remap`-based function,
+`get_all_tags`:
+
 ```python
-all_tags = set()
 
-def enter(path, key, value):
-    try:
+from boltons.iterutils import remap
+
+def get_all_tags(root):
+    all_tags = set()
+
+    def visit(path, key, value):
         all_tags.update(value['tags'])
-    except:
-        pass
-    return default_enter(path, key, value)
+        return False
 
-remap(review_map, enter=enter)
+    remap(root, visit=visit, reraise_visit=False)
 
-print(all_tags)
+    return all_tags
+
+print(get_all_tags(review_map))
 # set(['space', 'comedy', 'life'])
 ```
+
+Like the first recipe, we've used the `visit` argument to `remap`, and
+like the second recipe, we're just returning `False`, because we don't
+actually care about contents of the resulting structure.
+
+What's new here is the `reraise_visit=False` keyword argument, which
+tells `remap` to keep any item that causes a `visit` exception. This
+practical convenience lets `visit` functions be shorter, clearer, and
+just more <acronym title="Easier to Ask Forgiveness than
+Permission">[EAFP][eafp]</acronym>. Reducing the example to a
+one-liner is left as an exercise to the reader.
+
+[eafp]: https://en.wikipedia.org/wiki/Python_syntax_and_semantics#Exceptions
 
 # Add common keys
 
@@ -279,7 +403,7 @@ trivial example:
 ```python
 
 self_ref = []
-self_ref.append([])
+self_ref.append(self_ref)
 ```
 
 The experienced programmer has probably seen this before, but most
