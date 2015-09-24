@@ -1,5 +1,7 @@
 ---
 title: 'Remap: Nested Data Multitool for Python'
+entry_id: remap
+publish_date: 12:25pm September 24, 2015
 tags:
   - python
   - data
@@ -11,7 +13,6 @@ tags:
 > minutes will literally save you 5 hours.*
 
 [TOC]
-
 
 [boltons]: https://boltons.readthedocs.org
 
@@ -41,8 +42,9 @@ most programming languages.
 [filter]: https://docs.python.org/2/library/functions.html#filter
 [itertools]: https://docs.python.org/2/library/itertools.html
 
-So let's meet this nested adversary. Provided you overlook my taste in
-media, it's hard to fault nested data when it reads as well as this [YAML][yaml]:
+**Let's change that.** First, let's meet this nested
+adversary. Provided you overlook my taste in media, it's hard to fault
+nested data when it reads as well as this [YAML][yaml]:
 
 [yaml]: https://en.wikipedia.org/wiki/YAML
 
@@ -70,12 +72,11 @@ reviews:
         rating: 9
 ```
 
-And yet even this very straightforwardly nested data can be a real
-hassle to manipulate. How would one add a default review for entries
-without one? How would one convert the ratings to a 5-star scale? And
-what does all of this mean for more complex real-world cases,
-exemplified by this excerpt from [a real GitHub API][events_api]
-response:
+Even this very straightforwardly nested data can be a real hassle to
+manipulate. How would one add a default review for entries without
+one? How would one convert the ratings to a 5-star scale? And what
+does all of this mean for more complex real-world cases, exemplified
+by this excerpt from [a real GitHub API][events_api] response:
 
 [events_api]: https://api.github.com/users/mahmoud/events
 
@@ -164,9 +165,11 @@ annoyed by the inconsistent type of `id`. `event['repo']['id']` is an
 integer, but `event['id']` is a string. When sorting events by ID, you
 would not want [string ordering][string_order].
 
-With remap, fixing this sort inconsistency couldn't be easier:
+With `remap`, fixing this sort inconsistency couldn't be easier:
 
 ```python
+from boltons.iterutils import remap
+
 def visit(path, key, value):
     if key == 'id':
         return key, int(value)
@@ -247,6 +250,7 @@ this by looking at the `enter` argument to `remap`.
 ```python
 # from collections import OrderedDict
 from boltons.dictutils import OrderedMultiDict as OMD
+from boltons.iterutils import remap, default_enter
 
 def enter(path, key, value):
     if isinstance(value, dict):
@@ -325,9 +329,6 @@ tags used in media reviews. Let's create a `remap`-based function,
 `get_all_tags`:
 
 ```python
-
-from boltons.iterutils import remap
-
 def get_all_tags(root):
     all_tags = set()
 
@@ -375,7 +376,7 @@ base_review = {'title': '',
 def enter(path, key, value):
     new_parent, new_items = default_enter(path, key, value)
     try:
-        new_parent.update(base_obj)
+        new_parent.update(base_review)
     except:
         pass
     return new_parent, new_items
