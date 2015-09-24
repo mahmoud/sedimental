@@ -1,10 +1,14 @@
 ---
 title: 'Remap: Nested Data Multitool for Python'
+tags:
+  - python
+  - data
+  - boltons
 ---
 
 > *This entry is the first in a series of "cookbooklets" showcasing
-> some of the more advanced [Boltons][boltons]. If all goes well, the
-> next 5 minutes will literally save you 5 hours.*
+> more advanced [Boltons][boltons]. If all goes well, the next 5
+> minutes will literally save you 5 hours.*
 
 [TOC]
 
@@ -118,7 +122,7 @@ response:
 }]
 ```
 
-The astute reader will spot some inconsistency and general complexity,
+The astute reader may spot some inconsistency and general complexity,
 but don't run away.
 
 <big>**Remap**, the [recursive][recursive] [map][map], is here to save the day.</big>
@@ -192,9 +196,9 @@ see in all of remap's callbacks:
 `key` and `value` are exactly what you would expect, though it may
 bear mentioning that the `key` for a list item is its index. `path`
 refers to the keys of all the parents of the current item, not
-including the `key`. Looking at
-[the GitHub event data](#github_event_data), for the commit author's
-name the path is `(0, 'payload', 'commits', 0, 'author')`, because the
+including the `key`. For example, looking at
+[the GitHub event data](#github_event_data), the commit author's
+name's path is `(0, 'payload', 'commits', 0, 'author')`, because the
 key, `name`, is located in the author of the first commit in the
 payload of the first event.
 
@@ -459,12 +463,13 @@ twice, preserving the original structure.
 
 If you've made it this far, then I hope you'll agree that `remap` is
 useful enough to be your new friend. If that wasn't enough detail,
-then there's always [the docs][remap_rtd]. `remap` is
+then [there are the docs][remap_rtd]. `remap` is
 [well-tested][iterutils_tests], but making something this
 general-purpose is a tricky area. Please
 [file bugs and requests][issues]. Don't forget about [pprint][pprint]
 and [repr][repr_mod]/[reprlib][reprlib], which can help with reading
-large structures.
+large structures. As always, [stay tuned][twitter] for [future boltons
+cookbooklets][tagged_boltons], and much much more.
 
 <a href="https://commons.wikimedia.org/wiki/File:First_matryoshka_museum_doll_open.jpg">
 <img src="/uploads/First_matryoshka_museum_doll_open.jpg">
@@ -475,7 +480,8 @@ large structures.
 [pprint]: https://docs.python.org/2/library/pprint.html
 [repr_mod]: https://docs.python.org/2/library/repr.html
 [reprlib]: https://docs.python.org/3/library/reprlib.html
-
+[twitter]: https://twitter.com/mhashemi
+[tagged_boltons]: /tagged/boltons/
 
 <!-- TODO: closing matroska image -->
 
