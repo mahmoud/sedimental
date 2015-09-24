@@ -26,6 +26,10 @@ data. [List comprehensions][list_comps],
 allure of flat data is likely a direct result of this common gap in
 most programming languages.
 
+<a href="https://commons.wikimedia.org/wiki/File:Russian-Matroshka2.jpg">
+<img width="45%" src="/uploads/Russian-Matroshka2.jpg">
+</a>
+
 [flat_design]: https://en.wikipedia.org/wiki/Flat_design
 [list_comps]: https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions
 [gen_exp]: https://docs.python.org/2/reference/expressions.html#generator-expressions
@@ -70,6 +74,8 @@ exemplified by this excerpt from [a real GitHub API][events_api]
 response:
 
 [events_api]: https://api.github.com/users/mahmoud/events
+
+<a id="github_event_data"></a>
 
 ```json
 [{
@@ -179,27 +185,28 @@ see in all of remap's callbacks:
 [dict]: https://docs.python.org/2/tutorial/datastructures.html#dictionaries
 [tuple]: https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
 
-  * `path`: a [tuple][tuple] of keys leading up to the current item
-  * `key`: the current item's key
-  * `value`: the current item's value
+  * `path` is a [tuple][tuple] of keys leading up to the current item
+  * `key` is the current item's key
+  * `value` is the current item's value
 
-`key` and `value` are exactly what you would guess they are, though it
-may bear mentioning that the `key` for a list item is its
-index. `path` refers to the keys of all the parents of the current
-item, sort of. For the commit author's name of the GitHub event, the
-path might look like `(0, 'payload', 'commits', 0, 'author')`, because
-the `name` key is located in the author of the first commit in the
+`key` and `value` are exactly what you would expect, though it may
+bear mentioning that the `key` for a list item is its index. `path`
+refers to the keys of all the parents of the current item, not
+including the `key`. Looking at
+[the GitHub event data](#github_event_data), for the commit author's
+name the path is `(0, 'payload', 'commits', 0, 'author')`, because the
+key, `name`, is located in the author of the first commit in the
 payload of the first event.
 
 As for the return signature of `visit`, it's very similar to the
-input. Just return the new (or old) `(key, value)` you want in the
-remapped output.
+input. Just return the new `(key, value)` you want in the remapped
+output.
 
 [string_order]: https://en.wikipedia.org/wiki/Lexicographical_order
 
 # Drop empty values
 
-Next up, GitHub's distancing from [Gravatars][gravatar] left an
+Next up, GitHub's move away from [Gravatars][gravatar] left an
 artifact in their API: a blank `'gravatar_id'` key. We can get rid of
 that item, and any other blank strings, in a jiffy:
 
@@ -213,10 +220,10 @@ remapped = remap(event_list, visit=drop_blank)
 assert 'gravatar_id' not in remapped[0]['actor']
 ```
 
-For your added convenience, when `visit` returns a single `bool`
-instead of a `(key, value)` pair, `True` carries over the original
-item unmodified and `False` drops the item from the remapped
-structure.
+Unlike the previous example, instead of a `(key, value)` pair, this
+`visit` is returning a `bool`. For added convenience, when `visit`
+returns `True`, `remap` carries over the original item
+unmodified. Returning `False` drops the item from the remapped structure.
 
 With the ability to arbitrarily transform items, pass through old
 items, and drop items from the remapped structure, it's clear that the
@@ -294,17 +301,17 @@ calls to `visit`. Still with me?
 
 Either way, here we don't interact with the arguments. We just call
 `default_exit` and work on its return value, `new_parent`, sorting it
-in-place if it's a `list`. Pretty simple! In fact, very astute readers
-have pointed out this can be done with `visit`, because `remap`'s very
-next step is to call `visit` with the `new_parent`. You'll have to
-forgive the contrived example and let it be a testament to the rarity
-of overriding `exit`. Without going into the details, `enter` and
-`exit` are most useful when teaching `remap` how to traverse
-nonstandard containers, such as non-iterable Python objects. As mentioned
-in the ["drop empty values"](#drop_empty_values) example, `remap` is
-designed to maximize the chances that the `visit` callback can be all
-you really need. Let's look at an advanced usage reason that's true.
-
+in-place if it's a `list`. Pretty simple! In fact, *very* attentive
+readers might point out this can be done with `visit`, because
+`remap`'s very next step is to call `visit` with the
+`new_parent`. You'll have to forgive the contrived example and let it
+be a testament to the rarity of overriding `exit`. Without going into
+the details, `enter` and `exit` are most useful when teaching `remap`
+how to traverse nonstandard containers, such as non-iterable Python
+objects. As mentioned in the ["drop empty values"](#drop_empty_values)
+example, `remap` is designed to maximize the mileage you get out of
+the `visit` callback. Let's look at an advanced usage reason that's
+true.
 
 # Collect interesting values
 
@@ -337,7 +344,7 @@ like the second recipe, we're just returning `False`, because we don't
 actually care about contents of the resulting structure.
 
 What's new here is the `reraise_visit=False` keyword argument, which
-tells `remap` to keep any item that causes a `visit` exception. This
+tells `remap` to **keep** any item that causes a `visit` exception. This
 practical convenience lets `visit` functions be shorter, clearer, and
 just more <acronym title="Easier to Ask Forgiveness than
 Permission">[EAFP][eafp]</acronym>. Reducing the example to a
@@ -347,9 +354,12 @@ one-liner is left as an exercise to the reader.
 
 # Add common keys
 
-There are two ways to add to structures within your target. The first
-uses the `enter` callable and is suitable for making data consistent
-and adding data which can be overriden.
+As a final advanced `remap` example, let's look at adding items to
+structures. Through the examples above, we've learned that `visit` is
+best-suited for 1:1 transformations and dropping values. This leaves
+us with two main approaches for addition. The first uses the `enter`
+callable and is suitable for making data consistent and adding data
+which can be overridden.
 
 ```python
 
@@ -390,6 +400,12 @@ assert remapped['shows'][0]['review_length'] == 27
 assert remapped['movies'][0]['review_length'] == 42
 # True times two.
 ```
+
+By now you might agree that `remap` is making such feats positively
+routine. Come for the nested data manipulation, stay for the
+[number jokes][forty_two].
+
+[forty_two]: https://en.wikipedia.org/wiki/Phrases_from_The_Hitchhiker's_Guide_to_the_Galaxy#Answer_to_the_Ultimate_Question_of_Life.2C_the_Universe.2C_and_Everything_.2842.29
 
 # Corner cases
 
@@ -441,7 +457,25 @@ twice, preserving the original structure.
 
 # Wrap-up
 
-Go nuts. File bugs. pprint is your friend.
+If you've made it this far, then I hope you'll agree that `remap` is
+useful enough to be your new friend. If that wasn't enough detail,
+then there's always [the docs][remap_rtd]. `remap` is
+[well-tested][iterutils_tests], but making something this
+general-purpose is a tricky area. Please
+[file bugs and requests][issues]. Don't forget about [pprint][pprint]
+and [repr][repr_mod]/[reprlib][reprlib], which can help with reading
+large structures.
+
+<a href="https://commons.wikimedia.org/wiki/File:First_matryoshka_museum_doll_open.jpg">
+<img src="/uploads/First_matryoshka_museum_doll_open.jpg">
+</a>
+
+[iterutils_tests]: https://github.com/mahmoud/boltons/blob/master/tests/test_iterutils.py
+[issues]: https://github.com/mahmoud/boltons/issues
+[pprint]: https://docs.python.org/2/library/pprint.html
+[repr_mod]: https://docs.python.org/2/library/repr.html
+[reprlib]: https://docs.python.org/3/library/reprlib.html
+
 
 <!-- TODO: closing matroska image -->
 
@@ -472,13 +506,6 @@ slow. As soon as a couple large enough use case cross my desk, I'll be
 sure to profile and optimize. It's not a question of if isinstance+ABC
 is slow, it's which pragmatic alternative passes tests while being
 faster.
-
-TODO Examples:
-
-  * sort all lists
-  * normalize all keys
-  * convert all dicts to OrderedDicts
-  * drop all Nones
 
 ## Remap design principles
 
