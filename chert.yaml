@@ -4,7 +4,7 @@ site:
   author: Mahmoud Hashemi
   tagline: Accretionary thoughts by Mahmoud Hashemi
   copyright: >-
-    &copy; 2015 Mahmoud Hashemi <img height="14" src="/img/by-sa.png" />
+    &copy; 2015 <a href="http://sedimental.org/about.html">Mahmoud Hashemi</a> <img height="14" src="/img/by-sa.png" />
   primary_links:
     - text: About
       href: /about.html
