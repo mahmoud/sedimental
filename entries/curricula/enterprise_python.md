@@ -134,7 +134,13 @@ Selections from
 
 ## Gathering requirements
 
-First, define the aspects of a software component. The vocabulary of
+First, identify your customer and other project stakeholders. They
+define the standards to which the product will be held. Consumer
+products without a definite customers have a bit of a
+problem. Enterprise products without customers have a big
+problem. And no, "everyone" is not a valid customer.
+
+Second, define the aspects of a software component. The vocabulary of
 requirements.
 
   * Performance
