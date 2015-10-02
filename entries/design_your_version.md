@@ -3,50 +3,50 @@ title: "Design Your Version: Semantics, Calendars, and Releases"
 entry_id: design_your_version
 ---
 
+<!-- or Why Version Matters -->
 <!-- or Choosing The Right Versioning System For Your Project -->
 <!-- or What Your Project's Version Says About You -->
+<!-- or Version Birth -->
 
-In these times of modern software development, a project can hardly be
-called a project without a proper versioning scheme. From a technical
-perspective, the lack of a version number is as negligent toward
-clients and integrators as lack of source control is to collaborators,
-and both prove equally punishing to oneself. Beyond technical reasons,
-a project's version bears a huge impact on the perception of the
-project. At every turn, this critical component will appear next to
-the name of the project, closer and more often than the name of the
-author and maintainers.
+In modern software development, a project isn't a project without a
+proper versioning scheme. To maintain a project without a version is
+as negligent toward clients and integrators as lack of source control
+would be to collaborators. Beyond technical reasons, a project's
+version bears a huge impact on the perception of the project. It
+informs and entices potential users to adopt or upgrade. It appears
+right beside the name of the project, closer and more often than the
+name of the author and maintainers.
 
-Given this magnitude, it's a wonder that versioning schemes seem to be
-mostly afterthoughts and foregone conclusions. This guide seeks to
-change that by introducing some options and direction for picking the
-versioning scheme that is right for projects and their maintainers.
+So why are so many projects' versioning schemes afterthoughts?
+Indefinitely stuck at 0.0.1 and worse. What options and directions
+do maintainers have for picking the versioning scheme that is right
+for their projects?
 
-## Collective Expectations
+# Collective Expectations
 
-I encounter and use far more software than I write, and I'm pretty
-sure that holds true for all engineers. As a result, we accumulate
-general expectations about version numbers.
+We encounter and use far more software than we write. In software's
+short existence, so many versioning schemes have emerged that a
+complete survey of conventions could fill a book. Saving the history
+for another post, there are four primary expectations driving modern
+software versioning:
 
-1. **Versions increase with time** - Bigger is better, less would be worse.
-2. **Versions speak to the quality of the software** - Whereas a good
-   project name communicates an ideal, a good project version
-   communicates the progress toward that ideal.
-3. **Versions are trackable** - Continuity is a good thing. Irregular gaps
-   can cause confusion.
-4. **Versions are numeric, except when they're not** - Numeric versions are
-   the default, but non-numeric versions and version components
-   abound. Terms like "alpha" and "beta", as well as named project versions
-   like those used in Linux distributions (Debian's "jessie" or Ubuntu's
-   "trusty"), are well-understood in many circles.
+1. **Versions increase with time** - Bigger is better, less is worse.
+2. **Versions are trackable** - Continuity is a good thing. Irregular gaps
+   cause confusion.
+3. **Versions are numeric, except when they're not** - Numeric
+   versions are the default, but non-numeric versions and version
+   components abound. Suffixes like "alpha", "beta", "dev", "nightly",
+   "stable", etc. There are also named project versions, like those
+   used in Linux distributions, such as Debian's "jessie" or Ubuntu's
+   "trusty".
+4. **Versions speak to the quality of the software** - A good project
+   name communicates an ideal. A good project version communicates the
+   progress toward that ideal.
 
-<!-- TODO: case studies in all of the above? -->
-
-Like them or not, there's no escaping these versioning tropes, and
-while they may seem trivial or obvious, versions are fundamental
-enough that the long-term effects can be profound. For instance, with
-regard to #1, bigger versions are generally considered better,
-especially within a project. However, there are cases where this
-impact spilled out across projects.
+While they may seem trivial or obvious, versions are fundamental
+enough that the large-scale, long-term effects can be profound. Higher
+versions are considered to be better, especially within a project. But
+there are cases where this impact spilled out across projects.
 
 For instance, when Google Chrome entered the browser race, it brought
 with it a fast feature release schedule and a versioning system to
@@ -55,12 +55,12 @@ while Firefox was still 3.x, making Firefox appear to be left in the
 dust. Obviously Chrome was less mature and, as anyone who used it at
 the time can attest, Chrome 4 wasn't half the browser Firefox 4 ended
 up being. After a couple years of this onslaught, Firefox switched its
-versioning system to match, and now, despite browsing for hours a day,
-few users or even developers could tell you off the top of their heads
-what version of Firefox/Chrome they use. Internet Explorer might be
-another story.
+versioning system to match. Now, despite browsing for hours a day, few
+users or even developers could tell you off the top of their heads
+what version of Firefox/Chrome they use. Internet Explorer is another
+story.
 
-## Semantic Versioning
+# Semantic Versioning
 
 Semantic Versioning, or SemVer, is the go-to versioning system for
 most projects these days. A quick glance at the 40 most recent updates
@@ -114,7 +114,7 @@ then there's no accounting for such wildcards. But if both of groups
 are using something effectively in production, then it's time to face
 the facts. Tie up the loosest of ends and give it a major version.
 
-## Calendar versioning
+# Calendar versioning
 
 If you're an earnest engineer with honest intents of creating a
 project for the long run, then calendar versioning may be for you.
@@ -137,7 +137,7 @@ versioning is being able to look at the dependency list and quick
 ascertain which libraries are good candidates for updating.
 
 
-## Summary
+# Summary
 
 In the end a versioning scheme often isn't something that can be
 chosen ready off the shelf. After spending days, weeks, and months on
@@ -145,9 +145,11 @@ a project architecture, it's worthwhile to spend a few minutes or
 hours designing a versioning system that is tailored to the needs of
 its users and author.
 
+<!--
 # PyPI recent 40
 
 * Highest minor: 108
 * Highest micro: 595
 * Five 4-part versions
 * One calendar version
+-->
