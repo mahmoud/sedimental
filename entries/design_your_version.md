@@ -27,25 +27,23 @@ for their projects?
 We encounter and use far more software than we write. In software's
 short existence, so many versioning schemes have emerged that a
 complete survey of conventions could fill a book. Saving the history
-for another post, there are four primary expectations driving modern
+for another post, there are three primary expectations driving modern
 software versioning:
 
-1. **Versions increase with time** - Bigger is better, less is worse.
-2. **Versions are trackable** - Continuity is a good thing. Irregular gaps
-   cause confusion.
+1. **Versions go up** - The higher the version, the later it came out.
+2. **Versions speak to the quality of the software** - A project
+   name communicates an ideal. The project version communicates
+   progress toward that ideal. Bigger is better, less is worse.
 3. **Versions are numeric, except when they're not** - Numeric
    versions are the default, but non-numeric versions and version
-   components abound. Suffixes like "alpha", "beta", "dev", "nightly",
-   "stable", etc. There are also named project versions, like those
-   used in Linux distributions, such as Debian's "jessie" or Ubuntu's
-   "trusty".
-4. **Versions speak to the quality of the software** - A good project
-   name communicates an ideal. A good project version communicates the
-   progress toward that ideal.
+   components abound. Even non-developers understand suffixes like
+   "alpha", "beta", "dev", "nightly", "stable", and so on. There are
+   also named project versions, like those used in Linux
+   distributions, such as Debian's "jessie" or Ubuntu's "trusty".
 
 While they may seem trivial or obvious, versions are fundamental
 enough that the large-scale, long-term effects can be profound. Higher
-versions are considered to be better, especially within a project. But
+versions are considered better, especially within a project. But
 there are cases where this impact spilled out across projects.
 
 For instance, when Google Chrome entered the browser race, it brought
@@ -59,6 +57,18 @@ versioning system to match. Now, despite browsing for hours a day, few
 users or even developers could tell you off the top of their heads
 what version of Firefox/Chrome they use. Internet Explorer is another
 story.
+
+<!--
+TODO: move the story higher?
+
+- http://lowendmac.com/musings/11mm/version-numbers.html
+- http://www.pcworld.com/article/224842/why_firefox_rapid_release_schedule_is_a_bad_idea.html
+- http://www.theverge.com/2012/7/9/3147445/mozilla-jono-dicarlo-rapid-releases-firefox
+- https://www.google.com/search?channel=fs&q=firefox+rapid+release+chrome
+- http://www.extremetech.com/internet/92792-mozilla-takes-firefox-version-number-removal-a-step-further
+- https://bugzilla.mozilla.org/show_bug.cgi?id=678775
+- https://support.mozilla.org/en-US/questions/896705
+-->
 
 # Semantic Versioning
 
