@@ -30,7 +30,7 @@ complete survey of conventions could fill a book. Saving the history
 for another post, there are three primary expectations driving modern
 software versioning:
 
-1. **Versions go up** - The higher the version, the later it came out.
+1. **Versions go up** - The later the release, the greater the version.
 2. **Versions speak to the quality of the software** - A project
    name communicates an ideal. The project version communicates
    progress toward that ideal. Bigger is better, less is worse.
