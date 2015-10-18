@@ -66,7 +66,7 @@ features. But, silently and subtly,
 [default DNS resolution behavior][tornado_dns_docs] will block the
 entire IO event loop, leading to big issues at scale.
 
-[tornado]: http://TODO
+[tornado]: https://github.com/tornadoweb/tornado
 [tornado_tweet]: https://twitter.com/etrepum/status/585544395006550016
 [tornado_dns_docs]: http://tornado.readthedocs.org/en/latest/netutil.html#tornado.netutil.BlockingResolver
 
@@ -98,7 +98,7 @@ can't resolve DNS that fast, do one or more of the following:
 [netty_dns]: https://github.com/netty/netty/blob/1b8086a6c16319c93724d65af1c805363c03b6d0/resolver-dns/src/main/java/io/netty/resolver/dns/DnsNameResolver.java#L310
 [cares_dns]: http://c-ares.haxx.se/ares_init.html
 [sla]: https://en.wikipedia.org/wiki/Service-level_agreement "Service-Level Agreement"
-[resolv_conf]: http://TODO
+[resolv_conf]: http://linux.die.net/man/5/resolv.conf
 
 The first option is purely a network issue. For the sake of brevity,
 the second option [is outside][do_bind] [the scope][ubuntu_dnsmasq]
