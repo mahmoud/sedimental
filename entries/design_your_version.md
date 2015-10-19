@@ -46,6 +46,8 @@ enough that the large-scale, long-term effects can be profound. Higher
 versions are considered better, especially within a project. But
 there are cases where this impact spilled out across projects.
 
+<!-- TODO: images -->
+
 For instance, when Google Chrome entered the browser race, it brought
 with it a fast feature release schedule and a versioning system to
 match. This versioning system had Chrome see a dozen major releases

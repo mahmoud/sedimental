@@ -16,6 +16,18 @@ processes. In addition to preparing you for practical Python
 development, this course will teach you how to form and justify the
 technical positions necessary to drive projects to success.
 
+## Questions
+
+These are questions I like to ask new hires. How many people have
+
+* Worked on a project with more than a thousand commits?
+* Worked on a project with more than one other collaborator?
+* Worked on a project for longer than one year?
+* Worked on a project with more than one year of commit history?
+
+If you answered yes more than twice, then there's a good chance you've
+gotten a taste of enterprise development.
+
 ## Prerequisites
 
 Beginners come from all walks. There are many ways to be prepared for
@@ -59,7 +71,14 @@ plus.
 We're going to be using the terminal. For the demonstrations, you'll
 need Python 2.7 and a shell. (TODO: more details?)
 
-TODO: basis of terminal usage.
+As we'll learn, enterprise implies a lot of attention to
+environments. For this course, we're going to focus on using Python at
+the terminal, also known as the command line. This is the most
+widely-available enterprise Python environment. While outside the
+scope of this class, comfort with the terminal and standard CLI tools
+is as useful as knowing Python itself. Make it a priority to become
+fluent in one standard shell (such as bash) and one widely available
+command line editor (nano, vi, or emacs).
 
 # Defining the basics
 
@@ -176,6 +195,9 @@ but time and resources are inevitably limited.
     * Architecture
     * Testing strategy
     * Contacts
+
+Work grows to fill the time you give it, but there is still such a
+thing as too little time.
 
 ## Researching environments
 
