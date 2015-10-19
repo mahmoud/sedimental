@@ -8,10 +8,10 @@ title: Enterprise Python Outline
     2. Prerequisites (4 minutes)
     3. System Requirements (3 minutes) (TODO: move nearer an actual tutorial?)
 2. Defining the basics
-    1. What is Python? (3-5 minutes)
-    2. What is enterprise software? (3-5 minutes)
-    3. When is the right time to use Python? (7-10 minutes)
-    4. What is Python not? (5-7 minutes)
+    1. What is enterprise software? (3-5 minutes)
+    2. What is Python? (3-5 minutes)
+    3. What is Python not? (5-7 minutes)
+    4. When is the right time to use Python? (7-10 minutes)
 3. Architecture and design
     1. Gathering requirements (10 minutes)
     2. Researching environments (10 minutes)
