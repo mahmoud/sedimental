@@ -15,13 +15,13 @@ field_role_map:
 I've had a lot of ideas over the years. Lucky as I am to be a
 programmer, I've been able to realize many of them in the form of
 open-source projects. Looking back, I'm pleased with the conversion
-ratio, but I remain convinced the best is yet to come.
+ratio, and I'm more sure than ever that the best is yet to come.
 
 In the meantime, here is a summary and status for each of my current
-projects, roughly ordered by some combination of popularity, age, and
-personal utility. You could get a majority of this information from
-[my GitHub repositories page][gh_repos]. Also included here are
-details about the background and current state of each project.
+projects, ordered by some combination of popularity, age, and personal
+utility. While the most up-to-date information is on
+[my GitHub repositories page][gh_repos], included here are details
+about the background and current state of each project.
 
 Don't mind the odd names; you don't need to be a geologist to
 appreciate all this free software!
