@@ -14,6 +14,7 @@ field_type_map:
   feed_link: link
 field_role_map:
   # special fields: title, content, date, tags, main_image, main_link
+  # TODO: "name" instead of "title"
   content: review
 
 # built-in roles: ['title', 'content', 'date', 'summary', 'image', 'source']
