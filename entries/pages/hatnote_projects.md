@@ -410,6 +410,10 @@ description: |
   projects like [Listen to Wikipedia](#listen_to_wikipedia) and
   [RCMap](#recent_changes_map).
 
+  <a href="/uploads/hatnote/qualityvis_v0.png"
+  target="_blank"><img title="The first version of Qualityvis" width=60%
+  src="/uploads/hatnote/qualityvis_v0.png" /></a>
+
   Qualityvis taught me a lot about machine learning, the quality of
   open source (especially Node.js and certain unnamed Python
   libraries), and project management.
