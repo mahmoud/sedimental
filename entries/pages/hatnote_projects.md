@@ -43,16 +43,17 @@ Hatnote is an ongoing umbrella project organized around Wikipedia as a
 social and data platform. Or, as we like to put it, finding new
 perspectives on wiki life.
 
-Hatnote grew out of a 2012 WMF hackathon, where I fell upon a
+Hatnote grew out of a 2012 WMF hackathon. I was having a great time
+building and teaching JavaScript and Python, but I fell upon a
 disturbing realization. The Wikimedia Foundation, proprietor of my
-favorite website, while situated in Silicon Valley, epicenter of
-technology, was not teeming with thousands of engineers and data
+favorite website, situated in Silicon Valley, epicenter of technical
+knowledge, was not teeming with thousands of engineers and data
 scientists coming out of the woodwork to defend and support free
-knowledge and culture.
+knowledge and culture as I had expected.
 
-I realized, while the foundation was full of talented people and good
-intentions, they simply did not have the resources to maximize
-innovation potential on Wikipedia. This isn't meant as a
+I realized, while everyone I met from the foundation was talented and
+well-intentioned, they simply did not have the resources to push the
+innovation envelope on Wikipedia. This isn't meant as a
 controversy-inducing criticism of the WMF; Wikipedia and other
 Wikimedia projects have always relied much more on the community for
 regulation and development. To this point, look at the numbers:
@@ -310,20 +311,6 @@ description: |
 
 ---
 
-title: Wapiti
-gh_link: https://github.com/mahmoud/wapiti
-description: |
-
-  Wikipedia's querying API is one of the richest and most complex
-  available. And what Wikipedia lacks in semantic content, it buries
-  even further with complicated and inconsistent access patterns.
-
-  Wapiti is an experimental client which rationalizes these
-  functional-if-confusing APIs into a Python interface with an highly
-  consistent and recombinable API. Wapiti mostly works, but has been
-  in the backseat for a while due to more pressing projects.
-
----
 title: WOMP
 gh_link: https://github.com/mahmoud/womp
 description: |
@@ -337,8 +324,27 @@ description: |
   data was fetched, and with [her passing][adrianne_rip], is on
   indefinite hiatus. I hope I get back to working on it someday.
 
+  WOMP created the necessity that led to two open-source projects of
+  mine, [Lithoxyl](/open_source_projects.html#lithoxyl) and
+  [Strata](/open_source_projects.html#strata).
+
   [adrianne]: https://en.wikipedia.org/wiki/Adrianne_Wadewitz
   [adrianne_rip]: http://www.nytimes.com/2014/04/20/business/media/adrianne-wadewitz-37-wikipedia-editor-and-academic-dies.html?_r=0
+
+---
+
+title: Wapiti
+gh_link: https://github.com/mahmoud/wapiti
+description: |
+
+  Wikipedia's querying API is one of the richest and most complex
+  available. And what Wikipedia lacks in semantic content, it buries
+  even further with complicated and inconsistent access patterns.
+
+  Wapiti is an experimental client which rationalizes these
+  functional-if-confusing APIs into a Python interface with an highly
+  consistent and recombinable API. Wapiti mostly works, but has been
+  in the backseat for a while due to more pressing projects.
 
 ---
 
@@ -359,12 +365,17 @@ description: |
   article linking to "Mars" which Mars is intended. Imagine that
   problem, but in the context of names like "John Smith" and so forth.
 
+  <img title="Disambiguity running at the 2012 Maker Faire" width=400
+  src="/uploads/hatnote/disambiguity_maker_faire_2012.jpg" />
+
   This is a hard problem for Wikipedians, and we decided to tackle it
-  by gamification (of course. 2012!). Suffice to say, Disambiguity was
+  by gamification[^1]. Suffice to say, Disambiguity was
   a very challenging, very fun, and very niche game to both play and
   build. It was featured at Wikimedia's 2012
   [Maker Faire][maker_faire] booth. Stephen has the story,
   [in photos][maker_faire_photos].
+
+  [^1]: We were young! It was 2012!
 
   [mars_planet]: https://en.wikipedia.org/wiki/Mars_%28planet%29
   [mars_myth]: https://en.wikipedia.org/wiki/Mars_%28mythology%29
