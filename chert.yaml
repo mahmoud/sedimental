@@ -13,10 +13,13 @@ site:
     - text: Twitter
       href: https://twitter.com/mhashemi
     - text: Hatnote
-      href: http://blog.hatnote.com
+      href: /hatnote_projects.html
       desc: Wikipedia-based projects
     - text: Feed
       href: /atom.xml
+  #secondary_links:
+  #  - text: Projects
+  #    href: /open_source_projects.html
   analytics_code: UA-63517417-1
 
 theme:
