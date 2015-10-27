@@ -418,6 +418,10 @@ description: |
 ---
 # People
 
+<a href="/uploads/hatnote/wmf_hackathon_2012_group_lg.jpg"
+target="_blank"><img alt="Can you spot us?" width=100%
+src="/uploads/hatnote/wmf_hackathon_2012_group_sm.jpg" /></a>
+
 Hatnote has a lot of projects under its collective belt and it's taken
 a lot of work from a lot of people. Hatnote credits roll:
 
