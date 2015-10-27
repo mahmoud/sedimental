@@ -25,7 +25,8 @@ continue to proudly host and administrate MediaWiki, though my
 extension-writing skills have languished. But this is mostly a story
 about building on Wikipedia: the story of Hatnote.
 
-<img width=18% src="/uploads/hatnote/hatnote_logo_lg.png" />
+<img title="Hatnote's logo and mascot, The Hatterpillar" width=18%
+src="/uploads/hatnote/hatnote_logo_lg.png" />
 
 [en_wp]: https://en.wikipedia.org
 [mediawiki]: https://en.wikipedia.org/wiki/MediaWiki
@@ -419,7 +420,7 @@ description: |
 # People
 
 <a href="/uploads/hatnote/wmf_hackathon_2012_group_lg.jpg"
-target="_blank"><img alt="Can you spot us?" width=100%
+target="_blank"><img title="Can you spot us?" width=100%
 src="/uploads/hatnote/wmf_hackathon_2012_group_sm.jpg" /></a>
 
 Hatnote has a lot of projects under its collective belt and it's taken
