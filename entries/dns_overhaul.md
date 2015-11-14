@@ -1,6 +1,7 @@
 ---
 title: "Enterprise Overhauling DNS Integrations"
-entry_id: dns_overhaul
+entry_root: drafts/dns_overhaul
+
 ---
 
 <!-- Enterprise Overhaul: Resolving DNS -->

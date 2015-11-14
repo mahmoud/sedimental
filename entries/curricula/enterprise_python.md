@@ -1,6 +1,5 @@
 ---
 title: Enterprise Python Curriculum
-
 ---
 
 A class about successful software project development, with Python.
@@ -112,7 +111,7 @@ components are specialized and often incorporate "legacy"
 specifications -- design decisions made long before the project at
 hand.
 
-Timelines very widely, but enterprise software still follows the
+Timelines vary widely, but enterprise software still follows the
 general trend of acceleration. Customers expect usable results faster.
 
 ## When is the right time to use Python?

@@ -4,6 +4,8 @@ publish_date: 12:05am, November 9, 2015
 tags:
   - disclaimer
   - python
+  - life
+  - meta
 
 ---
 <!-- aka "Disclaimer: You may have read this before"-->

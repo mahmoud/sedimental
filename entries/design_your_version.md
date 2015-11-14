@@ -1,6 +1,7 @@
 ---
 title: "Design Your Version: Semantics, Calendars, and Releases"
-entry_id: design_your_version
+entry_root: design_your_version
+
 ---
 
 <!-- or Why Version Matters -->

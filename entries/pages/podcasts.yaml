@@ -19,6 +19,7 @@ field_role_map:
 
 # built-in roles: ['title', 'content', 'date', 'summary', 'image', 'source']
 # built-in attr types: link, image, default
+# TODO: "hidden" role
 
 # false, count, or noun-based ("Myth #1") (ordinal template?)
 ordinal_format: ""
