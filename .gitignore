@@ -1,4 +1,8 @@
 
+# custom ignores
+
+entries/esp/*
+
 # Chert ignores
 
 # Ignore generated files. Remove this line if you want to check them in.
