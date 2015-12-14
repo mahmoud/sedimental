@@ -2,14 +2,12 @@
 title: Announcing the Hatnote Top 100
 ---
 
-One thing you have to love about Wikipedia is the community. No other
-site's users are more critical to the project's success. And besides
-requests for [mobile versions][l2w_app] of Hatnote projects, one area
-that continues to draw community interest is contextualizing Wikipedia
-activity. Wikipedia is centered around knowledge, always growing, and
-it's important to remember that the insight of our favorite
-community-run encyclopedia often follows the focus of its massive
-readership.
+Moreso than any other major site, Wikipedia is centered around
+knowledge, always growing, and brimming with information. It's
+important to remember that the insight of our favorite community-run
+encyclopedia often follows the focus of its massive readership. Here
+at Hatnote, we've often wondered, what great new topics is the
+community learning about now?
 
 To shed more light on Wikipedia's reading habits, we're pleased to
 announce the newest addition to the Hatnote family: **The Hatnote Top
@@ -22,12 +20,13 @@ Wikipedia. Unlike the edit-oriented [Listen to Wikipedia][l2w] and
 Wikipedia users: the readers. Nearly 20 billion times per month,
 [around 500 million people][500m] read articles in over 200
 languages. Top 100's daily statistics offer a window into where
-Wikipedia readers are focusing their attention. We've also found that
-the list makes for a great way to discover great chapters of Wikipedia
-one wouldn't normally read or edit.
+Wikipedia readers are focusing their attention. It also makes for a
+great way to discover great chapters of Wikipedia one wouldn't
+normally read or edit.
 
-<img width="40%" title="A screenshot of the Hatnote Top 100 from December 10,
-2015" src="/uploads/20151210_top.png">
+<a href="http://top.hatnote.com" target="_blank"><img width="40%"
+title="A screenshot of the Hatnote Top 100 from December 10, 2015"
+src="https://41.media.tumblr.com/85ece35a58888f09b20733d6f0f3d0c2/tumblr_nzclixxtTV1s4aev9o1_1280.png"></a>
 
 Clear rankings, day-to-day differences, social media integration,
 permalinks, and other familiar simple-but-critical features were
@@ -77,5 +76,6 @@ well. But for those who like to keep it simple, hit up the
 [hatnotable]: https://twitter.com/hatnotable
 [grokse]: http://stats.grok.se
 [wrc]: https://reportcard.wmflabs.org/
+[top_25]: https://en.wikipedia.org/wiki/Wikipedia:Top_25_Report
 [wikitrends_tw]: https://twitter.com/WikipediaTrends
 [seealso]: http://seealso.org
