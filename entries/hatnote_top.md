@@ -2,18 +2,19 @@
 title: Announcing the Hatnote Top 100
 ---
 
-Between tinkering on and maintaining our projects, one thing we love
-at Wikipedia is the community. Besides requests for
-[mobile versions][l2w_app] of Hatnote projects, one area that
-continues to draw Wikipedians' interest is contextualizing what
-happens on Wikipedia. And who can blame them? Wikipedia is always
-growing, brimming with vital information, as well as those hidden
-gems.
+One thing you have to love about Wikipedia is the community. No other
+site's users are more critical to the project's success. And besides
+requests for [mobile versions][l2w_app] of Hatnote projects, one area
+that continues to draw community interest is contextualizing Wikipedia
+activity. Wikipedia is centered around knowledge, always growing, and
+it's important to remember that the insight of our favorite
+community-run encyclopedia often follows the focus of its massive
+readership.
 
-To shine some light on both of these, we're pleased to announce the
-newest addition to the Hatnote family: The Hatnote Top 100, available
-at **[top.hatnote.com][top]**. Because we can't pass up a good
-headwear-based pun.
+To shed more light on Wikipedia's reading habits, we're pleased to
+announce the newest addition to the Hatnote family: **The Hatnote Top
+100**, available at **[top.hatnote.com][top]**. Because we can't pass
+up a good headwear-based pun.
 
 Updated daily, the Top 100 is a chart of the most-visited articles on
 Wikipedia. Unlike the edit-oriented [Listen to Wikipedia][l2w] and
@@ -21,7 +22,9 @@ Wikipedia. Unlike the edit-oriented [Listen to Wikipedia][l2w] and
 Wikipedia users: the readers. Nearly 20 billion times per month,
 [around 500 million people][500m] read articles in over 200
 languages. Top 100's daily statistics offer a window into where
-Wikipedia readers are focusing their attention.
+Wikipedia readers are focusing their attention. We've also found that
+the list makes for a great way to discover great chapters of Wikipedia
+one wouldn't normally read or edit.
 
 <img width="40%" title="A screenshot of the Hatnote Top 100 from December 10,
 2015" src="/uploads/20151210_top.png">
@@ -58,7 +61,7 @@ there are several other activity-based projects worth mentioning:
 And there are other visualizations on [seealso.org][seealso] as
 well. But for those who like to keep it simple, hit up the
 [Hatnote Top 100][top], [subscribe to a feed][rss], and/or
-[follow us on Twitter][hatnotable].
+[follow us on Twitter][hatnotable]. See you there!
 
 [l2w_app]: https://itunes.apple.com/us/app/listen-to-wikipedia/id832934300
 [top]: http://top.hatnote.com
