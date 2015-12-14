@@ -1,8 +1,15 @@
 ---
 title: Announcing the Hatnote Top 100
+publish_date: 5:00am December 14, 2015
+tags:
+  - wikipedia
+  - hatnote
+  - python
 ---
 
-Moreso than any other major site, Wikipedia is centered around
+*Originally published on [the Hatnote blog][orig_pub].*
+
+Moreso than any other major site, [Wikipedia][wp] is centered around
 knowledge, always growing, and brimming with information. It's
 important to remember that the insight of our favorite community-run
 encyclopedia often follows the focus of its massive readership. Here
@@ -62,6 +69,8 @@ well. But for those who like to keep it simple, hit up the
 [Hatnote Top 100][top], [subscribe to a feed][rss], and/or
 [follow us on Twitter][hatnotable]. See you there!
 
+[orig_pub]: http://blog.hatnote.com/post/135182048397/announcing-the-hatnote-top-100
+[wp]: http://wikipedia.org/
 [l2w_app]: https://itunes.apple.com/us/app/listen-to-wikipedia/id832934300
 [top]: http://top.hatnote.com
 [top_gh]: https://github.com/hatnote/top/
