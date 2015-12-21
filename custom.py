@@ -10,6 +10,7 @@ print ' - custom module loaded.'
 
 def chert_post_load(chert_obj):
     print ' - post_load hook: %s entries loaded' % len(chert_obj.entries)
+    print ' - post_load hook: %s drafts loaded' % len(chert_obj.draft_entries)
     _autotag_entries(chert_obj)
 
     for e in chert_obj.draft_entries:
@@ -19,12 +20,6 @@ def chert_post_load(chert_obj):
             continue
         base_name, _ = os.path.splitext(os.path.split(e.source_path)[-1])
         e.headers['entry_root'] = 'esp/' + base_name
-
-
-def chert_pre_audit(chert_obj):
-    # exceptions are automatically caught and logged
-    # just enable debug mode to see issues
-    raise ValueError('something went awry')
 
 
 def _autotag_entries(chert_obj):
