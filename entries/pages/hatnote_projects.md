@@ -18,7 +18,7 @@ is free, open, and well-supported. My wiki-timeline summarized:
 * **2012**: Attended my first Wikimedia Foundation hackathon, in San Francisco.
 * **2013**: Founded **[Hatnote][hatnote]**, with
     [Stephen LaPorte][stephen_twitter]. (Follow us on [our blog][hatnote_tumblr] or [Twitter][hatnote_twitter].)
-* **2015**: Still going strong, with *over 2 million* satisfied users
+* **2016**: Still going strong, with *over 2 million* satisfied users
     of Hatnote projects listed below.
 
 Today, I am still a student of Wikipedia. I use it dozens of times a
@@ -100,6 +100,41 @@ not listed here can be found either on our [alpha test page][alpha],
 [alpha]: http://alpha.hatnote.com
 [hn_gh]: https://github.com/hatnote
 [stephen_gh]: https://github.com/slaporte
+
+---
+title: Wikipedia Top 100
+gh_link: https://github.com/hatnote/top
+project_link: http://top.hatnote.com
+description: |
+
+  Most Hatnote projects revolve around editing and other interactive
+  Wikipedia activities. With [top.hatnote.com][top], we turned that
+  around and sought to offer clean and simple insight into the reading
+  habits of Wikipedia's biggest user group: its readers.
+
+  Updated daily, the Top 100 is a chart of the most-visited articles
+  on Wikipedia. Nearly 20 billion times per month, around 500 million
+  people read articles in over 200 languages. The Top 100’s daily
+  statistics offer a window into where Wikipedia readers are focusing
+  their attention. It also makes for a great way to discover great
+  chapters of Wikipedia one wouldn’t normally read or edit.
+
+  <img width=400 src="/uploads/hatnote/20151210_top.png" />
+
+  Clear ordering, images, sparklines, and approachable statistics make
+  data approachable for casual readers. Structured data feeds,
+  including JSON and [RSS][rss], keep the site relevant for developers
+  and power users. Socialites of all skill levels share discoveries
+  via Twitter button integrations on individual tiles, or
+  automatically through an IFTTT recipe based on the RSS
+  feed.
+
+  Personally, writing this a couple months after launch, I still visit
+  [top.hatnote.com][top] first thing in the morning, often before I
+  get out of bed.
+
+  [top]: http://top.hatnote.com
+  [rss]: http://top.hatnote.com/about.html#feeds
 
 ---
 title: Wikipedia IFTTT channel
