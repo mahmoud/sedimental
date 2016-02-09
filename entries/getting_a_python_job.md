@@ -33,7 +33,7 @@ careers:
 5. Why did you hire the last person you hired?
 
 Here are my answers, the enterprise hiring perspective, as transcribed
-from my parts of [the panel discussion](https://twitter.com/mkennedy).
+from my parts of [the panel discussion][full_ep].
 
 [TOC]
 
