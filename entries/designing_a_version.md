@@ -1,6 +1,6 @@
 ---
-title: "Design Your Version: Semantics, Calendars, and Releases"
-entry_root: design_your_version
+title: "Designing a Version: Semantics, Calendars, and Releases"
+entry_root: designing_a_version
 
 ---
 
@@ -63,7 +63,7 @@ one to it. With arithmetic that simple, what could go wrong?
 Everyone knows it's more exciting to announce 2.0 than 1.6.11, even if
 there's more user demand for the latter than the former. This is
 especially true with SemVer, which implies that a major version change
-should break the API.
+breaks the API.
 
 As we will see, people make assumptions about quality based on version
 number. SemVer supports opaque apples-and-oranges comparison,
@@ -72,8 +72,10 @@ encouraging libraries to break APIs to appear active.
 
 ### SemVer and release blockage
 
-More damaging than the fatuous 2.0 is **[Zeno's][zeno_paradox]
-1.0**. We have an epidemic.
+More damaging than the fatuous 2.0 is **[Zeno's 1.0][zeno_paradox]**.
+We have an epidemic.
+
+<img width="100%" src="/uploads/illo/zeno_one_dot_oh.png" />
 
 Conservative library authors end up indefinitely preferring the
 *semantic power* of 0.x: [The ability to break APIs][0.x]. Whether the
@@ -88,17 +90,22 @@ To quote the [second answer in SemVer's own FAQ][when10]:
 > backwards compatibility, you should probably already be 1.0.0.
 
 On this count, SemVer is found not guilty[^2]. It's the SemVer users
-that didn't get the memo -- myself included, until I started writing
-this. Maybe if it had been in the spec instead of the FAQ.
+that didn't get the memo — myself included, until I started writing
+this. Maybe if it had been in the spec itself.
 
 Still, the "public API" emphasis is a heavy one. A more practical
 scheme might have helped represent accurate versions for mature,
-production libraries like Cython (0.23) and SciPy (0.17), both of
-which have books and nearly a decade of releases still available on PyPI.
+production libraries like [Cython][cython] (0.23) and [SciPy][scipy]
+(0.17), both of which [have][cython_book] [books][scipy_book] and
+nearly a decade of releases still available on PyPI.
 
 [zeno_paradox]: https://en.wikipedia.org/wiki/Zeno's_paradoxes#Dichotomy_paradox
 [0.x]: http://semver.org/#spec-item-4
 [when10]: http://semver.org/#how-do-i-know-when-to-release-100
+[cython]: http://cython.org/
+[scipy]: http://www.scipy.org/
+[cython_book]: http://shop.oreilly.com/product/0636920033431.do
+[scipy_book]: http://shop.oreilly.com/product/9781783984749.do
 
 ### SemVer and certifiability
 
@@ -181,17 +188,9 @@ our last straw and look at an alternative.
 
 If you're an earnest engineer with honest intents of creating,
 releasing, and maintaining a project, then calendar versioning may be
-for you. It fulfills all of the expectations delineated above, so what
+for you. It fulfills all of
+[the versioning expectations](#collective_expectations), so what
 advantages does it bring?
-
-* Calendar versioning is actually quite commonplace when you look closely. Examples:
-    * Twisted
-    * Windows 95/98/2000
-
-<!-- Yes, planned obsolescence is a corporate plague upon
-consumers. But it can be a great tool for software creators. The same
-principle applies: The version is for today, and the brand is
-forever. -->
 
 ## CalVer leverages natural understanding
 
@@ -208,24 +207,26 @@ understanding anchors otherwise arbitrary versions.
 
 ## CalVer has better semantics
 
-Ironic, I know.
+Ironically yes.
 
 SemVer is all relative, and one developer's 1.0 is another's
 0.0.1alpha. As authors, we try to ignore this and write others off as
-wrong. However, as an application developer who will be depending on
-many libraries, one major advantage of calendar versioning is being
-able to look at the dependency list and quick ascertain which
-libraries are good candidates for updating.
+wrong. Calendar versioning is absolute, with many semantic advantages.
 
-Besides, one of the first steps in evaluating a new library is the
-most recent release date. CalVer puts us in the ballpark right away.
+As application developers adding functionality, evaluating a new
+library is the most recent release date. CalVer puts us in the
+ballpark right away. As maintainers depending on many libraries,
+calendar versioning allows us to look at the dependency list and
+quickly ascertain which libraries are good candidates for
+updating. CalVer even lets us take that a step further, with
+date-based deprecation.
 
 Many might not realize it, but the oh-so ubiquitous Ubuntu is in fact
 calendar versioned. For example, version 15.04 came out in April, 2015.
 It gets better when you remember Long-Term Support. Ubuntu's
 LTS is 5 years. So, 14 + 5, Ubuntu 14.04 LTS end of life will be in 2019.
 You don't have to look anything up. It's all right there in the CalVer
-semantics.
+semantics.[^4]
 
 ## CalVer protects projects
 
@@ -233,22 +234,37 @@ If you care about the future of the project, then guard it against one
 of the worst fates: the fatuous 2.0. Give your project a
 future. Guard against the learned expectation of 2.0 or death.
 
-SemVer is set up so that every major release needs to include more
-changes than the last. If the project is founded on and aiming for
-correctness, the opposite should be true. With CalVer, you are safe to
-add as much or as little functionality as needed.
+A 1.x *always* carries one advantage over a 2.0: the code is deployed
+and working. Avoid contempt for past decisions and current users. In
+engineering, utility is half of correctness.
+
+SemVer is set up so that every major release implies a minimum
+threshold of change. If the project is founded on and aiming for
+correctness, fewer and fewer changes are required. With CalVer, you
+are safe to add as much or as little functionality as needed.
+
+<a id="successors"></a>
+Too often projects become a victim of versioning. New projects end up
+masquerading as new versions. [D3][d3] could have been
+[Protovis][protovis] 2.0, but instead, a successor was created and
+both projects coexisted and we are all the better for it. Same with
+characteristic and attrs. Successors and CalVer protect projects and
+do justice by clients and code.
+
+[d3]: https://d3js.org/
+[protovis]: http://mbostock.github.io/protovis/
 
 # Summary
 
 Consider adding a calendar component to your next library's versioning
 schemes. As for my opinion, I've joined other maintainers in doing so
 for boltons and ashes. I've found it makes a lot of sense for
-libraries, and a little less sense for protocols and services.[^4]
+libraries, and a little less sense for protocols and services.[^5]
 
 Either way, think about project versions. After spending days, weeks,
 and months on a project, it's worthwhile to spend a few minutes or
-hours designing a versioning system that is tailored to the needs of
-project users and maintainers.
+hours designing a versioning system tailored to the needs of project
+users and maintainers.
 
 <!--
 If you don't have time to think about the version of the library
@@ -289,7 +305,15 @@ including it.
       Versions matter. They're part of your project's identity. Design
       them to help your user.
 
-[^4]: To illustrate, if I could have it my way, we'd have OpenSSL
+[^4]: To illustrate the prevalence, there are actually many other
+      examples of calendar versioning we take for granted. Off the top
+      of my head I could think of Twisted, Windows 95/98/2000, and
+      probably most ubiquitous: every mainstream car in
+      circulation. <a href="http://sedimental.org/about.html"
+      target="_blank">Email me</a> with more examples and I'll compile
+      them somewhere.
+
+[^5]: To illustrate, if I could have it my way, we'd have OpenSSL
       16.x.x. That way I can easily complain if I find someone using
       10.x.x in production. That said, TLS/1.3 seems better than
       TLS/16.0.
