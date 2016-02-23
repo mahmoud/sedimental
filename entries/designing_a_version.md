@@ -8,20 +8,21 @@ tags:
   - boltons
   - ashes
   - work
-# published: 2:55am February 23, 2016
+publish_date: 10:27am February 23, 2016
 
 ---
 
 In modern software development, a project isn't a project without a
 proper versioning scheme.
 
-Lack of a project version neglects clients like lack of source control
+<img alt="The legatree" align="right" width="150px" src="/uploads/illo/legatree_med.png">
+Weak version management neglects clients like lack of source control
 neglects collaborators. Dependency management and migration rely on
 versions. Beyond the technical, a project's version bears a huge
 impact on the perception of the project. It informs adoption and
 entices users to upgrade. The version is attached to the name of the
 project — appearing closer and more often than the names of the
-maintainers.
+maintainers. Versions are how a project builds a legacy.
 
 So why do projects leave versioning to afterthought? What do clients
 expect and what do projects need?
@@ -30,10 +31,8 @@ expect and what do projects need?
 
 # Semantic Versioning
 
-<img align="right" width="20%" src="/uploads/illo/legatree_med.png">
-Currently, the go-to versioning
-system for open-source software is referred to as *Semantic
-Versioning*, or [SemVer][semverorg].
+Currently, the go-to versioning system for open-source software is
+referred to as *Semantic Versioning*, or [SemVer][semverorg].
 
 Take a quick look at the
 [40 most recent updates on the Python Package Index][pypi40]
@@ -201,7 +200,7 @@ our last straw and look at an alternative.
 
 # Calendar Versioning
 
-<img align="right" width="15%" src="/uploads/illo/caltree_med.png">If you're an earnest engineer with honest intents of creating,
+<img align="right" width="110px" src="/uploads/illo/caltree_med.png">If you're an earnest engineer with honest intents of creating,
 releasing, and maintaining a project, then calendar versioning may be
 for you. It fulfills all of
 [the versioning expectations](#collective_expectations), so what
