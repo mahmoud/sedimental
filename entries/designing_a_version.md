@@ -230,12 +230,12 @@ SemVer lets us forget and pretend. Calendar versioning is absolute and
 neutral, with practical advantages to boot.
 
 As application developers adding functionality, evaluating a new
-library is the most recent release date. CalVer puts us in the
-ballpark right away. As maintainers depending on many libraries,
-calendar versioning allows us to look at the dependency list and
-quickly ascertain which libraries are good candidates for
-updating. CalVer even lets us take that a step further, with
-date-based deprecation.
+library means ascertaining maintenance status, usually by looking at
+the most recent release date. CalVer puts us in the ballpark right
+away. As maintainers depending on many libraries, calendar versioning
+allows us to look at the dependency list and quickly ascertain which
+libraries are good candidates for updating. CalVer even lets us take
+that a step further, with date-based deprecation.
 
 Many might not realize it, but the oh-so ubiquitous [Ubuntu][ubuntu]
 is in fact calendar versioned. For example, version 15.04 came out in
