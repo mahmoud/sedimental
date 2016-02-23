@@ -1,14 +1,9 @@
 ---
-title: "Designing a Version: Semantics, Calendars, and Releases"
+title: "Designing a version"
+tagline: "Your 10-minute guide to semantics, calendars, and releases."
 entry_root: designing_a_version
 
 ---
-
-<!-- or Why Version Matters -->
-<!-- or Choosing The Right Versioning System For Your Project -->
-<!-- or What Your Project's Version Says About You -->
-<!-- or Version Birth -->
-<!-- tagline: your 6-minute guide to semantics, calendars, and releases. -->
 
 In modern software development, a project isn't a project without a
 proper versioning scheme.
