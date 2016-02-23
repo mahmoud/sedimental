@@ -28,12 +28,14 @@ expect and what do projects need?
 
 # Semantic Versioning
 
-Currently, the go-to versioning system for open-source software is
-referred to as *Semantic Versioning*, or [SemVer][semverorg].
+<img align="right" width="20%" src="/uploads/illo/legatree_med.png">
+Currently, the go-to versioning
+system for open-source software is referred to as *Semantic
+Versioning*, or [SemVer][semverorg].
 
 Take a quick look at the
 [40 most recent updates on the Python Package Index][pypi40]
-([PyPI][pypi]). My glance showed all but *six* packages with the
+([PyPI][pypi]). My glance showed all but *six* packages had the
 comfortable three-part versioning scheme, `major.minor.micro`. Among
 those packages the highest minor version was 108. The highest micro
 version was all the way up to 595.
@@ -68,7 +70,7 @@ As we will see, there are consequences to this. People judge value
 based on version number. SemVer supports this opaque
 apples-and-oranges comparison, punishing libraries that get it right
 on the first try, and encouraging libraries to break APIs to appear
-more mature.
+more mature and get that coveted 2.0.
 
 ### SemVer and release blockage
 
@@ -197,7 +199,7 @@ our last straw and look at an alternative.
 
 # Calendar Versioning
 
-If you're an earnest engineer with honest intents of creating,
+<img align="right" width="15%" src="/uploads/illo/caltree_med.png">If you're an earnest engineer with honest intents of creating,
 releasing, and maintaining a project, then calendar versioning may be
 for you. It fulfills all of
 [the versioning expectations](#collective_expectations), so what
