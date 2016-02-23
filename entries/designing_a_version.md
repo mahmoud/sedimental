@@ -1,7 +1,14 @@
 ---
 title: "Designing a version"
-tagline: "Your 10-minute guide to semantics, calendars, and releases."
+tagline: "Your 10-minute guide to semantics, calendars, and long-term versioning strategies."
 entry_root: designing_a_version
+tags:
+  - python
+  - code
+  - boltons
+  - ashes
+  - work
+# published: 2:55am February 23, 2016
 
 ---
 
@@ -217,10 +224,10 @@ understanding anchors otherwise arbitrary versions.
 
 Ironically yes.
 
-"Semantic" Versioning is all relative, and one developer's 1.0 is
+"Semantic" Versioning is all relative. One developer's 1.0.0 is
 another's 0.0.1alpha. As authors, we try to ignore this and write
 others off as wrong. But as clients, we make snap judgments, and
-SemVer makes that possible. Calendar versioning is absolute and
+SemVer lets us forget and pretend. Calendar versioning is absolute and
 neutral, with practical advantages to boot.
 
 As application developers adding functionality, evaluating a new
@@ -231,12 +238,14 @@ quickly ascertain which libraries are good candidates for
 updating. CalVer even lets us take that a step further, with
 date-based deprecation.
 
-Many might not realize it, but the oh-so ubiquitous Ubuntu is in fact
-calendar versioned. For example, version 15.04 came out in April, 2015.
-It gets better when you remember Long-Term Support. Ubuntu's
-LTS is 5 years. So, 14 + 5, Ubuntu 14.04 LTS end of life will be in 2019.
-You don't have to look anything up. It's all right there in the CalVer
-semantics.[^4]
+Many might not realize it, but the oh-so ubiquitous [Ubuntu][ubuntu]
+is in fact calendar versioned. For example, version 15.04 came out in
+April, 2015.  It gets better when you remember Long-Term
+Support. Ubuntu's LTS is 5 years. So, 14 + 5, Ubuntu 14.04 LTS end of
+life will be in 2019.  You don't have to look anything up. It's all
+right there in the CalVer semantics.[^4]
+
+[ubuntu]: http://www.ubuntu.com/
 
 ## CalVer protects projects
 
@@ -261,21 +270,22 @@ Too often projects become a victim of versioning. New projects end up
 masquerading as new versions. [D3][d3] could have been
 [Protovis][protovis] 2.0, but instead, a successor was created.
 Both projects coexisted and we are all the better for it. Same with
-characteristic and attrs. Successors and CalVer protect projects and
+[characteristic and attrs][attrs_why]. Successors and CalVer protect projects and
 do justice by clients and code.
 
 [knuth]: https://en.wikipedia.org/wiki/Donald_Knuth
 [tex_version]: https://en.wikipedia.org/wiki/TeX#History
 [d3]: https://d3js.org/
 [protovis]: http://mbostock.github.io/protovis/
+[attrs_why]: https://attrs.readthedocs.org/en/stable/why.html#characteristic
 
 # Summary
 
 Consider adding a calendar component to your next library's versioning
-schemes. As for my opinion, I've joined other maintainers in doing so
-for [boltons][boltons_cl] and [ashes][ashes]. I've found it makes a
-lot of sense for libraries, and a little less sense for protocols and
-services.[^5]
+schemes. As for my opinion, I've joined [other][hynek]
+[maintainers][glyph] in doing so for [boltons][boltons_cl] and
+[ashes][ashes]. I've found it makes a lot of sense for libraries, and
+a little less sense for protocols and services.[^5]
 
 Either way, think about project versions. The version is part of your
 project's face and your clients' integration. After spending days,
@@ -283,8 +293,16 @@ weeks, and months on a project, it's worthwhile to spend a few minutes
 or hours designing a versioning system tailored to the needs of
 project users and maintainers.
 
+
+*If you're into enterprise software considerations like these,
+ [subscribe](http://sedimental.org/atom.xml) or
+ [follow me on Twitter](https://twitter.com/mhashemi) for some
+ details about my upcoming O'Reilly project.*
+
 [ashes]: https://github.com/mahmoud/ashes/
 [boltons_cl]: https://github.com/mahmoud/boltons/blob/master/CHANGELOG.md
+[glyph]: https://twitter.com/glyph
+[hynek]: https://twitter.com/hynek
 
 <!--
 If you don't have time to think about the version of the library
