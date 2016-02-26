@@ -240,9 +240,9 @@ that a step further, with date-based deprecation.
 Many might not realize it, but the oh-so ubiquitous [Ubuntu][ubuntu]
 is in fact calendar versioned. For example, version 15.04 came out in
 April, 2015.  It gets better when you remember Long-Term
-Support. Ubuntu's LTS is 5 years. So, 14 + 5, Ubuntu 14.04 LTS end of
-life will be in 2019.  You don't have to look anything up. It's all
-right there in the CalVer semantics.[^4]
+Support. Ubuntu's LTS support lasts for five years. So, `14 + 5`:
+Ubuntu 14.04's end of life will be in 2019. You don't have to look
+anything up. It's all right there in the CalVer semantics.[^4]
 
 [ubuntu]: http://www.ubuntu.com/
 
