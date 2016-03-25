@@ -112,8 +112,8 @@ address all of these:
 [samp_prereqs]: http://player.oreilly.com/videos/9781491943755?toc_id=239871
 [samp_es]: http://player.oreilly.com/videos/9781491943755?toc_id=239872
 
-Yes, it is a lot. I could never pass on an opportunity to give a
-comprehensive treatment. I'll save the whole motivation and process
+Yes, it is a lot. I never pass on an opportunity to give a
+comprehensive treatment, but I'll save the whole motivation and process
 essay for later. For now, keep in mind that most segments are under 20
 minutes, and the longest, *Profiling and Performance*, is only 45
 minutes — shorter than most orgs' tech talks. It's all compact and
