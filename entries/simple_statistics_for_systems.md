@@ -1,21 +1,32 @@
 ---
-title: Engineering Statistics
+title: Simple Statistics for Systems
+subtile: Easier development and maintenance through reintroduction
 ---
 
-Looking at the behavior of the system, we have to be critical,
-unbiased investigators. We generate data, especially timing
-information like durations, and we analyze it using statistical
-methods. The starting point for these statistical methods is to use
-descriptive statistics that treat these numerical values like duration
-as random variables.
+Software development begins as a quest for capability, doing what
+could not be done before. But as soon as that *what* is achieved, the
+engineer must ask *how*. In enterprise software, the most frequently
+asked questions are, "How fast?" and more importantly, "How reliable?"
 
-Maybe you took statistics, maybe you didn't. Probably not many
-remember a lot of details. Turns out for engineering you don't need to
-know much. Actually, I've seen many teams who don't pay attention to
-statistics at all. But inevitably there comes a time when there are
-questions to be answered, and you don't want to be like those
-teams. Not only don't they know the answers, but they don't even know
-what terms to put the questions in.
+These software questions cannot be answered, or even properly
+articulated, without statistics.
+
+Most developers can't tell you much about statistics. It simply
+doesn't come up. Because between coding and maintenance, who has the
+time? Even a small amount of the right statistics can greatly lessen
+the load of maintenance, and take a lot of the guesswork out of future
+development. Everyone needs a reintroduction to statistics after a few
+years of real work. Even if you studied statistics in school,
+something about real work, real data, and real questions have a way of
+making you wonder if it was really you who passed those statistics
+exams.
+
+Looking at the behavior of the system, we have to be critical,
+unbiased investigators. We instrument the system, turning it into a
+stream that generates data, such as timing information like
+durations. Then, we analyze this stream using statistical methods. The
+starting point for these statistical methods is to use descriptive
+statistics that treat these numerical values as random variables.
 
 * Collecting metadata about how the application is used and how the
   application is performing.
@@ -96,19 +107,37 @@ Scaled down version of the data, like a thumbnail. Distributable. Not
 pre-selecting the quantile points also enables better probability
 density estimation with techniques like KDE.
 
-Also mention:
+# Also mention
 
-* Robustness
+* Robustness (trimming?)
 * Distributability
 * Histograms (CDF, PDF)
+* Probability distribution: A mapping of a given value to the
+  probability of seeing that value in the data.
+* Just looking at summary statistics isn't enough.
+* Don't take averages of medians
 
 Out of scope, but mention in next steps:
 
 * Cardinality (HLL)
 * Count min sketch
 * EWMA is nuanced, takes interpretation
+* Applying predictive modeling, like regressions and fitting
+  distributions can help you assess whether you are collecting
+  sufficient information, or if you're missing some metrics.
+* Not all data makes sense as a time series. It may be easy to
+  implement certain algorithms over time series streams, but be
+  careful about shoehorning.
 
 This post focused on streaming, numeric, descriptive, non-parametric
 statistical measures. There are many other types of data. Categorical
 data that is discrete/incomparable. Time series data which occurs at
 specific intervals.
+
+* If you can establish what a typical day looks like for a given
+  service, you can pretty much set it and forget it. Most
+  organizations make do with simply overlaying charts with the last
+  week, but this requires constant manual interpretation, doesn't
+  compose well for longer-term trend analysis, and really doesn't work
+  when the previous week isn't representative (i.e., had an outage or
+  a spike).
