@@ -5,28 +5,39 @@ subtile: Easier development and maintenance through reintroduction
 
 Software development begins as a quest for capability, doing what
 could not be done before. But as soon as that *what* is achieved, the
-engineer must ask *how*. In enterprise software, the most frequently
-asked questions are, "How fast?" and more importantly, "How reliable?"
+engineer is left to face the *how*. In enterprise software, the most
+frequently asked questions are, "How fast?" and more importantly, "How
+reliable?"
 
 These software questions cannot be answered, or even properly
 articulated, without statistics.
 
-Most developers can't tell you much about statistics. It simply
-doesn't come up. Because between coding and maintenance, who has the
-time? Even a small amount of the right statistics can greatly lessen
-the load of maintenance, and take a lot of the guesswork out of future
-development. Everyone needs a reintroduction to statistics after a few
-years of real work. Even if you studied statistics in school,
-something about real work, real data, and real questions have a way of
-making you wonder if it was really you who passed those statistics
-exams.
+And yet, most developers can't tell you much about statistics. Much
+like math, statistics simply don't come up for the typical
+project. Between coding and maintenance, who has the time?
+
+Engineers must make the time. A few core practices go a long way in
+generating meaningful systems analysis. And a few common malpractices
+will set a project way back. This brief refresher on key statistical
+fundaments will have you lightening maintenance load and taking a lot
+of guesswork out of future development.
+
+<!--
+Everyone needs a reintroduction to statistics after a few years of
+real work. Even if you studied statistics in school, real work, real
+data, and real questions have a way of making you wonder if it was
+really you who passed those statistics exams.
+-->
+
+# Why statistics
 
 Looking at the behavior of the system, we have to be critical,
 unbiased investigators. We instrument the system, turning it into a
-stream that generates data, such as timing information like
-durations. Then, we analyze this stream using statistical methods. The
-starting point for these statistical methods is to use descriptive
-statistics that treat these numerical values as random variables.
+stream that generates data, such as timing information like durations,
+and usage information, like request lengths and response codes. With
+these data collection streams in place, it's time to reach into the
+statistical toolbox. The unbiased starting point is using descriptive
+statistics that treat these numerical values as random vaxriables.
 
 * Collecting metadata about how the application is used and how the
   application is performing.
