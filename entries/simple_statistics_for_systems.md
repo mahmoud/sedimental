@@ -29,26 +29,33 @@ data, and real questions have a way of making you wonder if it was
 really you who passed those statistics exams.
 -->
 
-# Why statistics
+# Data collection and statistical convention
 
 Looking at the behavior of the system, we have to be critical,
 unbiased investigators. We instrument the system, turning it into a
 stream that generates data, such as timing information like durations,
-and usage information, like request lengths and response codes. With
-these data collection streams in place, it's time to reach into the
-statistical toolbox. The unbiased starting point is using descriptive
-statistics that treat these numerical values as random vaxriables.
+and usage information, like request lengths and response codes.
 
-* Collecting metadata about how the application is used and how the
-  application is performing.
+With these data collection streams in place, it's time to reach into
+the statistical toolbox. The unbiased starting point is to treat these
+numerical values as random variables and use what's officially known
+as non-parametric descriptive statistics. That's a mouthful, so let's
+unpack it:
 
-Collecting data is all about balance. As any Internet-connected
-individual knows, too much data and both you and your system are
-overwhelmed. Too little data and, at best, you might as well have not
-bothered. At worst you'll make an uninformed decision that'll take you
-down a bad path.
+* Non-parametric means that we are not presuming a specific
+  distribution, e.g. normal or binomial.
+* Descriptive means we are quantitatively describing the data, as
+  opposed to inferring and modeling future outcomes.
 
-So what tools does the engineer have for responsible collection? Well,
+Collecting data is all about balance. Too little data and, at best,
+you might as well have not bothered. At worst you'll make an
+uninformed decision that'll take you down a bad path. Too much data,
+and, as any Internet-connected individual knows, both you and your
+system are overwhelmed. "Big data" is not a necessary step toward
+understanding big systems. In practice, data size often inversely
+correlates with information density and utility.
+
+So what tools does the engineer have for balanced collection? Well,
 like metadata volume, there really is no limit to the dimensions or
 techniques. That said, you can get quite far with the fundamentals, so
 let's get started covering the groundwork.
@@ -90,16 +97,6 @@ real-world systems, and they often represent the most critical data
 for a troubleshooting engineer.
 
 <!--
-Going further than that, many engineering problems involve multimodal
-distributions. Consider response times from an HTTP service:
-
-* Successful requests (200s) take a "normal" amount of time
-* Client failures (400s) complete quickly, as little work can be done with invalid requests.
-* Server errors (500s) can either be very quick (backend down) or very slow (timeouts)
-
-Here it's obvious that have several curves overlaid, with at least 3
-or 4 peaks. Maintaining a single mean and variance is really not doing
-the data justice.
 
 -->
 
@@ -166,15 +163,91 @@ extensions to the fundamentals above.
 
 ## More advanced statistics
 
-* Cardinality, HLL, Sketches
-* EWMA (nuanced, requires interpretation)
-* Tracking correlations
-* Applying predictive modeling, like regressions and fitting
-  distributions can help you assess whether you are collecting
-  sufficient information, or if you're missing some metrics.
-* Not all data makes sense as a time series. It may be easy to
-  implement certain algorithms over time series streams, but be
-  careful about shoehorning.
+We focused here on descriptive, non-parametric statistics, most of
+which was numeric. This creates several obvious areas to expand into:
+
+**Categorical statistics** contrast with numerical statistics in that
+the data is not mathematically measurable. Categorical data can be
+big, such as IPs and phone numbers, or small, like user languages. The
+key metrics in this area are around counts, or cardinality. PayPal's
+Python services use HyperLogLog and Count-Min sketches for
+distributable streaming cardinality measurements. While reservoir
+sampling is much simpler, and can be used for categorical data as
+well, HLL and CMS offer increased space efficiency, and more
+importantly: proven error bounds.
+
+**Inferential statistics** contrast with descriptive statistics in
+that the goal is to develop models and predict future
+performance. Applying predictive modeling, like regressions and
+fitting distributions, can help you assess whether you are collecting
+sufficient data, or if you're missing some metrics. If you can
+establish a reliable model for your service and hook it into modeling
+and alerting, you'll have reached SRE nirvana. In the meantime, many
+teams make do with simply overlaying charts with the last week, but
+this requires constant manual interpretation, doesn't compose well for
+longer-term trend analysis, and really doesn't work when the previous
+week isn't representative (i.e., had an outage or a spike).
+
+**Parametric statistics** contrast with non-parametric statistics in
+that the data is presumed to follow a given probability
+distribution. If you've established a model using inferential
+statistics, and that model can be put in terms of standard
+distributions, you've given yourself a powerful set of abstractions
+with which to reason about your system. We could do a whole article on
+the probability distributions we expect from different parts of our
+Python backend services. Teasing apart the curves inherent in your
+system is quite a feat, but don't drift too far from the real data,
+and as with any extensive modeling exercise heed the cautionary song
+of the black swan.
+
+**Multivariate statistics** allow you to analyze multiple output
+variables at a time. It's easy to go overboard with multiple
+dimensions, as there's always an extra dimension if you look for it.
+Nevertheless, a simple, practical exploration of correlations can give
+you a better sense of your system, as well as inform you as to
+redundant data collection.
+
+**Multimodal statistics** abound in real world data, where multiple
+distributions are embedded in a single set. Consider response times
+from an HTTP service:
+
+* Successful requests (200s) take a "normal" amount of time
+* Client failures (400s) complete quickly, as little work can be done with invalid requests.
+* Server errors (500s) can either be very quick (backend down) or very slow (timeouts)
+
+Here we can assume that we have several curves overlaid, with at least
+3 or 4 peaks. Maintaining a single summary is really not doing the
+data justice. Statistics really struggles with multimodal
+scenarios. There are times when you will want to discover and track
+datasets separately, and others when it makes more sense to bite the
+bullet and leave the data mixed.
+
+**Time-series statistics** transforms the data stream by
+contextualizing it with a single, near-universal dimension: time. Data
+is collected at continuous, fixed-length intervals. At PayPal time
+series are used all over, from per-minute transaction and error rates
+to the Python team's homegrown Pandas $PYPL stock price analysis. Not
+all data makes sense as a time series. It may be easy to implement
+certain algorithms over time series streams, but be careful about
+shoehorning; time-bucketing data can hurt its composability down the
+line. (TODO)
+
+**Moving statistics** are another area that can be combined with time
+to create a powerful metric. For instance, the exponentially-weighted
+moving average (EWMA), famously used by UNIX to represent load:
+
+```TODO: output```
+
+This output packs a lot of information into a small space, and is very
+cheap to track, but it takes some knowledge and understanding to
+interpret correctly. EWMA is simultaneously familiar and
+nuanced. Unless it has an immediate consumer or your application is
+very resource constrained, there are better metrics. It's fun to
+consider whether you want time series-style discete buckets or the
+continuous window of a moving statistic. For instance, do you want the
+counts for yesterday, or the past 24 hours? Previous hour or the last
+60 minutes? PayPal Python services keep a few moving metrics, but
+generally use a lot more time series. TODO
 
 ## Instrumentation
 
@@ -187,8 +260,16 @@ performance.
 
 One of the many advantages to investing in instrumentation early is
 that you get a sense for the overhead of data collection. Reliability
-and features are far more important in the enterprise than
-performance. With a low enough barrier to entry,
+and features are far outweigh performance in the enterprise
+space. Many critical services could be up to twice as fast without
+instrumentation, but removing this aspect would render them
+unmaintainable. Good work takes cycles, and for most services, metrics
+collection around critical paths is second only to the features
+themselves.
+
+Much of PayPal's Python services' robustness can be credited to a
+reliable remote logging infrastructure, combined with a robust,
+unobtrusive instrumentation framework.
 
 # Vocabulary
 
@@ -202,20 +283,3 @@ as applied to complex systems.
 
 * Probability distribution: A mapping of a given value to the
   probability of seeing that value in the data.
-* Just looking at summary statistics isn't enough.
-
-This post focused on streaming, numeric, descriptive, non-parametric
-statistical measures. There are many other types of data. Categorical
-data that is discrete/incomparable. Time series data which occurs at
-specific intervals.
-
-* If you can establish what a typical day looks like for a given
-  service, you can pretty much set it and forget it. Most
-  organizations make do with simply overlaying charts with the last
-  week, but this requires constant manual interpretation, doesn't
-  compose well for longer-term trend analysis, and really doesn't work
-  when the previous week isn't representative (i.e., had an outage or
-  a spike).
-* "Big data" is not a necessary step toward understanding big
-  systems. In fact, in practice, data size often inversely correlates
-  with information density and utility.
