@@ -55,21 +55,21 @@ The mean should almost never be of interest to an engineer. The mean
 is simply not a trustworthy representative of most engineering data.
 
 The mean is the first statistical moment. There four moments in all,
-yielding four measures, representing a progression that goes further in
-describing the data:
+yielding four measures, each representing a progression that adds
+to the data description:
 
-* Mean - The central tendency of the data
-* Variance - The tightness of the grouping around the mean
-* Skewness - The symmetry or bias toward one end of the scale
-* Kurtosis - The amount of data in "the wings" of the set
+1. Mean - The central tendency of the data
+2. Variance - The tightness of the grouping around the mean
+3. Skewness - The symmetry or bias toward one end of the scale
+4. Kurtosis - The amount of data in "the wings" of the set
 
 As a group these are known as shape descriptors of a distribution, and
-tell a much more complete story about the data. However, before you go
-getting overwhelmed by the definitions and calculations, these shape
-parameters still suffer from the same key problem as the mean.
+tell a much more complete story about the data. But, while they have
+their applications, we're not going to delve into the math, because
+these measures all suffer from the same key problem as the mean.
 
-Moments They are
-not *robust* measures, meaning that they simultaneously:
+Moment-based measures are not *robust*, meaning that they
+simultaneously:
 
   * Are skewed by outliers
   * Dilute the importance of those outliers
@@ -92,42 +92,106 @@ the data justice.
 
 -->
 
-# Quantifying success
+# Quantifying for success
 
 If you've ever taken a standardized test, or paid attention during tax
-season, you're already familiar with quantiles. In practice we usually
-speak about percentiles, especially the most famous 50th percentile,
-aka the *median*.
+season, you're already familiar with quantiles. Quantiles are points
+which subdivide the space into equal parts. In practice we usually
+speak about quartiles (4-parts) and percentiles (100-parts). Most
+nontechnical areas focus in on the *median* as a robust central
+indicator.
 
-* Reservoir sampling
+However, experienced engineers are happy to know the median, the data
+doesn't get interesting until we get into the extremes. For
+performance and reliability, that means the 95th, 98th, 99th, and
+99.9th percentiles.
+
+The challenge with quantiles is efficient computation. The traditional
+way to calculate the median, for instance, is to choose the middle
+value or the average of the two middle values from a sorted set of
+*all* the data. Considering all the data may be the only way to
+calculate exact quantiles, but in practice, every application has its
+error tolerances. We can estimate quantiles much more efficiently.
 
 ## Reservoir sampling
 
-Scaled down version of the data, like a thumbnail. Distributable. Not
-pre-selecting the quantile points also enables better probability
+Scaled down version of the data, like a thumbnail. Streaming, but also
+works with populations of unknown size, so it fits perfectly with
+applications like response latency tracking.
+
+Not pre-selecting the quantile points also enables better probability
 density estimation with techniques like KDE.
 
-# Also mention
+Histograms are massively useful for engineering applications
 
-* Robustness (trimming?)
-* Distributability
-* Histograms (CDF, PDF)
-* Probability distribution: A mapping of a given value to the
-  probability of seeing that value in the data.
-* Just looking at summary statistics isn't enough.
-* Don't take averages of medians
+One of the major advantages of moment-based measures like the mean and
+variance is the ease with they can be combined together. There is no
+such operation for a median. The median of medians is not the median
+of the whole, and the mean of the medians is right out.
 
-Out of scope, but mention in next steps:
+Teservoir sampling readds this power of data set combination. With the
+count of the associated data, we can create a weighted dataset
+representative of both. This mergeability of a streaming summary is
+what makes it "distributed".
 
-* Cardinality (HLL)
-* Count min sketch
-* EWMA is nuanced, takes interpretation
+## Shortcomings and practical improvements
+
+Reservoir sampling has its shortcomings. In particular, like a
+thumbnail it lacks resolution if you're interesting in very specific
+areas. Good implementations of reservoir sampling will already track
+the maximum and minimum values, but for engineers interested in the
+edges, we recommend keeping an increased set of the exact
+outliers. For example, for critical paths, track the 10 highest
+response times observed in the last hour.
+
+P2?
+
+# Next steps
+
+Statistics is a huge field, and engineering offers a huge range of
+applications. There are a lot of places to go from here, and we wanted
+to offer some running starts for the areas we feel are natural
+extensions to the fundamentals above.
+
+## More advanced statistics
+
+* Cardinality, HLL, Sketches
+* EWMA (nuanced, requires interpretation)
+* Tracking correlations
 * Applying predictive modeling, like regressions and fitting
   distributions can help you assess whether you are collecting
   sufficient information, or if you're missing some metrics.
 * Not all data makes sense as a time series. It may be easy to
   implement certain algorithms over time series streams, but be
   careful about shoehorning.
+
+## Instrumentation
+
+We focused a lot on statistical fundamentals, but how do we generate
+relevant datasets in the first place? Our answer is through structured
+instrumentation of our components. With the right hooks in place the
+data is already there when we need it, whether we're dropping
+everything to debug or when we have a spare cycle to improve
+performance.
+
+One of the many advantages to investing in instrumentation early is
+that you get a sense for the overhead of data collection. Reliability
+and features are far more important in the enterprise than
+performance. With a low enough barrier to entry,
+
+# Vocabulary
+
+Whether you're evaluating yourself after reading this article, or
+interviewing a candidate with statistics on their resume, this handy
+list can help check one's ability to discuss statistics fundamentals
+as applied to complex systems.
+
+
+# Also mention
+
+* Probability distribution: A mapping of a given value to the
+  probability of seeing that value in the data.
+* Just looking at summary statistics isn't enough.
 
 This post focused on streaming, numeric, descriptive, non-parametric
 statistical measures. There are many other types of data. Categorical
@@ -141,3 +205,6 @@ specific intervals.
   compose well for longer-term trend analysis, and really doesn't work
   when the previous week isn't representative (i.e., had an outage or
   a spike).
+* "Big data" is not a necessary step toward understanding big
+  systems. In fact, in practice, data size often inversely correlates
+  with information density and utility.
