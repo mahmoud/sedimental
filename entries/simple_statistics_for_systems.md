@@ -45,27 +45,29 @@ outcomes. Knowing that "descriptive" statistics is the technical
 opposite of "inferential" statistics drastically narrows down future
 searches.
 
-Collecting data is all about balance. Too little data and, at best,
-you might as well have not bothered. At worst, you make an uninformed
+Collecting data is all about balance. Too little data and best case,
+you might as well have not bothered. Worst case, you make an uninformed
 decision that takes you down with it. Then again, too much data can
 also result in downtime, and even if you keep an eye on memory
 consumption, you need to consider the time consumption of sifting
 through data excess. "Big data" is not a necessary step toward
 understanding big systems. We want dense, balanced data.
 
-So what tools does the engineer have for balanced collection? Much
-like metadata volume and dimensions, the techniques go on and on. That
-said, you can get quite far with the fundamentals, so let's start
-covering the groundwork with familiar territory.
+So what tools does the engineer have for balanced collection? When it
+comes to metadata, it doesn't matter if we're looking at volume,
+dimensions, or techniques, there is always more. That said, the
+fundamentals will carry you quite far, so let's start covering the
+groundwork with familiar territory.
 
 # Harnessing momentum
 
-The concept of a statistical moment may sound advanced or even a
-little like a niche hashtag, but virtually everyone can compute an
-arithmetic mean, also known as the average. Our everyday average is
-what's known as the first statistical moment. The mean is nice to
-calculate and can be quite englightening, but there's a reason this
-post doesn't end here.
+The concept of statistical moments may sound advanced, unfamiliar, or
+even a little like a niche hashtag, but virtually everyone uses
+them. After all, by age 10 most students can compute an arithmetic
+mean, otherwise known as the average. Our everyday average is what's
+known as the first statistical moment. The mean is nice to calculate
+and can be quite englightening, but there's a reason this post doesn't
+end here.
 
 The mean is just one of four statistical moments. There are four
 moments in all, yielding four measures, each representing a
@@ -89,68 +91,98 @@ trustworthy representatives of most engineering data.
 Moment-based measures are not *robust*. Non-robust statistics
 simultaneously:
 
-* Prone to skew by outliers
-* Dilute the importance of those outliers
+* Bend to skew by outliers, but also
+* Dilute the meaning of those outliers
 
-This makes moment-based statistics especially problematic, as outliers
-occur everywhere in real-world systems. In practice, outliers often
-represent the most critical data for a troubleshooting engineer. The
-last thing we want is a fragile measure like the mean, dampening our
-statistical fun.
+An outlier is any data point that is distant from the rest of the
+distribution. They sound remote, but in real systems they occur
+everywhere, making moment-based statistics especially problematic. In
+practice, outliers often represent the most critical data for a
+troubleshooting engineer. The last thing we need is a fragile measure
+like the mean dampening our statistical efforts.
+
+So, lesson #1 is avoid non-robust descriptive statistics like the
+mean. Now, what are some robust techniques can we use instead?
 
 # Quantifying for success
 
-If you've ever taken a standardized test, or paid attention during tax
-season, you're already familiar with quantiles. Quantiles are points
-which subdivide the space into equal parts. In practice we usually
-speak about quartiles (4-parts) and percentiles (100-parts). Most
-nontechnical areas focus in on the *median* as a robust central
-indicator.
+If you've ever gotten standardized test results, or paid attention
+during tax season, you're already familiar with quantiles. Quantiles
+are points which subdivide the data range into equal parts. Most
+often, we speak of quartiles (4 parts) and percentiles (100
+parts). Most nontechnical areas focus in on the *median* as a robust
+central indicator.
 
-However, experienced engineers are happy to know the median, the data
-doesn't get interesting until we get into the extremes. For
-performance and reliability, that means the 95th, 98th, 99th, and
-99.9th percentiles.
+However, while experienced engineers are happier with the median than
+the mean, the data doesn't really get interesting until we get into
+the extremes. For performance and reliability, that means the 95th,
+98th, 99th, and 99.9th percentiles.
 
-The challenge with quantiles is efficient computation. The traditional
-way to calculate the median, for instance, is to choose the middle
-value or the average of the two middle values from a sorted set of
-*all* the data. Considering all the data may be the only way to
-calculate exact quantiles, but in practice, every application has its
-error tolerances. We can estimate quantiles much more efficiently.
+The challenge with quantiles is efficient computation. For instance,
+the traditional way to calculate the median is to choose the middle
+value, or the average of the two middle values, from a sorted set of
+*all* the data. Considering all the data is the only way to calculate
+exact quantiles. It's also prohibitive for our use case. Still, every
+application has its error tolerances, and statistics is founded on
+utilitarian compromise. Using the principle of "good enough", an
+engineer has ways to estimate quantiles much more efficiently.
 
-## Reservoir sampling
+## Dipping into the stream
 
-Scaled down version of the data, like a thumbnail. Streaming, but also
-works with populations of unknown size, so it fits perfectly with
-applications like response latency tracking.
+The most straightforward statistical solution to too much data is to
+simply work with less of it. The canonical way to achieve this without
+introducing bias with through random sampling. Fortunately, Donald
+Knuth popularized an elegant approach that enables random sampling
+over a stream: Reservoir Sampling.
 
+First we designate a *counter*, to be incremented for every data point
+seen, as well as the *reservoir*, generally an ordered container of a
+certain *size*, such as a list or array. Until we encounter *size*
+elements, we simply add elements to *reservoir*. Once *reservoir* is
+full, data points only have a 1/*counter* chance to be added. This way
+*reservoir* is always representative of the dataset as a whole,
+without unbounded memory requirements.  # TODO error rate
+
+Reservoir sampling creates a scaled down version of the data, like a
+fixed-size thumbnail. It works with populations of unknown size, so it
+fits perfectly with applications like response latency tracking.
+
+One of the major advantages of moment-based measures like the mean and
+variance is the ease with they can be combined together. As long as
+you have a count, you can create a weighted equation that will give
+you a mean representative of two populations combined. There is no
+such operation for a median. The median of medians is not the median
+of the whole, and the mean of the medians is right out.
+
+Reservoir sampling readds this power of dataset combination, much more
+robustly than moment-based statistics. With the count of the
+associated data, we can create a weighted dataset representative of
+both. This is like taking two thumbnails, scaling them up,
+interleaving them, and scaling back down again. This mergeability is
+incredibly important for algorithms running in-process over streams of
+data that often, to reach its full potential, must be recombined and
+rolled up across processes, machines, and datacenters.
+
+<!--
 Not pre-selecting the quantile points also enables better probability
 density estimation with techniques like KDE.
 
 Histograms are massively useful for engineering applications
-
-One of the major advantages of moment-based measures like the mean and
-variance is the ease with they can be combined together. There is no
-such operation for a median. The median of medians is not the median
-of the whole, and the mean of the medians is right out.
-
-Reservoir sampling readds this power of data set combination. With the
-count of the associated data, we can create a weighted dataset
-representative of both. This mergeability of a streaming summary is
-what makes it "distributed".
+-->
 
 ## Shortcomings and practical improvements
 
 Reservoir sampling has its shortcomings. In particular, like a
-thumbnail it lacks resolution if you're interesting in very specific
+thumbnail, it lacks resolution if you're interested in very specific
 areas. Good implementations of reservoir sampling will already track
 the maximum and minimum values, but for engineers interested in the
 edges, we recommend keeping an increased set of the exact
 outliers. For example, for critical paths, track the 10 highest
 response times observed in the last hour.
 
-P2?
+Depending on your runtime environment, reservoir sampling's memory
+costs can pile up. At PayPal, the typical reservoir is allocated
+between 16 and 64 kilobytes.
 
 # Next steps
 
