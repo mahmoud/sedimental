@@ -86,7 +86,7 @@ engineer, we can go one step further.
 
 The mean, variance, skewness, and kurtosis are almost never the right
 tools for a performance-minded engineer. Moment-based measures are not
-trustworthy representatives of most engineering data.
+trustworthy messengers of critical engineering metadata.
 
 Moment-based measures are not *robust*. Non-robust statistics
 simultaneously:
@@ -98,11 +98,17 @@ An outlier is any data point that is distant from the rest of the
 distribution. They sound remote, but in real systems they occur
 everywhere, making moment-based statistics especially problematic. In
 practice, outliers often represent the most critical data for a
-troubleshooting engineer. The last thing we need is a fragile measure
-like the mean dampening our statistical efforts.
+troubleshooting engineer.
 
-So, lesson #1 is avoid non-robust descriptive statistics like the
-mean. Now, what are some robust techniques can we use instead?
+The mean and variance have two advantages: easy implementation and
+broad familiarity. But in reality, that familiarity regularly leads to
+damaging assumptions that ignore specifics like outliers. For software
+performance, the mean and variance are useful *only* in the context of
+robust statistical measures.
+
+So, enough buildup. Lesson #1 is avoid relying solely on non-robust
+descriptive statistics like the mean. Now, what robust techniques can
+we bring in to save the day?
 
 # Quantifying for success
 
@@ -170,19 +176,23 @@ density estimation with techniques like KDE.
 Histograms are massively useful for engineering applications
 -->
 
-## Shortcomings and practical improvements
+## Reservoir reservations and recommendations
 
-Reservoir sampling has its shortcomings. In particular, like a
-thumbnail, it lacks resolution if you're interested in very specific
-areas. Good implementations of reservoir sampling will already track
-the maximum and minimum values, but for engineers interested in the
-edges, we recommend keeping an increased set of the exact
+Reservoir sampling does have its shortcomings. In particular, like an
+image thumbnail, a random sample lacks the resolution needed to zoom
+in on details. Good implementations of reservoir sampling will already
+track the maximum and minimum values, but for engineers interested in
+the edges, we recommend keeping an increased set of the exact
 outliers. For example, for critical paths, track the 10 highest
 response times observed in the last hour.
 
-Depending on your runtime environment, reservoir sampling's memory
-costs can pile up. At PayPal, the typical reservoir is allocated
-between 16 and 64 kilobytes.
+Depending on your runtime environment, resources may come at a
+premium. Reservoir sampling requires very little processing power,
+provided you have an efficient PRNG, as one can find on almost every
+modern device running a POSIX operating system. But memory costs can
+pile up. At PayPal, the typical reservoir is allocated between 16 and
+64 kilobytes. Sampling more than hundreds of variables can get costly,
+but usually by that point you're running into human limits
 
 # Next steps
 
@@ -272,9 +282,8 @@ series are used all over, from per-minute transaction and error rates
 to the Python team's homegrown Pandas $PYPL stock price analysis. Not
 all data makes sense as a time series. It may be easy to implement
 certain algorithms over time series streams, but be careful about
-shoehorning. Time-bucketing leaves a massive imprint on the data,
-leading to fewer ways to safely combine samples and more shadows of
-misleading correlations.
+shoehorning. Time-bucketing contorts the data, leading to fewer ways
+to safely combine samples and more shadows of misleading correlations.
 
 **Moving statistics** are another area that can be combined with time
 to create a powerful metric. For instance, the exponentially-weighted
@@ -296,39 +305,59 @@ generally use a lot more time series. TODO
 **Survival analysis** is used to analyze the lifetimes of system
 components, and must make an appearance in any engineering article
 about reliability. Invaluable for simulations and post-mortem
-investigations, when the software industry gets to a point where it
-leverages this field as much as the hardware industry, the technology
-world will be a better place.
+investigations, even a basic understanding of the bathtub curve can
+provide insight into lifespans of running processes. When the software
+industry gets to a point where it leverages this field as much as the
+hardware industry, the technology world will have reached a better
+place.
 
 ## Instrumentation
 
 We focused a lot on statistical fundamentals, but how do we generate
 relevant datasets in the first place? Our answer is through structured
 instrumentation of our components. With the right hooks in place the
-data is already there when we need it, whether we're dropping
-everything to debug or when we have a spare cycle to improve
-performance.
+data will be there when we need it, whether we're dropping everything
+to debug an issue or when we have a spare cycle to improve performance.
 
 One of the many advantages to investing in instrumentation early is
-that you get a sense for the overhead of data collection. Reliability
-and features far outweigh performance in the enterprise space. Many
-critical services could be up to twice as fast without
-instrumentation, but removing this aspect would render them
-unmaintainable. Good work takes cycles, and for most services, metrics
-collection around critical paths is second only to the features
-themselves.
+that you get a sense for the performance overhead of data
+collection. Reliability and features far outweigh performance in the
+enterprise space. Many critical services I've worked on could be
+multiple times faster without instrumentation, but removing this
+aspect would render them unmaintainable.
+
+Good work takes cycles. An airplane could carry more passengers
+without all those heavy dials and displays up front. For most
+services, it's not hard to imagine logging and metrics collection is
+second only to the features themselves. Going further, being forced to
+choose does not bode well for the reliability record of the
+application and/or organization.
 
 Much of PayPal's Python services' robustness can be credited to a
 reliable remote logging infrastructure, combined with a robust,
 unobtrusive instrumentation framework.
 
-# Vocabulary
+# Self-evaluation
 
-Whether you're evaluating yourself after reading this article, or
-interviewing a candidate with statistics on their resume, this handy
-list can help check one's ability to discuss statistics fundamentals
-as applied to complex systems.
+Whether you feel like evaluating yourself or interviewing a job
+candidate, here are some questions that a dedicated engineer intent on
+building complex systems should be able to answer:
 
+1. What statistical techniques can one use to measure performance and
+   reliability?
+2. What are the challenges with using arithmetic mean?
+3. What does it mean for a statistic to be robust?
+4. What is the difference between a streaming algorithm and an online algorithm?
+
+These are pretty open-ended questions, but for each of the answers I
+would expect at least:
+
+1. Statistical measures include mean, variance, median, and
+   percentiles. Points for anything else that is non-parametric or
+   robust.
+
+
+2. The
 
 # Also mention
 
