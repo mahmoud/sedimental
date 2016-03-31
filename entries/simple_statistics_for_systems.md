@@ -54,20 +54,20 @@ through data excess. "Big data" is not a necessary step toward
 understanding big systems. We want dense, balanced data.
 
 So what tools does the engineer have for balanced collection? When it
-comes to metadata, it doesn't matter if we're looking at volume,
-dimensions, or techniques, there is always more. That said, the
-fundamentals will carry you quite far, so let's start covering the
-groundwork with familiar territory.
+comes to metadata, there is never a shortage of volume, dimensions,
+or techniques. That said, the fundamentals will carry you quite far,
+so let's start covering the groundwork with familiar territory.
 
 # Harnessing momentum
+<!-- moment of truth. moment of inertia. spur of the moment. -->
 
 The concept of statistical moments may sound advanced, unfamiliar, or
-even a little like a niche hashtag, but virtually everyone uses
-them. After all, by age 10 most students can compute an arithmetic
-mean, otherwise known as the average. Our everyday average is what's
-known as the first statistical moment. The mean is nice to calculate
-and can be quite englightening, but there's a reason this post doesn't
-end here.
+even a little fun (#statsmoments), but virtually everyone uses them,
+including you. After all, by age 10 most students can compute an
+arithmetic mean, otherwise known as the average. Our everyday average
+is what's known as the first statistical moment. The mean is nice to
+calculate and can be quite englightening, but there's a reason this
+post doesn't end here.
 
 The mean is just one of four statistical moments. There are four
 moments in all, yielding four measures, each representing a
@@ -111,6 +111,7 @@ descriptive statistics like the mean. Now, what robust techniques can
 we bring in to save the day?
 
 # Quantifying for success
+<!-- quantile mechanics -->
 
 If you've ever gotten standardized test results, or paid attention
 during tax season, you're already familiar with quantiles. Quantiles
@@ -135,11 +136,20 @@ engineer has ways to estimate quantiles much more efficiently.
 
 ## Dipping into the stream
 
-The most straightforward statistical solution to too much data is to
-simply work with less of it. The canonical way to achieve this without
-introducing bias with through random sampling. Fortunately, Donald
-Knuth popularized an elegant approach that enables random sampling
-over a stream: Reservoir Sampling.
+Traditionally statisticians have had trouble collecting the data. In
+software cases, the collection is automatic. Too automatic. We always
+end up with too much. The easy way to handle excess data is to discard
+it. The harder part is discarding data without introducing bias. Both
+cases, traditional and modern, use the same solution: random sampling.
+
+The twist is that we are sampling from an unknown population, looking
+only at one point at a time. This use case calls for a special class
+of algorithms: online algorithms, which are a subclass of streaming
+algorithms. "Online" implies only single points are considered in a
+single pass. "Streaming" implies the program can only consider a
+subset of the data at a time, but can work in batches or run multiple
+passes. Fortunately, Donald Knuth popularized an elegant approach
+that enables random sampling over a stream: Reservoir Sampling.
 
 First we designate a *counter*, to be incremented for every data point
 seen, as well as the *reservoir*, generally an ordered container of a
@@ -216,15 +226,15 @@ everything from the familiar histogram to the
 **Categorical statistics** contrast with numerical statistics in that
 the data is not mathematically measurable. Categorical data can be
 big, such as IPs and phone numbers, or small, like user languages. The
-key metrics in this area are around counts, or cardinality. PayPal's
-Python services use HyperLogLog and Count-Min sketches for
-distributable streaming cardinality measurements. While reservoir
+key metrics in this area are around counts, or cardinality. Some PayPal
+components have used HyperLogLog and Count-Min sketches for
+distributable streaming cardinality estimates. While reservoir
 sampling is much simpler, and can be used for categorical data as
 well, HLL and CMS offer increased space efficiency, and more
 importantly: proven error bounds. After grasping reservoir sampling,
 but before delving into advanced cardinaltiy structures, you may want
 to have a look at [boltons ThresholdCounter][btc], the heavy hitters
-counting used extensively in PayPal's Python services.
+counter used extensively in PayPal's Python services.
 
 [btc]: http://boltons.readthedocs.org/en/latest/cacheutils.html#threshold-bounded-counting
 
@@ -345,9 +355,12 @@ building complex systems should be able to answer:
 
 1. What statistical techniques can one use to measure performance and
    reliability?
-2. What are the challenges with using arithmetic mean?
+2. What are the strengths and weaknesses of the arithmetic mean as a
+   performance statistic?
 3. What does it mean for a statistic to be robust?
-4. What is the difference between a streaming algorithm and an online algorithm?
+4. How does one handle outliers in performance metrics?
+5. What is the difference between a streaming algorithm and an online algorithm?
+6. What are three beneficial features of reservoir sampling?
 
 These are pretty open-ended questions, but for each of the answers I
 would expect at least:
@@ -355,9 +368,23 @@ would expect at least:
 1. Statistical measures include mean, variance, median, and
    percentiles. Points for anything else that is non-parametric or
    robust.
-
-
-2. The
+2. The mean is too sensitive to outliers, and yet not powerful enough
+   to the importance of those outliers to engineering applications.
+3. Robust statistics are resistant to influence by outliers.
+4. Outliers should be recorded and tracked as strong indicators of
+   system weakness. The last thing I want to hear is about trimming or
+   other techniques that treat outliers as noise or flukes.
+5. An online algorithm is a streaming algorithm, but with more limits
+   on its resources.
+6. Reservoir sampling has many benefits:
+    1. Quantile-oriented, robust, non-parametric
+    2. Consistent, configurable memory usage
+    3. Low CPU usage
+    4. All data within the sample are real points, not interpolated
+    5. Reservoirs are combinable, enabling rollups
+    6. Quantile cutpoints are not preselected, enabling better
+    visibility into distribution shape, including techniques like
+    histograms and kernel density estimation.
 
 # Also mention
 
