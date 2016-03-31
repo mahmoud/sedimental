@@ -2,6 +2,8 @@
 # TODO: document other hooks
 
 import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__)) + '/lib')
 
 import yaml
 
@@ -20,6 +22,35 @@ def chert_post_load(chert_obj):
             continue
         base_name, _ = os.path.splitext(os.path.split(e.source_path)[-1])
         e.headers['entry_root'] = 'esp/' + base_name
+
+
+def is_potweet(sentence):
+    s = sentence
+    if not 60 < len(s) < 130:
+        return False
+    # TODO: regex for punc, right now throws out sentences starting
+    # with e.g., "something"
+    if s.lower().startswith(('and', 'but', 'so')):
+        return False
+    return True
+
+def chert_post_render(chert_obj):
+
+    from crisco import en_split_sentences
+    from boltons.strutils import html2text
+
+    for e in chert_obj.draft_entries:
+        if e.title != 'Simple Statistics for Systems':
+            continue
+
+        text = html2text(e.entry_html)
+        sentences = en_split_sentences(text)
+        count = 0
+        for s in sentences:
+            if not is_potweet(s):
+                continue
+            count += 1
+            print count, '-', s
 
 
 def _autotag_entries(chert_obj):
