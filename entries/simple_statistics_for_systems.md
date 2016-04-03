@@ -23,10 +23,6 @@ lighten software maintenance and speed up future development through
 answers made possible by the right kinds of applied statistics.
 
 <!--
-Everyone needs a reintroduction to statistics after a few years of
-real work. Even if you studied statistics in school, real work, real
-data, and real questions have a way of making you wonder if it was
-really you who passed those statistics exams.
 -->
 
 [TOC]
@@ -380,12 +376,12 @@ expand into:
 **Non-parametric statistics** gave us quantiles, but offers so much
 more. Generally, *non-parametric* describes any statistical construct
 that does not make assumptions about probability distribution,
-e.g. normal or binomial. This means it offers the most
-broadly-applicable tools in the descriptive toolbox. This includes
-everything from the familiar histogram to the sleeker kernel density
-estimation. There's also a wide variety of nonparametric tests aimed
-at quantitatively discovering your data's distribution and expanding
-into the wide world of parametric methods.
+e.g. normal or binomial. This means it has the most broadly-applicable
+tools in the descriptive statistics toolbox. This includes everything
+from the familiar histogram to the sleeker kernel density estimation
+(KDE). There's also a wide variety of nonparametric tests aimed at
+quantitatively discovering your data's distribution and expanding into
+the wide world of parametric methods.
 
 **Parametric statistics** contrast with non-parametric statistics in
 that the data is presumed to follow a given probability
@@ -434,9 +430,9 @@ Nevertheless, a simple, practical exploration of correlations can give
 you a better sense of your system, as well as inform you as to
 redundant data collection.
 
-**Multimodal statistics** abound in real world data, where multiple
-distributions are embedded in a single set. Consider response times
-from an HTTP service:
+**Multimodal statistics** abound in real world data: multiple peaks or
+multiple distributions packed into a single dataset. Consider response
+times from an HTTP service:
 
 * Successful requests (200s) take a "normal" amount of time
 * Client failures (400s) complete quickly, as little work can be done with invalid requests.
@@ -451,13 +447,14 @@ bullet and leave the data mixed.
 
 **Time-series statistics** transforms the data stream by
 contextualizing it with a single, near-universal dimension: time. Data
-is collected at continuous, fixed-length intervals. At PayPal time
+is collected at contiguous, fixed-length intervals. At PayPal, time
 series are used all over, from per-minute transaction and error rates
-to the Python team's homegrown Pandas $PYPL stock price analysis. Not
-all data makes sense as a time series. It may be easy to implement
-certain algorithms over time series streams, but be careful about
-shoehorning. Time-bucketing contorts the data, leading to fewer ways
-to safely combine samples and more shadows of misleading correlations.
+sent to OpenTSDB, to the Python team's homegrown Pandas $PYPL stock
+price analysis. Not all data makes sense as a time series. It may be
+easy to implement certain algorithms over time series streams, but be
+careful about shoehorning. Time-bucketing contorts the data, leading
+to fewer ways to safely combine samples and more shadows of misleading
+correlations.
 
 **Moving statistics** are another area that can be combined with time
 to create a powerful metric. For instance, the exponentially-weighted
@@ -487,9 +484,9 @@ place.
 
 # Self-evaluation
 
-Whether you feel like evaluating yourself or interviewing a job
-candidate, here are some questions that a dedicated engineer intent on
-building complex systems should be able to answer:
+Whether evaluating yourself or putting a candidate through the paces,
+here are some questions that an engineer intent on building complex
+systems should be able to answer:
 
 1. What statistical techniques can one use to measure performance and
    reliability?
@@ -527,3 +524,17 @@ would expect at least:
     histograms and kernel density estimation.
 7. Reservoir sampling lacks resolution at edges and has
    non-negligible memory usage.
+
+# Conclusion
+
+It's been a journey, but I hope you learned something new. Everyone
+needs a reintroduction to statistics after a few years of real
+work. Even if you studied statistics in school, real work, real data,
+and real questions have a way of making one wonder who passed those
+statistics exams.
+
+I hope you found this a useful enough guide that you'll save yourself
+some time, either by applying the techniques described or subscribing
+and sharing the link with other developers. As interconnectivity
+increases, a rising tide of robust measurement floats all software
+engineering boats.

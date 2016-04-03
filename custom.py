@@ -34,15 +34,17 @@ def is_potweet(sentence):
         return False
     return True
 
+
 def chert_post_render(chert_obj):
 
     from crisco import en_split_sentences
     from boltons.strutils import html2text
 
     for e in chert_obj.draft_entries:
-        if e.title != 'Simple Statistics for Systems':
+        if e.title != 'Straightforward Software Statistics':
             continue
 
+        # TODO: mutli-sentence twets
         text = html2text(e.entry_html)
         sentences = en_split_sentences(text)
         count = 0
