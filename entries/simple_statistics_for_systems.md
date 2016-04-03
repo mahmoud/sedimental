@@ -38,47 +38,47 @@ improve. At PayPal this is often one of our hundreds of HTTP server
 applications. If a developer were to look at our internal frameworks,
 they would find hundreds of critical paths that have been instrumented
 to generate streams of measurements: function execution times, request
-lengths, and response codes, for instance. We discuss more about our
-methods of instrumentation below.
+lengths, and response codes, for instance.
 
-For now, we assume these data collection streams in place and focus on
-numerical measurements like durations. The correct starting point
-minimizes bias. We assume the least, treating our measurements as
-values of random variables. So opens the wide world of descriptive
-statistics, a whole area devoted to describing the behavior of
-randomness. While this may sound obvious, remember that much of
-statistics is dedicated to modeling and inferring future
-outcomes. Knowing that "descriptive" statistics is the technical
-opposite of "inferential" statistics drastically narrows down future
-searches.
+We discuss more about instrumentation below, but for now we assume
+these data collection streams are in place and focus on numerical
+measurements like durations. The correct starting point minimizes
+bias. We assume the least, treating our measurements as values of
+random variables. So opens the wide world of descriptive statistics, a
+whole area devoted to describing the behavior of randomness. While
+this may sound obvious, remember that much of statistics is dedicated
+to modeling and inferring future outcomes. Knowing that "descriptive"
+statistics is the technical opposite of "inferential" statistics
+drastically narrows down future searches.
 
-Collecting data is all about balance. Too little data and you might as
-well have not bothered, in the best case. Worst case, you make an
-uninformed decision that takes your service down with it. Then again,
-too much data can also result in downtime, and even if you keep an eye
-on memory consumption, you need to consider the resources required to
-through excess data. "Big data" looms large, but it is not a necessary
-step toward understanding big systems. We want dense, balanced data.
+Collecting measurements is all about balance. Too little data and you
+might as well have not bothered, in the best case. Worst case, you
+make an uninformed decision that takes your service down with it. Then
+again, too much data can also result in downtime, and even if you keep
+an eye on memory consumption, you need to consider the resources
+required to through excess data. "Big data" looms large, but it is not
+a necessary step toward understanding big systems. We want dense,
+balanced data.
 
 So what tools does the engineer have for balanced collection? When it
-comes to metadata, there is never a shortage of volume, dimensions,
-or techniques. That said, the fundamentals will carry you quite far,
-so let's start covering the groundwork with familiar territory.
+comes to metadata, there is never a shortage of volume, dimensions, or
+techniques. To avoid getting lost, we focus on descriptive summary
+statistics that can be collected with minimal overhead. Now that we
+know the direction, let's start out from familiar territory.
 
-# Harnessing momentum
+# Moments of truth
 <!-- moment of truth. moment of inertia. spur of the moment. -->
 
-The concept of statistical moments may sound advanced, unfamiliar, or
-even a little fun (#statsmoments), but virtually everyone uses them,
-including you. After all, by age 10 most students can compute an
-arithmetic mean, otherwise known as the average. Our everyday average
-is what's known as the first statistical moment. The mean is nice to
-calculate and can be quite englightening, but there's a reason this
-post doesn't end here.
+The concept of a statistical moment may not sound familiar, but
+virtually everyone uses them, including you. By age 10, most students
+can compute an average, otherwise known as the arithmetic mean. Our
+everyday mean is known to the informed few as the first statistical
+moment. The mean is nice to calculate and can be quite enlightening,
+but there's a reason this post doesn't end here.
 
 The mean is just one of four statistical moments. There are four
 moments in all, yielding four measures, each representing a
-progression that adds to the data description:
+progression that adds up to a standard data description:
 
 1. Mean - The central tendency of the data
 2. Variance - The tightness of the grouping around the mean
@@ -88,12 +88,13 @@ progression that adds to the data description:
 As a group these are known as shape descriptors of a distribution, and
 tell a much more complete story about the data. Each successive
 measure adds less practical information than the last, which is why
-skewness and kurtosis are often left out. But for the practical
-engineer, we can go one step further.
+skewness and kurtosis are often left out. And while many are just be
+hearing about these measures for the first time, neglect may be
+correct.
 
 The mean, variance, skewness, and kurtosis are almost never the right
 tools for a performance-minded engineer. Moment-based measures are not
-trustworthy messengers of critical engineering metadata.
+trustworthy messengers of the critical engineering metadata we seek.
 
 Moment-based measures are not *robust*. Non-robust statistics
 simultaneously:
@@ -101,49 +102,50 @@ simultaneously:
 * Bend to skew by outliers
 * Dilute the meaning of those outliers
 
-An outlier is any data point that is distant from the rest of the
-distribution. They sound remote, but in real systems they occur
-everywhere, making moment-based statistics especially problematic. In
-practice, outliers often represent the most critical data for a
-troubleshooting engineer.
+An outlier is any data point distant from the rest of the
+distribution. "Outlier" may sound remote and improbable, but in real
+systems they occur everywhere, making moment-based statistics
+uninformative and even dangerous. Outliers often represent the most
+critical data for a troubleshooting engineer.
 
-The mean and variance have two advantages: easy implementation and
-broad familiarity. But in reality, that familiarity regularly leads to
-damaging assumptions that ignore specifics like outliers. For software
-performance, the mean and variance are useful *only* in the context of
-robust statistical measures.
+So why do so many continue to use moments for software? The short
+answer, if you'll pardon the pun: momentum. The mean and variance have
+two advantages: easy implementation and broad familiarity. In reality,
+that familiarity regularly leads to damaging assumptions that ignore
+specifics like outliers. For software performance, the mean and
+variance are useful *only* in the context of robust statistical
+measures.
 
 So, enough buildup. Lesson #1 is avoid relying solely on non-robust
 descriptive statistics like the mean. Now, what robust techniques can
-we bring in to save the day?
+we turn to save the day?
 
-# Quantifying for success
-<!-- quantile mechanics -->
+# Quantile mechanics
 
 If you've ever gotten standardized test results, or paid attention
 during tax season, you're already familiar with quantiles. Quantiles
-are points which subdivide the data range into equal parts. Most
+are points which subdivide a dataset's range into equal parts. Most
 often, we speak of quartiles (4 parts) and percentiles (100
 parts). Most nontechnical areas focus in central indicators, hence the
 popularity of the *median*.
 
-While experienced engineers are happier with the median than the mean,
-the data doesn't really get interesting until we get into the
-extremes. For performance and reliability, that means the 95th, 98th,
-99th, and 99.9th percentiles. And of course the range, formed by the
-min and max, sometimes referred to as the 0th and 100th
-percentiles. Nothing adds clarity like accurate bounds on observed
-data.
+While experienced engineers are happier to see the median than the
+mean, the data doesn't really get interesting until we get into the
+extremes. For software performance and reliability, that means the
+95th, 98th, 99th, and 99.9th percentiles. Beyond this, nothing adds
+clarity like accurate bounds on the data. So we also look for the
+range, formed by the minimum and maximum observed values, sometimes
+called the 0th and 100th percentiles.
 
-The challenge with quantiles is efficient computation. The traditional
-way to calculate the median is to choose the middle value, or the
-average of the two middle values, from a sorted set of *all* the
-data. Considering all the data is the only way to calculate exact
-quantiles. The memory required also makes it prohibitive for our use
-case. Still, every application has its error tolerances, and
-statistics is founded on utilitarian compromise. Using the principle
-of "good enough", an engineer has ways of estimating quantiles much more
-efficiently.
+The challenge with quantiles and ranges is efficient computation. For
+instance, the traditional way to calculate the median is to choose the
+middle value, or the average of the two middle values, from a sorted
+set of *all* the data. Considering all the data at once is the only
+way to calculate exact quantiles. The memory required to do this for
+our use cases makes this method prohibitively expensive. Still, every
+application has its error tolerances, and statistics is founded on
+utilitarian compromise. Using the principle of "good enough", an
+engineer has ways of estimating quantiles much more efficiently.
 
 ## Dipping into the stream
 
@@ -153,18 +155,20 @@ possible to poll every person, taste every apple, or drive every
 car. So statistics continues to provide.
 
 In the realm of software performance, data generation and collection
-is automatic. Too automatic. The problem becomes collation, indexing, and
-storage. Hard problems, complete with with hard-working people.
+is automatable. It's easy to make a measurement system *too*
+automatic. The problem becomes collation, indexing, and storage. Hard
+problems, replete with with hard-working people.
 
-There are some easy ways to avoid those hard problems. The easiest is
-to throw data away. Discarded data needs no storage, but it can live
-on, haunting data in the form of bias. We want pristine, meaningful
-data, indistinguishable from the population. So statistics provides us
-random sampling.
+We're trying to make things easier. We want to avoid those hard
+problems. The easiest way to avoid the hard problem of too much data
+is to throw data away. Discarded data needs no storage, but if you're
+not careful, it will live on, haunting data in the form of biases. We
+want pristine, meaningful data, indistinguishable from the population,
+just a whole lot smaller. So statistics provides us random sampling.
 
-The twist is that we are often sampling from an unknown population,
-considering only at one point at a time. This use case demands a
-special class of algorithms: online algorithms, a subclass of
+The twist is that we want to sample from an unknown population,
+considering one data point at a time. This use case calls for a
+special corner of computer science: online algorithms, a subclass of
 streaming algorithms. "Online" implies only individual points are
 considered in a single pass. "Streaming" implies the program can only
 consider a subset of the data at a time, but can work in batches or
