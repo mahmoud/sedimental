@@ -1,26 +1,26 @@
 ---
-title: Simple Statistics for Systems
+title: Straightforward Software Statistics
 subtile: Easier development and maintenance through reintroduction
 ---
 
 Software development begins as a quest for capability, doing what
-could not be done before. But as soon as that *what* is achieved, the
-engineer is left to face the *how*. In enterprise software, the most
-frequently asked questions are, "How fast?" and more importantly, "How
-reliable?"
+could not be done before. Once that *what* is achieved, the engineer
+is left with the *how*. In enterprise software, the most frequently
+asked questions are, "How fast?" and more importantly, "How reliable?"
 
 Questions about software performance cannot be answered, or even
 appropriately articulated, without statistics.
 
-And yet, most developers can't tell you much about statistics. Much
-like math, statistics simply don't come up for typical
-project. Between coding and maintenance, who has the time?
+Yet most developers can't tell you much about statistics. Much like
+math, statistics simply don't come up for typical project. Between
+coding the new and maintaining the old, who has the time?
 
-Engineers must make the time. A few core practices go a long way in
-generating meaningful systems analysis. And a few common malpractices
-will set a project way back. This brief refresher on key statistical
-fundaments will have you lightening maintenance load and taking a lot
-of guesswork out of future development.
+Engineers must make the time. It's time to broach the topic, learn
+what works, and take the guesswork out of software. A few core
+practices go a long way in generating meaningful systems analysis. And
+a few common mistakes set projects way back. This guide aims to both
+lighten software maintenance and speed up future development through
+answers made possible by the right kinds of applied statistics.
 
 <!--
 Everyone needs a reintroduction to statistics after a few years of
@@ -29,29 +29,36 @@ data, and real questions have a way of making you wonder if it was
 really you who passed those statistics exams.
 -->
 
-# Data collection and statistical convention
+[TOC]
 
-Looking at the behavior of the system, we have to be critical,
-unbiased investigators. We instrument the system, turning it into a
-stream that generates data, such as function execution times, and
-usage information, like request lengths and response codes.
+# Collection and convention
 
-With these data collection streams in place, it's time to reach into
-the statistical toolbox. The unbiased starting point is to treat these
-numerical values as random variables and use descriptive
-statistics. While that may sound obvious, remember that much of
-statistics is dedicated to inferring and modeling future
+To begin, we consider a target component we want to measure and
+improve. At PayPal this is often one of our hundreds of HTTP server
+applications. If a developer were to look at our internal frameworks,
+they would find hundreds of critical paths that have been instrumented
+to generate streams of measurements: function execution times, request
+lengths, and response codes, for instance. We discuss more about our
+methods of instrumentation below.
+
+For now, we assume these data collection streams in place and focus on
+numerical measurements like durations. The correct starting point
+minimizes bias. We assume the least, treating our measurements as
+values of random variables. So opens the wide world of descriptive
+statistics, a whole area devoted to describing the behavior of
+randomness. While this may sound obvious, remember that much of
+statistics is dedicated to modeling and inferring future
 outcomes. Knowing that "descriptive" statistics is the technical
 opposite of "inferential" statistics drastically narrows down future
 searches.
 
-Collecting data is all about balance. Too little data and best case,
-you might as well have not bothered. Worst case, you make an uninformed
-decision that takes you down with it. Then again, too much data can
-also result in downtime, and even if you keep an eye on memory
-consumption, you need to consider the time consumption of sifting
-through data excess. "Big data" is not a necessary step toward
-understanding big systems. We want dense, balanced data.
+Collecting data is all about balance. Too little data and you might as
+well have not bothered, in the best case. Worst case, you make an
+uninformed decision that takes your service down with it. Then again,
+too much data can also result in downtime, and even if you keep an eye
+on memory consumption, you need to consider the resources required to
+through excess data. "Big data" looms large, but it is not a necessary
+step toward understanding big systems. We want dense, balanced data.
 
 So what tools does the engineer have for balanced collection? When it
 comes to metadata, there is never a shortage of volume, dimensions,
@@ -91,7 +98,7 @@ trustworthy messengers of critical engineering metadata.
 Moment-based measures are not *robust*. Non-robust statistics
 simultaneously:
 
-* Bend to skew by outliers, but also
+* Bend to skew by outliers
 * Dilute the meaning of those outliers
 
 An outlier is any data point that is distant from the rest of the
@@ -117,51 +124,92 @@ If you've ever gotten standardized test results, or paid attention
 during tax season, you're already familiar with quantiles. Quantiles
 are points which subdivide the data range into equal parts. Most
 often, we speak of quartiles (4 parts) and percentiles (100
-parts). Most nontechnical areas focus in on the *median* as a robust
-central indicator.
+parts). Most nontechnical areas focus in central indicators, hence the
+popularity of the *median*.
 
-However, while experienced engineers are happier with the median than
-the mean, the data doesn't really get interesting until we get into
-the extremes. For performance and reliability, that means the 95th,
-98th, 99th, and 99.9th percentiles.
+While experienced engineers are happier with the median than the mean,
+the data doesn't really get interesting until we get into the
+extremes. For performance and reliability, that means the 95th, 98th,
+99th, and 99.9th percentiles. And of course the range, formed by the
+min and max, sometimes referred to as the 0th and 100th
+percentiles. Nothing adds clarity like accurate bounds on observed
+data.
 
-The challenge with quantiles is efficient computation. For instance,
-the traditional way to calculate the median is to choose the middle
-value, or the average of the two middle values, from a sorted set of
-*all* the data. Considering all the data is the only way to calculate
-exact quantiles. It's also prohibitive for our use case. Still, every
-application has its error tolerances, and statistics is founded on
-utilitarian compromise. Using the principle of "good enough", an
-engineer has ways to estimate quantiles much more efficiently.
+The challenge with quantiles is efficient computation. The traditional
+way to calculate the median is to choose the middle value, or the
+average of the two middle values, from a sorted set of *all* the
+data. Considering all the data is the only way to calculate exact
+quantiles. The memory required also makes it prohibitive for our use
+case. Still, every application has its error tolerances, and
+statistics is founded on utilitarian compromise. Using the principle
+of "good enough", an engineer has ways of estimating quantiles much more
+efficiently.
 
 ## Dipping into the stream
 
-Traditionally statisticians have had trouble collecting the data. In
-software cases, the collection is automatic. Too automatic. We always
-end up with too much. The easy way to handle excess data is to discard
-it. The harder part is discarding data without introducing bias. Both
-cases, traditional and modern, use the same solution: random sampling.
+As a field, statistics formed to tackle the logistical issue of
+approximating an unreachable population. Even today, it's still not
+possible to poll every person, taste every apple, or drive every
+car. So statistics continues to provide.
 
-The twist is that we are sampling from an unknown population, looking
-only at one point at a time. This use case calls for a special class
-of algorithms: online algorithms, which are a subclass of streaming
-algorithms. "Online" implies only single points are considered in a
-single pass. "Streaming" implies the program can only consider a
-subset of the data at a time, but can work in batches or run multiple
-passes. Fortunately, Donald Knuth popularized an elegant approach
-that enables random sampling over a stream: Reservoir Sampling.
+In the realm of software performance, data generation and collection
+is automatic. Too automatic. The problem becomes collation, indexing, and
+storage. Hard problems, complete with with hard-working people.
+
+There are some easy ways to avoid those hard problems. The easiest is
+to throw data away. Discarded data needs no storage, but it can live
+on, haunting data in the form of bias. We want pristine, meaningful
+data, indistinguishable from the population. So statistics provides us
+random sampling.
+
+The twist is that we are often sampling from an unknown population,
+considering only at one point at a time. This use case demands a
+special class of algorithms: online algorithms, a subclass of
+streaming algorithms. "Online" implies only individual points are
+considered in a single pass. "Streaming" implies the program can only
+consider a subset of the data at a time, but can work in batches or
+run multiple passes. Fortunately, Donald Knuth popularized an elegant
+approach that enables random sampling over a stream: Reservoir
+Sampling.
 
 First we designate a *counter*, to be incremented for every data point
-seen, as well as the *reservoir*, generally an ordered container of a
-certain *size*, such as a list or array. Until we encounter *size*
-elements, we simply add elements to *reservoir*. Once *reservoir* is
-full, data points only have a 1/*counter* chance to be added. This way
-*reservoir* is always representative of the dataset as a whole,
-without unbounded memory requirements.  # TODO error rate
+seen. The *reservoir* is generally an ordered container of a certain
+*size*, such as a list or array. Now we can begin adding data. Until
+we encounter *size* elements, elements are added directly to
+*reservoir*. Once *reservoir* is full, incoming data points have a
+*size*/*counter* chance to be added. This way *reservoir* is always
+representative of the dataset as a whole, and is just as likely to
+have a data point from the beginning as it is from the end. All this,
+with bounded memory requirements, and very little computation.
 
-Reservoir sampling creates a scaled down version of the data, like a
-fixed-size thumbnail. It works with populations of unknown size, so it
-fits perfectly with applications like response latency tracking.
+In simpler terms, the reservoir progressively renders a scaled down
+version of the data, like a fixed-size thumbnail. Reservoir sampling's
+ability to handle populations of unknown size fits perfectly with
+tracking response latency and other metrics of a long-lived server
+process.
+
+## Interpreting reservoir data
+
+Once you have a reservoir what are the natural next steps? At PayPal
+we do what so many others do:
+
+1. Look at the range (min and max) and quantiles of interest
+   (generally median, 95th, 99th, 99.9th percentiles)
+2. Visualize the CDF and histogram to get a sense for the shape of the
+   data, usually by loading the data in a Jupyter notebook and using
+   Pandas, matplotlib, and occasionally bokeh.
+
+And that's it really. Beyond this we are usually adding more
+dimensions, like comparisons over time or between datacenters. Having
+the range, quantiles, and sampled view of the data really takes so
+much of the guesswork out that you end up saving time. Tighten a
+timeout, add a retry, test, and deploy. Or, if something more drastic
+is necessary, you know that when you've fixed it, you have the right
+numbers to back up your success.
+
+<!--
+
+### Combo
 
 One of the major advantages of moment-based measures like the mean and
 variance is the ease with they can be combined together. As long as
@@ -171,13 +219,30 @@ such operation for a median. The median of medians is not the median
 of the whole, and the mean of the medians is right out.
 
 Reservoir sampling readds this power of dataset combination, much more
-robustly than moment-based statistics. With the count of the
-associated data, we can create a weighted dataset representative of
-both. This is like taking two thumbnails, scaling them up,
-interleaving them, and scaling back down again. This mergeability is
-incredibly important for algorithms running in-process over streams of
-data that often, to reach its full potential, must be recombined and
+robustly than moment-based statistics. With the counts of the
+associated data, we can create weighted datasets, suitable for merging
+into a reservoir representing more data. This is like taking two
+thumbnails, scaling them up, interleaving them, and scaling back down
+again. This mergeability is incredibly important for algorithms
+running over streams of data that often make the most sense when
 rolled up across processes, machines, and datacenters.
+
+### p-values
+
+Reservoir sampling introduces one subtle statistical
+nuance. Because the entire population is considered, and points are
+uniformly randomly selected, hypothesis-testing metrics like the
+p-value are meaningless here. Hypothesis testing is used as a checksum
+to test that the data is as random as we expect it to be according to
+a given distribution. But our sample is random by definition,
+guaranteed by the accuracy of your random number generator of
+choice. Furthermore, classical reservoir sampling as described here
+does not assume a distribution, so it is not possible to compute a
+p-value. Accuracy is instead measured directly as a function of the
+number of points configured in your reservoir. Low resolution will
+lead to poor accuracy.
+
+-->
 
 <!--
 Not pre-selecting the quantile points also enables better probability
@@ -189,20 +254,70 @@ Histograms are massively useful for engineering applications
 ## Reservoir reservations and recommendations
 
 Reservoir sampling does have its shortcomings. In particular, like an
-image thumbnail, a random sample lacks the resolution needed to zoom
-in on details. Good implementations of reservoir sampling will already
-track the maximum and minimum values, but for engineers interested in
-the edges, we recommend keeping an increased set of the exact
-outliers. For example, for critical paths, track the 10 highest
-response times observed in the last hour.
+image thumbnail, accuracy is only as good as the resolution
+configured.
+
+Good implementations of reservoir sampling will already track the
+maximum and minimum values, but for engineers interested in the edges,
+we recommend keeping an increased set of the exact outliers. For
+example, for critical paths, use a min heap to explicitly track the
+highest response times observed in the last hour.
 
 Depending on your runtime environment, resources may come at a
 premium. Reservoir sampling requires very little processing power,
-provided you have an efficient PRNG, as one can find on almost every
-modern device running a POSIX operating system. But memory costs can
-pile up. At PayPal, the typical reservoir is allocated between 16 and
-64 kilobytes. Sampling more than hundreds of variables can get costly,
-but usually by that point you're running into human limits
+provided you have an efficient PRNG. Don't bother checking, even your
+Arduino has one. But memory costs can pile up. Generally speaking,
+accuracy scales with the square root of size; twice as much accuracy
+will cost you four times as much memory, so there are diminishing
+returns. At PayPal, the typical reservoir is allocated 16,384 floating
+point slots, totalling 64 kilobytes. At this rate, the human developer
+runs into their memory limits before the server does. Tracking 500
+variables only takes 8 megabytes. As a developer, remembering what
+they all are is a different story.
+
+## Learning from reservoirs
+
+Usually, reservoir sampling gets us what we want and we can get on
+with non-statistical development. But sometimes, the situation calls
+for a more tailored approach.
+
+At various points at PayPal, we've worked with q-digests and biased
+quantile estimators and plenty of other advanced algorithms for
+handling performance data. After a lot of experimentation, two
+approaches remain our go-tos, both of which are much simpler than
+one might presume.
+
+The first approach, bucketed counting, establishes ranges of interest,
+called buckets, based on statistics gathered from a particular
+reservoir. While reservoir counting is data agnostic, looking only at
+a random value to decide where to put the data, bucketed counting
+looks at the value, finds the bucket whose range includes that value,
+and increments the bucket's associated counter. The value itself is
+not stored. The code is simple, and the memory consumption is even
+lower, but the key advantage is the execution speed. Bucketed counting
+is so low overhead that it allows statistics collection to permeate
+much deeper into our code than other algorithms would allow.
+
+The second, more advanced approach, is a classic, P2 quantile
+estimation. Sometimes we look at a distribution and decide we need
+more resolution for certain percentiles. P2 lets us specify the
+percentiles ahead of time, and it updates those values on every single
+observation. Conceived in the electronics industry of the 80s, P2 is a
+pragmatic online percentile algorithm designed for very simple
+devices. The memory consumption is very low, but due to the math
+involved, more computation is involved as compared to reservoir
+sampling and bucketed counting. Furthermore, we've never seen anyone
+attempt combination of P2 estimators, but we assume it's
+nontrivial. Still, for our use cases, P2 answers real questions and we
+can empirically vouch for P2's continued accuracy into the software
+domain.
+
+These approaches both take something learned from the reservoir sample
+and apply it toward doing less. Buckets provide answers in terms of a
+preconfigured histogram, P2 provides answers at specific quantile
+points of interest. Lesson #3 is to choose your statistics to match
+the questions you need to answer. If you don't know what those
+questions are, stick to general tools like reservoir sampling.
 
 # Next steps
 
@@ -211,17 +326,74 @@ applications. There are a lot of places to go from here, and we wanted
 to offer some running starts for the areas we feel are natural
 extensions to the fundamentals above.
 
+## Instrumentation
+
+We focused a lot on statistical fundamentals, but how do we generate
+relevant datasets in the first place? Our answer is through structured
+instrumentation of our components. With the right hooks in place the
+data will be there when we need it, whether we're dropping everything
+to debug an issue or when we have a spare cycle to improve performance.
+
+One of the many advantages to investing in instrumentation early is
+that you get a sense for the performance overhead of data
+collection. Reliability and features far outweigh performance in the
+enterprise space. Many critical services I've worked on could be
+multiple times faster without instrumentation, but removing this
+aspect would render them unmaintainable.
+
+Good work takes cycles. An airplane could carry more passengers
+without all those heavy dials and displays up front. For most
+services, it's not hard to imagine logging and metrics collection is
+second only to the features themselves. Going further, being forced to
+choose does not bode well for the reliability record of the
+application and/or organization.
+
+Much of PayPal's Python services' robustness can be credited to a
+reliable remote logging infrastructure, combined with a robust,
+unobtrusive instrumentation framework.
+
 ## More advanced statistics
 
 We focused here on descriptive, non-parametric statistics, most of
-which was numeric. This creates several obvious areas to expand into:
+which was numeric. Statistics is a very large field, with very
+specific terminology. Knowing the right vocabulary means the
+difference between the right answer and no answer. Here are the areas
+to expand into:
 
 **Non-parametric statistics** gave us quantiles, but also offers so
-much more. Generally, non-parametric is used to describe any
-statistical construct that does not presume a specific probability
+much more. Generally, *non-parametric* describes any statistical
+construct that does not make assumptions about probability
 distribution, e.g. normal or binomial. This means it offers the most
 broadly-applicable tools in the descriptive toolbox. This includes
-everything from the familiar histogram to the
+everything from the familiar histogram to the sleeker kernel density
+estimation. There's also a wide variety of nonparametric statistical
+tests aimed at quantitatively discovering your data's distribution and
+opening up the wide world of parametric methods.
+
+**Parametric statistics** contrast with non-parametric statistics in
+that the data is presumed to follow a given probability
+distribution. If you've established a model using inferential
+statistics, and that model can be put in terms of standard
+distributions, you've given yourself a powerful set of abstractions
+with which to reason about your system. We could do a whole article on
+the probability distributions we expect from different parts of our
+Python backend services (hint: expect a lot of [fish][poissond] and
+[telephones][erlangd]). Teasing apart the curves inherent in your
+system is quite a feat, but don't drift too far from the real data,
+and as with any extensive modeling exercise heed the cautionary song
+of the black swan.
+
+**Inferential statistics** contrast with descriptive statistics in
+that the goal is to develop models and predict future
+performance. Applying predictive modeling, like regressions and
+fitting distributions, can help you assess whether you are collecting
+sufficient data, or if you're missing some metrics. If you can
+establish a reliable model for your service and hook it into modeling
+and alerting, you'll have reached SRE nirvana. In the meantime, many
+teams make do with simply overlaying charts with the last week, but
+this requires constant manual interpretation, doesn't compose well for
+longer-term trend analysis, and really doesn't work when the previous
+week isn't representative (i.e., had an outage or a spike).
 
 **Categorical statistics** contrast with numerical statistics in that
 the data is not mathematically measurable. Categorical data can be
@@ -237,31 +409,6 @@ to have a look at [boltons ThresholdCounter][btc], the heavy hitters
 counter used extensively in PayPal's Python services.
 
 [btc]: http://boltons.readthedocs.org/en/latest/cacheutils.html#threshold-bounded-counting
-
-**Inferential statistics** contrast with descriptive statistics in
-that the goal is to develop models and predict future
-performance. Applying predictive modeling, like regressions and
-fitting distributions, can help you assess whether you are collecting
-sufficient data, or if you're missing some metrics. If you can
-establish a reliable model for your service and hook it into modeling
-and alerting, you'll have reached SRE nirvana. In the meantime, many
-teams make do with simply overlaying charts with the last week, but
-this requires constant manual interpretation, doesn't compose well for
-longer-term trend analysis, and really doesn't work when the previous
-week isn't representative (i.e., had an outage or a spike).
-
-**Parametric statistics** contrast with non-parametric statistics in
-that the data is presumed to follow a given probability
-distribution. If you've established a model using inferential
-statistics, and that model can be put in terms of standard
-distributions, you've given yourself a powerful set of abstractions
-with which to reason about your system. We could do a whole article on
-the probability distributions we expect from different parts of our
-Python backend services (hint: expect a lot of
-[fish][poisson]). Teasing apart the curves inherent in your system is
-quite a feat, but don't drift too far from the real data, and as with
-any extensive modeling exercise heed the cautionary song of the black
-swan.
 
 **Multivariate statistics** allow you to analyze multiple output
 variables at a time. It's easy to go overboard with multiple
@@ -299,7 +446,7 @@ to safely combine samples and more shadows of misleading correlations.
 to create a powerful metric. For instance, the exponentially-weighted
 moving average (EWMA), famously used by UNIX to represent load:
 
-```TODO: output```
+```load average: 1.37, 0.22, 0.14```
 
 This output packs a lot of information into a small space, and is very
 cheap to track, but it takes some knowledge and understanding to
@@ -320,32 +467,6 @@ provide insight into lifespans of running processes. When the software
 industry gets to a point where it leverages this field as much as the
 hardware industry, the technology world will have reached a better
 place.
-
-## Instrumentation
-
-We focused a lot on statistical fundamentals, but how do we generate
-relevant datasets in the first place? Our answer is through structured
-instrumentation of our components. With the right hooks in place the
-data will be there when we need it, whether we're dropping everything
-to debug an issue or when we have a spare cycle to improve performance.
-
-One of the many advantages to investing in instrumentation early is
-that you get a sense for the performance overhead of data
-collection. Reliability and features far outweigh performance in the
-enterprise space. Many critical services I've worked on could be
-multiple times faster without instrumentation, but removing this
-aspect would render them unmaintainable.
-
-Good work takes cycles. An airplane could carry more passengers
-without all those heavy dials and displays up front. For most
-services, it's not hard to imagine logging and metrics collection is
-second only to the features themselves. Going further, being forced to
-choose does not bode well for the reliability record of the
-application and/or organization.
-
-Much of PayPal's Python services' robustness can be credited to a
-reliable remote logging infrastructure, combined with a robust,
-unobtrusive instrumentation framework.
 
 # Self-evaluation
 
@@ -374,8 +495,9 @@ would expect at least:
 4. Outliers should be recorded and tracked as strong indicators of
    system weakness. The last thing I want to hear is about trimming or
    other techniques that treat outliers as noise or flukes.
-5. An online algorithm is a streaming algorithm, but with more limits
-   on its resources.
+5. An online algorithm *is* a streaming algorithm, but with more
+   limits on its resources. Alternatively, online algorithms are the
+   greediest streaming algorithms.
 6. Reservoir sampling has many benefits:
     1. Quantile-oriented, robust, non-parametric
     2. Consistent, configurable memory usage
@@ -385,8 +507,3 @@ would expect at least:
     6. Quantile cutpoints are not preselected, enabling better
     visibility into distribution shape, including techniques like
     histograms and kernel density estimation.
-
-# Also mention
-
-* Probability distribution: A mapping of a given value to the
-  probability of seeing that value in the data.
