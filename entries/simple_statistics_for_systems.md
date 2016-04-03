@@ -42,14 +42,15 @@ lengths, and response codes, for instance.
 
 We discuss more about instrumentation below, but for now we assume
 these data collection streams are in place and focus on numerical
-measurements like durations. The correct starting point minimizes
-bias. We assume the least, treating our measurements as values of
-random variables. So opens the wide world of descriptive statistics, a
-whole area devoted to describing the behavior of randomness. While
-this may sound obvious, remember that much of statistics is dedicated
-to modeling and inferring future outcomes. Knowing that "descriptive"
-statistics is the technical opposite of "inferential" statistics
-drastically narrows down future searches.
+measurements like execution times. The correct starting point
+minimizes bias. We assume the least, treating our measurements as
+values of random variables. So opens the door to the wide world of
+descriptive statistics, a whole area devoted to describing the
+behavior of randomness. While this may sound obvious, remember that
+much of statistics is dedicated to modeling and inferring future
+outcomes. They may go hand-in-hand, but knowing that "descriptive"
+statistics and "inferential" statistics are the correct terms
+drastically narrows down future research.
 
 Collecting measurements is all about balance. Too little data and you
 might as well have not bothered, in the best case. Worst case, you
@@ -167,7 +168,7 @@ want pristine, meaningful data, indistinguishable from the population,
 just a whole lot smaller. So statistics provides us random sampling.
 
 The twist is that we want to sample from an unknown population,
-considering one data point at a time. This use case calls for a
+considering only one data point at a time. This use case calls for a
 special corner of computer science: online algorithms, a subclass of
 streaming algorithms. "Online" implies only individual points are
 considered in a single pass. "Streaming" implies the program can only
@@ -176,17 +177,20 @@ run multiple passes. Fortunately, Donald Knuth popularized an elegant
 approach that enables random sampling over a stream: Reservoir
 Sampling.
 
-First we designate a *counter*, to be incremented for every data point
-seen. The *reservoir* is generally an ordered container of a certain
-*size*, such as a list or array. Now we can begin adding data. Until
-we encounter *size* elements, elements are added directly to
-*reservoir*. Once *reservoir* is full, incoming data points have a
-*size*/*counter* chance to be added. This way *reservoir* is always
-representative of the dataset as a whole, and is just as likely to
-have a data point from the beginning as it is from the end. All this,
-with bounded memory requirements, and very little computation.
+First we designate a *counter*, which will be incremented for every
+data point seen. The *reservoir* is generally a list or array of
+predefined *size* Now we can begin adding data. Until we encounter
+*size* elements, elements are added directly to *reservoir*. Once
+*reservoir* is full, incoming data points have a *size*/*counter*
+chance to replace an existing sample point. We never look at the value
+of a data point and the random chance is guaranteed by
+definition. This way *reservoir* is always representative of the
+dataset as a whole, and is just as likely to have a data point from
+the beginning as it is from the end. All this, with bounded memory
+requirements, and very little computation. See the instrumentation
+section below for links to Python implementations.
 
-In simpler terms, the reservoir progressively renders a scaled down
+In simpler terms, the reservoir progressively renders a scaled-down
 version of the data, like a fixed-size thumbnail. Reservoir sampling's
 ability to handle populations of unknown size fits perfectly with
 tracking response latency and other metrics of a long-lived server
@@ -194,8 +198,8 @@ process.
 
 ## Interpreting reservoir data
 
-Once you have a reservoir what are the natural next steps? At PayPal
-we do what so many others do:
+Once you have a reservoir what are the natural next steps? At PayPal,
+our standard procedure looks like:
 
 1. Look at the range (min and max) and quantiles of interest
    (generally median, 95th, 99th, 99.9th percentiles)
@@ -205,11 +209,11 @@ we do what so many others do:
 
 And that's it really. Beyond this we are usually adding more
 dimensions, like comparisons over time or between datacenters. Having
-the range, quantiles, and sampled view of the data really takes so
-much of the guesswork out that you end up saving time. Tighten a
-timeout, add a retry, test, and deploy. Or, if something more drastic
-is necessary, you know that when you've fixed it, you have the right
-numbers to back up your success.
+the range, quantiles, and sampled view of the data really eliminates
+so much guesswork that we end up saving time. Tighten a timeout,
+implement a retry, test, and deploy. Or, if something more drastic is
+necessary, we know when we've fixed it. We have the right numbers to
+back us up.
 
 <!--
 
@@ -255,27 +259,25 @@ density estimation with techniques like KDE.
 Histograms are massively useful for engineering applications
 -->
 
-## Reservoir reservations and recommendations
+## Reservoir reservations
 
 Reservoir sampling does have its shortcomings. In particular, like an
 image thumbnail, accuracy is only as good as the resolution
-configured.
-
-Good implementations of reservoir sampling will already track the
-maximum and minimum values, but for engineers interested in the edges,
-we recommend keeping an increased set of the exact outliers. For
-example, for critical paths, use a min heap to explicitly track the
-highest response times observed in the last hour.
+configured. Good implementations of reservoir sampling will already
+track the maximum and minimum values, but for engineers interested in
+the edges, we recommend keeping an increased set of the exact
+outliers. For example, for critical paths, we sometimes explicitly
+track the highest response times observed in the last hour.
 
 Depending on your runtime environment, resources may come at a
 premium. Reservoir sampling requires very little processing power,
-provided you have an efficient PRNG. Don't bother checking, even your
-Arduino has one. But memory costs can pile up. Generally speaking,
-accuracy scales with the square root of size; twice as much accuracy
-will cost you four times as much memory, so there are diminishing
-returns. At PayPal, the typical reservoir is allocated 16,384 floating
-point slots, totalling 64 kilobytes. At this rate, the human developer
-runs into their memory limits before the server does. Tracking 500
+provided you have an efficient PRNG. Even your Arduino has one of
+those. But memory costs can pile up. Generally speaking, accuracy
+scales with the square root of size; twice as much accuracy will cost
+you four times as much memory, so there are diminishing returns. At
+PayPal, the typical reservoir is allocated 16,384 floating point
+slots, totalling 64 kilobytes. At this rate, the human developer runs
+into their memory limits before the server does. Tracking 500
 variables only takes 8 megabytes. As a developer, remembering what
 they all are is a different story.
 
@@ -291,101 +293,112 @@ handling performance data. After a lot of experimentation, two
 approaches remain our go-tos, both of which are much simpler than
 one might presume.
 
-The first approach, bucketed counting, establishes ranges of interest,
-called buckets, based on statistics gathered from a particular
-reservoir. While reservoir counting is data agnostic, looking only at
-a random value to decide where to put the data, bucketed counting
-looks at the value, finds the bucket whose range includes that value,
-and increments the bucket's associated counter. The value itself is
-not stored. The code is simple, and the memory consumption is even
-lower, but the key advantage is the execution speed. Bucketed counting
-is so low overhead that it allows statistics collection to permeate
-much deeper into our code than other algorithms would allow.
+The first approach, histogram counters, establishes ranges of
+interest, called bins or buckets, based on statistics gathered from a
+particular reservoir. While reservoir counting is data agnostic,
+looking only at a random value to decide where to put the data,
+bucketed counting looks at the value, finds the bucket whose range
+includes that value, and increments the bucket's associated
+counter. The value itself is not stored. The code is simple, and the
+memory consumption is even lower, but the key advantage is the
+execution speed. Bucketed counting is so low overhead that it allows
+statistics collection to permeate much deeper into our code than other
+algorithms would allow.
 
-The second, more advanced approach, is a classic, P2 quantile
-estimation. Sometimes we look at a distribution and decide we need
-more resolution for certain percentiles. P2 lets us specify the
-percentiles ahead of time, and it updates those values on every single
-observation. Conceived in the electronics industry of the 80s, P2 is a
-pragmatic online percentile algorithm designed for very simple
-devices. The memory consumption is very low, but due to the math
-involved, more computation is involved as compared to reservoir
-sampling and bucketed counting. Furthermore, we've never seen anyone
-attempt combination of P2 estimators, but we assume it's
-nontrivial. Still, for our use cases, P2 answers real questions and we
-can empirically vouch for P2's continued accuracy into the software
-domain.
+The second approach, Piecewise Parabolic Quantile Estimation (P2 for
+short), is an engineering classic. A product of the 1980s electronics
+industry, P2 is a pragmatic online algorithm originally designed for
+simple devices. When we look at a reservoir's distribution and decide
+we need more resolution for certain quantiles, P2 lets us specify the
+quantiles ahead of time, and maintains those values on every single
+observation. The memory consumption is very low, but due to the math
+involved, P2 uses more CPU than reservoir sampling and bucketed
+counting. Furthermore, we've never seen anyone attempt combination of
+P2 estimators, but we assume it's nontrivial. The good news is that
+for most distributions we see, our P2 estimators are an order of
+magnitude more accurate than reservoir sampling.
 
 These approaches both take something learned from the reservoir sample
-and apply it toward doing less. Buckets provide answers in terms of a
-preconfigured histogram, P2 provides answers at specific quantile
-points of interest. Lesson #3 is to choose your statistics to match
-the questions you need to answer. If you don't know what those
+and apply it toward doing less. Histograms provide answers in terms of
+a preconfigured value ranges, P2 provides answers at preconfigured
+quantile points of interest. Lesson #3 is to choose your statistics to
+match the questions you need to answer. If you don't know what those
 questions are, stick to general tools like reservoir sampling.
 
 # Next steps
 
+Not to detract from the above, but the main course is done, and half
+of the article remains as dessert. Have your fill, but keep in mind
+that the content above fulfills 95% of the needs of an enterprise
+SOA environment like PayPal.
+
 Statistics is a huge field, and engineering offers a huge range of
-applications. There are a lot of places to go from here, and we wanted
-to offer some running starts for the areas we feel are natural
+applications. There are a lot of ways to combine the two, and we
+wanted to offer some running starts for the areas we feel are natural
 extensions to the fundamentals above.
 
 ## Instrumentation
 
 We focused a lot on statistical fundamentals, but how do we generate
 relevant datasets in the first place? Our answer is through structured
-instrumentation of our components. With the right hooks in place the
-data will be there when we need it, whether we're dropping everything
+instrumentation of our components. With the right hooks in place, the
+data will be there when we need it, whether we're staying late
 to debug an issue or when we have a spare cycle to improve performance.
+
+Much of PayPal's Python services' robustness can be credited to a
+reliable remote logging infrastructure, similar to, but more powerful
+than, rsyslog. Still, for local development and utmost reliability,
+every process maintains internal metrics, leveraging two open-source
+projects, fast approaching major release:
+
+* faststat - Optimized statistical accumulators
+* lithoxyl - Next-generation logging and application instrumentation
 
 One of the many advantages to investing in instrumentation early is
 that you get a sense for the performance overhead of data
 collection. Reliability and features far outweigh performance in the
 enterprise space. Many critical services I've worked on could be
 multiple times faster without instrumentation, but removing this
-aspect would render them unmaintainable.
+aspect would render them unmaintainable, which brings me to my next
+point.
 
 Good work takes cycles. An airplane could carry more passengers
-without all those heavy dials and displays up front. For most
-services, it's not hard to imagine logging and metrics collection is
-second only to the features themselves. Going further, being forced to
-choose does not bode well for the reliability record of the
-application and/or organization.
-
-Much of PayPal's Python services' robustness can be credited to a
-reliable remote logging infrastructure, combined with a robust,
-unobtrusive instrumentation framework.
+without all those heavy dials and displays up front. It's not hard to
+imagine why logging and metrics is, for most services, second only to
+the features themselves. Always communicate that having to choose
+between features and instrumentation does not bode well for the
+reliability record of the application or organization.
 
 ## More advanced statistics
 
 We focused here on descriptive, non-parametric statistics, most of
-which was numeric. Statistics is a very large field, with very
-specific terminology. Knowing the right vocabulary means the
-difference between the right answer and no answer. Here are the areas
-to expand into:
+which was numeric. Statistics is overflowing with very specific
+terminology. Having the vocabulary means the difference between the
+right answer and no answer. Here are some terms to search and areas to
+expand into:
 
-**Non-parametric statistics** gave us quantiles, but also offers so
-much more. Generally, *non-parametric* describes any statistical
-construct that does not make assumptions about probability
-distribution, e.g. normal or binomial. This means it offers the most
+**Non-parametric statistics** gave us quantiles, but offers so much
+more. Generally, *non-parametric* describes any statistical construct
+that does not make assumptions about probability distribution,
+e.g. normal or binomial. This means it offers the most
 broadly-applicable tools in the descriptive toolbox. This includes
 everything from the familiar histogram to the sleeker kernel density
-estimation. There's also a wide variety of nonparametric statistical
-tests aimed at quantitatively discovering your data's distribution and
-opening up the wide world of parametric methods.
+estimation. There's also a wide variety of nonparametric tests aimed
+at quantitatively discovering your data's distribution and expanding
+into the wide world of parametric methods.
 
 **Parametric statistics** contrast with non-parametric statistics in
 that the data is presumed to follow a given probability
-distribution. If you've established a model using inferential
-statistics, and that model can be put in terms of standard
-distributions, you've given yourself a powerful set of abstractions
-with which to reason about your system. We could do a whole article on
-the probability distributions we expect from different parts of our
-Python backend services (hint: expect a lot of [fish][poissond] and
-[telephones][erlangd]). Teasing apart the curves inherent in your
-system is quite a feat, but don't drift too far from the real data,
-and as with any extensive modeling exercise heed the cautionary song
-of the black swan.
+distribution. If you've established or assumed that your data can be
+modeled as one of the many standard distributions, you've given
+yourself a powerful set of abstractions with which to reason about
+your system. We could do a whole article on the probability
+distributions we expect from different parts of our Python backend
+services (hint: expect a lot of [fish][poissond] and
+[phones][erlangd]). Teasing apart the curves inherent in your system
+is quite a feat, but we never drift too far from the real
+observations. As with any extensive modeling exercise, heed the
+cautionary song of the black swan.
 
 **Inferential statistics** contrast with descriptive statistics in
 that the goal is to develop models and predict future
@@ -486,6 +499,7 @@ building complex systems should be able to answer:
 4. How does one handle outliers in performance metrics?
 5. What is the difference between a streaming algorithm and an online algorithm?
 6. What are three beneficial features of reservoir sampling?
+7. What are two shortcomings of reservoir sampling?
 
 These are pretty open-ended questions, but for each of the answers I
 would expect at least:
@@ -503,11 +517,13 @@ would expect at least:
    limits on its resources. Alternatively, online algorithms are the
    greediest streaming algorithms.
 6. Reservoir sampling has many benefits:
-    1. Quantile-oriented, robust, non-parametric
-    2. Consistent, configurable memory usage
-    3. Low CPU usage
+    1. Quantile-oriented, non-parametric, and robust
+    2. Low CPU overhead
+    3. Consistent, configurable memory usage
     4. All data within the sample are real points, not interpolated
     5. Reservoirs are combinable, enabling rollups
     6. Quantile cutpoints are not preselected, enabling better
     visibility into distribution shape, including techniques like
     histograms and kernel density estimation.
+7. Reservoir sampling lacks resolution at edges and has
+   non-negligible memory usage.
