@@ -9,7 +9,7 @@ entries/esp/*
 site/*
 
 # Ignore compiled Python in the top-level directory (where custom.py lives)
-/*.py[co]
+*.py[co]
 
 
 # emacs ignores
