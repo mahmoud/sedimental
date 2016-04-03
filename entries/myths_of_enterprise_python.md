@@ -54,7 +54,7 @@ debunk the most in eBay and PayPal's enterprise environments.
 [openstack]: http://www.openstack.org/
 
 
-<a name="#myth-1"></a>
+<a name="myth-1"></a>
 ## <a href="#python-is-new" name="python-is-new">Myth #1</a>: Python is a new language
 
 What with all the startups using it and [kids learning it
