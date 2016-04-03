@@ -3,6 +3,7 @@ title: Straightforward Software Statistics
 subtile: Easier development and maintenance through reintroduction
 ---
 
+<img width="20%" align="right" src="/uploads/illo/stats_stopwatch.png">
 Software development begins as a quest for capability, doing what
 could not be done before. Once that *what* is achieved, the engineer
 is left with the *how*. In enterprise software, the most frequently
@@ -15,15 +16,13 @@ Yet most developers can't tell you much about statistics. Much like
 math, statistics simply don't come up for typical project. Between
 coding the new and maintaining the old, who has the time?
 
-Engineers must make the time. It's time to broach the topic, learn
+Engineers must make the time. TLDR seekers can head for the
+summmary. For the dedicated few, it's time to broach the topic, learn
 what works, and take the guesswork out of software. A few core
 practices go a long way in generating meaningful systems analysis. And
-a few common mistakes set projects way back. This guide aims to both
+a few common mistakes set projects way back. This guide aims to
 lighten software maintenance and speed up future development through
 answers made possible by the right kinds of applied statistics.
-
-<!--
--->
 
 [TOC]
 
@@ -31,10 +30,10 @@ answers made possible by the right kinds of applied statistics.
 
 To begin, we consider a target component we want to measure and
 improve. At PayPal this is often one of our hundreds of HTTP server
-applications. If a developer were to look at our internal frameworks,
-they would find hundreds of critical paths that have been instrumented
-to generate streams of measurements: function execution times, request
-lengths, and response codes, for instance.
+applications. If you were to look at our internal frameworks, you
+would find hundreds of code paths instrumented to generate streams of
+measurements: function execution times, request lengths, and response
+codes, for instance.
 
 We discuss more about instrumentation below, but for now we assume
 these data collection streams are in place and focus on numerical
@@ -46,16 +45,16 @@ behavior of randomness. While this may sound obvious, remember that
 much of statistics is dedicated to modeling and inferring future
 outcomes. They may go hand-in-hand, but knowing that "descriptive"
 statistics and "inferential" statistics are the correct terms
-drastically narrows down future research.
+drastically speeds up future research. Lesson #1 is that it pays to
+learn the right statistics terminology.
 
-Collecting measurements is all about balance. Too little data and you
-might as well have not bothered, in the best case. Worst case, you
-make an uninformed decision that takes your service down with it. Then
-again, too much data can also result in downtime, and even if you keep
-an eye on memory consumption, you need to consider the resources
-required to through excess data. "Big data" looms large, but it is not
-a necessary step toward understanding big systems. We want dense,
-balanced data.
+Measurement is all about balance. Too little data and you might as
+well have not bothered, in the best case. Worst case, you make an
+uninformed decision that takes your service down with it. Then again,
+too much data can take down a service. Plus, even if you keep an eye
+on memory consumption, you need to consider the resources required to
+through excess data. "Big data" looms large, but it is not a necessary
+step toward understanding big systems. We want dense, balanced data.
 
 So what tools does the engineer have for balanced collection? When it
 comes to metadata, there is never a shortage of volume, dimensions, or
@@ -113,7 +112,7 @@ specifics like outliers. For software performance, the mean and
 variance are useful *only* in the context of robust statistical
 measures.
 
-So, enough buildup. Lesson #1 is avoid relying solely on non-robust
+So, enough buildup. Lesson #2 is avoid relying solely on non-robust
 descriptive statistics like the mean. Now, what robust techniques can
 we turn to save the day?
 
@@ -173,6 +172,7 @@ run multiple passes. Fortunately, Donald Knuth popularized an elegant
 approach that enables random sampling over a stream: Reservoir
 Sampling.
 
+<img width="20%" align="right" src="/uploads/illo/stats_oveflow.png">
 First we designate a *counter*, which will be incremented for every
 data point seen. The *reservoir* is generally a list or array of
 predefined *size* Now we can begin adding data. Until we encounter
@@ -192,7 +192,7 @@ ability to handle populations of unknown size fits perfectly with
 tracking response latency and other metrics of a long-lived server
 process.
 
-## Interpreting reservoir data
+## Interpretations
 
 Once you have a reservoir what are the natural next steps? At PayPal,
 our standard procedure looks like:
@@ -202,6 +202,8 @@ our standard procedure looks like:
 2. Visualize the CDF and histogram to get a sense for the shape of the
    data, usually by loading the data in a Jupyter notebook and using
    Pandas, matplotlib, and occasionally bokeh.
+
+<img width="35%" src="/uploads/illo/stats_pixels.png">
 
 And that's it really. Beyond this we are usually adding more
 dimensions, like comparisons over time or between datacenters. Having
@@ -248,15 +250,9 @@ lead to poor accuracy.
 
 -->
 
-<!--
-Not pre-selecting the quantile points also enables better probability
-density estimation with techniques like KDE.
+## Reservations
 
-Histograms are massively useful for engineering applications
--->
-
-## Reservoir reservations
-
+<img width="20%" align="right" src="/uploads/illo/stats_lowres.png">
 Reservoir sampling does have its shortcomings. In particular, like an
 image thumbnail, accuracy is only as good as the resolution
 configured. Good implementations of reservoir sampling will already
@@ -277,7 +273,7 @@ into their memory limits before the server does. Tracking 500
 variables only takes 8 megabytes. As a developer, remembering what
 they all are is a different story.
 
-## Learning from reservoirs
+## Transitions
 
 Usually, reservoir sampling gets us what we want and we can get on
 with non-statistical development. But sometimes, the situation calls
@@ -471,7 +467,7 @@ consider whether you want time series-style discete buckets or the
 continuous window of a moving statistic. For instance, do you want the
 counts for yesterday, or the past 24 hours? Previous hour or the last
 60 minutes? PayPal Python services keep a few moving metrics, but
-generally use a lot more time series. TODO
+generally use a lot more time series.
 
 **Survival analysis** is used to analyze the lifetimes of system
 components, and must make an appearance in any engineering article
@@ -482,7 +478,10 @@ industry gets to a point where it leverages this field as much as the
 hardware industry, the technology world will have reached a better
 place.
 
-# Self-evaluation
+# Evaluation
+
+You didn't just read for 15 minutes and think there wouldn't be a
+quiz, did you?
 
 Whether evaluating yourself or putting a candidate through the paces,
 here are some questions that an engineer intent on building complex
@@ -525,16 +524,30 @@ would expect at least:
 7. Reservoir sampling lacks resolution at edges and has
    non-negligible memory usage.
 
-# Conclusion
+# Summary
 
-It's been a journey, but I hope you learned something new. Everyone
-needs a reintroduction to statistics after a few years of real
-work. Even if you studied statistics in school, real work, real data,
-and real questions have a way of making one wonder who passed those
-statistics exams.
+It's been a journey, but I hope you learned something new. At the very
+least, take these three lessons:
+
+1. Statistics is full of very specific terminology and techniques that
+   you may not know that you need. It pays to take the time to learn them.
+2. Averages and other moment-based measures don't cut it for software
+   performance and reliability.
+3. Use quantiles, counting, and other robust metrics to generate
+   meaningful data suitable for exploring the specifics of
+   your software.
 
 I hope you found this a useful enough guide that you'll save yourself
 some time, either by applying the techniques described or subscribing
-and sharing the link with other developers. As interconnectivity
-increases, a rising tide of robust measurement floats all software
-engineering boats.
+and sharing the link with other developers. Everyone needs a
+reintroduction to statistics after a few years of real work. Even if
+you studied statistics in school, real work, real data, and real
+questions have a way of making one wonder who passed those statistics
+exams. As interconnectivity increases, a rising tide of robust
+measurement floats all software engineering boats.
+
+[apdex]: https://en.wikipedia.org/wiki/Apdex
+[p2_impl]: https://github.com/mahmoud/lithoxyl/blob/master/lithoxyl/p_squared.py
+[p2_paper]: http://www.cs.wustl.edu/~jain/papers/ftp/psqr.pdf
+[vividcortex]: https://www.vividcortex.com/blog/why-percentiles-dont-work-the-way-you-think
+[prom_histograms]: https://prometheus.io/docs/practices/histograms/
