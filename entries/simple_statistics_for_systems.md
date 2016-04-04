@@ -56,8 +56,8 @@ that it pays to learn the right statistics terminology.**
 Measurement is all about balance. Too little data and you might as
 well have not bothered. Or worse, you make an uninformed decision that
 takes your service down with it. Then again, too much data can take
-down a service. And even if you keep an eye on memory consumption,
-you need to consider the resources required to through excess
+down a service. And even if you keep an eye on memory consumption, you
+need to consider the resources required to manage excess
 data. "[Big data][big_data]" looms large, but it is not a necessary
 step toward understanding big systems. We want dense, balanced data.
 
@@ -66,7 +66,7 @@ step toward understanding big systems. We want dense, balanced data.
 So what tools does the engineer have for balanced measurement? When it
 comes to metadata, there is never a shortage of volume, dimensions, or
 techniques. To avoid getting lost, we focus on descriptive summary
-statistics that can be collected with minimal overhead. Having set the
+statistics that can be collected with minimal overhead. With that
 direction, let's start out by covering some familiar territory.
 
 # Moments of truth
@@ -104,7 +104,7 @@ these measures for the first time, omission may not be a bad thing.
 [std_moments]: https://en.wikipedia.org/wiki/Standardized_moment
 [shape_dist]: https://en.wikipedia.org/wiki/Shape_of_the_distribution
 
-The mean, variance, skewness, and kurtosis are almost never the right
+The mean, variance, skewness, and kurtosis are almost *never* the right
 tools for a performance-minded engineer. Moment-based measures are not
 trustworthy messengers of the critical engineering metadata we seek.
 
@@ -115,15 +115,15 @@ statistics simultaneously:
 * Dilute the meaning of those outliers
 
 An [outlier][outlier] is any data point distant from the rest of the
-distribution. "Outlier" may sound remote and improbable, but in real
-systems they occur everywhere, making moment-based statistics
-uninformative and even dangerous. Outliers often represent the most
-critical data for a troubleshooting engineer.
+distribution. "Outlier" may sound remote and improbable, but they are
+everywhere, making moment-based statistics uninformative and even
+dangerous. Outliers often represent the most critical data for a
+troubleshooting engineer.
 
 [robust]: https://en.wikipedia.org/wiki/Robust_statistics
 [outlier]: https://en.wikipedia.org/wiki/Outlier
 
-So why do so many continue to use moments for software? The short
+So why do so many still use moments for software? The short
 answer, if you'll pardon the pun: momentum. The mean and variance have
 two advantages: easy implementation and broad usage. In reality, that
 familiarity leads to damaging assumptions that ignore specifics like
@@ -132,38 +132,41 @@ outliers. For software performance, the mean and variance are useful
 
 So, enough buildup. **Lesson #2 is avoid relying solely on non-robust
 statistics like the mean to describe your data.** Now, what robust
-techniques can we turn to save the day?
+techniques can we actually rely on?
 
 # Quantile mechanics
 
 If you've ever looked at census data or gotten standardized test
 results, you're already familiar with [quantiles][quantile]. Quantiles
-are points which subdivide a dataset's range into equal parts. Most
+are points that subdivide a dataset's range into equal parts. Most
 often, we speak of [quartiles][quartile] (4 parts) and
-[percentiles][percentile] (100 parts). Most nontechnical areas focus
-in central indicators, hence the popularity of the [median][median].
+[percentiles][percentile] (100 parts). Measures of
+[central tendency][central] tend to be the most popular, and the same
+goes for the 50th percentile, the [median][median].
 
 [quantile]: https://en.wikipedia.org/wiki/Quantile
 [quartile]: https://en.wikipedia.org/wiki/Quartile
 [percentile]: https://en.wikipedia.org/wiki/Percentile
+[central]: https://en.wikipedia.org/wiki/Central_tendency
 [median]: https://en.wikipedia.org/wiki/Median
 
 While experienced engineers are happier to see the median than the
 mean, the data doesn't really get interesting until we get into the
 extremes. For software performance and reliability, that means the
 95th, 98th, 99th, and 99.9th percentiles. We also look for the range
-formed by the minimum and maximum observed values, sometimes called
-the 0th and 100th percentiles.
+formed by the minimum and maximum values, sometimes called the 0th and
+100th percentiles.
 
 The challenge with quantiles and ranges is efficient computation. For
 instance, the traditional way to calculate the median is to choose the
 middle value, or the average of the two middle values, from a sorted
 set of *all* the data. Considering all the data at once is the only
-way to calculate exact quantiles. The memory required to do this for
-our use cases makes this method prohibitively expensive. But every
-application has its error tolerances, and statistics is founded on
-utilitarian compromise. Using the principle of "good enough", an
-engineer has ways of estimating quantiles much more efficiently.
+way to calculate exact quantiles.
+
+Keeping all our data in memory would be prohibitively expensive for
+our use cases. Instead, using the principle of "good enough", an
+engineer has ways of estimating quantiles much more
+efficiently. Statistics is founded on utilitarian compromise.
 
 ## Dipping into the stream
 
@@ -293,7 +296,7 @@ lead to poor accuracy.
 
 ## Reservations
 
-<img width="20%" align="right" src="/uploads/illo/stats_lowres.png">
+<img width="30%" align="right" src="/uploads/illo/stats_lowres.png">
 Reservoir sampling does have its shortcomings. In particular, like an
 image thumbnail, accuracy is only as good as the resolution
 configured. In some cases, the data near the edges gets a bit
