@@ -370,15 +370,8 @@ questions are, stick to general tools like reservoir sampling.**
 
 # Next steps
 
-Not to detract from the above, but the main course is done, and half
-of the article remains as dessert. Have your fill, but keep in mind
-that the content above fulfills 95% of the needs of an enterprise
-SOA environment like PayPal.
-
-Statistics is a huge field, and engineering offers a huge range of
-applications. There are a lot of ways to combine the two, and we
-wanted to offer some running starts for the areas we feel are natural
-extensions to the fundamentals above.
+There are a lot of ways to combine statistics and engineering, so it's
+only fair that we offer some running starts.
 
 ## Instrumentation
 
@@ -476,13 +469,23 @@ would expect at least:
 7. Reservoir sampling lacks resolution at edges and has
    non-negligible memory usage.
 
-## More advanced statistics
+I trust you to grade your own performance. If I'm lucky, some of this
+will actually make its way into programming curricula. Too much is
+learned the hard way, or not at all, while running software you
+use. At this point, we're all educators. Let's build a more reliable,
+introspectable software landscape.
 
-We focused here on descriptive, non-parametric statistics, most of
-which was numeric. Statistics is overflowing with very specific
-terminology. Having the vocabulary means the difference between the
-right answer and no answer. Here are some terms to search and areas to
-expand into, and how they have applied to our work:
+## Expansion
+
+Without detracting from the main course above, this section remains as
+dessert. Have your fill, but keep in mind that the concepts above
+fulfill 95% of the needs of an enterprise SOA environment like PayPal.
+
+We focused here on descriptive, non-parametric statistics for
+numerical applications. Statistics is much more than that. Having the
+vocabulary means the difference between the right answer and no
+answer. Here are some areas to expand into, and how they have applied
+to our work:
 
 [**Non-parametric statistics**][nonparam] gave us quantiles, but
 offers so much more. Generally, *non-parametric* describes any
