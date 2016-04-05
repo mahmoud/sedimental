@@ -16,14 +16,20 @@ Yet most developers can't tell you much about statistics. Much like
 math, statistics simply don't come up for typical projects. Between
 coding the new and maintaining the old, who has the time?
 
-Engineers must make the time. TLDR seekers can head for
-[the summmary](#summary). For the dedicated few, it's time to broach
-the topic, learn what works, and take the guesswork out of software. A
-few core practices go a long way in generating meaningful systems
-analysis. And a few common mistakes set projects way back. This guide
-aims to lighten software maintenance and speed up future development
-through answers made possible by the right kinds of applied
-statistics.
+<!-- TODO
+* Split out evaluation for followup post
+* https://www.youtube.com/watch?v=lJ8ydIuPFeU
+-->
+
+Engineers must make the time. TLDR seekers can head for our
+[instrumentation section](#instrumentation) or straight to
+[the summary](#summary). For the dedicated few, class is in
+session. It's time to broach the topic, learn what works, and take the
+guesswork out of software. A few core practices go a long way in
+generating meaningful systems analysis. And a few common mistakes set
+projects way back. This guide aims to lighten software maintenance and
+speed up future development through answers made possible by the right
+kinds of applied statistics.
 
 [TOC]
 
@@ -33,8 +39,8 @@ To begin, let's consider a target component we want to measure and
 improve. At PayPal this is often one of our hundreds of HTTP server
 applications. If you were to look at our internal frameworks, you
 would find hundreds of code paths instrumented to generate streams of
-measurements: function execution times, request lengths, and response
-codes, for instance.
+measurements: function execution times, service latencies, request
+lengths, and response codes, to name a few.
 
 We discuss more about instrumentation [below](#instrumentation), but
 for now we assume these measurement points exist and focus on
@@ -98,7 +104,7 @@ These four [standardized moments][std_moments] represent the most
 widely-applied metrics for describing the
 [shape of a distribution][shape_dist]. Each successive measure adds
 less practical information than the last, which is why skewness and
-kurtosis are often omitted. And while many are just be hearing about
+kurtosis are often omitted. And while many are just hearing about
 these measures for the first time, omission may not be a bad thing.
 
 [std_moments]: https://en.wikipedia.org/wiki/Standardized_moment
