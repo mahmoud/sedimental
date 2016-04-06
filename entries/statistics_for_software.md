@@ -1,5 +1,5 @@
 ---
-title: Straightforward Software Statistics
+title: Statistics for Software
 subtile: Easier development and maintenance through reintroduction
 ---
 
@@ -17,7 +17,6 @@ math, statistics simply don't come up for typical projects. Between
 coding the new and maintaining the old, who has the time?
 
 <!-- TODO
-* Split out evaluation for followup post
 * https://www.youtube.com/watch?v=lJ8ydIuPFeU
 -->
 
@@ -100,12 +99,17 @@ data description:
 [skewness]: https://en.wikipedia.org/wiki/Skewness
 [kurtosis]: https://en.wikipedia.org/wiki/Kurtosis
 
+<img width="24%" src="/uploads/illo/stats_mean.png">
+<img width="24%" src="/uploads/illo/stats_variance.png">
+<img width="24%" src="/uploads/illo/stats_skewness.png">
+<img width="24%" src="/uploads/illo/stats_kurtosis.png">
+
 These four [standardized moments][std_moments] represent the most
 widely-applied metrics for describing the
 [shape of a distribution][shape_dist]. Each successive measure adds
-less practical information than the last, which is why skewness and
-kurtosis are often omitted. And while many are just hearing about
-these measures for the first time, omission may not be a bad thing.
+less practical information than the last, so skewness and kurtosis are
+often omitted. And while many are just hearing about these measures
+for the first time, omission may not be a bad thing.
 
 [std_moments]: https://en.wikipedia.org/wiki/Standardized_moment
 [shape_dist]: https://en.wikipedia.org/wiki/Shape_of_the_distribution
@@ -159,9 +163,12 @@ goes for the 50th percentile, the [median][median].
 While experienced engineers are happier to see the median than the
 mean, the data doesn't really get interesting until we get into the
 extremes. For software performance and reliability, that means the
-95th, 98th, 99th, and 99.9th percentiles. We also look for the range
-formed by the minimum and maximum values, sometimes called the 0th and
-100th percentiles.
+95th, 98th, 99th, and 99.9th percentiles. We call these the extremes,
+but as in high-traffic systems, [they are far from uncommon][hntml_gil_tene_azul]. We also
+look for the range formed by the minimum and maximum values, sometimes
+called the 0th and 100th percentiles.
+
+[hntml_gil_tene_azul]: https://www.youtube.com/watch?v=lJ8ydIuPFeU
 
 The challenge with quantiles and ranges is efficient computation. For
 instance, the traditional way to calculate the median is to choose the
@@ -212,14 +219,14 @@ enables random sampling over a stream: [Reservoir sampling][reservoir].
 [reservoir]: https://en.wikipedia.org/wiki/Reservoir_sampling
 
 <img width="20%" align="right" src="/uploads/illo/stats_oveflow.png">
-First we designate a *counter*, which will be incremented for every
-data point seen. The *reservoir* is generally a list or array of
-predefined *size* Now we can begin adding data. Until we encounter
-*size* elements, elements are added directly to *reservoir*. Once
-*reservoir* is full, incoming data points have a *size*/*counter*
+First we designate a `counter`, which will be incremented for every
+data point seen. The `reservoir` is generally a list or array of
+predefined `size` Now we can begin adding data. Until we encounter
+`size` elements, elements are added directly to `reservoir`. Once
+`reservoir` is full, incoming data points have a `size / counter`
 chance to replace an existing sample point. We never look at the value
 of a data point and the random chance is guaranteed by
-definition. This way *reservoir* is always representative of the
+definition. This way `reservoir` is always representative of the
 dataset as a whole, and is just as likely to have a data point from
 the beginning as it is from the end. All this, with bounded memory
 requirements, and very little computation. See
@@ -310,7 +317,7 @@ blocky. Good implementations of reservoir sampling will already track
 the maximum and minimum values, but for engineers interested in the
 edges, we recommend keeping an increased set of the exact
 outliers. For example, for critical paths, we sometimes explicitly
-track the n highest response times observed in the last hour.
+track the *n* highest response times observed in the last hour.
 
 Depending on your runtime environment, resources may come at a
 premium. Reservoir sampling requires very little processing power,
@@ -332,9 +339,9 @@ Usually, reservoir sampling gets us what we want and we can get on
 with non-statistical development. But sometimes, the situation calls
 for a more tailored approach.
 
-At various points at PayPal, we've worked with [q-digests][qdigest]
-and biased quantile estimators and plenty of other advanced algorithms
-for handling performance data. After a lot of experimentation, two
+At various points at PayPal, we've worked with [q-digests][qdigest],
+biased quantile estimators, and plenty of other advanced algorithms for
+handling performance data. After a lot of experimentation, two
 approaches remain our go-tos, both of which are much simpler than one
 might presume.
 
@@ -396,6 +403,37 @@ projects, fast approaching major release:
 * [faststat][faststat] - Optimized statistical accumulators
 * [lithoxyl][lithoxyl] - Next-generation logging and application instrumentation
 
+[Lithoxyl][lithoxyl] is a high-level library designed for application
+introspection. It's intended to be
+[the most Pythonic logging framework possible][lith_info]. This
+includes structured logging and various accumulators, including
+[reservoir sampling][lith_res], [P2][lith_p2], and others. But more
+importantly, Lithoxyl creates a separate instrumentation aspect for
+applications, allowing output levels and formats to be managed
+separately from the instrumentation points themselves.
+
+[lith_info]: https://github.com/mahmoud/lithoxyl#lithoxyl
+[lith_res]: https://github.com/mahmoud/lithoxyl/blob/fbd1e135acc70df8c373b103bd26920eabbe9f30/lithoxyl/quantile.py#L105
+[lith_p2]: https://github.com/mahmoud/lithoxyl/blob/4cafa5f8b3f77e414b96f0d302759f79e4037a91/lithoxyl/p_squared.py
+
+[Faststat][faststat] operates on a lower level. True to its name,
+Faststat is a compiled Python extension that implements accumulators
+for the measures described here and many more. This includes
+everything from [geometric/harmonic][fast_means] means to
+[Markov-like transition tracking][fast_markov] to a metametric that tracks
+the time between stat updates. At just over half a microsecond per
+point, Faststat's low-overhead allows it to permeate into some of the
+deepest depths of our framework code. Faststat lacks output mechanisms
+of its own, so our internal framework includes a simple web API and UI
+for browsing statistics, as well as a greenlet that constantly uploads
+faststat data to a remote accumulation service for alerting and
+archiving.
+
+[fast_means]: https://github.com/doublereedkurt/faststat/blob/master/faststat/faststat.py#L112
+[fast_markov]: https://github.com/doublereedkurt/faststat/blob/master/faststat/faststat.py#L222
+
+<!-- Faststat also has top-n minheap, geometric and harmonic mean, and inter-arrival time meta stat -->
+
 One of the many advantages to investing in instrumentation early is
 that you get a sense for the performance overhead of data
 collection. Reliability and features far outweigh performance in the
@@ -416,7 +454,7 @@ application or organization.
 For those who really need to move fast and would prefer to reuse or
 subscribe, there are several promising choices out there, including
 [New Relic][new_relic] and [Prometheus][prometheus]. Obviously we
-don't use them internally, but they do have
+have our own systems, but those offerings do have
 [percentiles][new_relic_percentiles] and
 [histograms][prometheus_histograms].
 
@@ -428,58 +466,6 @@ don't use them internally, but they do have
 [new_relic_percentiles]: https://blog.newrelic.com/2013/10/23/histograms-percentiles-new-relic-style/
 [prometheus]: http://prometheus.io/
 [prometheus_histograms]: https://prometheus.io/docs/practices/histograms/
-
-## Evaluation
-
-You didn't just read for 15 minutes without guessing there would be a
-quiz, did you?
-
-Whether evaluating yourself or putting a candidate through the paces,
-here are some questions that an engineer intent on building complex
-systems should be able to answer:
-
-1. What statistical techniques can one use to measure performance and
-   reliability?
-2. What are the strengths and weaknesses of the arithmetic mean as a
-   performance statistic?
-3. What does it mean for a statistic to be robust?
-4. How does one handle outliers in performance metrics?
-5. What is the difference between a streaming algorithm and an online algorithm?
-6. What are three beneficial features of reservoir sampling?
-7. What are two shortcomings of reservoir sampling?
-
-These are pretty open-ended questions, but for each of the answers I
-would expect at least:
-
-1. Statistical measures include mean, variance, median, and
-   percentiles. Points for anything else that is non-parametric or
-   robust.
-2. The mean is too sensitive to outliers, and yet not powerful enough
-   to the importance of those outliers to engineering applications.
-3. Robust statistics are resistant to influence by outliers.
-4. Outliers should be recorded and tracked as strong indicators of
-   system weakness. The last thing I want to hear is about trimming or
-   other techniques that treat outliers as noise or flukes.
-5. An online algorithm *is* a streaming algorithm, but with more
-   limits on its resources. Alternatively, online algorithms are the
-   greediest streaming algorithms.
-6. Reservoir sampling has many benefits:
-    1. Quantile-oriented, non-parametric, and robust
-    2. Low CPU overhead
-    3. Consistent, configurable memory usage
-    4. All data within the sample are real points, not interpolated
-    5. Reservoirs are combinable, enabling rollups
-    6. Quantile cutpoints are not preselected, enabling better
-       visibility into distribution shape, including techniques like
-       histograms and kernel density estimation.
-7. Reservoir sampling lacks resolution at edges and has
-   non-negligible memory usage.
-
-I trust you to grade your own performance. If I'm lucky, some of this
-will actually make its way into programming curricula. Too much is
-learned the hard way, or not at all, while running software you
-use. At this point, we're all educators. Let's build a more reliable,
-introspectable software landscape.
 
 ## Expansion
 
@@ -586,7 +572,9 @@ system, as well as inform you as to redundant data collection.
 multiple peaks or multiple distributions packed into a single
 dataset. Consider response times from an HTTP service:
 
-* Successful requests ([200s][http200]) take a "normal" amount of time.
+<img width="50%" align="right" src="/uploads/illo/stats_multimodal.png">
+
+* Successful requests ([200s][http200]) have a "normal" latency.
 * Client failures ([400s][http400]) complete quickly, as little work can be done with invalid requests.
 * Server errors ([500s][http500]) can either be very quick (backend down) or very slow (timeouts).
 
@@ -595,13 +583,14 @@ dataset. Consider response times from an HTTP service:
 [http400]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error
 [http500]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_Error
 
-Here we can assume that we have several curves overlaid, with at least
-3 or 4 peaks. Maintaining a single summary is really not doing the
-data justice. Two peaks really narrows down the field of applicable
-techniques, and three or more will present a real challenge. There are
-times when you will want to discover and track datasets separately for
-more meaningful analysis. Other times it makes more sense to bite the
-bullet and leave the data mixed.
+Here we can assume that we have several curves overlaid, with 3
+obvious peaks. This exaggerated graph makes it clear that maintaining
+a single set of summary statistics can do the data great
+injustice. Two peaks really narrows down the field of effective
+statistical techniques, and three or more will present a real
+challenge. There are times when you will want to discover and track
+datasets separately for more meaningful analysis. Other times it makes
+more sense to bite the bullet and leave the data mixed.
 
 [**Time-series statistics**][timeseries] transforms measurements by
 contextualizing them into a single, near-universal dimension: time
@@ -647,14 +636,17 @@ metrics, and generally use a lot more time series.
 [ewma]: https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average
 [unix_load]: https://en.wikipedia.org/wiki/Load_%28computing%29
 
-[**Survival analysis**][survival] is used to analyze the lifetimes of system
-components, and must make an appearance in any engineering article
-about reliability. Invaluable for simulations and post-mortem
+<img width="50%" align="right" src="/uploads/illo/stats_bathtub.png">
+[**Survival analysis**][survival] is used to analyze the lifetimes of
+system components, and must make an appearance in any engineering
+article about reliability. Invaluable for simulations and post-mortem
 investigations, even a basic understanding of
 [the bathtub curve][bathtub] can provide insight into lifespans of
-running processes. When the software industry gets to a point where it
-leverages this analysis as much as the hardware industry, the
-technology world will undoubtedly have reached a better place.
+running processes. Failures are rooted in causes at the beginning,
+middle, and end of expected lifetime, which when overlaid, create a
+bathtub aggregate curve. When the software industry gets to a point
+where it leverages this analysis as much as the hardware industry, the
+technology world will undoubtedly have become a cleaner place.
 
 [survival]: https://en.wikipedia.org/wiki/Survival_analysis
 [bathtub]: https://en.wikipedia.org/wiki/Bathtub_curve
@@ -663,8 +655,7 @@ technology world will undoubtedly have reached a better place.
 # Summary
 
 It's been a journey, but I hope you learned something new. If nothing
-else, you know how we do it here at PayPal. Remember the three
-lessons:
+else, you know how we do it. Remember the three lessons:
 
 1. Statistics is full of very specific terminology and techniques that
    you may not know that you need. It pays to take time to learn them.
