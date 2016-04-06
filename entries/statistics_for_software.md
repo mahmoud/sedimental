@@ -211,7 +211,8 @@ only individual points are considered in a single pass. "Streaming"
 implies the program can only consider a subset of the data at a time,
 but can work in batches or run multiple passes. Fortunately,
 [Donald Knuth][knuth] helped popularize an elegant approach that
-enables random sampling over a stream: [Reservoir sampling][reservoir].
+enables random sampling over a stream:
+[Reservoir sampling][reservoir]. Let's jump right in.
 
 [online_algo]: https://en.wikipedia.org/wiki/Online_algorithm
 [streaming_algo]: https://en.wikipedia.org/wiki/Streaming_algorithm
