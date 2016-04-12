@@ -3,7 +3,7 @@ title: Statistics for Software
 subtile: Easier development and maintenance through reintroduction
 ---
 
-<img width="25%" align="right" src="/uploads/illo/stats_stopwatch.png">
+ <img width="25%" align="right" src="/uploads/illo/stats_stopwatch.png">
 Software development begins as a quest for capability, doing what
 could not be done before. Once that *what* is achieved, the engineer
 is left with the *how*. In enterprise software, the most frequently
@@ -16,19 +16,21 @@ Yet most developers can't tell you much about statistics. Much like
 math, statistics simply don't come up for typical projects. Between
 coding the new and maintaining the old, who has the time?
 
-<!-- TODO
-* https://www.youtube.com/watch?v=lJ8ydIuPFeU
--->
-
-Engineers must make the time. TLDR seekers can head for our
+Engineers must make the time. I understand fifteen minutes can seem
+like a big commitment these days, so maybe
+[bookmark it][pinboard]. Insistent TLDR seekers can head for our
 [instrumentation section](#instrumentation) or straight to
-[the summary](#summary). For the dedicated few, class is in
-session. It's time to broach the topic, learn what works, and take the
-guesswork out of software. A few core practices go a long way in
-generating meaningful systems analysis. And a few common mistakes set
-projects way back. This guide aims to lighten software maintenance and
-speed up future development through answers made possible by the right
-kinds of applied statistics.
+[the summary](#summary).
+
+For the dedicated few, class is in session. It's time to broach the
+topic, learn what works, and take the guesswork out of software. A few
+core practices go a long way in generating meaningful systems
+analysis. And a few common mistakes set projects way back. This guide
+aims to lighten software maintenance and speed up future development
+through answers made possible by the right kinds of applied
+statistics.
+
+[pinboard]: https://pinboard.in/
 
 [TOC]
 
@@ -191,7 +193,7 @@ car. So statistics continues to provide.
 In the realm of software performance, data collection is automatable,
 to the point of making measurement *too* automatic. The problem
 becomes collation, indexing, and storage. Hard problems, replete with
-with hard-working people.
+hard-working people.
 
 Here we're trying to make things easier. We want to avoid those hard
 problems. The easiest way to avoid too much data is to throw data
@@ -222,7 +224,7 @@ enables random sampling over a stream:
 <img width="20%" align="right" src="/uploads/illo/stats_oveflow.png">
 First we designate a `counter`, which will be incremented for every
 data point seen. The `reservoir` is generally a list or array of
-predefined `size` Now we can begin adding data. Until we encounter
+predefined `size`. Now we can begin adding data. Until we encounter
 `size` elements, elements are added directly to `reservoir`. Once
 `reservoir` is full, incoming data points have a `size / counter`
 chance to replace an existing sample point. We never look at the value
@@ -242,7 +244,7 @@ process.
 
 ## Interpretations
 
-Once you have a reservoir what are the natural next steps? At PayPal,
+Once you have a reservoir, what are the natural next steps? At PayPal,
 our standard procedure looks like:
 
 1. Look at the min, max, and other quantiles of interest
@@ -325,20 +327,21 @@ premium. Reservoir sampling requires very little processing power,
 provided you have an efficient [PRNG][prng]. Even your Arduino has one
 of those. But memory costs can pile up. Generally speaking, accuracy
 scales with the square root of size. Twice as much accuracy will cost
-you four times as much memory, so there are diminishing returns. At
-PayPal, the typical reservoir is allocated 16,384 floating point
-slots, totalling 64 kilobytes. At this rate, the human developer runs
-into their memory limits before the server does. Tracking 500
-variables only takes 8 megabytes. As a developer, remembering what
-they all are is a different story.
+you four times as much memory, so there are diminishing returns.
+
+At PayPal, the typical reservoir is allocated 16,384 floating point
+slots, for a total of 64 kilobytes. At this rate, humans run out of
+memory before the servers do. Tracking 500 variables only takes 8
+megabytes. As a developer, remembering what they all are is a
+different story.
 
 [prng]: https://en.wikipedia.org/wiki/Pseudorandom_number_generator
 
 ## Transitions
 
-Usually, reservoir sampling gets us what we want and we can get on
-with non-statistical development. But sometimes, the situation calls
-for a more tailored approach.
+Usually, reservoirs get us what we want and we can get on with
+non-statistical development. But sometimes, the situation calls for a
+more tailored approach.
 
 At various points at PayPal, we've worked with [q-digests][qdigest],
 biased quantile estimators, and plenty of other advanced algorithms for
@@ -387,6 +390,7 @@ questions are, stick to general tools like reservoir sampling.**
 There are a lot of ways to combine statistics and engineering, so it's
 only fair that we offer some running starts.
 
+<a name="#instrumentation"></a>
 ## Instrumentation
 
 We focused a lot on statistical fundamentals, but how do we generate
@@ -569,11 +573,10 @@ system, as well as inform you as to redundant data collection.
 [multivariate]: https://en.wikipedia.org/wiki/Multivariate_statistics
 [correlation]: https://en.wikipedia.org/wiki/Correlation_and_dependence
 
+<img width="350px" align="right" src="/uploads/illo/stats_multimodal.png">
 [**Multimodal statistics**][multimodal] abound in real world data:
 multiple peaks or multiple distributions packed into a single
 dataset. Consider response times from an HTTP service:
-
-<img width="50%" align="right" src="/uploads/illo/stats_multimodal.png">
 
 * Successful requests ([200s][http200]) have a "normal" latency.
 * Client failures ([400s][http400]) complete quickly, as little work can be done with invalid requests.
@@ -625,7 +628,7 @@ $ uptime
 This output packs a lot of information into a small space, and is very
 cheap to track, but it takes some knowledge and understanding to
 interpret correctly. EWMA is simultaneously familiar and nuanced. It's
-fun to consider whether you want time series-style discete buckets or
+fun to consider whether you want time series-style discrete buckets or
 the continuous window of a moving statistic. For instance, do you want
 the counts for yesterday, or the past 24 hours? Do you want the
 previous hour or the last 60 minutes? Based on the questions people
@@ -637,7 +640,7 @@ metrics, and generally use a lot more time series.
 [ewma]: https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average
 [unix_load]: https://en.wikipedia.org/wiki/Load_%28computing%29
 
-<img width="50%" align="right" src="/uploads/illo/stats_bathtub.png">
+<img height="200px" align="right" src="/uploads/illo/stats_bathtub.png">
 [**Survival analysis**][survival] is used to analyze the lifetimes of
 system components, and must make an appearance in any engineering
 article about reliability. Invaluable for simulations and post-mortem
