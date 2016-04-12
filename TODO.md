@@ -30,7 +30,10 @@ multiple is a critical. Python's reputation for "one obvious way" to
 do things starts to break down with imports and by the time we reach
 packaging, not even the number of ways is obvious.
 
-This isn't all Python's fault. Python's adaptability is
+This isn't all Python's fault. Python's adaptability is to credit for
+its longevity. The packaging is improving, with the fast rise of
+wheels as the best and brightest way to package libraries. Python is a
+general-purpose language with a specific-purpose packaging system. wheels, setuptools, pip and
 
 * Flask as an example of an architecture that invites/encourages circular imports
 * Use absolute imports
@@ -39,3 +42,10 @@ This isn't all Python's fault. Python's adaptability is
   constructs are all it takes for composing large applications.
 
 ### Places I Would Work
+
+
+### The grease we need
+
+Agile and DevOps tries to move the creative work of development
+further from the areas that need it, recreating the cardinal error of
+waterfall.
