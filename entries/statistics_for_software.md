@@ -127,10 +127,11 @@ statistics simultaneously:
 * Dilute the meaning of those outliers
 
 An [outlier][outlier] is any data point distant from the rest of the
-distribution. "Outlier" may sound remote and improbable, but they are
-everywhere, making moment-based statistics uninformative and even
-dangerous. Outliers often represent the most critical data for a
-troubleshooting engineer.
+distribution. For instance, the average of `[1, 1, 1, 1, 101]` is 21,
+which doesn't tell us about the 1s or the 100, our outlier. "Outlier"
+may sound remote and improbable, but they are everywhere, making
+moment-based statistics uninformative and even dangerous. Outliers
+often represent the most critical data for a troubleshooting engineer.
 
 [robust]: https://en.wikipedia.org/wiki/Robust_statistics
 [outlier]: https://en.wikipedia.org/wiki/Outlier
