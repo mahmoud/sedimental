@@ -10,7 +10,7 @@ publish_date: 4:11am May 27, 2016
 So while PyCon 2016 starts in less than 48 hours, some kind of
 anticipation compelled me to polish off the last of
 [the talks from last year][pycon_2015]. For some reason I went for a
-keynote. I'm not typically a keynote attendee, and this time I missed
+keynote. I'm not typically a keynote attendee, and this time I'd missed
 something big.[^pycon2016]
 
 [^pycon2016]: Suffice to say, I'm already subscribed to [Python 2016][pycon_2016]
