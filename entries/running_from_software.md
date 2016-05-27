@@ -4,6 +4,7 @@ tags:
   - python
   - code
   - work
+publish_date: 4:11am May 27, 2016
 ---
 
 So while PyCon 2016 starts in less than 48 hours, some kind of
@@ -29,10 +30,10 @@ src="https://www.youtube.com/embed/hIJdFxYlEKE" frameborder="0"
 allowfullscreen></iframe>
 
 To summarize, Jacob sets out to explain why mediocrity is acceptable.
-Bell curves rule everything around us. He holds up his middling
-ultramarathon record as proof. He surmises that lack of passion for
-work is leading people to feel untalented. This, combined with
-"brilliant asshole" programmers, are shaming people out of the
+Bell curves rule everything around us. He holds up his record as a
+middling ultramarathon runner as proof. He surmises that lack of
+passion for work is leading people to feel untalented. This, combined
+with "brilliant asshole" programmers, are shaming people out of the
 industry. He wraps up with a message of inclusivity, especially toward
 women. Now, you can probably make sense of any other details with
 [the slides](/uploads/jacobian_pycon2015.pdf).
@@ -44,9 +45,9 @@ must continue reaching out to and integrating more underrepresented
 groups, especially women.
 
 That said, I'm not sure how one could have put more missteps between
-those two points.[^2]
+those two points.[^1]
 
-[^2]: Dear Jacob, if you are reading this, I just wanted to say no
+[^1]: Dear Jacob, if you are reading this, I just wanted to say no
       harsh feelings. It was a moving talk and I'm sure that most
       people got the good messages that bookended the talk. I hope you
       don't mind the criticism and still find it as interesting as you
@@ -61,10 +62,10 @@ being called a 10x programmer has made him very uncomfortable. He
 rejects the concept, as many have. Now I, too, have at various points
 been called a rockstar, ninja, and 10xer, and even though I also don't
 identify with those labels, I will tell you that the 10x programmer is
-very real.[^2]
+very real.[^tptm]
 
-[^2]: This also came up in [Episode #54 of Talk Python to Me][ep54], while
-      discussing my course, [Enterprise Software with Python][esp].
+[^tptm]: This also came up in [Episode #54 of Talk Python to Me][ep54], while
+         discussing my course, [Enterprise Software with Python][esp].
 
 [ep54]: https://talkpython.fm/episodes/show/54/enterprise-software-with-python
 [esp]: shop.oreilly.com/product/0636920047346.do
@@ -116,14 +117,12 @@ who is paid to write software. A person is more than their profession.
 It's said that the most sure sign of privilege is ignorance. Jacob
 drives this all the way home, but not for lack of trying
 
-From the beginning of the talk, he considers the immediate situation. He
-disclaims most of his reputation, describes his origins as
-unremarkable, and points out that his biggest contributions weren't
-actually his. It's *really* not meaningful when someone at the top,
-who has had a successful career full of recognition, tells you they
-could've done better. Later on in the talk, while showcasing the face of
-the privileged programmer, the 10x archetype, the person most likely
-to be able to ride on their identity, he shares a chuckle at his own
+From the beginning of the talk, he considers the immediate
+situation. He disclaims most of his reputation, describes his origins
+as unremarkable, and points out that his biggest contributions weren't
+actually his. Later on in the talk, while showcasing the face of the
+privileged programmer, the 10x archetype, the person most likely to be
+able to ride on their identity, he shares a chuckle at his own
 resemblance.
 
 Moving into Jacob's running-programming analogy, the anecdote got off
