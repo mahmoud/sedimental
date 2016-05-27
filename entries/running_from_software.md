@@ -1,38 +1,52 @@
 ---
-title: Jacobian Keynote
+title: Running from software
+tags:
+  - python
+  - code
+  - work
 ---
 
-PyCon 2016 starts in less than 48 hours. Something about the
-anticipation had me jonesing for some talks from last year, and for
-some reason I went with the keynote. I'm not typically a keynote
-attendee, especially not after some of the past debacles, but wow, was
-I late to the party.
+So while PyCon 2016 starts in less than 48 hours, some kind of
+anticipation compelled me to polish off the last of
+[the talks from last year][pycon_2015]. For some reason I went for a
+keynote. I'm not typically a keynote attendee, and this time I missed
+something big.[^pycon2016]
 
-Jacob Kaplan-Moss, the herald of Django, really laid it out. I'll
-give you the short version, but here's a video in case you want a look:
+[^pycon2016]: Suffice to say, I'm already subscribed to [Python 2016][pycon_2016]
+
+[pycon_2015]: https://www.youtube.com/channel/UCgxzjK6GuOHVKR_08TT4hJQ
+[pycon_2016]: https://www.youtube.com/channel/UCwTD5zJbsQGJN75MwbykYNw
+
+[Jacob Kaplan-Moss][jacobian], the herald of [Django][django], really
+laid something out. I'll give you the short version, but here's a
+video in case you want a look:
+
+[jacobian]: https://twitter.com/jacobian
+[django]: https://www.djangoproject.com/
 
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/hIJdFxYlEKE" frameborder="0"
 allowfullscreen></iframe>
 
-To summarize, he sets out to explain why mediocrity is acceptable.
+To summarize, Jacob sets out to explain why mediocrity is acceptable.
 Bell curves rule everything around us. He holds up his middling
 ultramarathon record as proof. He surmises that lack of passion for
 work is leading people to feel untalented. This, combined with
-"brilliant asshole" programmers (e.g., Linus Torvalds), are shaming
-people out of the industry. He wraps up with a message of inclusivity,
-especially toward women. Now, you can probably make sense of any
-other details with [the slides](/uploads/jacobian_pycon2015.pdf).
+"brilliant asshole" programmers, are shaming people out of the
+industry. He wraps up with a message of inclusivity, especially toward
+women. Now, you can probably make sense of any other details with
+[the slides](/uploads/jacobian_pycon2015.pdf).
 
-Foremost, Jacob and I are in complete agreement with the opening and
+Above all, Jacob and I are in complete agreement with his opening and
 closing. If you consider yourself an average programmer, that is fine
-and probably good. Also, as a field, software must continue reaching
-out to and integrating more underrepresented groups, especially women.
+and probably better than the alternatives. Also, as a field, software
+must continue reaching out to and integrating more underrepresented
+groups, especially women.
 
-That said, I'm not sure how one could put more missteps between those
-two points.[^1]
+That said, I'm not sure how one could have put more missteps between
+those two points.[^2]
 
-[^1]: Dear Jacob, if you are reading this, I just wanted to say no
+[^2]: Dear Jacob, if you are reading this, I just wanted to say no
       harsh feelings. It was a moving talk and I'm sure that most
       people got the good messages that bookended the talk. I hope you
       don't mind the criticism and still find it as interesting as you
@@ -44,9 +58,10 @@ two points.[^1]
 
 If Jacob makes one thing clear from the keynote, it's that years of
 being called a 10x programmer has made him very uncomfortable. He
-rejects the concept. Now I, too, have at various points been called a
-rockstar, ninja, and 10xer, and even though I also don't identify with
-those labels, I will tell you that the 10x programmer is very real.[^2]
+rejects the concept, as many have. Now I, too, have at various points
+been called a rockstar, ninja, and 10xer, and even though I also don't
+identify with those labels, I will tell you that the 10x programmer is
+very real.[^2]
 
 [^2]: This also came up in [Episode #54 of Talk Python to Me][ep54], while
       discussing my course, [Enterprise Software with Python][esp].
@@ -63,19 +78,19 @@ my life take priority, I'm an average programmer, focusing on my job
 and its share of 1x work.
 
 10x programming is a matter of insight and inspiration, confidence and
-autonomy. This is an alignment of circumstance so unique that it
-creates an obligation to invite the world to learn software
-expression. You never know when the right 1x programmer is going to be
-in the right place to transform their surroundings with a 10x
-moment. Many of the most creative people I know, understand very
-little about programming, and in some cases I think that's a real
-shame.
+autonomy. This is a circumstance so unique that it creates an
+obligation to teach software to the world. You never know when the
+right 1x programmer is going to be in the right place to transform
+their surroundings with a 10x moment. Many of the most creative people
+I know understand very little about programming, and one can't help
+but wonder what programming skills or insight might bring to their
+process.
 
 The great thing about Python is that you can teach so much programming
 with so little overhead. You give those highly creative people even a
-taste of programming and it opens up so much. Even just the shared
-vocabulary is a huge boost to cross pollination of ideas between
-disciplines.
+taste of programming and it opens up vast opportunities. Even just the
+shared vocabulary is a huge boost to cross-pollination of ideas
+between disciplines.
 
 Look at Python use among biologists, neuroscientists, and other more
 academics and analysts. Their amazing results speak volumes. Yet by
@@ -124,7 +139,7 @@ found himself only slightly better than mediocre. The sort of
 guilt-inducing behavior that he claims leads people to leave the
 field, unfolding right on stage.
 
-# The Corporate Angle
+# The Corporatism
 
 Throughout the talk, Jacob cites some statistics. The one that stuck
 with me was about an impending employment deficit. The U.S. government
@@ -140,13 +155,13 @@ run, even if you're not the fastest.
 Too many managers are like Jacob, subtly redirecting the creative
 potential of software into commodity labor. "We" need as many people
 as possible to learn and teach programming because some a small
-portion of society has decided to gamble on software eating
-everything.
+portion of society has decided to gamble money on software eating
+everything in a very particular way.
 
-On the contrary, I believe people need exposure to programming for its
+On the contrary, people need exposure to programming for its
 fundamental concepts. Software offers new ways of decomposing problems and
 creating solutions, new approaches that are necessary to understand an
-increasingly fast-paced and connected world. That's totally
+increasingly fast-paced and connected world. That is totally
 irrespective of employment. Software design is a new way of thinking,
 for all people, employed as programmers or not.
 
@@ -165,6 +180,9 @@ programming is not running.
 Software is much more than an industry. You don't need a programming
 job to be a good programmmer.
 
-And to rephrase the good parts, you don't need to be a good programmer
-to make a difference with software. It's up to us to accept and
-support programmers of all walks and skill levels.
+Which brings me back to rephrasing the good parts we agree on, one
+doesn't need to be a good programmer to make a difference with
+software. Recognizing this, it follows that it's best for all of us to
+accept and support programmers of all walks and skill levels.
+
+[pycon_2016]: https://www.youtube.com/channel/UCwTD5zJbsQGJN75MwbykYNw
