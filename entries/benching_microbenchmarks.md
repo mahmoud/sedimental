@@ -7,14 +7,14 @@ tags:
   - work
 ---
 
-In under one week, [*Statistics for Software*][s4s] blew past
-[*10 Myths for Enterprise Python*][10moep] and became the most visited
-post in the history of the PayPal Engineering blog. It even earned
-[a Japanese translation][s4s_jp] already. Taken as an indicator of
+In under one week, [*Statistics for Software*][s4s] flew past
+[*10 Myths for Enterprise Python*][10moep] to become the most visited
+post in the history of the PayPal Engineering blog. And that's not
+counting [the Japanese translation][s4s_jp]. Taken as an indicator of
 increased interest in software quality, this really floats all boats.
 
-There were enough emails and comments to warrant one quick followup in
-particular.
+That said, there were enough emails and comments to call for a
+quick followup about one particularly troubling area.
 
 [s4s]: https://www.paypal-engineering.com/2016/04/11/statistics-for-software/
 [10moep]: https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/
@@ -29,15 +29,15 @@ The saying in software goes that there are lies, damned lies, and
 software benchmarks.
 
 Yes, quantiles, histograms, and other fundamentals covered in
-*Statistics for Software* can certainly be applied to improve
-benchmarking. One of the timely inspirations for the post was a major
-network appliance vendor selling 5-figure machines, without providing
-or even measuring latency in quantiles. Just throughput-over-time
-averages.
+[*Statistics for Software*][s4s] can certainly be applied to improve
+benchmarking. One of the timely inspirations for the post was our
+experience with a major network appliance vendor selling 5-figure
+machines, without providing or even measuring latency in
+quantiles. Just throughput-over-time averages.
 
-We gave them a [Jupyter][jupyter] notebook that drove test traffic. A
-second notebook provided the numbers they should have measured. We've
-amalgamated elements of both into
+To fix this, we gave them a [Jupyter][jupyter] notebook that drove
+test traffic, and a second notebook provided the numbers they should
+have measured. We've amalgamated elements of both into
 [a single notebook on PayPal's Github][perf_nb]. Two weeks later they
 had a new firmware build that sped up our typical traffic's 99th
 percentile by two orders of magnitude. Google, Amazon, and their other
@@ -93,11 +93,17 @@ Microbenchmarks were already showing signs of fatigue. Strike one was
 the frequent lack of reproducibility. Strike two came when software
 authors began gaming the system, changing what was written to beat the
 benchmark. Now, microbenchmarks have officially struck out. Echos and
-ping-pongs are worth less than their namesakes. Today, it is more
-important that a framework provides an idiomatic facility for
-measuring each individual system's actual performance.
+ping-pongs are worth less than their namesakes.
+
+Standard profiling and optimization techniques, such as those
+chronicled in [Enterprise Software with Python][esp], still have their
+place for engineering performance. But those measurements are
+provisional and temporary. Today, we need software that provides
+idiomatic facilities for live measurement every individual system's
+true performance.
 
 [^1]: I'm not naming names. Yet. You can
       [follow me on Twitter][mhashemi_tw] in case that changes.
 
+[esp]: http://shop.oreilly.com/product/0636920047346.do
 [mhashemi_tw]: https://twitter.com/mhashemi
