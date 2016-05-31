@@ -10,8 +10,8 @@ tags:
 In under one week, [*Statistics for Software*][s4s] blew past
 [*10 Myths for Enterprise Python*][10moep] and became the most visited
 post in the history of the PayPal Engineering blog. It even earned
-[a Japanese translation][s4s_jp] already. I take this as an indicator
-of increased focus on software quality, which makes me quite happy.
+[a Japanese translation][s4s_jp] already. Taken as an indicator of
+increased interest in software quality, this really floats all boats.
 
 There were enough emails and comments to warrant one quick followup in
 particular.
@@ -22,7 +22,7 @@ particular.
 
 # Statistics for benchmarks
 
-<img width="30%" align="right" src="/uploads/illo/tachometer_med.png"
+<img width="25%" align="right" src="/uploads/illo/tachometer_med.png"
 title="Too many developers are building software without these.">
 
 The saying in software goes that there are lies, damned lies, and
@@ -33,32 +33,40 @@ Yes, quantiles, histograms, and other fundamentals covered in
 benchmarking. One of the timely inspirations for the post was a major
 network appliance vendor selling 5-figure machines, without providing
 or even measuring latency in quantiles. Just throughput-over-time
-averages. We gave them a [Jupyter][jupyter] notebook that drove test
-traffic and reported the right numbers. Two weeks later they had a new
-firmware build that sped up our typical traffic's 99th percentile by
-two orders of magnitude. Google, Amazon, and their other customers
-will probably get the fixes in a few weeks, too. Still waiting on our
-gourmet cheese basket.
+averages.
+
+We gave them a [Jupyter][jupyter] notebook that drove test traffic. A
+second notebook provided the numbers they should have measured. We've
+amalgamated elements of both into
+[a single notebook on PayPal's Github][perf_nb]. Two weeks later they
+had a new firmware build that sped up our typical traffic's 99th
+percentile by two orders of magnitude. Google, Amazon, and their other
+customers will probably get the fixes in a few weeks, too. Meanwhile,
+we're still waiting on our gourmet cheese basket.
 
 [jupyter]: http://jupyter.org/
+[perf_nb]: https://github.com/paypal/support/blob/master/notebooks/benchmarking_servers_before_and_after.ipynb
 
-But good statistics won't fix the real problem. The goal is to move
-toward a more modern view.
+Even though our benchmarks were simple, they were specific to the use
+case, and utilized robust statistics. But even the most robust
+statistics won't solve the real problem: systematic overapplication of
+one or two microbenchmarks across all use cases. We must move forward,
+to a more modern view.
 
 # Performance as a feature
 
-Any framework branding itself as performant *must* include measurement
-instrumentation as an active interface. One cannot simply benchmark
-once and claim performance forever.[^1] To claim performance means to
-claim that the framework is suitable for performance-critical
-situations. There is no performance-critical situation where
+Any framework or application branding itself as performant *must*
+include measurement instrumentation as an active interface. One cannot
+simply benchmark once and claim performance forever.[^1] Applications
+vary widely. There is no performance-critical situation where
 measurement is not also necessary. Instead, we see a glut of
-microframeworks, swearing off features in the name of speed.
+microframeworks, throwing out even the most obvious features in the
+name of speed.
 
-Speed cannot be a built-in property. Yes, Formula 1 race cars are fast
+Speed is not a built-in property. Yes, Formula 1 race cars are fast
 and yes, F1 designers are very focused on weight reduction. But they
-are not shaving off grams to set weight records. The F1
-engineers are making room for
+are not shaving off grams to set weight records. The F1 engineers are
+making room for
 [more safety, metrics, and alerting][f1_telemetry]. Once upon a time,
 this was not possible, but technology has come a long way since last
 century. So it goes with software.
@@ -75,6 +83,9 @@ internal Python framework does all of this on top of [SuPPort][support],
 [support]: https://github.com/paypal/support
 [faststat]: https://github.com/doublereedkurt/faststat
 [lithoxyl]: https://github.com/mahmoud/lithoxyl
+
+<img width="30%" align="right" src="/uploads/illo/ping_pong_med.png"
+title="Enough with the games. They're noisy and not even that fun.">
 
 # Benching the microbenchmark
 
