@@ -33,7 +33,7 @@ To summarize, Jacob sets out to explain why mediocrity is acceptable.
 Bell curves rule everything around us. He holds up his record as a
 middling ultramarathon runner as proof. He surmises that lack of
 passion for work is leading people to feel untalented. This, combined
-with "brilliant asshole" programmers, are shaming people out of the
+with "brilliant asshole" programmers, is shaming people out of the
 industry. He wraps up with a message of inclusivity, especially toward
 women. Now, you can probably make sense of any other details with
 [the slides](/uploads/jacobian_pycon2015.pdf).
