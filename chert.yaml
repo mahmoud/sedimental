@@ -12,14 +12,18 @@ site:
       href: https://github.com/mahmoud
     - text: Twitter
       href: https://twitter.com/mhashemi
+    - text: Feed
+      href: /atom.xml
+  secondary_links:
     - text: Hatnote
       href: /hatnote_projects.html
       desc: Wikipedia-based projects
-    - text: Feed
-      href: /atom.xml
-  #secondary_links:
-  #  - text: Projects
-  #    href: /open_source_projects.html
+    - text: Projects
+      href: /open_source_projects.html
+      desc: Non-Wikipedia open-source projects
+    - text: Python
+      href: /tagged/python/
+      desc: An archive of Python writing
   analytics_code: UA-63517417-1
 
 theme:
