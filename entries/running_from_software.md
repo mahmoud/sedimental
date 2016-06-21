@@ -13,7 +13,7 @@ anticipation compelled me to polish off the last of
 keynote. I'm not typically a keynote attendee, and this time I'd missed
 something big.[^pycon2016]
 
-[^pycon2016]: Suffice to say, I'm already subscribed to [Python 2016][pycon_2016]
+[^pycon2016]: Suffice to say, I'm already subscribed to [PyCon 2016][pycon_2016]
 
 [pycon_2015]: https://www.youtube.com/channel/UCgxzjK6GuOHVKR_08TT4hJQ
 [pycon_2016]: https://www.youtube.com/channel/UCwTD5zJbsQGJN75MwbykYNw
@@ -179,9 +179,9 @@ programming is not running.
 Software is much more than an industry. You don't need a programming
 job to be a good programmmer.
 
-Which brings me back to rephrasing the good parts we agree on, one
-doesn't need to be a good programmer to make a difference with
-software. Recognizing this, it follows that it's best for all of us to
-accept and support programmers of all walks and skill levels.
+This brings me back to reiterate the central thought we share: One
+doesn't need to compare favorably to other programmers in order to
+make a difference with software. So, we must accept and support
+programmers of all walks and skill levels.
 
 [pycon_2016]: https://www.youtube.com/channel/UCwTD5zJbsQGJN75MwbykYNw
