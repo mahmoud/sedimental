@@ -22,6 +22,11 @@
     #header {
         margin-bottom: 1.5rem;
     }
+
+    div.container {
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
 }
 
 #header h1 {
