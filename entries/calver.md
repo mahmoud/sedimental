@@ -26,14 +26,14 @@ SemVer versioning systems, depending on the project.
 
 The site speaks for itself, but there you'll find:
 
-  * [Formal terms][terms_cv]
+  * [Terms and definitions][terms_cv]
   * Case studies, including [Ubuntu][ubuntu_cv],
     [Twisted][twisted_cv], [Teradata][teradata_cv], and
     [more][other_cv].
-  * A guide to [when to use CalVer][when_to_cv] for your future projects
+  * And a guide to [when to use CalVer][when_to_cv] for your future projects
 
 You'll also find [a project list][users], and badges like this one,
-representing the Ubuntu versioning scheme:
+for [Ubuntu][ubuntu_cv]'s versioning scheme:
 
 > <img src="https://img.shields.io/badge/calver-YY.0M.MICRO-22bfda.svg">
 
@@ -70,37 +70,46 @@ conventions. CalVer combines well with incremental-number schemes, so
 it's not strictly a competition. That said, here is how CalVer
 outshines SemVer.
 
-🕐  CalVer integrates objective, intuitive calendar dates, whereas SemVer
-subjectively increments numbers.
+🕐  CalVer integrates objective, intuitive calendar dates. <br/>
+⊠  SemVer subjectively increments numbers.
 
 🕑  CalVer encompasses real-world usage through a formal
-vocabulary. SemVer imitates the form of a specification, but lacks
-objective verifiability and other practical bases.
+vocabulary. <br/>
+⊠  SemVer imitates the form of a specification, albeit a
+confrontational one. Unlike real specifications, SemVer lacks
+objective verifiability, exemplars, or reference implementations.
 
-🕒  CalVer makes maintenance easier through powerful, objective semantics,
-though not the ones Tom Preston-Werner wished for. When was the last
-time you looked at a library's version number and knew whether or not
-you were running a recent version? CalVer makes this easy, and enables
-comparison across projects.
+🕒  CalVer makes maintenance easier through powerful, objective
+semantics. Look at a library's version number, immediately know how
+recent your copy. Compare across libraries, checking that dependencies
+are in sync. Deprecate versions based on time. <br/>
+⊠  SemVer has Tom Preston-Werner's semantics.
 
-🕓  CalVer's reliance on release date allows for automatable, immutable
-versions on which everyone can agree.  SemVer introduces one more
-place a bug can enter a project. Versions only go up, and a release
-which violates SemVer guidelines cannot be undone.
+🕓  CalVer's use of release dates allows for automatable, immutable
+versions on which everyone can agree.  <br/>
+⊠  SemVer introduces one more place a bug can enter a projects. Versions
+only go up, and a release which violates SemVer guidelines cannot be
+undone. That pressure means more projects [perpetually stuck in 0.x][zeno].
 
 The [list goes on][dav], but the message is clear. There is an
 alternative to SemVer, and it's about time!
 
+[zeno]: http://sedimental.org/designing_a_version.html#semver_and_release_blockage
+
 # Next steps
 
-Have a look at the Users list and help add any projects I may have
-missed. It's a big ecosystem out there, and admittedly my knowledge is
-biased toward Linux and Python.
+Have a look at the [Users][users] list and help add any projects I may
+have missed. It's a big ecosystem out there, and the initial list
+reflects my own Linux and Python tendencies.
 
 For current maintainers using calendar versioning, next time you get a
-raised eyebrow, just let them know: It's CalVer.
+raised eyebrow, just let them know: It's CalVer. Or save yourself a
+step and add one of [the badges][badges], linking to [calver.org][calver].
 
 For developers of new libraries, CalVer is here to stay, and
-calver.org will be there next time you're designing your versioning
-scheme. It's a big ecosystem out there, and once you try CalVer, I
-think you'll agree. Software versioning get better with time.
+[calver.org][calver] will be there next time you're designing your
+versioning scheme. It's a big ecosystem out there, and once you try
+CalVer, I think you'll agree. Software versioning get better with
+time.
+
+[badges]: http://calver.org/overview.html#case_studies
