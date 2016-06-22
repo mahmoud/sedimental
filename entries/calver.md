@@ -7,9 +7,11 @@ tags:
   - code
   - boltons
   - ashes
+publish_date: 10:30am June 22, 2016
 
 ---
 
+<img align="right" width="20%" src="/uploads/illo/caltree_med.png">
 *It's about time.*
 
 Technologists expect things to get better with time. Your current
@@ -115,6 +117,8 @@ alternative to SemVer, and it's about time!
 Have a look at the [Users][users] list and help add any projects I may
 have missed. It's a big ecosystem out there, and the initial list
 reflects my own Linux and Python tendencies.
+
+<img align="right" width="25%" src="/uploads/illo/calver_cal_med.png">
 
 For current maintainers using calendar versioning, next time you get a
 raised eyebrow, just let them know: It's CalVer. Or save yourself a

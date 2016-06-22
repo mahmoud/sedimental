@@ -201,7 +201,8 @@ our last straw and look at an alternative.
 
 # Calendar Versioning
 
-<img align="right" width="110px" src="/uploads/illo/caltree_med.png">If you're an earnest engineer with honest intents of creating,
+<img align="right" width="110px" src="/uploads/illo/caltree_med.png">
+If you're an earnest engineer with honest intents of creating,
 releasing, and maintaining a project, then calendar versioning may be
 for you. It fulfills all of
 [the versioning expectations](#collective_expectations), so what
