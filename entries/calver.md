@@ -1,6 +1,12 @@
 ---
 title: Announcing CalVer
 entry_root: calver
+tags:
+  - python
+  - versioning
+  - code
+  - boltons
+  - ashes
 
 ---
 

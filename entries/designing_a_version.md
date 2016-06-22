@@ -5,6 +5,7 @@ entry_root: designing_a_version
 tags:
   - python
   - code
+  - versioning
   - boltons
   - ashes
   - work
