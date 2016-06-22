@@ -14,8 +14,8 @@ tags:
 
 Technologists expect things to get better with time. Your current
 laptop has more RAM than the last, your current car is safer than its
-predecessor, and the latest version of your application or library is
-certainly the best ever.
+predecessor, and the latest version of your code is certainly the best
+ever.
 
 What if the same be said of versioning systems?
 
@@ -25,23 +25,26 @@ convention based on project release dates, formally hosted on
 **[calver.org][calver]**.
 
 Calendar versioning represents a powerful alternative to Semantic
-Versioning ([SemVer][semver]). CalVer can combine with or even replace
-SemVer versioning systems, depending on the project.
+Versioning ([SemVer][semver]). CalVer combines with or even replaces
+SemVer versioning systems, based on the needs of the project.
 
 # Features
 
-The site speaks for itself, but there you'll find:
+The [calver.org][calver] site speaks for itself, but there you'll
+find:
 
   * [Terms and definitions][terms_cv]
   * Case studies, including [Ubuntu][ubuntu_cv],
     [Twisted][twisted_cv], [Teradata][teradata_cv], and
-    [more][other_cv].
-  * And a guide to [when to use CalVer][when_to_cv] for your future projects
+    [more][other_cv]
+  * And [a short guide][when_to_cv] on when to use CalVer for your future projects
 
-You'll also find [a project list][users], and badges like this one,
-for [Ubuntu][ubuntu_cv]'s versioning scheme:
+Case studies feature badges like this one, for [Ubuntu][ubuntu_cv]'s
+versioning scheme:
 
 > <img src="https://img.shields.io/badge/calver-YY.0M.MICRO-22bfda.svg">
+
+You'll also find [a project list][users], always seeking new additions.
 
 [calver]: http://calver.org
 [semver]: http://semver.org
@@ -56,7 +59,7 @@ for [Ubuntu][ubuntu_cv]'s versioning scheme:
 
 # Rationale
 
-Many projects have [designed their version schemes][dav] to better
+Many projects have designed their version schemes to better
 match the needs of their developers and customers. CalVer formalizes
 those practices. [calver.org][calver] began as a resource to help
 maintainers communicate the design choices in their versioning scheme.
@@ -65,8 +68,13 @@ CalVer has grown to showcase prominent uses and provide a way for more
 projects to adopt calendar versioning in their projects. It even hosts
 a community-curated [list of projects][users] using calendar versioning.
 
+Even more background on the project can be found on the
+[calver.org About page][calver_about], as well as my previous
+versioning essay, *[Designing a version][dav]*.
+
 [dav]: /designing_a_version.html
 [users]: http://calver.org/users.html
+[calver_about]: http://calver.org/about.html
 
 # Compared to SemVer
 
@@ -100,7 +108,7 @@ undone. That pressure means more projects [perpetually stuck in 0.x][zeno].
 The [list goes on][dav], but the message is clear. There is an
 alternative to SemVer, and it's about time!
 
-[zeno]: http://sedimental.org/designing_a_version.html#semver_and_release_blockage
+[zeno]: /designing_a_version.html#semver_and_release_blockage
 
 # Next steps
 
