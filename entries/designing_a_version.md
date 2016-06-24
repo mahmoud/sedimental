@@ -13,6 +13,9 @@ publish_date: 10:27am February 23, 2016
 
 ---
 
+[calver]: http://calver.org
+[calver_announce]: /calver.html
+
 In modern software development, a project isn't a project without a
 proper versioning scheme.
 
@@ -27,6 +30,11 @@ maintainers. Versions are how a project builds a legacy.
 
 So why do projects leave versioning to afterthought? What do clients
 expect and what do projects need?
+
+*Followup: This post culminated in the
+[announcing CalVer][calver_announce] and launching
+[calver.org][calver]. This page provides a thorough background to the
+CalVer best practices.*
 
 [TOC]
 
@@ -204,7 +212,7 @@ our last straw and look at an alternative.
 <img align="right" width="110px" src="/uploads/illo/caltree_med.png">
 If you're an earnest engineer with honest intents of creating,
 releasing, and maintaining a project, then calendar versioning may be
-for you. It fulfills all of
+for you. [CalVer][calver] fulfills all of
 [the versioning expectations](#collective_expectations), so what
 advantages does it bring?
 
