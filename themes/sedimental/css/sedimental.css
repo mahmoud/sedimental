@@ -24,8 +24,8 @@
     }
 
     div.container {
-        padding-left: 8rem;
-        padding-right: 8rem;
+        padding-left: 6%;  /* 7rem;*/
+        padding-right: 8%;  /* 8rem; */
     }
 }
 
@@ -125,7 +125,7 @@ div.footnote hr {
 }
 
 div.footnote hr:after {
-    content: "#";
+    content: "###";
     display: inline-block;
     position: relative;
     top: -1.1rem;
