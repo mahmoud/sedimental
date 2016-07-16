@@ -28,7 +28,7 @@ With crypto legends:
 
 And the inevitable frontend:
 
-<img title="w/ Douglas Crockford" src="/uploads/me/dcrock.jpg" width="50%"> <img title="w/ Brendan Eich" src="/uploads/me/eich.jpg" height="255px">
+<img title="w/ Douglas Crockford" src="/uploads/me/dcrock.jpg" width="50%"> <img title="w/ Brendan Eich (smiles != endorsements of JavaScript or politics)"" src="/uploads/me/eich.jpg" height="255px">
 
 Oh and you thought I'd forget Glyph!
 

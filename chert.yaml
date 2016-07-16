@@ -25,7 +25,7 @@ site:
       href: /tagged/python/
       desc: An archive of Python writing
     - text: Me
-      href: /tagged/me/
+      href: /me.html
       desc: Some photos of me
   analytics_code: UA-63517417-1
 
