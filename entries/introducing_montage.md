@@ -2,18 +2,23 @@
 title: Introducing Montage
 ---
 
-If I told you that the world's largest photography competition, Wiki
-Loves Monuments, has run every year since 2010, gathering over a
-million submissions, with little to no standard process, I don't think
-your surprise could have matched mine. New year, new people, new
-processes.
+Can you imagine collecting and judging a competition with a quarter of
+a million contestants? Better yet, imagine picking the winners without
+standard tools or processes. If it sounds hard, then consider thank your
+local Wiki Loves Monuments volunteer, some of whom have been at this
+labor of love since 2010, helping to earn the contest's title of
+"World's largest photography competition" in the process.
+
+Since 2010, Wiki Loves Monuments volunteers have been sifting through
+hundreds of thousands of photographs, year after year. If I told you
+that the world's largest photography competition has gathered over a
+million submissions and counting, with little to no standard process,
+. New year, new people, new processes.
 
 Worse yet, these processes were getting byzantine, discouraging
 would-be organizers, and hurting overall participation. Less
 participation means fewer photos, and nobody wants a less media-rich
 Wikipedia.
-
-<!-- TODO: nepal story -->
 
 But how do you prescribe a standard process without standard tools?
 And how do you build standard tools without a standard process?
@@ -28,6 +33,8 @@ Today, we're happy to present Montage, the web platform used to judge
 Wiki Loves Monuments 2016.
 
 [hatnote]: http://hatnote.com
+
+[TOC]
 
 # Overview
 
@@ -80,8 +87,9 @@ Considering the unique processes of Wiki Loves Monuments, Montage had
 to be designed specifically for photo contests hosted on Wikimedia
 Commons. With development starting only a couple short weeks before
 submissions began, Montage was in beta mode for 2016's Wiki Love
-Monuments. Some features may not have been utilized by all contests,
-and features may have changed since publishing this post.
+Monuments. So note that some features may not have been utilized by
+all contests, and features may have changed since publishing this
+post.
 
 As with all good software, Montage puts its users first, so let's
 start by taking a look at them.
@@ -179,6 +187,8 @@ added measure of maintainability. It has extensive logging throughout,
 using Lithoxyl. On the frontend, Angular.js provides a responsive user
 experience with a familiar feel.
 
+The code is free and open to contributions on GitHub, of course.
+
 # New frontiers
 
 Without a doubt, Montage was much more of a success than we had
@@ -195,13 +205,13 @@ directions we are investigating include:
 * Enhancing communication between organizers and jurors
 * Supporting lower bandwidth connections
 * Further customizing the photo viewing feature <!-- e.g., zoom, etc. for increased scrutiny -->
-* And as always, more performance!
+* And as always, increasing performance!
 
 The list is long, and we're excited to tackle it for the 2017 Wiki
 Loves contests! We hope you'll join us. If you're an engineer of any
 sort, get in touch!
 
-# Team
+# Thanks
 
 Many people contributed to Montage directly and indirectly. To name a few:
 
