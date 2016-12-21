@@ -27,7 +27,7 @@ means fewer photos, and nobody wants to see less media on Wikipedia.
 
 But how do you prescribe a standard process without recommending
 standard tools, and how do you build standard tools without a standard
-process?  This year, the international team of Wiki Loves Monuments
+process?  This year, the international team of Wiki Loves Monuments (WLM)
 organizers set out to quash this chicken-and-egg problem, with a
 little help from [Hatnote][hatnote].
 
@@ -107,14 +107,14 @@ other "Wiki Loves" competitions, for all sorts of subjects, including
 
 Considering the unique processes of Wiki Loves Monuments, Montage had
 to be designed specifically for photo contests hosted on Wikimedia
-Commons. With development starting only a couple short weeks before
+Commons. As with all good software, Montage puts its users first, so
+let's start by taking a look at them.
+
+<!-- With development starting only a couple short weeks before
 submissions began, Montage was in beta mode for 2016's Wiki Love
 Monuments. So note that some features may not have been utilized by
 all contests, and features may have changed since publishing this
-post.
-
-As with all good software, Montage puts its users first, so let's
-start by taking a look at them.
+post. -->
 
 ## User roles
 
@@ -127,14 +127,15 @@ build functionality for the following groups of users:
 * Jurors: A judge chosen by organizers
 * The general public: In all likelihood, you, dear reader
 
-Note that a person can take on more than one role, especially across
-rounds. For instance, Leila coordinated Wiki Loves Monuments Iran,
-while also helping organize the international competition.
-
 Except for the public parts of the site, all users log in with their
 Wikimedia credentials.
 
-The interactions between these users in a nutshell:
+Note that a person can take on more than one role, especially across
+campaigns. For instance, Leila coordinated Wiki Loves Monuments Iran,
+while also helping organize the international competition, and served
+as juror on a number of test rounds.
+
+Each user role's behavior in a nutshell:
 
 * Maintainers add international organizers
 * International organizers can create campaigns and add local coordinators
@@ -147,41 +148,56 @@ roles. Let's take a peek into what their overall workflow looks like.
 
 ## Workflow
 
+The smallest WLM2016 campaign on Montage ran with 760 entries, two
+rounds, and five jurors. Compare that to the largest campaigns, which
+had tens of thousands of entries, up to six rounds, and almost 50
+jurors. We've worked hard to design Montage for contests of any size.
+
 Once a campaign has been created in Montage, organizers import any
 number of entries into a first round of voting, then run successive
 rounds, one at a time, to narrow down the field to just the set of
 winning images.
 
-Montage supports three voting styles:
+Montage supports three voting styles, providing flexibility to
+organizers without too much complication for jurors:
 
 * A simple yes-no
 * A five-star rating
 * A first-to-last ordered ranking
 
-These three options offer organizers flexibility without much complication.
+A juror logging in, assigning ratings, editing ratings, and later
+ranking entries would see something like:
+
+<img src="/uploads/hatnote/montage_intro/montage_juror_panel_1.png" width="50%">
+<img src="/uploads/hatnote/montage_intro/montage_juror_2.png" width="50%">
+<img src="/uploads/hatnote/montage_intro/montage_juror_edit_votes_1.png" width="50%">
+<img src="/uploads/hatnote/montage_intro/montage_ranking_ui_1.png" width="50%">
 
 When a round's voting is complete, organizers select the rating
-*threshold* to advance to the next round. Entries below the threshold
-are eliminated. Examples of thresholds would be:
+*threshold* to determine the set of entries advancing to the next
+round. Entries below the threshold are eliminated. Examples of
+thresholds would be:
 
 * Yes-no: At least 2 "yes" votes
-* Five-star: Average rating of 3.5 stars or higher
+* Five-star: Average score of 3.5 stars or higher
 * Ranking: Top 10
 
-Organizers select the threshold value from a fixed set, so Montage
-sidesteps complicated tiebreaking logic.
+Because organizers select the threshold value from a fixed set, as
+seen below, Montage sidesteps complicated tiebreaking logic.
 
-Montage also provides a [*quorum*][quorum_def] for yes-no and rating
-rounds. For example, in a rating round with quorum set to 3, each
-image must be rated by at least 3 randomly-selected jurors. This
-lightens the load on individual jurors, while still ensuring each
-image gets a fair appraisal.
+<img title="Creating a second round by selecting the threshold"
+src="/uploads/hatnote/montage_intro/montage_new_round_dialog.png"
+width="75%">
 
-The smallest WLM2016 campaign on Montage ran with 760 entries, two
-rounds, and five jurors. Compare to the largest campaigns, which had
-tens of thousands of entries, up to six rounds, and almost 50
-jurors. We've taken feedback from these groups, and others, to ensure
-Montage works for contests of any size.
+To lighten the load on individual jurors, while still ensuring each
+image gets a fair appraisal, Montage provides a [*quorum*][quorum_def]
+setting for yes-no and rating rounds. For example, in a rating round
+with quorum set to 3, each image must be rated by at least 3
+randomly-selected jurors. This spreads the load for those early, large
+rounds.
+
+For more in-depth detail about the research and design behind
+Montage's voting system, [see this post](http://sedimental.org/wikilectioneering.html).
 
 [quorum_def]: https://en.wiktionary.org/wiki/quorum
 
@@ -193,7 +209,9 @@ First off, Montage [is hosted on][montage_beta] Wikimedia's community
 server, [Tool Labs][tool_labs]. This supported environment makes
 collaboration easier, while also providing critical features like
 automatic database backups, direct access to database replicas for
-faster imports, and HTTPS. The price is right, too!
+faster imports, and [HTTPS][https]. The price is right, too!
+
+[https]: https://en.wikipedia.org/wiki/HTTPS
 
 As mentioned earlier, Montage also uses [Wikimedia's OAuth][oauth] for
 authentication, meaning that user accounts are autocreated on first
@@ -246,7 +264,9 @@ sort, get in touch!
 
 Many people contributed to Montage directly and indirectly. To name a few:
 
-* [LilyOftheWest](https://phabricator.wikimedia.org/p/LilyOfTheWest/) - de facto product manager
+<img src="/uploads/hatnote/montage_intro/montage_logo_01.png" width="30%" align="right">
+
+* [LilyOftheWest](https://phabricator.wikimedia.org/p/LilyOfTheWest/) - Product and project manager
 * [Paweł Marynowski](https://twitter.com/pmarynowski) - UI designer and engineer
 * [Mahmoud Hashemi](https://twitter.com/mhashemi) - Architecture and backend
 * [Stephen LaPorte](https://twitter.com/sklaporte) - Backend and much more
@@ -265,4 +285,4 @@ enlightening. For more details and updates, feel free to
 [Hatnote on Twitter](http://twitter.com/hatnotable), and of course,
 watch/update/discuss via
 [our Commons page](https://commons.wikimedia.org/wiki/Commons:Montage). We
-look forward to hearing from you!
+look forward to hearing from you, and seeing your 2017 contest submissions!
