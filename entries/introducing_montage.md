@@ -2,35 +2,39 @@
 title: Introducing Montage
 ---
 
-Can you imagine collecting and judging a competition with a quarter of
-a million contestants? Better yet, imagine picking the winners without
-standard tools or processes. If it sounds hard, then consider thank your
-local Wiki Loves Monuments volunteer, some of whom have been at this
-labor of love since 2010, helping to earn the contest's title of
-"World's largest photography competition" in the process.
+Imagine, for a moment, organizing and judging a competition with a
+quarter of a million contestants. To make things more interesting, you
+have to pick the winners without standard tools or processes. To top
+it off, do it year after year for the better part of a decade. New
+year, new people, new processes.
 
-Since 2010, Wiki Loves Monuments volunteers have been sifting through
-hundreds of thousands of photographs, year after year. If I told you
-that the world's largest photography competition has gathered over a
-million submissions and counting, with little to no standard process,
-. New year, new people, new processes.
+If it sounds hard, then consider thanking your local Wiki Loves
+Monuments volunteer. Thanks to the Commons community,
+[2016 just saw][results_2016] another successful iteration of
+[the world's largest photography competition][guinness].
 
-Worse yet, these processes were getting byzantine, discouraging
-would-be organizers, and hurting overall participation. Less
-participation means fewer photos, and nobody wants a less media-rich
-Wikipedia.
+[results_2016]: https://www.wikilovesmonuments.org/winners-2016/
+[guinness]: http://www.guinnessworldrecords.com/world-records/largest-photography-competition/
 
-But how do you prescribe a standard process without standard tools?
-And how do you build standard tools without a standard process?
-Besides, who has time for either, when everyone is so busy running the
-world's largest photography competition?!
+If you were surprised to learn that for 6 years the largest
+photography competition gathered over a million submissions from over
+50 countries and counting, with little to no standard process, join
+the club.
 
-This year, the international team of Wiki Loves Monuments organizers
-set out to quash this chicken-and-egg problem, with a little help from
-[Hatnote][hatnote].
+The lack of tooling has been a damper on organizers, as well as
+overall participation for the past several years. Less participation
+means fewer photos, and nobody wants to see less media on Wikipedia.
 
-Today, we're happy to present Montage, the web platform used to judge
-Wiki Loves Monuments 2016.
+But how do you prescribe a standard process without recommending
+standard tools, and how do you build standard tools without a standard
+process?  This year, the international team of Wiki Loves Monuments
+organizers set out to quash this chicken-and-egg problem, with a
+little help from [Hatnote][hatnote].
+
+Today, we're happy to present **Montage**, the web platform used to
+judge Wiki Loves Monuments 2016.
+
+<img src="/uploads/hatnote/montage_intro/montage_announce_banner.jpg" width="100%">
 
 [hatnote]: http://hatnote.com
 
@@ -38,36 +42,41 @@ Wiki Loves Monuments 2016.
 
 # Overview
 
-We started by looking at all the independent processes and tools used
-over the years. Gradually, a new, streamlined design emerged, one
-which would enable a standard recommended process for future
-participants. Before long, we were on our way to making it easier than
-ever to organize a photography contest on Wikimedia Commons, and
-including communities who could not participate regularly.
+We started by looking at all the independent processes and
+[tools][jury_tools] used over the years. We wanted to make it easier
+than ever to organize a photography contest on Wikimedia Commons, and
+including communities who could not participate regularly. Before
+long, a new design emerged, one which would enable a standard
+recommended process, streamlined for future participants.
 
 For those unfamiliar with the Wiki Loves Monuments competition, here
 is a handy executive summary:
 
-* Countries have one or more official lists of national or regional
-  heritage sites.
-* Local contest coordinators self-organize on their language-specific
-  wiki, uploading the monument registry if need be, then contacting
-  the international team to indicate their country's participation.
-* These coordinators advertise the contest on their wiki, social
-  media, and all other means.
-* Contest submissions are accepted for one month, around October,
-  through uploading to Commons under a particular category (e.g., Wiki
-  Loves Monuments in Iran 2016)
-* Each country receives somewhere between 100 and 100,000 images,
-  which are judged by a jury selected by the local coordinators,
-  consisting of experts in photography, history, anthropology, and the
-  local wiki community needs.
-* After several rounds of judging, at least 10 winners are chosen from
-  each local contest.
-* All local winners, hundreds in total, advance to the international
-  stage, where another jury judges them in several rounds.
-* The winners of the international stage are presented in a report, to
-  much joy, fanfare, and celebration.
+1. Countries have one or more official lists of national or regional
+   heritage sites. These lists make it onto Wikipedia with
+   [a little help from officials, volunteers, and bots][list_import_infographic].
+2. Local contest coordinators self-organize on their language-specific
+   wiki, then contact the international team to indicate their country's
+   participation.
+3. These coordinators advertise the contest on their wiki, social
+   media, and elsewhere.
+4. Contest submissions are accepted for one month, around September,
+   through a special Commons upload link, like
+   [this one][wlmir_2016_upload], which places entries under a
+   particular category, like [this one][wlmir_2016_cat].
+5. When submission period ends, the 100 to 100,000 entries are judged by
+   a jury selected by the local coordinators, consisting of experts in
+   photography, history, anthropology, and the local wiki community.
+6. After several rounds of judging on
+   [a variety of criteria][criteria], at least 10 winners are chosen
+   from each local contest.
+7. The top 10 winners from each locale, hundreds in total, advance to
+   the international stage, where
+   [a specially selected jury judges them][intl_jury] in
+   several rounds.
+8. The winners of the international stage are presented in a report,
+   like [this one from 2016's contest][wlm_2016_report], to much joy,
+   fanfare, and celebration.
 
 Submissions and prizes may vary from year to year, but the contest
 has always achieved its goals:
@@ -79,7 +88,20 @@ has always achieved its goals:
 
 It's no wonder that Wiki Loves Monuments' success has inspired many
 other "Wiki Loves" competitions, for all sorts of subjects, including
-nature, food, and folk culture.
+[nature][wiki_loves_earth], [food][wiki_loves_food], and
+[folk culture][wiki_loves_folk].
+
+[jury_tools]: https://commons.wikimedia.org/wiki/Commons:Jury_tools#Montage
+[wlmir_2016_cat]: https://commons.wikimedia.org/wiki/Category:Images_from_Wiki_Loves_Monuments_2016_in_Iran
+[wlmir_2016_upload]: https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-ir&categories=WLM_IR_Triage%7CImages_from_Wiki_Loves_Monuments_2016%7CImages_from_Wiki_Loves_Monuments_2016_in_Iran
+[criteria]: https://www.wikilovesmonuments.org/judging-criteria/
+[usa_2016_process]: https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2016_in_the_United_States/Judging
+[list_import_infographic]: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_secret_flow_of_Wiki_Loves_Monuments_infografic.svg/700px-The_secret_flow_of_Wiki_Loves_Monuments_infografic.svg.png
+[intl_jury]: http://www.wikilovesmonuments.org/jury/
+[wlm_2016_report]: https://commons.wikimedia.org/wiki/File:Wlm-jury-report-2016-lores.pdf
+[wiki_loves_earth]: http://wikilovesearth.org/
+[wiki_loves_food]: https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Food
+[wiki_loves_folk]: https://wikilov.es/es/Wiki_Loves_Folk
 
 # Design
 
@@ -149,32 +171,34 @@ are eliminated. Examples of thresholds would be:
 Organizers select the threshold value from a fixed set, so Montage
 sidesteps complicated tiebreaking logic.
 
-Montage also provides a *quorum* for yes-no and rating rounds. For
-example, in a rating round with quorum set to 3, each image must be
-rated by at least 3 randomly-selected jurors. This lightens the load
-on individual jurors, while still ensuring each image gets a fair
-appraisal.
+Montage also provides a [*quorum*][quorum_def] for yes-no and rating
+rounds. For example, in a rating round with quorum set to 3, each
+image must be rated by at least 3 randomly-selected jurors. This
+lightens the load on individual jurors, while still ensuring each
+image gets a fair appraisal.
 
 To serve the wide range of contest sizes, we made it a key feature of
 Montage to support an arbitrary numbers of rounds and jurors. Larger
 campaigns tend to need more rounds and jurors to spread out the
-workload. The smallest WLM2016 campaign on Montage ran with xxx
-entries, yyy rounds, and zzz jurors. Compare to the largest, which had
-XXX entries, YYY rounds, and ZZZ jurors. We've taken feedback from
-these groups, and others, to ensure Montage works for contests of any
-size.
+workload. The smallest WLM2016 campaign on Montage ran with 760
+entries, two rounds, and five jurors. Compare to the largest
+campaigns, which had tens of thousands of entries, up to six rounds,
+and almost 50 jurors. We've taken feedback from these groups, and
+others, to ensure Montage works for contests of any size.
+
+[quorum_def]: https://en.wiktionary.org/wiki/quorum
 
 ## Technical details
 
 Montage also packs some notable technological advantages.
 
-First off, Montage is hosted on Wikimedia's community server, Tool
-Labs. This supported environment makes collaboration easier, while
-also providing critical features like automatic database backups,
-direct access to database replicas for faster imports, and HTTPS. The
-price is right, too!
+First off, Montage [is hosted on][montage_beta] Wikimedia's community
+server, [Tool Labs][tool_labs]. This supported environment makes
+collaboration easier, while also providing critical features like
+automatic database backups, direct access to database replicas for
+faster imports, and HTTPS. The price is right, too!
 
-As mentioned earlier, Montage also uses Wikimedia's OAuth for
+As mentioned earlier, Montage also uses [Wikimedia's OAuth][oauth] for
 authentication, meaning that user accounts are autocreated on first
 login, as long as they're registered on Wikipedia, Commons, or some
 other Wikimedia wiki. This means users don't need to remember another
@@ -182,18 +206,28 @@ password, and the Montage team doesn't need to worry about storing
 sensitive user information. Votes, permissions, and other information
 is still treated confidentially, of course.
 
-Montage itself is built on Python, Clastic, and Werkzeug, giving it an
-added measure of maintainability. It has extensive logging throughout,
-using Lithoxyl. On the frontend, Angular.js provides a responsive user
-experience with a familiar feel.
+Montage itself is built on Python, [Werkzeug][werkzeug_gh], and
+[Clastic][clastic_gh], giving it an added measure of
+maintainability. It has extensive logging throughout, using
+Lithoxyl. On the frontend, [Angular.js][angular] provides a responsive
+user experience with a familiar feel.
 
-The code is free and open to contributions on GitHub, of course.
+The code is free and open to contributions and issue reports
+[on GitHub][montage_gh], of course.
+
+[tool_labs]: https://tools.wmflabs.org/
+[oauth]: https://www.mediawiki.org/wiki/Help:OAuth
+[montage_beta]: http://tools.wmflabs.org/montage-beta/
+[montage_gh]: https://github.com/hatnote/montage
+[clastic_gh]: https://github.com/mahmoud/clastic
+[werkzeug_gh]: https://github.com/pallets/werkzeug
+[angular]: https://angularjs.org/
 
 # New frontiers
 
 Without a doubt, Montage was much more of a success than we had
-anticipated. In the span of just a couple months Montage has raised
-the bar for software support, while lowering the barrier to entry for
+anticipated. In the span of just a couple months, Montage has raised
+the bar for software support, while lowering the barriers for future
 coordination.
 
 Right now we are putting together our feature list for the next
@@ -216,19 +250,14 @@ sort, get in touch!
 Many people contributed to Montage directly and indirectly. To name a few:
 
 * Leila - de facto product manager
-* Pawel - Front-end
+* Paweł Marynowski - UI designer and engineer
+* Mahmoud - Architecture/backend
 * Stephen - Backend
-* Mahmoud - Design/backend
 * Jean Fred - Design review
-* Lodewijk - Leadership
+* Lodewijk - Leadership and review
 * Yuvi - Operations and support
 * Ori Livneh - Operations and support
-* Kenneth Samonte - Logo and graphics
+* Kenneth Samonte - Logo and illustration
 
-# TODO
-
-* Link to project page
-* Link to status page
-* Link to GitHub
-* Link to other tools
-* Embed art
+And a huge thank you to all of the Montage users and Wiki Loves
+Monuments volunteers. We couldn't have done it without you!
