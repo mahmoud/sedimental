@@ -177,14 +177,11 @@ image must be rated by at least 3 randomly-selected jurors. This
 lightens the load on individual jurors, while still ensuring each
 image gets a fair appraisal.
 
-To serve the wide range of contest sizes, we made it a key feature of
-Montage to support an arbitrary numbers of rounds and jurors. Larger
-campaigns tend to need more rounds and jurors to spread out the
-workload. The smallest WLM2016 campaign on Montage ran with 760
-entries, two rounds, and five jurors. Compare to the largest
-campaigns, which had tens of thousands of entries, up to six rounds,
-and almost 50 jurors. We've taken feedback from these groups, and
-others, to ensure Montage works for contests of any size.
+The smallest WLM2016 campaign on Montage ran with 760 entries, two
+rounds, and five jurors. Compare to the largest campaigns, which had
+tens of thousands of entries, up to six rounds, and almost 50
+jurors. We've taken feedback from these groups, and others, to ensure
+Montage works for contests of any size.
 
 [quorum_def]: https://en.wiktionary.org/wiki/quorum
 
@@ -238,7 +235,7 @@ directions we are investigating include:
 * Improving internationalization and localization
 * Enhancing communication between organizers and jurors
 * Supporting lower bandwidth connections
-* Further customizing the photo viewing feature <!-- e.g., zoom, etc. for increased scrutiny -->
+* Further customization of photo viewing, including light/dark themes and zooming
 * And as always, increasing performance!
 
 The list is long, and we're excited to tackle it for the 2017 Wiki
@@ -249,15 +246,23 @@ sort, get in touch!
 
 Many people contributed to Montage directly and indirectly. To name a few:
 
-* Leila - de facto product manager
-* Paweł Marynowski - UI designer and engineer
-* Mahmoud - Architecture/backend
-* Stephen - Backend
-* Jean Fred - Design review
-* Lodewijk - Leadership and review
-* Yuvi - Operations and support
-* Ori Livneh - Operations and support
-* Kenneth Samonte - Logo and illustration
+* [LilyOftheWest](https://phabricator.wikimedia.org/p/LilyOfTheWest/) - de facto product manager
+* [Paweł Marynowski](https://twitter.com/pmarynowski) - UI designer and engineer
+* [Mahmoud Hashemi](https://twitter.com/mhashemi) - Architecture and backend
+* [Stephen LaPorte](https://twitter.com/sklaporte) - Backend and much more
+* [Jean-Frédéric](https://twitter.com/JeanFred) - Design review
+* [Lodewijk](https://twitter.com/effeietsanders) - Leadership and review
+* [Yuvi Panda](https://twitter.com/yuvipanda) - Operations and support
+* [Ori Livneh](https://github.com/atdt) - Operations and support
+* [Kenneth Samonte](http://cargocollective.com/kensamonte) - Logo and illustration
 
 And a huge thank you to all of the Montage users and Wiki Loves
-Monuments volunteers. We couldn't have done it without you!
+Monuments organizers and jurors. We couldn't have done it without you!
+
+We hope this peek behind the scenes of the contest has been
+enlightening. For more details and updates, feel free to
+[watch the repo on GitHub](http://github.com/hatnote/montage), follow
+[Hatnote on Twitter](http://twitter.com/hatnotable), and of course,
+watch/update/discuss via
+[our Commons page](https://commons.wikimedia.org/wiki/Commons:Montage). We
+look forward to hearing from you!
