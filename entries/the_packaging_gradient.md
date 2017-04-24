@@ -194,58 +194,92 @@ with tools for shipping developer tools and libraries. Might there be
 a better way?
 
 Anaconda is a Python distribution with expanded support for
-distributing libraries and applications. Anaconda packages and ships
-system libraries like
+distributing libraries and applications. It's cross-platform, and has
+supported binary packages since before the wheel. Anaconda packages
+and ships system libraries like
 [libxml2](https://anaconda.org/anaconda/libxml2), as well as
 applications like
 [PostgreSQL](https://anaconda.org/anaconda/postgresql), which fall
-outside the purview of default Python packaging tools. It's
-cross-platform, and has supported binary packages since before the
-wheel.
+outside the purview of default Python packaging tools. That's because
+internally Anaconda blends characteristics of an operating system and
+Python runtime distribution.
+
+If you look inside of an Anaconda installation, what you'll find looks
+a lot like a root Linux filesystem, with some extra Anaconda-specific
+directories, of course. I like to refer to this pattern as
+distro-on-distro. And it's a remarkable implementation because the
+same approach has been designed to work on Windows, Mac, and Linux,
+with broad compatibility between versions and flavors, more than one
+can say for any of the other options below, short of virtualization.
 
 Anaconda blends power and convenience in such a way that
 non-developers can use facilities normally reserved for
-developers. It's not perfect, but by integrating a whole ecosystem,
-it's created a very effective approach.
+developers. Plus, Python developers can leverage tools for data
+scientists and outside the Python ecosystem. All by using features
+built into Python and target operating systems. It's a next-level
+ecosystem with a compelling approach, one that I've been using
+[in production server environments](https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/)
+for over a year now.
 
-([mount namespace](http://man7.org/linux/man-pages/man7/mount_namespaces.7.html)
-is the successor to chroot)
+<!-- cross-platform, language-agnostic package managers are a rare
+thing. Conda is among an elite crew whose ranks include NixOS and
+Steam. (and pkgsrc) -->
 
+<!-- conda vs pip+virtualenv: https://conda.io/docs/_downloads/conda-pip-virtualenv-translator.html -->
 
 # Bringing your own Python
 
 Imagine an environment without Python. Hellish right? Luckily, you can
-bring your own, and it's ice cold. Freezing, in fact.
+still bring your own, and it's ice cold. Freezing, in fact.
 
-When I wrote my first Python program, I was filled with enough
-youthful pride to tell my parents, who naturally wanted to experience
-the achievement first hand. Of course all I had a .py file and they
-had Windows 2000. Lucky for me, cx_Freeze had come out a couple months
+When I wrote my first Python program, I naturally shared news of the
+accomplishment with my parents, who naturally wanted to experience the
+achievement first hand. Of course all I had a .py file I wrote on
+Knoppix, and they were halfway around the world on a Windows 2000
+machine. Lucky for me, cx_Freeze had come out a couple months
 earlier. Unlucky for me, I took one look at it and knew I had a few
 years to go before I could call myself a real programmer.
 
-Fifteen years later, the process hasn't changed all that much. If you
-are building a Python application and want to bundle your own Python,
-you use cx_Freeze, py2exe, or py2app. There are newer entries, like
-[osnap](https://github.com/jamesabel/osnap) and
-[briefcase](https://github.com/pybee/briefcase), but the approach is
-the same.
-
-Freezers rely on the "frozen module" functionality built into
-Python. It's
+Fifteen years later, the process has evolved, but retained the same
+general approach. Freezers owe their name to their reliance on the
+"frozen module" functionality built into Python. It's
 [sparsely](https://docs.python.org/2/c-api/import.html#c.PyImport_ImportFrozenModule)
 [documented](https://docs.python.org/2/library/imp.html#imp.init_frozen),
-but basically Python is precompiled into bytecode and frozen into the
-interpreter. As of Python 3.3, Python's import system was ported from
-C to a pure-Python frozen implementation.
+but basically Python code is precompiled into bytecode and frozen into
+the interpreter.
+[As of Python 3.3](https://docs.python.org/3/whatsnew/3.3.html),
+Python's import system
+[was ported](http://sayspy.blogspot.com/2012/02/how-i-bootstrapped-importlib.html)
+from C to a frozen pure-Python implementation. Dropbox, EVE Online,
+Civilization IV, kivy, and countless other applications and frameworks
+rely on freezing to ship applications, generally to personal computing
+devices.
 
-That's far from the whole story, but the end result is achieved: all
-the business logic and dependencies rolled into an indepenent
-executable. Most of these systems enable you to tune exactly how
+If you are also building a Python application and want to bundle your
+own Python, you can use cx_Freeze, PyInstaller,
+[osnap](https://github.com/jamesabel/osnap), bbFreeze, py2exe, or
+py2app. A feature matrix can be found
+[here](http://python-guide.readthedocs.io/en/latest/shipping/freezing/).
+
+That's far from the whole story, but the direction is the same: all
+the business logic and dependencies rolled into an independent
+artifact. Most of these systems enable you to tune exactly how
 independent this executable is.  See
-[this tutorial discussion of Windows system libraries](http://www.py2exe.org/index.cgi/Tutorial#Step5)
-for a taste. Often system libraries are statically linked, reducing
-dependence on system libraries.
+[this py2exe tutorial discussion of Windows system libraries](http://www.py2exe.org/index.cgi/Tutorial#Step5)
+for a taste of the fun.
+
+## More than one way to ship a Python
+
+Freezing tends to be targeted more toward client software. GUIs and
+CLI applications run by a single user on a single machine at a
+time. When it comes to deploying server software bundled with its own
+Python, there is a notable alternative: the Omnibus.
+
+Omnibus builds "full-stack" installers designed to deploy applications
+to servers. It supports RedHat and Debian-based Linux distros, as well
+as Mac and Windows. A few years back, DataDog saw the light and
+[made the switch](https://www.datadoghq.com/blog/new-datadog-agent-omnibus-ticket-dependency-hell/)
+for their Python-based agent.
 
 * TODO: omnibus (also works with RPM/deb). The giveaway is that
   omnibus packages frequently have different versions of the same OS,
@@ -257,6 +291,16 @@ dependence on system libraries.
 tend to fall into this category. -->
 
 # Bringing your own userspace
+
+Probably the newest and fastest-growing class of solution has actually
+been a long time coming. You may have heard it referenced by its
+buzzword: containerization.
+
+Unlike all the options above, these packages draw a firm border
+between their dependencies and the libraries on the target
+system. This is one of the sources of the "lightweight virtualization"
+misnomer.
+
 
 Containers
 
@@ -290,6 +334,20 @@ In ESP's packaging segment, I touch on how we leveraged RHEL's RPM
 packages. One detail, not relevant then, but relevant now, is how
 PayPal used a separate rpmdb for PayPal-specific packages, maintaining
 a clear divide between application and base system.
+
+# Aside: Security
+
+The further down the list you come, the harder it gets to update
+components of your package. This doesn't mean that it's harder to
+update in general, but it is still a consideration, when for years the
+approach has been to have system administrators and other technicians
+handle certain kinds of infrastructure updates.
+
+For example, if a kernel security issue emerges, and you're deploying
+containers, the host system's kernel can be updated without requiring
+a new build on behalf of the application. If you deploy VM images,
+you'll need a new build. Whether or not this dynamic makes one option
+more secure is still a matter of debate.
 
 -----
 
@@ -395,3 +453,6 @@ deployment practices, sometimes turning in the test can feel like the
 real test.
 
 -->
+
+([mount namespace](http://man7.org/linux/man-pages/man7/mount_namespaces.7.html)
+is the successor to chroot)
