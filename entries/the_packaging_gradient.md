@@ -294,32 +294,70 @@ tend to fall into this category. -->
 
 Probably the newest and fastest-growing class of solution has actually
 been a long time coming. You may have heard it referenced by its
-buzzword: containerization.
+buzzword: containerization, sometimes crudely described as
+"lightweight virtualization".
 
-Unlike all the options above, these packages draw a firm border
-between their dependencies and the libraries on the target
-system. This is one of the sources of the "lightweight virtualization"
-misnomer.
+(TODO: link to Jess Frazelle)
 
+Unlike all the options above, these packages establish a firm border
+between their dependencies and the libraries on the host system. While
+this is a huge win for environmental independence. Let's illustrate
+with one of the simplest and most mature implementations, AppImage.
 
-Containers
+An AppImage is perhaps the most aptly-named solution in this whole
+post. It is literally an ISO9XXX image containing a main entrypoint
+executable, and a whole userspace of libraries to support it. Looking
+inside, it's easy to recognize the familiar structure of a Unix
+filesystem:
 
-Snapcraft, AppImage, and Flatpak
+Dozens of headlining Linux applications ship like this now. Download
+the AppImage, make it executable, double-click, and voila. No install,
+and the least dependence on the host system that we've seen so far.
 
-At some level, these are all the equivalent of static linking, with
-all of the added convenience and security risks. If a component is
-broken or compromised inside an application image, there's generally
-not a good way to find out, let alone upgrade just that component.
+For those familiar with MacOS's dmg format, this is one of those rare
+cases where there's some consensus, widely recognizing Apple for
+actually having pioneered a software technique. One that Microsoft
+apparently still hasn't gotten the message about.
 
-Omnibus tries to arrange your code such that the target system's
+Going back to Linux, the format war simmers along, with notable
+competition from Snapcraft and Flatpak. Both of these formats
+introduce more features, as well as more complexity and dependence on
+the operating system. (TODO: verify: for instance, Snapcraft actually
+assumes the target system will have a running X server). This example
+belies the most common use case for our container formats so far:
+shipping end-user software for client usage. Desktops, laptops, that
+sort of thing. I haven't actually seen these formats used much for
+deploying server software, even AppImage, despite its apparent
+applicability.
+
+The technology sphere is sometimes described as a marketplace of
+ideas, and that metaphor is certainly felt in this case. Whether you
+like it or not, we can all agree Docker is the format sold the
+hardest. It makes an application as self-contained as AppImage, but
+like Snapcraft (TODO: confirm), it also introduces many runtime
+assumptions and complexities.
+
+TODO: By now, the astute reader has probably noticed a trend. As we
+come further down the list, we're shipping larger, more-inclusive
+artifacts for more independence. Containers present us with our first
+clear departure. Some container formats are designed to only be used
+with a specific container runtime, which often implies a great deal of
+added complexity. On more than one occasion, I've skipped over the
+container option and gone straight to using VMs.
+
+<!-- If I have time: 2D scatterplot of relative inclusivity and
+execution dependability. -->
 
 # Bringing your own kernel
 
-Virtual machines. Vagrant before Docker.
+Thanks to the relative maturity of hypervisors and the virtualization
+model as a whole, shipping VMs is one of the highest
+dependability-to-convenience ratios. Virtual machines.
 
 # Bringing your own hardware
 
-Slap it on a micropython.
+Slap it on a rackable server, Raspberry Pi, or even a micropython and
+literally ship it!
 
 # Aside: OS Packages
 
@@ -335,6 +373,16 @@ packages. One detail, not relevant then, but relevant now, is how
 PayPal used a separate rpmdb for PayPal-specific packages, maintaining
 a clear divide between application and base system.
 
+# Aside: virtualenv
+
+Where do virtualenvs fit into all of this? Virtualenvs are
+indispensible for many Python development workflows, but I discourage
+direct use of virtualenvs for deployment. Virtualenvs can be used
+behind the scenes, of course. Feel free to create a virtualenv in an
+RPM post_install step, or by virtue of using an installer like
+osnap. The key is that the artifact and its install process should be
+self-contained, minimizing the risk of disruption by network failure.
+
 # Aside: Security
 
 The further down the list you come, the harder it gets to update
@@ -349,9 +397,20 @@ a new build on behalf of the application. If you deploy VM images,
 you'll need a new build. Whether or not this dynamic makes one option
 more secure is still a matter of debate.
 
+<!-- Earlier note about containers: At some level, these are all the
+equivalent of static linking, with all of the added convenience and
+security risks. If a component is broken or compromised inside an
+application image, there's generally not a good way to find out, let
+alone upgrade just that component.
+-->
+
 -----
 
 # In brief
+
+The goal of packaging is to reduce one's code to a redistributable
+unit, generally a single file, which can reliably run the code as
+tested prior to deployment.
 
 1. Have a single Python module that only uses the standard library? .py + cp.
    No extra format necessary, Python modules are portable and
@@ -405,8 +464,6 @@ Development can be quite different than deployment. even if you're ok
 with compiling your own stuff for development, you basically never
 want that at prod deployment time.
 
-Python is general-purpose, PyPI is not.
-
 PyPI is for libraries, simple frameworks, and simple command-line
 utilities.
 
@@ -444,6 +501,8 @@ programmers pay for using the most balanced, versatile language
 available. Python's innumerable applications mean that there are
 dozens of packaging options, and now, with map in hand, you can safely
 navigate the rich terrain.
+
+Python is general-purpose, PyPI is not.
 
 
 <!-- If writing software was like taking a test, ignoring packaging and
