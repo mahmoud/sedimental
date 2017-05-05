@@ -1,38 +1,43 @@
 ---
-title: The Packaging Gradient
+title: The Many Shades of Packaging
+entry_root: the_packaging_gradient
 ---
 
-*Or, PyPI isn't an app store*
+*The packaging gradient, and why PyPI isn't an app store.*
 
 One, if not *the*, mantra threaded throughout *Enterprise Software
 with Python* is that deployment is not the last step of writing
 software. Experienced engineers can be identified by their ability to
 plan and design for deployment to a variety of software environments.
 
-The only way to gain that experience is by adventure, and so this post
-ventures forth into what I've been calling "the packaging gradient",
-the ordered array of software packaging options. You'll learn the
-differences between libraries and applications, and why there seem to
-be so many conflicting opinions about how to ship code.
+This is why we need an adventure. A journey into what I've long called
+"the packaging gradient". A quick and easy decision tree to figure out
+what you need to ship. You'll gain a trained eye, and begin to
+understand why there seem to be so many conflicting opinions about how
+to package code.
 
-The first thing to learn is that implementation language does not
-define packaging solution. The target environment and type of
-deliverable make most of the difference. This post talks about Python,
-but the same process applies to almost any (server) software.
+The first thing to learn is:
 
-<!-- I can write a mobile app in Python, does it make sense to
-install it on my phone with pip? -->
+> *Implementation language does not define packaging solutions.*
 
-Python was designed to be cross-platform, and can be found running in
-countless environments, but don't take this to mean that Python's
-built-in tools will carry you there. As you'll see, Python's tools
-only scratch the surface.
+Packaging is all about target environment and deployment
+experience. I'll demonstrate this using Python as an example, but the
+same lessons apply to most software.
 
-The way this works: one by one, I'm going to propose a simple
-description of the code you want to ship, followed by the simplest
-acceptable deployment process that provides a repeatable deployment
-process. The later, more advanced answers almost always work for the
-earlier scenarios.
+Python was designed to be cross-platform and runs in countless
+environments. Don't take this to mean that Python's built-in tools
+will carry you anywhere you want to go. I can
+[write a mobile app in Python][kivy_android], does it make sense to
+install it on my phone with [pip][pip_wp]? As you'll see, Python's
+tools only scratch the surface.
+
+So, one by one, I'm going to describe some code you want to ship,
+followed by the simplest acceptable packaging process that provides a
+repeatable deployment process. We save the most involved solutions for
+last. Ready? Let's go!
+
+[kivy_android]: https://kivy.org/docs/guide/android.html
+[pip_wp]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 
 [TOC]
 
@@ -41,24 +46,40 @@ earlier scenarios.
 Everyone's first exposure to Python deployment was something so
 innocuous you probably wouldn't remember. You copied a script from
 point A to point B. Chances are, whether A and B were separate
-directories or computers, your days of just copying around didn't last
+directories or computers, your days of "just use `cp`" didn't last
 long.
 
 Because while a single file is the ideal format for copying, it
 doesn't work when that file has dependencies that are unmet at the
 destination.
 
-Even simple scripts quickly end up depending on:
+Even simple scripts end up depending on:
 
-<!-- TODO: examples? -->
+* Python libraries - [boltons][boltons], [requests][requests], [NumPy][numpy]
+* Python, the runtime - [CPython][cpython], [PyPy][pypy]
+* System libraries - [glibc][glibc], [zlib][zlib], [libxml2][libxml2]
+* Operating system - [Ubuntu][ubuntu], [FreeBSD][freebsd], [Windows][windows]
 
-* Python, the runtime  <!-- (CPython, PyPy) -->
-* Python libraries  <!-- (boltons, requests, NumPy) -->
-* System libraries <!-- (glibc, libxml2) -->
-* Operating system  <!-- (Ubuntu, Windows) -->
+[boltons]: https://github.com/mahmoud/boltons
+[requests]: https://github.com/kennethreitz/requests
+[numpy]: https://github.com/numpy/numpy
+[cpython]: https://en.wikipedia.org/wiki/CPython
+[pypy]: https://en.wikipedia.org/wiki/PyPy
+[glibc]: https://en.wikipedia.org/wiki/GNU_C_Library
+[zlib]: http://zlib.net/
+[libxml2]: http://xmlsoft.org/
+[ubuntu]: https://en.wikipedia.org/wiki/Ubuntu_(operating_system)
+[freebsd]: https://www.freebsd.org/
+[windows]: http://68.media.tumblr.com/e846f7ed786ead5cee6e4097b254b181/tumblr_mqfh4b0rV61sydj82o1_250.gif
 
-So finding the right packaging solution always comes down to: Where is
-your code going, and what can we depend on being there?
+
+So every good packaging adventure always starts with the question:
+
+> **Where is your code going, and what can we depend on being there?**
+
+First, let's look at libraries. Virtually every project these days
+begins with library package management, a little `pip install`. It's
+worth a closer look!
 
 # The Python Module
 
@@ -178,20 +199,33 @@ to ensure the setup works.
 
 For our first foray into application distribution, we're going to
 maintain the assumption that Python exists in the target
-environment. This isn't the wildest assumption, with CPython 2
-available on virtually every Linux and Mac machine.
+environment. This isn't the wildest assumption, CPython 2 is available
+on virtually every Linux and Mac machine.
 
-Instead, we need to focus on bundling up all of the libraries on which
-our code depends.
+Taking Python for granted, we can turn to bundling up all of the
+Python libraries on which our code depends. We want a single
+executable file, the kind that you can double click or run by
+prefixing with a `./`, anywhere on a Python-enabled host. The PEX
+format gets us exactly this.
 
-* PEX (and historically superzippy)
-* Operating system packages
+The PEX, or Python EXecutable, is essentially a ZIP archive, with a
+little bit of bootstrapping. It works on Linux, Mac, and Windows. It
+relies on the system Python, but unlike pip, it does not install
+itself or otherwise affect system state. It uses mature,
+[standard features][zipimporter] of Python, successfully interating on
+a broadly used approach, such as [superzippy][superzippy].
+
+A lot can be done with Python and Python libraries alone. If your
+project follows this approach, PEX is an easy
+choice. [See this 15-minute video for a solid introduction][pex_video].
+
+[pex_video]: https://www.youtube.com/watch?v=NmpnGhRwsu0
 
 # Depending on a new Python/ecosystem
 
-We established above that the primary Python distribution only ships
-with tools for shipping developer tools and libraries. Might there be
-a better way?
+So the primary Python distribution only ships with tools for shipping
+developer tools and libraries written in Python. Might there be a
+different approach?
 
 Anaconda is a Python distribution with expanded support for
 distributing libraries and applications. It's cross-platform, and has
@@ -201,8 +235,8 @@ and ships system libraries like
 applications like
 [PostgreSQL](https://anaconda.org/anaconda/postgresql), which fall
 outside the purview of default Python packaging tools. That's because
-internally Anaconda blends characteristics of an operating system and
-Python runtime distribution.
+internally Anaconda blends characteristics of a Python distribution
+and a full operating system.
 
 If you look inside of an Anaconda installation, what you'll find looks
 a lot like a root Linux filesystem, with some extra Anaconda-specific
@@ -299,71 +333,172 @@ buzzword: containerization, sometimes crudely described as
 
 (TODO: link to Jess Frazelle)
 
-Unlike all the options above, these packages establish a firm border
-between their dependencies and the libraries on the host system. While
-this is a huge win for environmental independence. Let's illustrate
-with one of the simplest and most mature implementations, AppImage.
+Unlike other options so far, these packages establish a firm border
+between their dependencies and the libraries on the host system. This
+is a huge win for environmental independence and deployment
+repeatability.
+
+## In our own image
+
+Let's illustrate with one of the simplest and most mature
+implementations, [AppImage][appimage].
+
+[appimage]: https://en.wikipedia.org/wiki/AppImage
+
+Since 2004, the aptly-named AppImage (and its predecessor klik) have
+been providing distro-agnostic, installation-free application
+distribution to end users, without requiring root or touching the
+underlying operating system. AppImages only rely on the kernel and CPU
+architecture.
 
 An AppImage is perhaps the most aptly-named solution in this whole
-post. It is literally an ISO9XXX image containing a main entrypoint
-executable, and a whole userspace of libraries to support it. Looking
+post. It is literally an [ISO9660][iso9660] image containing an
+entrypoint executable, plus a snapshot of a filesystem comprising a
+userspace, full of support libraries and other dependencies. Looking
 inside, it's easy to recognize the familiar structure of a Unix
 filesystem:
 
+<!-- TODO: filesystem -->
+
+[iso9660]: https://en.wikipedia.org/wiki/ISO_9660
+
 Dozens of headlining Linux applications ship like this now. Download
-the AppImage, make it executable, double-click, and voila. No install,
-and the least dependence on the host system that we've seen so far.
+the AppImage, make it executable, double-click, and voila.
 
-For those familiar with MacOS's dmg format, this is one of those rare
-cases where there's some consensus, widely recognizing Apple for
-actually having pioneered a software technique. One that Microsoft
-apparently still hasn't gotten the message about.
+If you're reading this on a Mac, you've probably had a similar
+experience. This is one of those rare cases where there's some
+consensus: Apple was one of the pioneers in image-based deployments,
+with [DMGs][dmg] and [Bundles][bundle].
 
-Going back to Linux, the format war simmers along, with notable
-competition from Snapcraft and Flatpak. Both of these formats
-introduce more features, as well as more complexity and dependence on
-the operating system. (TODO: verify: for instance, Snapcraft actually
-assumes the target system will have a running X server). This example
-belies the most common use case for our container formats so far:
-shipping end-user software for client usage. Desktops, laptops, that
-sort of thing. I haven't actually seen these formats used much for
-deploying server software, even AppImage, despite its apparent
-applicability.
+[dmg]: https://en.wikipedia.org/wiki/Apple_Disk_Image
+[bundle]: https://en.wikipedia.org/wiki/Bundle_(macOS)
+-->
 
-The technology sphere is sometimes described as a marketplace of
-ideas, and that metaphor is certainly felt in this case. Whether you
-like it or not, we can all agree Docker is the format sold the
-hardest. It makes an application as self-contained as AppImage, but
-like Snapcraft (TODO: confirm), it also introduces many runtime
-assumptions and complexities.
+## An image by any other name
 
-TODO: By now, the astute reader has probably noticed a trend. As we
-come further down the list, we're shipping larger, more-inclusive
-artifacts for more independence. Containers present us with our first
-clear departure. Some container formats are designed to only be used
-with a specific container runtime, which often implies a great deal of
-added complexity. On more than one occasion, I've skipped over the
-container option and gone straight to using VMs.
+No class of formats would be complete without
+[a war][format_war]. AppImage [inspired][appimage_flatpak] the
+[Flatpak][flatpak] format, which was adopted by RedHat/Fedora, but was
+of course insufficient for Canonical/Ubuntu, who were also targeting
+mobile, and created [Snappy][snappy]. A shiny update to our deb-rpm
+split tradition.
+
+[format_war]: https://en.wikipedia.org/wiki/Format_war
+[flatpak]: https://en.wikipedia.org/wiki/Flatpak
+[appimage_flatpak]: https://en.wikipedia.org/wiki/AppImage#Reception_and_usage
+[snappy]: https://en.wikipedia.org/wiki/Snappy_(package_manager)
+
+Both of these formats introduce more features, as well as more
+complexity and dependence on the operating system. Both Snaps and
+Flatpaks expect the host to support their runtime, which can include
+[dbus, a systemd user session, and more][flatpak_server]. A lot of
+work is put into increased [namespacing][namespaces] to isolate
+running applications into separate [sandboxes][jessfraz_sandboxes].
+
+[namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces#Mount_.28mnt.29
+[jessfraz_sandboxes]: https://blog.jessfraz.com/post/getting-towards-real-sandbox-containers/
+
+[flatpak_server]: http://flatpak.org/faq.html#Can_Flatpak_be_used_on_servers_too_
+
+I haven't actually seen these formats used for deploying server
+software. Flatpak might never support servers, Snappy is trying, but
+personally, I would really like to hear about or experiment with
+server-oriented AppImages.
+
+## The whale in the room
+
+Some call the technology sphere a marketplace of ideas, and that
+metaphor is certainly felt in this case. Whether you've heard good
+things or bad, we can all agree [Docker][docker] is the format sold
+the hardest. What else would you do when you've got $180 million of VC
+breathing down your neck.
+
+Docker lets you make an application as self-contained as AppImage, but
+exceeds even Snapcraft and Flatpak in the assumptions it makes. Images
+are managed and run by yet another service with a lot of capabilities
+and tightly coupled components.
+
+Docker's packaging abstraction reflects this complexity. Take for
+instance how Docker applications default to running as `root`, despite
+[their documentation][docker_bp] recommending against this. Default
+`root` is particularly unfriendly because namespacing is still not a
+reliable guard against malicious actors attacking the host
+system. [Root inside the container is root outside the container][root_inside]. Always
+check the [CVEs][namespace_cves]. The Docker
+[security documentation][docker_sec_doc] also includes some good,
+frank discussion of what one is getting into.
+
+[docker_bp]: https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#user
+[root_inside]: http://blog.dscpl.com.au/2015/12/don-run-as-root-inside-of-docker.html
+[docker]: https://en.wikipedia.org/wiki/Docker_(software)
+[namespace_cves]: https://www.google.com/search?q=namespace+site:cve.mitre.org&client=ubuntu&hs=55V&channel=fs&source=lnt&tbs=qdr:y&sa=X
+[docker_sec_doc]: https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+
+Checking in with our trendline, so far we have been shipping larger
+larger, more-inclusive artifacts for more independent, reliable
+deployments. Some container systems present us with our first clear
+departure from this pattern. We no longer have a single executable
+that runs or installs our code. Technically we have a self-contained
+application, but we're also back to requiring an interpreter other
+than the OS and CPU.
+
+[jessfraz_nocont]: https://blog.jessfraz.com/post/containers-zones-jails-vms/
+
+It's not hard to imagine instances where the complexity of a runtime
+can overrun the advantages of self-containment. To quote Jessie
+Frazelle's [blog post][jessfraz_nocont] again, "Complexity ==
+Bugs". This dynamic leads some to skip straight to our next option,
+but as AppImage simply demonstrates, this is not an impeachment of all
+image-based approaches.
 
 <!-- If I have time: 2D scatterplot of relative inclusivity and
 execution dependability. -->
 
 # Bringing your own kernel
 
-Thanks to the relative maturity of hypervisors and the virtualization
-model as a whole, shipping VMs is one of the highest
-dependability-to-convenience ratios. Virtual machines.
+Now we're really packing heavy. If having your Python code, libraries,
+runtime, and necessary system libraries isn't enough, you can add one
+more piece of machinery: the operating system [kernel][kernel] itself.
+
+[kernel]: https://en.wikipedia.org/wiki/Kernel_(operating_system)
+
+While this type of distribution never really caught on for consumers,
+there is a rich ecosystem of tools and formats for VM-based server
+deployment, from Vagrant to AMIs to OpenStack. The whole cloud.
+
+Like our more complex container examples above, the images used to run
+virtual machines are not runnable executables, and require a mediating
+runtime, called a hypervisor. The images themselves come in a few
+formats, all of which are mature and dependable, if large. Size and
+build time may be the only deterrent for smaller projects prioritizing
+development time. Thanks to years of kernel and processor advancement,
+virtualization is not as slow as many developers would assume. If you
+can make images work faster than other options, go for it.
+
+Larger organizations save a lot from even small reductions to
+deployment and runtime overhead, but have to balance that against half
+a dozen other concerns worthy of a much longer discussion elsewhere.
 
 # Bringing your own hardware
 
 Slap it on a rackable server, Raspberry Pi, or even a micropython and
-literally ship it!
+literally ship it! It may seem absurd at first, but hardware is the
+most sensible option for countless cases. It's not just consumer and
+IoT use cases, either. Especially where infrastructure and security
+are concerned, hardware is made to fit software like a glove, to
+eliminate exposure for all parties.
 
-# Aside: OS Packages
+# But what about
 
-Where do OS packages fit into all of this? They can fit anywhere,
-really. If you are very sure what operating system(s) you're
-targeting, these packaging systems can be powerful tools for
+Before concluding, there are some usual suspects that may be
+conspicuously absent, depending on how long you've been packaging
+code.
+
+## OS packages
+
+Where do OS packages like deb and rpm fit into all of this? They can
+fit anywhere, really. If you are very sure what operating system(s)
+you're targeting, these packaging systems can be powerful tools for
 distributing and installing code. These systems are mature and robust,
 capable of doing dependency resolution, transactional installs, and
 custom uninstall logic.
@@ -373,7 +508,7 @@ packages. One detail, not relevant then, but relevant now, is how
 PayPal used a separate rpmdb for PayPal-specific packages, maintaining
 a clear divide between application and base system.
 
-# Aside: virtualenv
+## virtualenv
 
 Where do virtualenvs fit into all of this? Virtualenvs are
 indispensible for many Python development workflows, but I discourage
@@ -383,7 +518,7 @@ RPM post_install step, or by virtue of using an installer like
 osnap. The key is that the artifact and its install process should be
 self-contained, minimizing the risk of disruption by network failure.
 
-# Aside: Security
+## Security
 
 The further down the list you come, the harder it gets to update
 components of your package. This doesn't mean that it's harder to
