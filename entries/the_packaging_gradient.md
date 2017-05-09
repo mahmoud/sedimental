@@ -1,6 +1,11 @@
 ---
 title: The Many Layers of Packaging
 entry_root: the_packaging_gradient
+tags:
+  - python
+  - packaging
+  - boltons
+publish_date: 1:47pm May 9, 2017
 ---
 
 *The packaging gradient, and why PyPI isn't an app store.*
@@ -37,7 +42,8 @@ built-in tools only scratch the surface.
 So, one by one, I'm going to describe some code you want to ship,
 followed by the simplest acceptable packaging process that provides
 that repeatable deployment process we crave. We save the most involved
-solutions for last. Ready? Let's go!
+solutions for last, right before [the short version](#closing). Ready?
+Let's go!
 
 [esp]: http://shop.oreilly.com/product/0636920047346.do
 [kivy_android]: https://kivy.org/docs/guide/android.html
@@ -142,7 +148,7 @@ For libraries that only contain Python code, whether single-file or
 multi-file, Python's original built-in solution still works today:
 [sdists][sdist], or "source distributions". This early format has
 worked for well over a decade and is still supported by `pip` and the
-[Python Package Index][pypi] (PyPI).
+[Python Package Index][pypi] (PyPI)[^pypi].
 
 [sdist]: https://docs.python.org/2/distutils/sourcedist.html
 [pypi]: https://pypi.python.org/pypi
@@ -159,7 +165,7 @@ fail without the tools, will take time and resources if it succeeds,
 and generally involved more intermediary languages and four-letter
 keywords than Python devs thought should be necessary.
 
-[c]: https://docs.python.org/2/extending/extending.html
+[c]: https://www.paypal-engineering.com/2016/09/22/python-by-the-c-side/
 [cython]: https://en.wikipedia.org/wiki/Cython
 
 When you have a library that requires compilation, then it's
@@ -206,16 +212,18 @@ designed for *libraries*. Code for developer reuse.
 Going back to our first example, a "script" is more accurately
 described as a command-line *application*. Command-line applications
 can have a Python-savvy audience, so it's not totally unreasonable to
-host them on PyPI and install them with pip. But understand that we're
-approaching the limit for a good production and user-facing
-experience.
+host them on PyPI and install them with pip (or [pipsi][pipsi]). But
+understand that we're approaching the limit for a good production and
+user-facing experience.
+
+[pipsi]: https://github.com/mitsuhiko/pipsi
 
 So let's get explicit. By default, the built-in packaging tools are
 designed to depend on:
 
   * A working Python installation
   * A network connection, probably to the Internet
-  * Preinstalled system libraries
+  * Pre-installed system libraries
   * A developer who is willing to sit and watch dependencies
     recursively download at install-time, and debug version conflicts,
     build errors, and myriad other issues.
@@ -251,9 +259,10 @@ with just a hint of bootstrapping. PEXs can be built for Linux, Mac,
 and Windows. Artifacts relies on the system Python, but unlike pip, it
 does not install itself or otherwise affect system state. It uses
 mature, [standard features][zipimport] of Python, successfully
-iterating on a [broadly-used][superzippy] approach.
+iterating on a [broadly][zipapp]-[used][superzippy] approach.
 
 [zipimport]: https://www.python.org/dev/peps/pep-0273/
+[zipapp]: https://docs.python.org/3/library/zipapp.html
 [superzippy]: https://github.com/brownhead/superzippy
 
 A lot can be done with Python and Python libraries alone. If your
@@ -276,36 +285,42 @@ as applications like [PostgreSQL][postgres], which fall outside the
 purview of default Python packaging tools. That's because while
 Anaconda might seem like an innocent Python distribution from the
 outside, internally Anaconda blends in characteristics of a full-blown
-operating system.
+operating system, complete with its own package manager, [conda][conda].
 
 [anaconda]: https://www.continuum.io/downloads
 [libxml2]: https://anaconda.org/anaconda/libxml2
 [postgres]: https://anaconda.org/anaconda/postgresql
 
 If you look inside of an Anaconda installation, or at the screenshot
-below, you'll find something that looks a lot like a root Linux
-filesystem (`lib`, `bin`, `include`, `etc`), with some extra
-Anaconda-specific directories. You can think of it as a distro on top
-of a distro.
+below, you'll find something that looks a lot like
+[a root Linux filesystem][unix_filesystem] (`lib`, `bin`, `include`,
+`etc`), with some extra Anaconda-specific directories.
+
+[unix_filesystem]: https://en.wikipedia.org/wiki/Unix_File_System
 
 <img width="75%" src="/uploads/anaconda_internals.png">
 
-What's remarkable is that the underlying distro can be Windows, Mac,
-or basically any flavor of Linux. Just like that, Anaconda
-unassumingly blends Python libraries and system libraries, convenience
-and power, development and data science. And it does it all by using
-features built into Python and target operating systems. It's not
-without its faults, like lack of transactional package
-installs. Still, with only [Steam][steam], [Nix][nix], and
-[pkgsrc][pkgsrc] as peers, cross-platform, language-agnostic package
-managers like conda are a rare breed. [Unlike pip][pip_depres], conda
-does its dependency resolution up front (using
-[a SAT solver][pycosat]), and otherwise
+What's remarkable is that the underlying operating system can be
+Windows, Mac, or basically any flavor of Linux. Just like that,
+Anaconda unassumingly blends Python libraries and system libraries,
+convenience and power, development and data science. And it does it
+all by using features built into Python and target operating
+systems.
+
+Conda may not get enough credit, as evidenced by
+[common misunderstandings][conda_myths], but it does have some room to
+improve. For instance, transactional package installation and upgrades
+is at the top of my conda wishlist. Still, with only [Steam][steam],
+[Nix][nix], and [pkgsrc][pkgsrc] as peers, cross-platform,
+language-agnostic package managers like [conda][conda] are a rare
+breed. [Unlike pip][pip_depres], conda does its dependency resolution
+up front (using [a SAT solver][pycosat]), and otherwise
 [compares favorably to the pip + virtualenv combination][conda_pip_compare].
 
 In practice, Anaconda makes a compelling and effective case, even
 [in production server environments][paypal_conda].
 
+[conda]: https://conda.io/docs/
 [steam]: https://en.wikipedia.org/wiki/Steam_(software)
 [nix]: https://en.wikipedia.org/wiki/Nix_package_manager
 [pkgsrc]: https://en.wikipedia.org/wiki/Pkgsrc
@@ -447,12 +462,13 @@ An AppImage is perhaps the most aptly-named solution in this whole
 post. It is literally an [ISO9660][iso9660] image containing an
 entrypoint executable, plus a snapshot of a filesystem comprising a
 userspace, full of support libraries and other dependencies. Looking
-inside, it's easy to recognize the familiar structure of a Unix
-filesystem:
+inside a mounted [Kdenlive][kdenlive] image, it's easy to recognize
+the familiar structure of a Unix filesystem:
 
-<!-- TODO: filesystem -->
+<img width="75%" src="/uploads/kdenlive_appimage_internals.png">
 
 [iso9660]: https://en.wikipedia.org/wiki/ISO_9660
+[kdenlive]: https://kdenlive.org/
 
 Dozens of headlining Linux applications ship like this now. Download
 the AppImage, make it executable, double-click, and voila.
@@ -501,13 +517,17 @@ server-oriented AppImages.
 Some call the technology sphere a marketplace of ideas, and that
 metaphor is certainly felt in this case. Whether you've heard good
 things or bad, we can all agree [Docker][docker] is the format sold
-the hardest. What else would you do when you've got $180 million of VC
-breathing down your neck.
+the hardest. What else would you do when you've got
+[$180 million of VC][docker_vc] breathing down your neck.
+
+[docker_vc]: https://www.crunchbase.com/organization/docker
 
 Docker lets you make an application as self-contained as AppImage, but
 exceeds even Snapcraft and Flatpak in the assumptions it makes. Images
-are managed and run by yet another service with a lot of capabilities
-and tightly coupled components.
+are managed and run by [yet another service][dockerd] with a lot of
+capabilities and tightly coupled components.
+
+[dockerd]: https://docs.docker.com/engine/reference/commandline/dockerd/
 
 Docker's packaging abstraction reflects this complexity. Take for
 instance how Docker applications default to running as `root`, despite
@@ -535,8 +555,8 @@ than the OS and CPU.
 
 It's not hard to imagine instances where the complexity of a runtime
 can overrun the advantages of self-containment. To quote Jessie
-Frazelle's [blog post][jessfraz_nocont] again, "Complexity ==
-Bugs". This dynamic leads some to skip straight to our next option,
+Frazelle's [blog post][jessfraz_nocont] again, **"Complexity ==
+Bugs"**. This dynamic leads some to skip straight to our next option,
 but as AppImage simply demonstrates, this is not an impeachment of all
 image-based approaches.
 
@@ -555,26 +575,40 @@ more piece of machinery: the operating system [kernel][kernel] itself.
 
 While this type of distribution never really caught on for consumers,
 there is a rich ecosystem of tools and formats for VM-based server
-deployment, from Vagrant to AMIs to OpenStack. The whole cloud.
+deployment, from [Vagrant][vagrant] to [AMIs][ami] to
+[OpenStack][openstack]. The whole dang cloud.
+
+[vagrant]: https://en.wikipedia.org/wiki/Vagrant_(software)
+[ami]: https://en.wikipedia.org/wiki/Amazon_Machine_Image
+[openstack]: https://en.wikipedia.org/wiki/OpenStack
 
 Like our more complex container examples above, the images used to run
 virtual machines are not runnable executables, and require a mediating
-runtime, called a hypervisor. The images themselves come in a few
-formats, all of which are mature and dependable, if large. Size and
-build time may be the only deterrent for smaller projects prioritizing
-development time. Thanks to years of kernel and processor advancement,
-virtualization is not as slow as many developers would assume. If you
-can make images work faster than other options, go for it.
+runtime, called a [hypervisor][hypervisor]. The images themselves come
+in a [few][vmdk] [formats][ovf], all of which are mature and
+dependable, if large. Size and build time may be the only deterrent
+for smaller projects prioritizing development time. Thanks to years of
+kernel and [processor advancement][hav], virtualization is not as slow
+as many developers would assume. If you can get your software shipped
+faster on images, then I say go for it.
+
+[hav]: https://en.wikipedia.org/wiki/Hardware-assisted_virtualization
+[hypervisor]: https://en.wikipedia.org/wiki/Hypervisor
+[ovf]: https://en.wikipedia.org/wiki/Open_Virtualization_Format
+[vmdk]: https://en.wikipedia.org/wiki/VMDK
 
 Larger organizations save a lot from even small reductions to
 deployment and runtime overhead, but have to balance that against half
-a dozen other concerns worthy of a much longer discussion elsewhere.
+a dozen other concerns worthy of
+[a much longer discussion elsewhere][esp_9he].
+
+[esp_9he]: https://player.oreilly.com/videos/9781491943755
 
 # Bringing your own hardware
 
 In a software-driven Internet obsessed with lighter and lighter weight
 solutions, it can be easy to forget that a lot of software is
-literally packaged.
+[literally packaged][appliance].
 
 If your application calls for it, you can absolutely slap it on a
 rackable server, [Raspberry Pi][raspberry_pi], or even a
@@ -585,8 +619,11 @@ either. Especially where infrastructure and security are concerned,
 hardware is made to fit software like a glove, and can minimize
 exposure for all parties.
 
+[appliance]: https://en.wikipedia.org/wiki/Computer_appliance
 [raspberry_pi]: https://www.raspberrypi.org/
 [micropython]: https://micropython.org/
+
+<div style="text-align:center;"><img width="40%" src="/uploads/illo/snake_esc_sm.png"></div>
 
 # But what about...
 
@@ -596,18 +633,26 @@ code.
 
 ## OS packages
 
-Where do OS packages like deb and rpm fit into all of this? They can
-fit anywhere, really. If you are very sure what operating system(s)
-you're targeting, these packaging systems can be powerful tools for
-distributing and installing code. These systems are mature and robust,
+Where do OS packages like [deb][deb] and [RPM][rpm] fit into all of
+this? They can fit anywhere, really. If you are very sure what
+operating system(s) you're targeting, these packaging systems can be
+powerful tools for distributing and installing code. There are reasons
+beyond popularity that almost all production container and VM
+workflows rely on OS package managers. They are mature, robust, and
 capable of doing dependency resolution, transactional installs, and
-custom uninstall logic.
+custom uninstall logic. Even systems as powerful as
+[Omnibus](#servers_ride_the_bus) target OS packages.
 
-In ESP's packaging segment, I touch on how we leveraged RHEL's RPM
-packages as a delivery mechanism. One detail, not relevant then, but
-relevant now, is how PayPal used a separate rpmdb for PayPal-specific
-packages, maintaining a clear divide between application and base
-system.
+[deb]: https://en.wikipedia.org/wiki/Deb_(file_format)
+[rpm]: https://en.wikipedia.org/wiki/RPM_Package_Manager
+
+In [ESP][esp]'s packaging segment, I touch on how we leveraged RPMs as
+a delivery mechanism for Python services in PayPal's production RHEL
+environment. One detail, that would have been minor and confusing in
+that context, but should make sense to readers now, is that PayPal
+didn't use the vanilla operating system setup. Instead, all machines
+used a separate rpmdb and install path for PayPal-specific packages,
+maintaining a clear divide between application and base system.
 
 ## virtualenv
 
@@ -619,155 +664,65 @@ an RPM post-install step, or by virtue of using an installer like
 [osnap][osnap]. The key is that the artifact and its install process
 should be self-contained, minimizing the risk of partial installs.
 
+This isn't virtualenv-specific, but lest it go unsaid, do not
+pip-install things, especially from the Internet, during production
+deploys. [Scroll up and read about PEX](#depending_on_pre_installed_python).
+
 [virtualenvs]: http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/
 
 ## Security
 
 The further down the gradient you come, the harder it gets to update
-components of your package. This doesn't mean that it's harder to
-update in general, but it is still a consideration, when for years the
-approach has been to have system administrators and other technicians
-handle certain kinds of infrastructure updates.
+components of your package. Everything is more tightly bound
+together. This doesn't necessarily mean that it's harder to update in
+general, but it is still a consideration, when for years the approach
+has been to have system administrators and other technicians handle
+certain kinds of infrastructure updates.
 
 For example, if a kernel security issue emerges, and you're deploying
 containers, the host system's kernel can be updated without requiring
 a new build on behalf of the application. If you deploy VM images,
 you'll need a new build. Whether or not this dynamic makes one option
-more secure is still a matter of debate.
+more secure is still a bit of an old debate, going back to the
+still-unsettled matter of
+[static versus dynamic linking][static_dynamic].
 
-<!-- Earlier note about containers: At some level, these are all the
-equivalent of static linking, with all of the added convenience and
-security risks. If a component is broken or compromised inside an
-application image, there's generally not a good way to find out, let
-alone upgrade just that component.
--->
+[static_dynamic]: https://www.google.com/search?channel=fs&q=static+vs+dynamic+linking
 
------
+# Closing
 
-# In brief
+Packaging in Python has a bit of a reputation for being a bumpy
+ride. This is mostly a confused side effect of Python's
+versatility. Once you understand the natural boundaries between each
+packaging solution, you begin to realize that the varied landscape is
+a small price Python programmers pay for using the most balanced,
+flexible language available.
 
-The goal of packaging is to reduce one's code to a redistributable
-unit, generally a single file, which can reliably run the code as
-tested prior to deployment.
+A summary of our lessons along the way:
 
-1. Have a single Python module that only uses the standard library? .py + cp.
-   No extra format necessary, Python modules are portable and
-   installable with a simple copy command.
-2. Have a package with no compiled artifacts (i.e., pure-Python), and
-   you're ok with downloading dependencies at install time? sdist +
-   pip.
-3. Have a package with compiled artifacts of its own, and
-   you're ok with downloading dependencies at install time? wheel + pip.
-4. Have a package (possibly with compiled artifacts), can't use
-   virtualenv, and want no install-time downloads? .tar + cp. With
-   Python it's possible to put all of your dependencies, including
-   compiled libraries (statically linked), into a fully self-contained
-   directory. Just don't deploy with git.
-5. Have a package (possibly with compiled artifacts) and you want no
-   install-time downloads? pex + pants. pex, pants, and virtualenv
-   standardize the path munging and packaging of the method above so
-   you don't have to. PEX is quite a step up in complexity from the
-   method above, but much of that is inherited from virtualenv design
-   choices.
+1. Language does not define packaging, environment does. Python is
+   general-purpose, PyPI is not.
+2. Application packaging must not be confused with library
+   packaging. Python is for both, but pip is for libraries.
+3. Self-contained artifacts are the key to repeatable deploys.
+4. Containment is a spectrum, from executable to installer to userspace
+   image to virtual machine image to hardware. "Containers" are not
+   just one thing, let alone the only option.
 
-In production environments, I strongly recommend against downloading
-dependencies at install time. Packages need to be self-contained for
-reliable installs, even if you own the artifact repository. This is
-why I recommend against pip as an installer for applications and
-services.
-
-If you have control over your systems and can have them set up
-consistently, either through imaging, configuration management
-(Puppet/Chef), or by painstaking handiwork, then this is often as far
-as you need to go. Environmental consistency is trivial for smaller
-organizations, which have a small number of machines and little
-environmental variation and conflict.
-
-The main reason to move to the next tier is when you cannot preinstall
-system libraries and binaries and need to provide them through deployment.
-
-# Dependable Operating System
-
-The operating system is your playground. The kernel and userspace are
-fairly dependable.
-
-* want a statically built executable with minimal reliance on system
-  libraries and binaries (including python)? cx_Freeze and similar
-* need python and other system libraries and binaries, ok with
-  triggering extra installs and compilation? conda/anaconda, or rpm/deb/etc.
-* need your own userspace, want self-contained install? container
-* need your own userspace and kernel, with self-contained install? image
-
-Development can be quite different than deployment. even if you're ok
-with compiling your own stuff for development, you basically never
-want that at prod deployment time.
-
-PyPI is for libraries, simple frameworks, and simple command-line
-utilities.
-
-AppImage (and Flatpak)
-
-You could ship your website on a MicroPython board, but you don't,
-because it's overkill.
-
-# The End
-
-In the end, packaging is a balancing act. Where do you want to draw
-the line between what is in your package and what is on the target
-system. There are no universally right answers, but the equation is
-simple enough that you can design a balanced process.
-
-The Python packaging landscape is converging, but don't let that
-narrow your focus. Every year seems to open new frontiers, challenging
+Now, with map in hand, you can safely navigate the rich terrain. The
+Python packaging landscape is converging, but don't let that narrow
+your focus. Every year seems to open new frontiers, challenging
 existing practices for shipping Python.
 
-# Notes
+<div style="text-align:center;"><img width="60%" src="/uploads/illo/snake_c_med.png"></div>
 
-* One of the major drawbacks of pip and conda compared to OS package
-  managers is that RPMs and deb have transactional installs, capable
-  of rolling back if an error occurs in the middle of
-  installation. conda and pip do not attempt any such rollback or
-  recovery.
-
-<!-- Installable vs. Frozen vs. Image. (Target Python, vs target OS, vs target virtualization) -->
-
-# Closing / Summary
-
-Packaging in Python has a bit of a reputation for being a
-madhouse. But I assure you that this is a small price Python
-programmers pay for using the most balanced, versatile language
-available. Python's innumerable applications mean that there are
-dozens of packaging options, and now, with map in hand, you can safely
-navigate the rich terrain.
-
-Python is general-purpose, PyPI is not.
-
-
-<!-- If writing software was like taking a test, ignoring packaging and
-deployment wouldn't be leaving a question blank; it would be
-forgetting to turn in the exam. Of course, with today's maze of
-deployment practices, sometimes turning in the test can feel like the
-real test.
-
--->
-
-([mount namespace](http://man7.org/linux/man-pages/man7/mount_namespaces.7.html)
-is the successor to chroot)
-
-<!-- Despite being called the Python Package Index, PyPI does not
-index packages. PyPI indexes distributions, which can contain one or
-more packages. For instance, pip installing Pillow allows you to
-import PIL. Pillow is the distribution, PIL is the package.
-
-The Pillow-PIL example also demonstrates how the distribution-package
-separation enables multiple implementations of the same API. Pillow is
-a fork of the original PIL package.
-
-Still, as most distributions only provide one package, it's best to
-name the distribution after the package for consistency's sake. -->
-
-* TODO: omnibus (also works with RPM/deb). The giveaway is that
-  omnibus packages frequently have different versions of the same OS,
-  indicating that they do rely on some parts of the existing system's
-  userspace. RPATH searches somewhere first, then falls back to system
-  paths.
+[^pypi]: Despite being called the Python Package Index, PyPI does not
+         index packages. PyPI indexes distributions, which can contain
+         one or more packages. For instance, pip installing Pillow
+         allows you to import PIL. Pillow is the distribution, PIL is
+         the package. The Pillow-PIL example also demonstrates how the
+         distribution-package separation enables multiple
+         implementations of the same API. Pillow is a fork of the
+         original PIL package. Still, as most distributions only
+         provide one package, please name your distribution after the
+         package for consistency's sake.
