@@ -12,7 +12,7 @@ publish_date: 1:47pm May 9, 2017
 
 One lesson threaded throughout
 [*Enterprise Software with Python*][esp] is that deployment is not the
-last step of development. The mark of an experienced engineers is to
+last step of development. The mark of an experienced engineer is to
 work backwards from deployment, planning and designing for the reality
 of production environments.
 
@@ -159,10 +159,10 @@ Python is a great language, and one which is made all the greater
 by its power to integrate.
 
 Many libraries contain [C][c], [Cython][cython], and other
-statically-compiled languagess that need build tools. If we distribute
+statically-compiled languages that need build tools. If we distribute
 such code using sdists, installation will trigger a build that will
 fail without the tools, will take time and resources if it succeeds,
-and generally involved more intermediary languages and four-letter
+and generally involve more intermediary languages and four-letter
 keywords than Python devs thought should be necessary.
 
 [c]: https://www.paypal-engineering.com/2016/09/22/python-by-the-c-side/
@@ -191,7 +191,9 @@ Now even when you upload wheels, I still recommend uploading sdists as
 a fallback solution for those occasions when a wheel won't work. It's
 simply not possible to prebuild wheels for all configurations in all
 environments. If you're curious what that means, check out
-[the design rationale behind Linux wheels](https://github.com/pypa/manylinux/blob/master/pep-513.rst#rationale).
+[the design rationale behind manylinux1 wheels][manylinux1_design].
+
+[manylinux1_design]: https://github.com/pypa/manylinux/blob/master/pep-513.rst#rationale
 
 # Milestone: Outgrowing our roots
 
@@ -256,7 +258,7 @@ host. [The PEX format][pex] gets us exactly this.
 
 The PEX, or Python EXecutable, is a carefully-constructed ZIP archive,
 with just a hint of bootstrapping. PEXs can be built for Linux, Mac,
-and Windows. Artifacts relies on the system Python, but unlike pip, it
+and Windows. Artifacts rely on the system Python, but unlike pip, it
 does not install itself or otherwise affect system state. It uses
 mature, [standard features][zipimport] of Python, successfully
 iterating on a [broadly][zipapp]-[used][superzippy] approach.
@@ -307,19 +309,32 @@ convenience and power, development and data science. And it does it
 all by using features built into Python and target operating
 systems.
 
-Conda may not get enough credit, as evidenced by
-[common misunderstandings][conda_myths], but it does have some room to
-improve. For instance, transactional package installation and upgrades
-is at the top of my conda wishlist. Still, with only [Steam][steam],
-[Nix][nix], and [pkgsrc][pkgsrc] as peers, cross-platform,
-language-agnostic package managers like [conda][conda] are a rare
-breed. [Unlike pip][pip_depres], conda does its dependency resolution
-up front (using [a SAT solver][pycosat]), and otherwise
-[compares favorably to the pip + virtualenv combination][conda_pip_compare].
+Consider that the list of cross-platform and language-agnostic package
+managers includes only [Steam][steam], [Nix][nix], and
+[pkgsrc][pkgsrc], and you can start to understand why conda is
+[often misunderstood][conda_myths]. Adding onto that, conda is adding
+features fast. For instance, conda is the first Python-centric package
+manager to do its dependency resolution up front (using
+[a SAT solver][pycosat]), [unlike pip][pip_depres]. More recently,
+[conda 4.3][conda_43] fulfilled the wishes of many by matching
+[apt][apt] and [yum][yum] with transactional package installation. Now
+conda matches operating system package managers in critical technical
+respects, except the wide-open social components of
+[anaconda.org][anaconda.org] make it even easier to use than, say
+[PPAs][ppa].
 
-In practice, Anaconda makes a compelling and effective case, even
-[in production server environments][paypal_conda].
+In short, Anaconda makes a compelling and effective case, both as a
+development environment
+[comparable to pip + virtualenv][conda_pip_compare], and even as part
+of the equation
+[in production server environments][paypal_conda]. Python is lucky to
+host to such a rare breed.
 
+[apt]: https://en.wikipedia.org/wiki/Advanced_Packaging_Tool
+[yum]: https://en.wikipedia.org/wiki/Yellowdog_Updater,_Modified
+[anaconda.org]: https://anaconda.org/
+[conda_43]: https://github.com/conda/conda/blob/master/CHANGELOG.md#430-2016-12-14--safety
+[ppa]: https://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them/4990#4990
 [conda]: https://conda.io/docs/
 [steam]: https://en.wikipedia.org/wiki/Steam_(software)
 [nix]: https://en.wikipedia.org/wiki/Nix_package_manager
@@ -370,7 +385,9 @@ application logic, all rolled into an independent artifact.
 These days the list of open-source tools has expanded beyond
 [cx_Freeze][cx_freeze] to include [PyInstaller][pyinstaller],
 [osnap][osnap], [bbFreeze][bbfreeze], [py2exe][py2exe],
-[py2app][py2app], and more. A partial feature matrix can be found
+[py2app][py2app], [pynsist][pynsist], [nuitka][nuitka], and
+more. There is even a conda-native option called
+[constructor][constructor]. A partial feature matrix can be found
 [here][freezer_matrix].
 
 [pyinstaller]: http://www.pyinstaller.org/
@@ -378,6 +395,9 @@ These days the list of open-source tools has expanded beyond
 [bbfreeze]: https://pypi.python.org/pypi/bbfreeze
 [py2exe]: http://www.py2exe.org/
 [py2app]: https://py2app.readthedocs.io/en/latest/
+[pynsist]: https://pypi.python.org/pypi/pynsist
+[nuitka]: http://nuitka.net/pages/overview.html
+[constructor]: https://github.com/conda/constructor
 [freezer_matrix]: http://python-guide.readthedocs.io/en/latest/shipping/freezing/
 
 Most of these systems give you some latitude to determine exactly how
@@ -584,14 +604,19 @@ deployment, from [Vagrant][vagrant] to [AMIs][ami] to
 
 Like our more complex container examples above, the images used to run
 virtual machines are not runnable executables, and require a mediating
-runtime, called a [hypervisor][hypervisor]. The images themselves come
-in a [few][vmdk] [formats][ovf], all of which are mature and
-dependable, if large. Size and build time may be the only deterrent
-for smaller projects prioritizing development time. Thanks to years of
-kernel and [processor advancement][hav], virtualization is not as slow
-as many developers would assume. If you can get your software shipped
-faster on images, then I say go for it.
+runtime, called a [hypervisor][hypervisor]. These days hypervisor
+machinery is very mature, and may even come standard with the
+operating system, as is the case with [Windows][hyperv] and
+[Mac][mac_hypervisor]. The images themselves come in a [few][vmdk]
+[formats][ovf], all of which are mature and dependable, if large. Size
+and build time may be the only deterrent for smaller projects
+prioritizing development time. Thanks to years of kernel and
+[processor advancement][hav], virtualization is not as slow as many
+developers would assume. If you can get your software shipped faster
+on images, then I say go for it.
 
+[hyperv]: https://en.wikipedia.org/wiki/Hyper-V
+[mac_hypervisor]: https://developer.apple.com/reference/hypervisor
 [hav]: https://en.wikipedia.org/wiki/Hardware-assisted_virtualization
 [hypervisor]: https://en.wikipedia.org/wiki/Hypervisor
 [ovf]: https://en.wikipedia.org/wiki/Open_Virtualization_Format
@@ -658,11 +683,16 @@ maintaining a clear divide between application and base system.
 
 Where do [virtualenvs][virtualenvs] fit into all of this? Virtualenvs
 are indispensible for many Python development workflows, but I
-discourage direct use of virtualenvs for deployment. Virtualenvs are
-fine to use behind the scenes, of course. Maybe make a virtualenv in
-an RPM post-install step, or by virtue of using an installer like
-[osnap][osnap]. The key is that the artifact and its install process
-should be self-contained, minimizing the risk of partial installs.
+discourage direct use of virtualenvs for deployment. Virtualenvs can
+be a useful packaging primitive, but they need additional machinery to
+become a complete solution. The [dh-virtualenv package][dhvirtualenv]
+demonstrates this well for deb packaging, but you can also make a
+virtualenv in an RPM post-install step, or by virtue of using an
+installer like [osnap][osnap]. The key is that the artifact and its
+install process should be self-contained, minimizing the risk of
+partial installs.
+
+[dhvirtualenv]: http://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html
 
 This isn't virtualenv-specific, but lest it go unsaid, do not
 pip-install things, especially from the Internet, during production
