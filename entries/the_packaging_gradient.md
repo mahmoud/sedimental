@@ -748,11 +748,14 @@ existing practices for shipping Python.
 
 [^pypi]: Despite being called the Python Package Index, PyPI does not
          index packages. PyPI indexes distributions, which can contain
-         one or more packages. For instance, pip installing Pillow
+         one or more packages. For instance, pip installing [Pillow][pillow]
          allows you to import PIL. Pillow is the distribution, PIL is
          the package. The Pillow-PIL example also demonstrates how the
          distribution-package separation enables multiple
-         implementations of the same API. Pillow is a fork of the
-         original PIL package. Still, as most distributions only
+         implementations of the same API. Pillow is a fork of [the
+         original PIL package][pil_orig]. Still, as most distributions only
          provide one package, please name your distribution after the
          package for consistency's sake.
+
+[pillow]: https://pillow.readthedocs.io/en/4.1.x/
+[pil_orig]: https://pypi.python.org/pypi/PIL
