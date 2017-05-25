@@ -12,6 +12,8 @@ First, my Python heroes:
 
 Then, the free culture pillars:
 
+<img title="w/ Jimmy Wales" src="/uploads/me/jimbo.jpg" width="70%">
+
 <img title="w/ Carl Malamud" src="/uploads/me/malamud.jpg" width="70%">
 
 <img title="w/ Brewster Kahle" src="/uploads/me/brewster.jpg" width="70%">
