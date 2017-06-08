@@ -6,9 +6,11 @@ entry_root: me
 
 > *If you're looking for press photos of me, I recommend the [About page](/about.html).*
 
-First, my Python heroes:
+First, my CS heroes:
 
 <img title="w/ Guido van Rossum (and Kurt Rose)" src="/uploads/me/guido.jpg" width="70%">
+
+<img title="w/ Donald Knuth" src="/uploads/me/knuth.jpg" width="50%">
 
 Then, the free culture pillars:
 
