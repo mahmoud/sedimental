@@ -103,6 +103,26 @@ not listed here can be found either on our [alpha test page][alpha],
 [stephen_gh]: https://github.com/slaporte
 
 ---
+title: Monumental
+gh_link: https://github.com/hatnote/monumental
+project_link: https://tools.wmflabs.org/monumental/
+description: |
+
+  Monumental is Hatnote's most recent project, building on our interest in
+  preserving and documenting heritage sites around the world. Drawing
+  upon [Wikidata][wikidata], [Wikipedia][wp_org], and
+  [Wikipedia Commons][wp_commons], Monumental displays information and
+  media about cultural heritage for a general area or specific
+  monument.
+
+  <img width="46%" title="Monumental's area view" src="/uploads/hatnote/monumental_map.png">
+  <img width="40%" title="Monumental's monument view" src="/uploads/hatnote/monumental_monument.png">
+
+  [wikidata]: https://wikidata.org/
+  [wp_org]: https://wikipedia.org/
+  [wp_commons]: https://commons.wikipedia.org/
+
+---
 title: Montage
 gh_link: https://github.com/hatnote/montage
 project_link: https://tools.wmflabs.org/montage-beta/
