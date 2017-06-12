@@ -18,7 +18,7 @@ is free, open, and well-supported. My wiki-timeline summarized:
 * **2012**: Attended my first Wikimedia Foundation hackathon, in San Francisco.
 * **2013**: Founded **[Hatnote][hatnote]**, with
     [Stephen LaPorte][stephen_twitter]. (Follow us on [our blog][hatnote_tumblr] or [Twitter][hatnote_twitter].)
-* **2016**: Still going strong, with *over 2 million* satisfied users
+* **2017**: Still going strong, with *over 2 million* satisfied users
     of Hatnote projects listed below.
 
 Today, I am still a student of Wikipedia. I use it dozens of times a
@@ -41,9 +41,9 @@ src="/uploads/hatnote/hatnote_logo_lg.png" />
 
 # Origins of Hatnote
 
-Hatnote is an ongoing umbrella project organized around Wikipedia as a
-social and data platform. Or, as we like to put it, finding new
-perspectives on wiki life.
+Hatnote is a volunteer-run design studio, organized around Wikipedia
+as a social and data platform. In other words, we are dedicated to
+exploring new perspectives on wiki life.
 
 Hatnote grew out of a 2012 WMF hackathon. I was having a great time
 building and teaching JavaScript and Python, but I fell upon a
@@ -54,22 +54,23 @@ scientists coming out of the woodwork to defend and support free
 knowledge and culture as I had expected.
 
 I realized, while everyone I met from the foundation was talented and
-well-intentioned, they simply did not have the resources to push the
-innovation envelope on Wikipedia. This isn't meant as a
-controversy-inducing criticism of the WMF; Wikipedia and other
-Wikimedia projects have always relied much more on the community for
-regulation and development. To this point, look at the numbers:
+well-intentioned, they simply did not have the resources to push
+Wikipedia's innovation envelope as far as it could go. This isn't
+meant as a controversy-inducing criticism of the WMF; Wikipedia and
+other Wikimedia projects have always relied much more on the community
+for regulation and development. To this point, look at the numbers:
 
-* Wikipedia is a top 10 website worldwide
+* Wikipedia is a top 10 website worldwide, with
 * Hundreds of millions of users
-* 15+ projects, including Wiktionary, Commons, and Wikibooks
+* 15+ sister projects, including Wiktionary, Commons, and Wikibooks
 * 280+ languages
 * **Only ~200 employees**
 
 Compare this to other top 100 websites worldwide. I hate to put it in
 such economic terms, but Wikipedia's utility per capita, even counting
 community members, is off the charts. Besides, when it comes to
-innovation, is there even such a thing as "enough"?
+innovation, education, and progress, is there even such a thing as
+"enough"?
 
 The reality is that the WMF is a nonprofit formed to steward these
 sites. They keep the servers up, keep the sites usable, and keep it
@@ -100,6 +101,42 @@ not listed here can be found either on our [alpha test page][alpha],
 [alpha]: http://alpha.hatnote.com
 [hn_gh]: https://github.com/hatnote
 [stephen_gh]: https://github.com/slaporte
+
+---
+title: Montage
+gh_link: https://github.com/hatnote/montage
+project_link: https://tools.wmflabs.org/montage-beta/
+description: |
+
+  <img width="100px" title="Montage Logo" src="/uploads/hatnote/montage_intro/montage_logo_01.png">
+
+  Montage is a judging tool used to judge the hundreds of thousands of
+  submissions to the annual [Wiki Loves Monuments][wlm] photography
+  competition, also known as the
+  [largest photo contest in the world][wlm_guiness].
+
+  WLM is truly unique a unique event, and to judge it in a suitably
+  open and wiki-compatible way required bespoke software, engineered
+  from the ground up for the specific use case.
+
+  [wlm]: https://en.wikipedia.org/wiki/Wiki_Loves_Monuments
+  [wlm_guiness]: http://www.guinnessworldrecords.com/world-records/largest-photography-competition/
+
+  <img width="45%" title="One of many interfaces in Montage" src="/uploads/hatnote/montage_intro/montage_ranking_ui_1.png">
+  <img width="54%" title="One of many interfaces in Montage" src="/uploads/hatnote/montage_intro/montage_juror_2.png">
+
+  Montage is our most advanced project yet, and we wrote all about the
+  background, process, features, and future of the project
+  [on Wikimedia's official blog][wlm_montage_blog]. In short, Montage
+  has been a tremendous hit among its users, and has expanded to other
+  media contests, such as Wiki Loves Earth, Wiki Loves Folk, and more!
+
+
+  [wlm_montage_blog]: https://blog.wikimedia.org/2016/12/22/montage-platform-wiki-loves-monuments/
+
+  <a target="_blank" href="https://tools.wmflabs.org/montage-beta/">
+  <img width="100%" title="The beautiful background greeting new visitors to the site"
+  src="/uploads/hatnote/montage_intro/montage_announce_banner_med.jpg"></a>
 
 ---
 title: Wikipedia Top 100
