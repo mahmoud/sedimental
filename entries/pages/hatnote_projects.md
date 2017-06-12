@@ -517,6 +517,7 @@ a lot of work from a lot of people. Hatnote credits roll:
 
 * [Stephen LaPorte][stephen]
 * [Mahmoud Hashemi][mahmoud]
+* [Pawel Marynowski][yarl]
 * [Ori Livneh][ori] - IFTTT channel and environment
 * [Bryan Oltman][boltman] - iOS App and Wapiti docs
 * [Kenneth Samonte][ken] - Graphics
@@ -532,6 +533,7 @@ really appreciate it.
 
 [stephen]: https://twitter.com/sklaporte
 [mahmoud]: https://twitter.com/mhashemi
+[yarl]: http://yarlu.pl/
 [ori]: https://github.com/atdt
 [boltman]: http://http://bryanoltman.com/
 [ken]: http://kensamonte.tumblr.com/
