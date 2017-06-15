@@ -580,6 +580,7 @@ a lot of work from a lot of people. Hatnote credits roll:
 * [Ori Livneh][ori] - IFTTT channel and environment
 * [Bryan Oltman][boltman] - iOS App and Wapiti docs
 * [Kenneth Samonte][ken] - Graphics
+* [Matthew Conway][mjc] - Data Waltz and design
 * [Sarah Nahm][sarah] - Qualityvis and Disambiguity
 * [Mark Williams][mark] - Disambiguity
 * [Dario Taraborelli][dario] - Various consultations
@@ -595,6 +596,7 @@ really appreciate it.
 [yarl]: http://yarlu.pl/
 [ori]: https://github.com/atdt
 [boltman]: http://http://bryanoltman.com/
+[mjc]: https://twitter.com/archgame
 [ken]: http://kensamonte.tumblr.com/
 [sarah]: http://info.sarahnahm.com/
 [mark]: https://github.com/markrwilliams/
