@@ -123,6 +123,45 @@ description: |
   [wp_commons]: https://commons.wikipedia.org/
 
 ---
+title: Data Waltz
+project_link: https://woodbury.edu/event/data-waltz-wuho/
+description: |
+
+  While Hatnote has inspired and supported some amazing installations
+  in the past, like [this one from the NCSU library][ncsu_l2w],
+  this collaboration was the deepest we've been involved with a
+  physical installation, this time at the WUHO Gallery in Hollywood.
+
+  [<img width="49%" title="Photo of the display by Mikey Tnasuttimonkol"
+  src="/uploads/hatnote/1024px-Data_Waltz_Exhibit_in_LA.jpg">][dw_360]
+  [<img width="49%" title="Photo of the backend monitor by Mikey Tnasuttimonkol"
+  src="/uploads/hatnote/1024px-Data_Waltz_Exhibit_in_LA_2.jpg">][dw_360]
+
+  Using Wikimedia's new [EventStreams API][eventstreams_api], several
+  Arduinos, half a dozens speakers, and thousands of LEDs, we helped
+  create an immersive experience of Wikipedia editing. Geolocated
+  edits are represented with lights and effects, with edits taking
+  place in the vicinity of the gallery triggering a shimmering
+  display. Thus, visitors were encouraged to make what was often their
+  first contributions to the world's largest repository of free
+  knowledge.
+
+  Listen to the sounds and see the lights in the 360° video below
+  (click and drag to look around):
+
+  <iframe src="https://player.vimeo.com/video/208084520" width="640"
+  height="274" frameborder="0" webkitallowfullscreen
+  mozallowfullscreen allowfullscreen></iframe></p>
+
+  Data Waltz was the featured use case in
+  [Wikimedia's official EventStreams announcement][eventstreams_blog].
+
+  [ncsu_l2w]: https://www.youtube.com/watch?v=gZKkIsWJOt8
+  [eventstreams_api]: https://wikitech.wikimedia.org/wiki/EventStreams
+  [dw_360]: https://vimeo.com/208084520
+  [eventstreams_blog]: https://blog.wikimedia.org/2017/03/20/eventstreams/
+
+---
 title: Montage
 gh_link: https://github.com/hatnote/montage
 project_link: https://tools.wmflabs.org/montage-beta/
