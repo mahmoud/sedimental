@@ -3,6 +3,7 @@ title: Thinking Clearly About Bytes and Text
 ---
 
 * Text and bytes are different things
+* **Text is encoded as bytes.**
 * JSON has no bytes type
 * The computer world has no text, and the human world has no bytes.
 * When to encode and when to decode
