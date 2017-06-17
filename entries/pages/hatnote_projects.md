@@ -577,14 +577,15 @@ a lot of work from a lot of people. Hatnote credits roll:
 * [Stephen LaPorte][stephen]
 * [Mahmoud Hashemi][mahmoud]
 * [Pawel Marynowski][yarl]
-* [Ori Livneh][ori] - IFTTT channel and environment
+* [Yuvi Panda][yuvi] - Labs and API support
+* [Kenneth Samonte][ken] - Graphics and illustration
 * [Bryan Oltman][boltman] - iOS App and Wapiti docs
-* [Kenneth Samonte][ken] - Graphics
 * [Matthew Conway][mjc] - Data Waltz and design
-* [Sarah Nahm][sarah] - Qualityvis and Disambiguity
-* [Mark Williams][mark] - Disambiguity
-* [Dario Taraborelli][dario] - Various consultations
+* [Mark Williams][mark] - Disambiguity and Twisted
+* [Ori Livneh][ori] - IFTTT channel and environment
+* [Sarah Nahm][sarah] - Qualityvis and Disambiguity design
 * [Moiz Syed][moiz] - Design consultations
+* [Dario Taraborelli][dario] - Various consultations
 
 I hope I'm not missing anyone. Going on three years and a dozen
 projects, keeping track is tough! But thanks to everyone who's ever
@@ -594,6 +595,7 @@ really appreciate it.
 [stephen]: https://twitter.com/sklaporte
 [mahmoud]: https://twitter.com/mhashemi
 [yarl]: http://yarlu.pl/
+[yuvi]: https://twitter.com/yuvipanda
 [ori]: https://github.com/atdt
 [boltman]: http://http://bryanoltman.com/
 [mjc]: https://twitter.com/archgame
