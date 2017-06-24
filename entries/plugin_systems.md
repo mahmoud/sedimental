@@ -5,14 +5,11 @@ title: Plugin Systems
 *"What are plugins?" and other proceedings of the PyCon 2017
  Comparative Plugin Systems BoF*
 
-Within the programming world, and with Python in particular, there are
-a lot of presumptions around plugins. Maybe it's just the diminutive
-name making plugins sound so small, but we take them for granted. "Oh,
-it's just a plugin," they say, as we all roll our eyes. But the effect
-and necessity of plugins is profound.
-
-Revisiting plugins may be the best programming decision I've made this
-year.
+Within the programming world, and the Python ecosystem in particular,
+there are a lot of presumptions around plugins. Specifically, we take
+them for granted. "It's *just* a plugin." Regardless of why some folks
+choose to overlook plugins, revisiting plugins may be the best
+programming decision I've made all year.
 
 For all manner of growing software, open-source or otherwise, scaling
 development poses a problem long before scaling performance. Involving
@@ -25,17 +22,19 @@ solution. The only thing wider than plugin systems' success is the
 variety of their implementations.
 
 The dynamism of Python in particular seems to encourage
-inventiveness. More is usually merrier, but not when it further clouds
-a tricky space. How wide is the range of functionalities, really? How
+inventiveness. More is usually merrier, but at some point we cloud a
+tricky space. How wide is the range of functionalities, really? How
 different could these plugin systems be?  How does one choose the
-right one for them? For that matter, what is a plugin system anyway?
-No one I talked to had clear answers.
+right one for a given project? For that matter, what is a plugin
+system anyway? No one I talked to had clear answers.
 
 So when PyCon 2017 rolled around, I knew exactly what I wanted to do:
 call together a team of developers to get to the bottom of the
-matter. We would answer the questions the above, or at least answer
-the question, "What happens when you ask a group of 20 veteran Python
-programmers about plugins?"
+matter. We would answer the questions the above, or at the very least,
+answer the question,
+
+> "What happens when you ask a group of 20 veteran Python programmers
+> about plugins?"
 
 # Setting examples
 
@@ -81,27 +80,26 @@ that often justifies the complexity.
 ## Generalizability
 
 You'll notice plugin systems did not have to be generalizable to be
-included. Many projects simply use a specialized, or even internal,
-plugin system to achieve better factoring. Bespoke plugin systems are
-still relevant as reference for anyone looking to discover patterns
-and maybe build their own system, generic or not. We wanted to cast
-the widest net possible for valuable lessons in code factoring.
+included. Many projects simply use a specialized, even totally
+internal, plugin system to achieve better factoring. Bespoke plugin
+systems are still relevant as reference for anyone looking to discover
+patterns and maybe build their own system, generic or not.
 
-The first attribute that jumped out was quite practical: Whether the
-system designed for reuse outside of a project. For instance, gather
-is, but pylint's system isn't.
+When it comes to lessons in better code factoring, we always want to
+cast the widest net possible. That includes independent libraries,
+like gather, and less reusable systems, like pylint.
 
 ## Install location
 
 Our next key differentiator was the degree to which the plugin system
 leveraged Python's own package management systems. Some systems, like
 gather, were designed to encourage `pip install`-ing plugins, locating
-them in a `site-packages` directory alongside the plugin system
-itself.
+them in a `site-packages` directory alongside the application itself.
 
-Other systems have their own search paths, putting plugins in the
-application tree, as is the case with Django apps, or set paths in the
-user directory, and elswhere on the filesystem.
+Other systems have their own search paths, putting plugins in the user
+directory and elsewhere on the filesystem. Still other systems locate
+plugins in the application tree, as is the case with Django
+apps.
 
 ## Plugin independence
 
@@ -117,23 +115,31 @@ conda and conda-build (TODO).
 
 ## Dependency registration
 
-Almost all plugins work by providing some set of *hooks* or data, the
-core knows to look for and use when appropriate. Another
-differentiator we found had to do with whether and how plugins could
-request resources from the core, and even other plugins. Not all
-systems support this, but many that do simply pass the whole core
-state, with access to everything, at the time of hook invocation. More
-advanced systems allow plugins to publish an inventory of
-requirements. More structure here leads to tighter and cleaner
-architecture for the application as a whole.
+Almost all plugins work by providing some set of *hooks* which are
+findable and callable by the core. We found another differentiator in
+whether and how plugins could request resources from the core, and
+even other plugins.
+
+Not all systems support this, preferring to keep plugins as leaf
+participants in the application. Those simplistic setups hit limits
+fast. The next best, and most common, solution is to simply pass the
+whole core state at the time of hook invocation, providing plugins
+with the same access as the core, albeit more explicitly.
+
+More advanced systems allow plugins to publish an inventory of
+requirements. Higher granularity enables lazy evaluation for a
+performance boost, and more explicit structure helps create a more
+maintainable application overall. <!-- Introspection and minimal
+shared state -->
 
 # Drawing a line
 
 Feeling like we were getting closer to the nature of things, we asked
-the question: What is a plugin system? And to answer it, we had to
-ask: What _isn't_ a plugin system? Establishing explicit boundaries
-and specific counterexamples proved instrumental to producing a final
-definition.
+the question: What is a plugin system? And to answer it, we were
+compelled to answer: What _isn't_ a plugin system?
+
+Establishing explicit boundaries and specific counterexamples proved
+instrumental to producing a final definition.
 
 Is `eval()` a plugin system? We thought maybe, at first. But the more
 we thought about it, no, because the code itself was not sufficiently
@@ -157,7 +163,8 @@ import system. A quite extensible and powerful one.
 For discovery it uses the PYTHONPATH, various "site" directories and
 files, and much more, especially where custom loaders are concerned.
 
-For installation, it uses site-packages, users' `.local` trees, and more.
+For installation, it uses `site-packages`, user `.local` directories,
+and more.
 
 As far as independence, virtually every script is trivially its own
 entrypoint.
@@ -190,14 +197,16 @@ be to add our extra instrumentation.
 So now we have achieved a complete view of the Python plugin system
 ecosystem, from motivation to manifestation.
 
-By sheer numbers it may seem like there is no shortage of Python
-plugin systems. But looking at the basic taxonomy above, it's clear
-that there are several gaps still waiting to be filled.
+By numbers alone, it may seem on the face like there are more than
+enough Python plugin solutions. But looking at the basic taxonomy
+above, it's clear that there are several gaps still waiting to be
+filled.
 
 By taking a holistic look at the implementations and motivations, the
-PyCon 2017 Plugins open session reached a conclusion that even this
-wide selection merits additional expansion. So go forth and build, and
-continue to build! The future of well-factored code depends on it.[^further]
+PyCon 2017 Plugins Open Session ended with the conclusion that even
+this wide selection could use expansion. So go forth and build, and
+continue to build! The future of well-factored code depends on
+it.[^further]
 
 [^further]: For additional reading, I recommend doing what we did
             after our discussion, finding and reading
