@@ -8,6 +8,8 @@ site:
   primary_links:
     - text: About
       href: /about.html
+    - text: Archive
+      href: /archive.html
     - text: GitHub
       href: https://github.com/mahmoud
     - text: Twitter
