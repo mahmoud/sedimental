@@ -2,18 +2,20 @@
 title: Plugin Systems
 tags:
   - code
+  - pycon
   - python
   - plugins
+publish_date: 11:00am July 11, 2017
 ---
 
-*"What are plugins?" and other proceedings of the inaugural PyCon 2017
- Comparative Plugin Systems [BoF][bof]*
+*"What are plugins?" and other proceedings of the inaugural PyCon
+ Comparative Plugin Systems [BoF][bof].*
 
 Within the programming world, and the Python ecosystem in particular,
 there are a lot of presumptions around plugins. Specifically, we take
 them for granted. "It's *just* a plugin." "Oh, *another* plugin library?"
 
-This past PyCon, I resolved to dismiss this dismissals by revisiting
+So for PyCon 2017, I resolved to dismiss the dismissals by revisiting
 plugins, and it may have been the best programming decision I've made
 all year.
 
@@ -50,7 +52,8 @@ of the above, or at the very least, answer the question,
 > *"What happens when you ask a dozen veteran Python programmers
 > to spill their guts about plugins?"*
 
-<img width="100%" src="/uploads/pycon_2017_plugin_bof_crop.jpg">
+<img title="Our fearless band of extensionists" width="100%"
+src="/uploads/pycon_2017_plugin_bof_crop.jpg">
 
 [bof]: https://en.wikipedia.org/wiki/Birds_of_a_feather_(computing)
 [pycon_2017]: https://us.pycon.org/2017/about/
@@ -87,10 +90,23 @@ For our first bit of analysis, we asked: What practical and
 fundamental attributes differentiate these approaches? If we had to
 create a taxonomy, what characteristics would we look for?
 
+## Generalizability
+
+You'll notice our list of example plugin systems included several very
+specialized examples, from pylint to SQLAlchemy. Many projects even
+use totally internal plugin systems to achieve better
+factoring.
+
+Bespoke plugin systems like pylint's are a valuable reference for
+anyone looking to account for patterns in their own system, especially
+generic systems like [pike and stevedore][pike_stevedore_cmp].
+
+[pike_stevedore_cmp]: http://www.giantflyingsaucer.com/blog/?p=5858
+
 ## Discovery
 
-A plugin system's first job is locating plugins to load. The split here
-is whether plugins are individually specified, or automatically
+A plugin system's first job is locating the plugins to load. The split
+here is whether plugins are individually specified, or automatically
 discovered based on paths and patterns.
 
 In either case, we need paths. Some systems provide search
@@ -98,22 +114,15 @@ functionality, exchanging explicitness for convenience. This can be a
 good trade, especially when plugins number in the double digits, or
 whenever less technical users are concerned.
 
-## Generalizability
-
-You'll notice our list of example plugin systems included several very
-specialized examples, from pylint to SQLAlchemy. Many projects even
-use totally internal plugin systems to achieve better
-factoring. Bespoke plugin systems like pylint's are a valuable
-reference for anyone looking to account for patterns in their own system,
-especially generic systems like pike and gather.
-
 ## Install location
 
-Our next key differentiator was the degree to which the plugin system
-leveraged Python's own package management facilities. Some systems,
-like venussian, were designed to encourage `pip install`-ing plugins,
-searching for them in `site-packages`, alongside the application
-itself.
+Closely related to discovery, our next differentiator was the degree
+to which the plugin system leveraged Python's own package management
+facilities. Some systems, like [venusian][venusian], were designed to encourage
+`pip install`-ing plugins, searching for them in `site-packages`,
+alongside the application itself.
+
+[venusian]: https://docs.pylonsproject.org/projects/venusian/en/latest/)
 
 Other systems have their own search paths, locating plugins in the
 user directory and elsewhere on the filesystem. Still other systems
@@ -126,11 +135,11 @@ with [Django apps][django_apps].
 
 One of the most challenging parts of plugin development is finding
 ways of independently reusing and testing code, while keeping in mind
-its role as an optional component of another application.
+the code's role as an optional component of another application.
 
 In some systems, like Django's, the tailoring is so tightly coupled
 that reusability doesn't make sense. But other approaches, like
-[gather][gather]'s, keeps plugin code independently reusable.
+[gather][gather]'s, keeps plugin code independently usable.
 
 [gather]: http://gather.readthedocs.io/en/latest/
 [conda]: https://github.com/conda/conda
@@ -157,8 +166,8 @@ helps create a more maintainable application overall.
 
 # Drawing a line
 
-Feeling like we were getting closer to the nature of things, we
-reversed direction, asking instead: What *isn't* a plugin system?
+With our group feeling like we were approaching the nature of things,
+we reversed direction, asking instead: What *isn't* a plugin system?
 
 Establishing explicit boundaries and specific counterexamples proved
 instrumental to producing a final definition.
@@ -190,7 +199,7 @@ functionality a plugin system? Mostly, yes! Python's import system is
 a plugin system.
 
 * For discovery it uses [`sys.path`][sys_path], various "site"
-  directories and files, and [much more][sys_path_hooks].
+  directories and ".pth" files, and [much more][sys_path_hooks].
 * For installation, it uses `site-packages`,
   [user `.local` directories][user_installs], and more.
 * As far as independent reusability, virtually every module
@@ -216,10 +225,10 @@ look to [the `site` module][site_mod].
 
 # Motivation
 
-And yet, with our hour nearly up, all these proximate details still
-hadn't distilled into an ultimate motivation behind plugins. To
-satisfy our inquiry, we return to one of software engineering's
-fundamental principles: [Separation of concerns][soc].
+With our hour nearly up, all these proximate details still
+needed to be distilled into an ultimate motivation behind plugins. To
+this end, we returned to one of software engineering's fundamental
+principles: [Separation of concerns][soc].
 
 [soc]: https://en.wikipedia.org/wiki/Separation_of_concerns
 
@@ -230,7 +239,7 @@ loading _some_ code so that we can add extra instrumentation, checks,
 resiliency, and error messages to that loading process. If something
 misbehaves, we can do better than a stack trace and an `ImportError`.
 
-And while Python's import system is a plugin system of sorts, because
+Python's import system is a plugin system of sorts, but because
 we use it all the time, we've already used up most of the concern
 separation potential of `import`. Hence, all the creativity around
 plugin systems, seeking a balance between feeling native to Python,
@@ -242,15 +251,15 @@ So now we have achieved a complete view of the Python plugin system
 ecosystem, from motivation to manifestation.
 
 By numbers alone, it may seem on the face like there are more than
-enough Python plugin solutions. But looking at the basic taxonomy
-above, it's clear that there are several gaps still waiting to be
-filled.
+enough Python plugin solutions. But looking at the motivation and
+taxonomy above, it's clear that there are still several gaps waiting
+to be filled.
 
 By taking a holistic look at the implementations and motivations, the
 PyCon 2017 Plugins Open Session ended with the conclusion that even
-this wide selection could use expansion.
+[Python's wide selection](#setting_examples) could use expansion.
 
-So go forth and build, and continue to build! The future of
+So, until next year, go forth and continue to build! The future of
 well-factored code depends on it.[^further]
 
 <img width="50%" src="/uploads/illo/snake_puzzle_sm.png">
@@ -261,12 +270,8 @@ well-factored code depends on it.[^further]
             focuses more on specific implementations and less about
             generalized systems, Eli's post overlaps in many very
             reaffirming ways, much to our relief and
-            gratifications. The worked example of building
+            gratification. The worked example of building
             ReStructured Text plugins is a perfect complement to the
             post above.
 
 [bender_post]: http://eli.thegreenplace.net/2012/08/07/fundamental-concepts-of-plugin-infrastructures
-
-
-<!-- Resiliency? Whether or not loading a failed plugin load was fatal
-to the rest of the application -->
