@@ -65,7 +65,7 @@ Our group leapt into action by listing off plugin systems as fast as we could:
 * [stevedore](https://docs.openstack.org/stevedore/latest/)
 * [twisted.plugin](http://twistedmatrix.com/documents/current/core/howto/plugin.html)
 * [Mercurial extensions](https://www.mercurial-scm.org/wiki/WritingExtensions)
-* [pytest plugins](https://docs.pytest.org/en/latest/plugins.html)
+* [pytest plugins](https://docs.pytest.org/en/latest/plugins.html) ([pluggy](https://github.com/pytest-dev/pluggy))
 * [gather](http://gather.readthedocs.io/en/latest/)
 * [venusian](https://docs.pylonsproject.org/projects/venusian/en/latest/)
 * [pluginbase](http://pluginbase.pocoo.org/)
@@ -79,6 +79,7 @@ Our group leapt into action by listing off plugin systems as fast as we could:
 * [Sphinx extensions](http://www.sphinx-doc.org/en/stable/extdev/index.html#dev-extensions)
 * [Buildout extensions](http://docs.buildout.org/en/latest/topics/extensions.html)
 * [Pike](http://pyarmory-pike.readthedocs.io/en/latest/)
+* [Dectate](http://dectate.readthedocs.io/en/latest/) and [Reg](http://reg.readthedocs.io/en/latest/index.html)
 * Others that came and went a little too fast to jot down
 
 With our plate heaping with examples like these, we all felt ready to
