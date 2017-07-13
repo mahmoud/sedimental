@@ -166,12 +166,10 @@ html, body {
     height: auto;
 }
 
-/* Uncomment this to get the same style for manual heading links as the Table of Contents autolinks
-
 h1 a, h2 a, h3 a, h4 a, h5 a {
     color: #222;
     text-decoration: none;
-}*/
+}
 
 .toclink {
     color: #222;
