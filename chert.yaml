@@ -30,6 +30,7 @@ site:
       href: /me.html
       desc: Some photos of me
   analytics_code: UA-63517417-1
+  retarget_links: external
 
 theme:
   name: sedimental
