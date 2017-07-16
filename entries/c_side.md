@@ -230,7 +230,7 @@ If you have an otherwise small module that just needs to access one or
 two C functions, ctypes allows you to do so without adding a
 heavyweight dependency.
 
-[win_boltons]: (https://github.com/mahmoud/boltons/blob/01fb908d252b6fc5e72fe876a0eebaee65b200df/boltons/fileutils.py#L239)
+[win_boltons]: https://github.com/mahmoud/boltons/blob/01fb908d252b6fc5e72fe876a0eebaee65b200df/boltons/fileutils.py#L239
 
 For a while, PayPal Python code used ctypes after moving off of
 SWIG. We found it easier to call into vanilla shared objects built

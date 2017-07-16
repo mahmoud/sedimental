@@ -597,7 +597,7 @@ really appreciate it.
 [yarl]: http://yarlu.pl/
 [yuvi]: https://twitter.com/yuvipanda
 [ori]: https://github.com/atdt
-[boltman]: http://http://bryanoltman.com/
+[boltman]: http://bryanoltman.com/
 [mjc]: https://twitter.com/archgame
 [ken]: http://kensamonte.tumblr.com/
 [sarah]: http://info.sarahnahm.com/
