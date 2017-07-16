@@ -123,7 +123,7 @@ facilities. Some systems, like [venusian][venusian], were designed to encourage
 `pip install`-ing plugins, searching for them in `site-packages`,
 alongside the application itself.
 
-[venusian]: https://docs.pylonsproject.org/projects/venusian/en/latest/)
+[venusian]: https://docs.pylonsproject.org/projects/venusian/en/latest/
 
 Other systems have their own search paths, locating plugins in the
 user directory and elsewhere on the filesystem. Still other systems
