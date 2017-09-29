@@ -10,6 +10,16 @@ publish_date: 1:47pm May 9, 2017
 
 *The packaging gradient, and why PyPI isn't an app store.*
 
+*Update: I turned this post into a talk. The [video from PyBay is
+ here][pybay_video], the [slides are available here][slides]. The
+ long-cut video from [BayPiggies][bp_meetup] is coming, but [the
+ "Extended Edition" slides are here][slides_ex].*
+
+[pybay_video]: https://www.youtube.com/watch?v=iLVNWfPWAC8
+[slides]: https://speakerdeck.com/mhashemi/the-packaging-gradient
+[bp_meetup]: https://www.meetup.com/BAyPIGgies/events/242072266/
+[slides_ex]: https://speakerdeck.com/mhashemi/the-packaging-gradient-extended-edition
+
 One lesson threaded throughout
 [*Enterprise Software with Python*][esp] is that deployment is not the
 last step of development. The mark of an experienced engineer is to
@@ -131,10 +141,10 @@ Packages are the larger unit of redistributable Python. Packages are
 directories of code containing an `__init__.py`. Provided they contain
 only pure-Python modules, they can also be vendored, similar to the
 module above. Even very popular packages
-[like requests][requests_vendor] can be found with `vendor`, `lib`,
+[like pip itself][pip_vendor] can be found with `vendor`, `lib`,
 and `packages` directories.
 
-[requests_vendor]: https://github.com/kennethreitz/requests/tree/master/requests/packages
+[pip_vendor]: https://github.com/pypa/pip/#TODO
 
 Because these packages nest and sprawl, vendoring can lead to
 codebases that feel unwieldy. While it may seem awkward to have `lib`
@@ -258,8 +268,8 @@ host. [The PEX format][pex] gets us exactly this.
 
 The PEX, or Python EXecutable, is a carefully-constructed ZIP archive,
 with just a hint of bootstrapping. PEXs can be built for Linux, Mac,
-and Windows. Artifacts rely on the system Python, but unlike pip, it
-does not install itself or otherwise affect system state. It uses
+and Windows. Artifacts rely on the system Python, but unlike pip, a
+PEX does not install itself or otherwise affect system state. It uses
 mature, [standard features][zipimport] of Python, successfully
 iterating on a [broadly][zipapp]-[used][superzippy] approach.
 
