@@ -32,6 +32,31 @@ appreciate all this free software!
 [TOC]
 
 ---
+title: Hyperlink
+est_date: February 14, 2017
+release_status: Released
+gh_link: https://github.com/python-hyper/hyperlink
+pypi_link: https://pypi.python.org/pypi/hyperlink
+description: |
+
+  Hyperlink provides a pure-Python implementation of immutable
+  URLs. Based on [RFC 3986][rfc3986] and [3987][rfc3987], the
+  Hyperlink URL makes working with both URIs and IRIs easy.
+
+  Hyperlink is now part of the [Hyper project][hyper], but derives from
+  [Boltons](#boltons) and [Twisted][twisted_gh], which now depends on
+  Hyperlink for its URL functionality. Hyperlink is tested against
+  Python 2.7, 3.4, 3.5, 3.6, and PyPy.
+
+  Full documentation is available on [Read the Docs][docs].
+
+  [rfc3986]: https://tools.ietf.org/html/rfc3986
+  [rfc3987]: https://tools.ietf.org/html/rfc3987
+  [hyper]: https://github.com/python-hyper
+  [twisted_gh]: https://github.com/twisted/twisted
+  [docs]: http://hyperlink.readthedocs.io/en/latest/
+
+---
 title: Boltons
 est_date: February 19, 2013
 release_status: Released
@@ -312,9 +337,12 @@ description: |
 ---
 # Other projects
 
+* [My Hatnote projects][hatnote] - I also maintain many Wikimedia-oriented
+  projects with my open-source design studio, Hatnote.
 * [Erosion][erosion] - Link shortening and library demonstration
 * [Skeleton sticky footer][ssf] - Responsive site template
 
+[hatnote]: /hatnote_projects.html
 [erosion]: https://github.com/mahmoud/erosion
 [ssf]: https://github.com/mahmoud/skeleton_sticky_footer
 
