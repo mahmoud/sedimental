@@ -10,7 +10,7 @@ tags:
 Last week I attended a [Maintainerati][maintainerati] event, an
 unconference/mini-summit for maintainers of popular software, run as a
 prelude to the [GitHub Universe][gh_universe] conference. After being
-taught the secret handshake of the software elite among other rituals,
+brought up to speed on this year's secret handshake of the software elite,
 I had a great time in the documentation breakout group, as well as
 moderating a lively discussion on diversity in open-source, both of
 which deserve their own write-ups at some point.
