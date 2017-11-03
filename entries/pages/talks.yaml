@@ -1,0 +1,150 @@
+---
+title: Talks
+list_type: multidoc
+field_label_map:
+  _date: Date
+  slides: Slides
+  video: Video
+  venue: Venue
+field_type_map:
+  slides: link
+  video: link
+field_role_map:
+  content: description
+---
+
+A little reverse chronology of talks I have enjoyed presenting,
+complete with video and slides. If you like this sort of thing, also
+check out [Enterprise Software with Python](/esp.html), as well as my
+[other appearances](/appearances.html).
+
+[TOC]
+
+<!-- TODO: if [TOC] appears on its own, it gets read as a yaml list -->
+<!-- TODO: make chert only recognize sections which are dicts which match the schema above -->
+<!-- TODO: warn on unrecognized schemes -->
+
+<img title="Me @ PyBay 2017" width="100%" src="/uploads/me/me_pybay2017.png">
+---
+title: "A Plug for Plugins"
+_date: October 9th, 2017
+duration: 25 minutes
+venue: "PyGotham 2017, New York, NY"
+video: https://www.youtube.com/watch?v=GRXZKsrAVPI
+slides: https://speakerdeck.com/mhashemi/a-plug-for-plugins-pygotham-2017
+description: |
+
+  In almost every case of large application development, the result
+  involves a pattern too often maligned or overlooked: the
+  plugin. Call them modules or extensions, if you'd prefer, the facts
+  remain the same. The success of plugins is second only to the
+  variety of implementations, especially in Python's dynamic
+  environment.
+
+  This talk covers the basis for plugins, reviews Python's current
+  offerings using examples, and provides guidance as to the bright
+  future of plugin architecture.
+# '
+---
+title: "The Packaging Gradient: A Holistic Guide to Software Distribution"
+_date: August 12, 2017
+duration: 49 minutes
+venue: "PyBay 2017, San Francisco, CA"
+video: https://www.youtube.com/watch?v=iLVNWfPWAC8
+slides: https://speakerdeck.com/mhashemi/the-packaging-gradient
+description: |
+
+  Deployment is not the last step of development. Experienced engineers
+  know to work backwards from deployment requirements, planning and
+  designing for the reality of production environments.
+
+  Python packaging sometimes gets a bad reputation, but a lot of this
+  comes from less experienced engineers learning the hard way that
+  implementation language does not dictate their packaging solutions.
+
+  Packaging is all about target environment and deployment
+  experience. Python was designed to be cross-platform and runs in
+  countless environments.
+
+  This talk moves example by example, presenting shippable code, and the
+  simplest packaging solution appropriate for it. All the examples are
+  in Python, but the lessons are absolutely language agnostic. Learn the
+  packaging gradient and put those deployment doubts to rest once and for
+  all.
+
+  <a href="https://speakerdeck.com/mhashemi/the-packaging-gradient-extended-edition">
+  <img width="100%" src="/uploads/pkg_grad_apps_nested.png"></a>
+
+---
+title: "The Packaging Gradient: A Holistic Guide to Software Distribution (Extended Edition)"
+_date: September 28, 2017
+venue: "BayPIGgies, LinkedIn, Sunnyvale, CA"
+slides: https://speakerdeck.com/mhashemi/the-packaging-gradient-extended-edition
+description: |
+
+  After the success of my PyBay 2017 talk, the organizers of
+  BayPIGgies, the venerated South Bay Python interest group/meetup
+  asked me to turn my 50 minute talk into something that could fill a
+  slot closer to two hours. I go a bit slower, tell a couple more
+  stories, talk a bit more about static linking, and field more
+  questions.
+
+---
+title: "URLs: In Plain View"
+_date: May 27, 2017
+duration: 25 minutes
+venue: "PyCon Web 2017, Munich, Germany"
+video: https://www.youtube.com/watch?v=EIkmADO-r10
+slides: https://speakerdeck.com/mhashemi/urls-in-plain-view
+description: |
+
+  The web wouldn't be the web without URLs. You're using one right
+  now! Unlike most web technology, URLs are not designed primarily to
+  connect computers to each other. URLs connect us, people, to our
+  software. This talk is an approachable engineering introduction to
+  the often-overlooked URL, its evolution, and its many moving parts,
+  concluding with newest URL implementation Python has to offer, [the
+  hyperlink package][hyperlink].
+
+  [hyperlink]: http://github.com/python-hyper/hyperlink
+---
+title: "Python Profiling and Performance: Elementary to Enterprise"
+_date: August 20, 2016
+duration: 25 minutes
+venue: "PyBay 2016, San Francisco, CA"
+video: https://www.youtube.com/watch?v=Dgnp28Ijm_M
+slides: https://speakerdeck.com/mhashemi/python-profiling-and-performance-elementary-to-enterprise
+description: |
+
+  Performance is a complex topic. It means a lot of things to a lot of
+  people. Python gives us a great starting point: strong primitives and
+  the "good enough" philosophy. But is Python actually good enough for
+  performance-critical applications?
+
+  This talk defines different kinds of performance, covers basic
+  principles, and dives right into measurement. With those foundations
+  laid, it outlines eight approaches to scaling Python, four of which
+  are stack-agnostic and four of which are Python-specific. It outlines
+  many examples from industry to provide a holistic view of performance
+  as a practical process, not a large-scale benchmarking competition.
+
+---
+# Other speaking
+
+Some talks I've given were more informal or less recorded, but here's
+a list in any case.
+
+* A bunch of unrecorded presentations at WikiCite 2017. Many of the
+  points [were summarized here][hatnote_wikicite2017].
+* HomeMake's Soundtrack to Success - A talk about
+  [HomeMake][homemake], an indie game I collaborate on, and how the
+  sonic experience contributes so much to the gameplay. Presented at
+  South Bay Game Dev at Google on June 14, 2017.
+* Various ad hoc talking at [Pyninsula][pyninsula], where I typically
+  MC. [Videos are here][pyn_video].
+
+
+[homemake]: http://www.homemakelovesyou.com/
+[pyninsula]: https://www.meetup.com/Pyninsula-Python-Peninsula-Meetup/
+[pyn_video]: https://www.youtube.com/channel/UCiT1ZWcRdFLx7PuR3fTjTfA
+[hatnote_wikicite2017]: http://blog.hatnote.com/post/161358369742/wikicite-2017-and-the-7-features-wikidata-needs
