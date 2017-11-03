@@ -1,0 +1,91 @@
+---
+title: Appearances
+list_type: multidoc
+field_label_map:
+  _date: Date
+  link: Link
+field_type_map:
+  link: link
+---
+[TOC]
+
+# Podcasts
+
+Rarely in stereo.
+---
+title: "Test & Code #27: Approaches to testing"
+_date: February 26, 2017
+link: http://testandcode.com/27
+---
+title: "Source Code Berlin: Wikipedia's Big Beautiful World of Data Visualizations"
+_date: September 19, 2016
+link: https://sourcecode.berlin/2016/09/19/wpbbw/
+---
+title: "TPTM #54 - Enterprise Software and Python"
+_date: April 14, 2016
+link: https://talkpython.fm/episodes/show/54/enterprise-software-with-python
+---
+title: "TPTM #41 - Getting a Python job"
+_date: January 12, 2016
+link: https://talkpython.fm/episodes/show/41/getting-your-first-dev-job-as-a-python-developer-part-2
+---
+title: "The World According to Sound #20 - Wikipedia"
+_date: September 13, 2015
+link: http://www.theworldaccordingtosound.org/2015/09/13/2-wiki.html
+link2: http://www.npr.org/2016/04/13/474120884/listen-to-wikipedia-engineers-translate-edits-into-sound
+---
+title: "TPTM #4 - Enterprise Python and Large-Scale Projects"
+_date: April 23, 2015
+link: https://talkpython.fm/episodes/show/4/enterprise-python-and-large-scale-projects
+---
+
+<!-- TODO: TED Radio Hour, -->
+
+# TV
+
+Once like a parent, now a patron.
+---
+title: KQED @ SF Parking Lot Art Fair
+_date: May 6, 2016
+link: https://ww2.kqed.org/arts/2016/05/06/artists-take-over-san-francisco-parking-lot-for-satirical-art-fair/
+content: |
+
+  In signing on to help my good friend [Niki
+  Korth](http://www.thebigconversationspace.org/) with her corporate
+  tarot reading art piece, I didn't realize the local public
+  broadcasting station was going to turn me into a star.
+
+  <iframe width="854" height="480" src="https://www.youtube.com/embed/SkOROaCqbnc?start=50" frameborder="0" allowfullscreen></iframe>
+
+  I'm at 0:52. The event was a lot of fun, and I recommend going if
+  you're around.
+---
+title: "Canal+ L'Oeil de Links @ Listen to Wikipedia"
+_date: October 3, 2013
+link: http://www.canalplus.fr/c-emissions/c-ms-l-oeil-de-links/cid945604-listen-to-wikipedia.html
+content: |
+
+  Given the show's distinctive aesthetic, I took the opportunity to
+  put on my best [Jean-Baptiste
+  Zorg](http://fifth-element.wikia.com/wiki/Jean-Baptiste_Zorg).
+---
+# Radio
+
+Those realtime analog podcasts all around us.
+---
+
+title: KQED @ Listen to Wikipedia
+_date: November 25, 2015
+link: https://ww2.kqed.org/news/2015/11/16/programmers-turn-wikipedia-into-music-to-make-a-point/
+content: |
+
+  I look hilarious holding the raku L2W.
+---
+
+title: BBC Radio @ Wikipedia
+_date June 20, 2015
+link: http://www.bbc.co.uk/programmes/b05z6gf6
+content: |
+
+  We're on toward the end.
+---
