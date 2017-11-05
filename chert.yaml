@@ -23,9 +23,9 @@ site:
     - text: Projects
       href: /open_source_projects.html
       desc: Non-Wikipedia open-source projects
-    - text: Python
-      href: /tagged/python/
-      desc: An archive of Python writing
+    - text: Talks
+      href: /talks.html
+      desc: My talks, with slides and videos
     - text: Me
       href: /me.html
       desc: Some photos of me
