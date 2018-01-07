@@ -396,6 +396,12 @@ description: |
   Interactive Visualization category, and was used to conduct multiple
   yoga and meditation sessions.
 
+  <a target="_blank"
+  href="/uploads/hatnote/l2w_sue_gardner_hatnote.jpg"><img
+  width="100%" title="Wikimedia's Executive Director Sue Gardner
+  presenting L2W"
+  src="/uploads/hatnote/l2w_sue_gardner_hatnote.jpg"></a>
+
   Listen to Wikipedia has remarkable staying power. It has tens of
   thousands of regular monthly users, and new
   [people discover it every day][l2w_twitter]. To accomodate that, L2W
