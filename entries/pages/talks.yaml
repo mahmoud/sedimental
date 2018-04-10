@@ -25,6 +25,38 @@ check out [Enterprise Software with Python](/esp.html), as well as my
 <!-- TODO: warn on unrecognized schemes -->
 
 <img title="Me @ PyBay 2017" width="100%" src="/uploads/me/me_pybay2017.png">
+
+---
+title: "Production-grade Packaging with Anaconda"
+_date: April 10, 2018
+duration: 39 minutes
+venue: AnacondaCon 2018, Austin, TX
+slides: https://speakerdeck.com/mhashemi/production-grade-packaging-with-anaconda
+description: |
+  Anaconda has always been a powerful platform for data analysts and
+  scientists across the Python world. The same reasons that make it work
+  for those groups also apply to engineers building and shipping
+  scalable services: Easy access to prebuilt packages, including system
+  packages not managed by pip, and other packages not conveniently
+  provided by the operating system.
+
+  This is less a talk about how to build conda packages, as it is a
+  talk about how to use Anaconda in real-world industrial settings to
+  ship products, as my team(s) did at PayPal and Shopkick.
+
+---
+title: "Pocket Protector: Secrets as Code"
+_date: March 27th, 2018
+duration: 17 minutes
+venue: "Pyninsula #11, SimpleLegal HQ, Mountain View, CA"
+slides: https://speakerdeck.com/mhashemi/pocket-protector-secrets-as-code
+description: |
+  At SimpleLegal we have quite a few integrations, and as a result,
+  quite a few secrets. Multiply that by a few environments, and we've
+  got a management situation on our hands. Leveraging Kurt's and my
+  past experience doing application security, we built a solution
+  which leverages surrounding systems like source control, and sized
+  it right for small and growing teams.
 ---
 title: "A Plug for Plugins"
 _date: October 9th, 2017
