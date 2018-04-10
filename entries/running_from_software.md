@@ -93,9 +93,9 @@ taste of programming and it opens up vast opportunities. Even just the
 shared vocabulary is a huge boost to cross-pollination of ideas
 between disciplines.
 
-Look at Python use among biologists, neuroscientists, and other more
+Look at Python use among biologists, neuroscientists, and other
 academics and analysts. Their amazing results speak volumes. Yet by
-strict accounts their programming level wilts next to experienced
+strict accounts their engineering skill wilts next to experienced
 Python systems engineers working at YouTube, PayPal, Dropbox,
 Continuum Analytics, etc.
 
