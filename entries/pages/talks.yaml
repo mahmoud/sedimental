@@ -54,9 +54,10 @@ description: |
   At SimpleLegal we have quite a few integrations, and as a result,
   quite a few secrets. Multiply that by a few environments, and we've
   got a management situation on our hands. Leveraging Kurt's and my
-  past experience doing application security, we built a solution
-  which leverages surrounding systems like source control, and sized
-  it right for small and growing teams.
+  past experience doing application security, we built [Pocket
+  Protector](https://github.com/SimpleLegal/pocket_protector), a
+  secrets management system which leverages version control to provide
+  a simple, secure approach, sized right for small and growing teams.
 ---
 title: "A Plug for Plugins"
 _date: October 9th, 2017
