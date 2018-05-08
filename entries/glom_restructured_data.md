@@ -52,30 +52,66 @@ A tool as simple and powerful as glom attracts many comparisons. While
 similarities exist, and are often intentional, glom differs from other
 offerings in a few ways:
 
-* **glom goes beyond access**: Many nested data tools simply perform
-  deep gets and searches, stopping short at solving the problem posed
-  above. Realizing that access almost always precedes assignment, glom
-  takes the paradigm further, enabling total declarative
-  transformation of the data.
-* **glom is a Python-native solution**: Most other implementations are
-  limited to a particular data format or pure model. glom makes no
-  such sacrifices of practicality, harnessing the full power of Python
-  itself.
-* **glom is a library first**: Tools like jq focus on the console, with a
-  dubious path forward for further integration. glom's full-featured
-  CLI is only a stepping stone to using it more extensively inside
-  application logic.
+## Beyond Access
 
-Furthermore
+Many nested data tools simply perform deep gets and searches, stopping
+short after solving the problem posed above. Realizing that access
+almost always precedes assignment, glom takes the paradigm further,
+enabling total declarative transformation of the data.
 
-* deep-get tools don't go far enough, the access is only half of the
-  story
-* these read operations almost always take place as part of
-  constructing a new object
-* so we set out to find if there was a way to seamlessly achieve both.
-* And the good news is, glom does in fact exist, and it is remarkable
-* It feels so obvious. I have never put a piece of code into
-  production so fast and been so proud of it.
+Starting with access:
+
+```python
+from glom import glom
+
+target = {'ohio': {'farm': {'dogs': 2, 'cows': 1}}}
+
+glom(target, 'ohio.farm.dogs')
+# 2
+```
+
+Let's say we the MacDonalds expand their Ohio farm empire, and `farm`
+becomes a list, `farms`:
+
+```python
+target = {'ohio': {'farms': [{'dogs': 2, 'cows': 1}, {'dogs': 3, 'cows': 2}]}}
+
+glom(target, ('ohio.farms', ['dogs']))
+# [2, 3]
+```
+
+And let's say we want to capture counts for `dogs` and `cows`:
+
+```
+glom(target, {'cows': ('ohio.farms', ['cows']), 'dogs': ('ohio.farms', ['dogs'])})
+# {'cows': [1, 2], 'dogs': [2, 3]}
+```
+
+And this is just the beginning.
+
+## Python-Native
+
+Most other implementations are limited to a particular data format or
+pure model. glom makes no such sacrifices of practicality, harnessing
+the full power of Python itself.
+
+Going back to our example, let's say we wanted to get an aggregate cow
+count:
+
+```
+glom(target, {'cows': ('ohio.farms', ['cows'], sum)})
+# {'cows': 3}
+```
+
+
+## Library first
+
+Tools like jq focus on the console, with a dubious path forward for
+further integration. glom's full-featured CLI is only a stepping stone
+to using it more extensively inside application logic.
+
+
+
 
 # The Story of glom
 
