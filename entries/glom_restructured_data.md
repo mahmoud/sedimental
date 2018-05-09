@@ -3,30 +3,42 @@ title: "Announcing glom: Restructured Data for Python"
 entry_root: glom_restructured_data
 ---
 
-[TOC]
+*This post introduces [**glom**][glom_gh], Python's missing operator for
+nested data.*
+
+*If you're an easy sell, [full API docs][api_rtd] and
+[tutorial][tut_rtd] are already available at
+[glom.readthedocs.io][glom_rtd]. <br/>
+Hard sells, this 5-minute post is for you.*
+
+[glom_gh]: https://github.com/mahmoud/glom
+[glom_rtd]: https://glom.readthedocs.io/
+[api_rtd]: http://glom.readthedocs.io/en/latest/api.html
+[tut_rtd]: http://glom.readthedocs.io/en/latest/tutorial.html
+
+<img src="/uploads/illo/comet.png" align="right" width="30%">
 
 # The Spectre of Structure
 
-In the Python world, there's a saying: "Flat is better than nested."
+In the Python world, there's a saying: *"Flat is better than nested."*
 
-Well, maybe times have changed or maybe that adage just applies more
-to code than data. In any case, despite the warning, nested data
-continues to grow, from document stores to RPC systems to structured
-logs to plain ol' JSON.
+Maybe times have changed or maybe that adage just applies more to code
+than data. In spite of the warning, nested data continues to grow,
+from document stores to RPC systems to structured logs to plain ol'
+JSON web services.
 
-Besides, if "flat" had been all that great, Python wouldn't have
-modules and namespaces.
+After all, if "flat" was the be-all-end-all, would Python have modules
+and namespaces?
 
-Nested data is tricky though. If you're not careful, picking and
-choosing from deep inside structured data you can get some ugly
-errors. Consider this simple line:
+Nested data is tricky though. Reaching into deeply structured data can
+get you some ugly errors. Consider this simple line:
 
 ```python
 value = target.a['b']['c']
 ```
 
-That single, simple line can result in at least four different
-exceptions, each less helpful than the last:
+That single line can result in at least four different exceptions,
+each less helpful than the last:
 
 ```python
 AttributeError: 'TargetType' object has no attribute 'a'
@@ -41,16 +53,17 @@ Enter **glom**.
 
 # Restructuring Data
 
-glom is a new approach to working with data in Python featuring:
+glom is a new approach to working with data in Python, featuring:
 
 * [Path-based access](http://glom.readthedocs.io/en/latest/tutorial.html#access-granted) for nested structures
 * [Declarative data transformation](http://glom.readthedocs.io/en/latest/api.html#glom-func) using lightweight, Pythonic specifications
 * Readable, meaningful [error messages](http://glom.readthedocs.io/en/latest/api.html#exceptions)
 * Built-in [data exploration and debugging features](http://glom.readthedocs.io/en/latest/api.html#debugging)
 
-A tool as simple and powerful as glom attracts many comparisons. While
-similarities exist, and are often intentional, glom differs from other
-offerings in a few ways:
+A tool as simple and powerful as glom attracts many comparisons.
+
+While similarities exist, and are often intentional, glom differs from
+other offerings in a few ways:
 
 ## Going Beyond Access
 
@@ -59,17 +72,19 @@ short after solving the problem posed above. Realizing that access
 almost always precedes assignment, glom takes the paradigm further,
 enabling total declarative transformation of the data.
 
-By way of introduction, let's start off with access, the classic
-"deep-get":
+By way of introduction, let's start off with space-age access, the
+classic "deep-get":
+
+<img src="/uploads/illo/mjc/jupiter_med.png" align="right" width="30%">
 
 ```python
 from glom import glom
 
-target = {'galaxy': {'system': {'planet': 'earth'}}}
+target = {'galaxy': {'system': {'planet': 'jupiter'}}}
 spec = 'galaxy.system.planet'
 
 output = glom(target, spec)
-# output = 'earth'
+# output = 'jupiter'
 ```
 
 Some quick terminology:
@@ -77,11 +92,11 @@ Some quick terminology:
 * *target* is our data, be it dict, list, or any other object
 * *spec* is what we want *output* to be
 
-With `output = glom(target, spec)` committed to memory, we've got some
-new requirements.
+With `output = glom(target, spec)` committed to memory, we're ready
+for some new requirements.
 
-Our astronomers want to focus in on the solar system, and represent
-planets as a list. We need a list of names:
+Our astronomers want to focus in on the Solar system, and represent
+planets as a list. Let's make a list of names:
 
 ```python
 target = {'system': {'planets': [{'name': 'earth'}, {'name': 'jupiter'}]}}
@@ -107,7 +122,7 @@ can change, despite its nested nature. And we're just getting started.
 ## True Python-Native
 
 Most other implementations are limited to a particular data format or
-a pure model, be it jmespath or XPath/XSLT. glom makes no such
+pure model, be it jmespath or XPath/XSLT. glom makes no such
 sacrifices of practicality, harnessing the full power of Python
 itself.
 
@@ -115,13 +130,17 @@ Going back to our example, let's say we wanted to get an aggregate
 moon count:
 
 ```python
+target = {'system': {'planets': [{'name': 'earth', 'moons': 1},
+                                 {'name': 'jupiter', 'moons': 69}]}}
+
+
 glom(target, {'moon_count': ('system.planet', ['moons'], sum)})
 # {'moon_count': 70}
 ```
 
 With glom, you have full access to Python at any given moment. Pass
-values to functions, whether built-in, imported, or an inline
-lambda. But we don't stop there.
+values to functions, whether built-in, imported, or defined inline
+with `lambda`. But `glom` doesn't stop there.
 
 Now we get to one of my favorite features by far. Leaning into
 Python's power, we unlock the following syntax:
@@ -135,17 +154,25 @@ glom(target, spec)
 # ['jupiter', 69]
 ```
 
+What just happened?
+
 `T` stands for *target*, and it is your data's stunt double. `T`
-records every key you get, every index you index, every attribute you
-access, and every method you call into a spec that's usable like any
-other.
+records every key you get, every attribute you access, every index you
+index, and every method you call. And out comes a spec that's usable
+like any other.
 
 No more worrying if an attribute is `None` or a key isn't set. Take
-that leap with `T`, and if you're ok with the data not being there,
-just set a default:
+that leap with `T`. Worst case you get a meaningful error message:
+
+```python
+glom(target, T['system']['comets'][-1])
+```
+
+And if you're ok with the data not being there, just set a default:
 
 ```python
 glom(target, T['system']['comets'][-1], default=None)
+# None
 ```
 
 This kind of dynamism is what made me fall in love with Python. No
@@ -161,13 +188,15 @@ dubious path forward for further integration. glom's full-featured
 command-line interface is only a stepping stone to using it more
 extensively inside application logic.
 
-```text
+```bash
 $ pip install glom
 $ curl -s https://api.github.com/repos/mahmoud/glom/events \
   | glom '[{"type": "type", "date": "created_at", "user": "actor.login"}]'
+```
 
-####
+Which gets us:
 
+```json
 [
   {
     "date": "2018-05-09T03:39:44Z",
@@ -202,6 +231,8 @@ Everything on the command line ports directly into production-grade
 Python, complete with better error handling and limitless integration
 possibilities.
 
+<img src="/uploads/illo/comet_multi.png" align="right" width="40%">
+
 # Next steps
 
 Never before glom have I put a piece of code into production so quickly.
@@ -227,6 +258,7 @@ I hope you'll try glom out and let us know how it goes!
 
 [drf]: http://www.django-rest-framework.org/
 
+<!--
 
 # The Story of glom
 
@@ -241,3 +273,5 @@ I hope you'll try glom out and let us know how it goes!
   create JSON-serializable API responses.
 * Taking inspiration from lightweight templating languages like
   `gofmt` and `ashes`, we built the first version of glom.
+
+-->
