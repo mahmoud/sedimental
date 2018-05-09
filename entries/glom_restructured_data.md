@@ -3,13 +3,14 @@ title: "Announcing glom: Restructured Data for Python"
 entry_root: glom_restructured_data
 ---
 
-*This post introduces [**glom**][glom_gh], Python's missing operator for
-nested data.*
+*This post introduces [**glom**][glom_gh],
+Python's missing operator for nested objects and data.*
 
 *If you're an easy sell, [full API docs][api_rtd] and
 [tutorial][tut_rtd] are already available at
 [glom.readthedocs.io][glom_rtd]. <br/>
-Hard sells, this 5-minute post is for you.*
+Harder sells, this 5-minute post is for you.<br/>
+Really hard sells, [meet me at PyCon][pycon_bofs].*
 
 [glom_gh]: https://github.com/mahmoud/glom
 [glom_rtd]: https://glom.readthedocs.io/
@@ -27,9 +28,11 @@ than data. In spite of the warning, nested data continues to grow,
 from document stores to RPC systems to structured logs to plain ol'
 JSON web services.
 
-After all, if "flat" was the be-all-end-all, would Python have modules
-and namespaces? Nobody likes artificial flatness, nobody wants to call
-a function with 40 arguments.
+After all, if "flat" was the be-all-end-all, why would namespaces be
+[one honking great idea][pep20]? Nobody likes artificial flatness, nobody wants
+to call a function with 40 arguments.
+
+[pep20]: https://en.wikipedia.org/wiki/Zen_of_Python
 
 Nested data is tricky though. Reaching into deeply structured data can
 get you some ugly errors. Consider this simple line:
@@ -54,14 +57,17 @@ Enter **glom**.
 
 # Restructuring Data
 
-glom is a new approach to working with data in Python, featuring:
+[glom][glom_gh] is a new approach to working with data in Python, featuring:
 
 * [Path-based access](http://glom.readthedocs.io/en/latest/tutorial.html#access-granted) for nested structures
 * [Declarative data transformation](http://glom.readthedocs.io/en/latest/api.html#glom-func) using lightweight, Pythonic specifications
 * Readable, meaningful [error messages](http://glom.readthedocs.io/en/latest/api.html#exceptions)
 * Built-in [data exploration and debugging features](http://glom.readthedocs.io/en/latest/api.html#debugging)
 
-A tool as simple and powerful as glom attracts many comparisons.
+A tool as simple and powerful as glom [attracts many
+comparisons][analogy_rtd].
+
+[analogy_rtd]: http://glom.readthedocs.io/en/latest/by_analogy.html
 
 While similarities exist, and are often intentional, glom differs from
 other offerings in a few ways:
@@ -130,9 +136,13 @@ And we're just getting started.
 ## True Python-Native
 
 Most other implementations are limited to a particular data format or
-pure model, be it jmespath or XPath/XSLT. glom makes no such
-sacrifices of practicality, harnessing the full power of Python
-itself.
+pure model, be it [jmespath][jmespath] or
+[XPath][xpath]/[XSLT][xslt]. glom makes no such sacrifices of
+practicality, harnessing the full power of Python itself.
+
+[jmespath]: http://jmespath.org/
+[xpath]: https://en.wikipedia.org/wiki/XPath
+[xslt]: https://en.wikipedia.org/wiki/XSLT
 
 Going back to our example, let's say we wanted to get an aggregate
 moon count:
@@ -164,10 +174,12 @@ glom(target, spec)
 
 What just happened?
 
-`T` stands for *target*, and it acts as your data's stunt double. `T`
-records every key you get, every attribute you access, every index you
-index, and every method you call. And out comes a spec that's usable
-like any other.
+`T` stands for *target*, and [it acts as your data's stunt
+double][t_rtd]. `T` records every key you get, every attribute you
+access, every index you index, and every method you call. And out
+comes a spec that's usable like any other.
+
+[t_rtd]: http://glom.readthedocs.io/en/latest/api.html#object-oriented-access-and-method-calls-with-t
 
 No more worrying if an attribute is `None` or a key isn't set. Take
 that leap with `T`. `T` never raises an exception, so worst case you
@@ -193,10 +205,12 @@ second. Oh, didn't I mention there was a CLI?
 
 ## Library first, then CLI
 
-Tools like jq provide a lot of value on the console, but leave a
+Tools like [jq][jq] provide a lot of value on the console, but leave a
 dubious path forward for further integration. glom's full-featured
 command-line interface is only a stepping stone to using it more
 extensively inside application logic.
+
+[jq]: https://stedolan.github.io/jq/
 
 ```bash
 $ pip install glom
@@ -232,10 +246,10 @@ Which gets us:
 ]
 ```
 
-Piping hot JSON into glom with a cool JSON spec, with pretty-printed
-JSON out. A great way to process and filter API calls, and explore
-some data. Something genuinely enjoyable, because you know you won't
-be stuck in this pipe dream.
+Piping hot JSON into ``glom`` with a cool Python literal spec, with
+pretty-printed JSON out. A great way to process and filter API calls,
+and explore some data. Something genuinely enjoyable, because you know
+you won't be stuck in this pipe dream.
 
 Everything on the command line ports directly into production-grade
 Python, complete with better error handling and limitless integration
@@ -259,14 +273,21 @@ unless otherwise specified.
 A lot of other features are baking or in the works. For now, we'll
 be focusing on the following growth areas:
 
-* Validation functionality, in the vein of schema and cerberus
-* CLI robustness, better error messages, etc.
-* Extension API, clean up some internal code, open up extensions
-* Automatic default registration of default behaviors for co-installed packages (e.g., Django)
+* [Validation functionality][validation_i], in the vein of schema and cerberus
+* [CLI robustness][cli_i], better error messages, etc.
+* [Extension API][ext_i], clean up some internal code, open up extensions
+* [Automatic default registration][autoreg_i] of default behaviors for co-installed packages (e.g., Django)
 
-I hope you'll try glom out and let us know how it goes!
+We'll be talking about all of this and more [at PyCon][pycon_bofs], so
+swing by if you can. In either case, I hope you'll try glom out and
+let us know how it goes!
 
 [drf]: http://www.django-rest-framework.org/
+[validation_i]: https://github.com/mahmoud/glom/issues/7
+[cli_i]: https://github.com/mahmoud/glom/issues/8
+[ext_i]: https://github.com/mahmoud/glom/issues/9
+[autoreg_i]: https://github.com/mahmoud/glom/issues/10
+[pycon_bofs]: https://twitter.com/mhashemi/status/994111054702522369
 
 <!--
 
