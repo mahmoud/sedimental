@@ -28,7 +28,8 @@ from document stores to RPC systems to structured logs to plain ol'
 JSON web services.
 
 After all, if "flat" was the be-all-end-all, would Python have modules
-and namespaces?
+and namespaces? Nobody likes artificial flatness, nobody wants to call
+a function with 40 arguments.
 
 Nested data is tricky though. Reaching into deeply structured data can
 get you some ugly errors. Consider this simple line:
@@ -96,7 +97,7 @@ With `output = glom(target, spec)` committed to memory, we're ready
 for some new requirements.
 
 Our astronomers want to focus in on the Solar system, and represent
-planets as a list. Let's make a list of names:
+planets as a list. Let's restructure the data to make a list of names:
 
 ```python
 target = {'system': {'planets': [{'name': 'earth'}, {'name': 'jupiter'}]}}
@@ -112,12 +113,19 @@ the names as well:
 target = {'system': {'planets': [{'name': 'earth', 'moons': 1},
                                  {'name': 'jupiter', 'moons': 69}]}}
 
-glom(target, {'names': ('system.planet', ['names']), 'moons': ('system.planet', ['moons'])})
-# {'planets': ['earth', 'jupiter'], 'moons': [1, 69]}
+spec = {'names': ('system.planets', ['name']),
+        'moons': ('system.planets', ['moons'])}
+
+glom(target, spec)
+# {'names': ['earth', 'jupiter'], 'moons': [1, 69]}
 ```
 
 We can react to changing data requirements as fast as the data itself
-can change, despite its nested nature. And we're just getting started.
+can change, naturally restructuring our results, despite the input's
+nested nature. Like a list comprehension, but for nested data, our
+code mirrors our output.
+
+And we're just getting started.
 
 ## True Python-Native
 
@@ -134,7 +142,7 @@ target = {'system': {'planets': [{'name': 'earth', 'moons': 1},
                                  {'name': 'jupiter', 'moons': 69}]}}
 
 
-glom(target, {'moon_count': ('system.planet', ['moons'], sum)})
+glom(target, {'moon_count': ('system.planets', ['moons'], sum)})
 # {'moon_count': 70}
 ```
 
@@ -156,17 +164,14 @@ glom(target, spec)
 
 What just happened?
 
-`T` stands for *target*, and it is your data's stunt double. `T`
+`T` stands for *target*, and it acts as your data's stunt double. `T`
 records every key you get, every attribute you access, every index you
 index, and every method you call. And out comes a spec that's usable
 like any other.
 
 No more worrying if an attribute is `None` or a key isn't set. Take
-that leap with `T`. Worst case you get a meaningful error message:
-
-```python
-glom(target, T['system']['comets'][-1])
-```
+that leap with `T`. `T` never raises an exception, so worst case you
+get a [meaningful error message][exc_rtd] when you run `glom()` on it.
 
 And if you're ok with the data not being there, just set a default:
 
@@ -175,8 +180,13 @@ glom(target, T['system']['comets'][-1], default=None)
 # None
 ```
 
-This kind of dynamism is what made me fall in love with Python. No
-other language could do it quite like this.
+Finally, [null-coalescing operators][ncop] for Python!
+
+But so much more. This kind of dynamism is what made me fall in love
+with Python. No other language could do it quite like this.
+
+[ncop]: https://en.wikipedia.org/wiki/Null_coalescing_operator
+[exc_rtd]: http://glom.readthedocs.io/en/latest/api.html#exceptions
 
 That's why glom will always be a Python library first and a CLI
 second. Oh, didn't I mention there was a CLI?
