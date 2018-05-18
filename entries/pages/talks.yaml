@@ -27,6 +27,22 @@ check out [Enterprise Software with Python](/esp.html), as well as my
 <img title="Me @ PyBay 2017" width="100%" src="/uploads/me/me_pybay2017.png">
 
 ---
+title: "Restructuring Data in Python"
+_date: May 11, 2018
+duration: 5 minutes
+venue: PyCon 2018, Cleveland, OH
+video: https://www.youtube.com/watch?v=3aREXkfeWek
+description: |
+  A companion to [this post](/glom_restructured_data.html), this
+  lightning talk offers a quick introduction to
+  **[glom](https://github.com/mahmoud/glom)**.
+
+  Given that the library was only 2 weeks old and released 2 days
+  prior, and that the slides were prepared 2 minutes before presenting
+  to 1000+ people on the first night of PyCon 2018, I think it worked
+  out pretty well!
+
+---
 title: "Production-grade Packaging with Anaconda"
 _date: April 10, 2018
 duration: 39 minutes

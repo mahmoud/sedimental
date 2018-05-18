@@ -1,6 +1,11 @@
 ---
 title: "Announcing glom: Restructured Data for Python"
 entry_root: glom_restructured_data
+publish_date: 10:00am May 9, 2018
+tags:
+  - python
+  - data
+  - boltons
 ---
 
 *This post introduces [**glom**][glom_gh],
@@ -10,12 +15,14 @@ Python's missing operator for nested objects and data.*
 [tutorial][tut_rtd] are already available at
 [glom.readthedocs.io][glom_rtd]. <br/>
 Harder sells, this 5-minute post is for you.<br/>
-Really hard sells, [meet me at PyCon][pycon_bofs].*
+Really hard sells [met me at PyCon][pycon_bofs],<br/>
+where I gave [this 5-minute talk][pycon_talk].*
 
 [glom_gh]: https://github.com/mahmoud/glom
 [glom_rtd]: https://glom.readthedocs.io/
 [api_rtd]: http://glom.readthedocs.io/en/latest/api.html
 [tut_rtd]: http://glom.readthedocs.io/en/latest/tutorial.html
+[pycon_talk]: https://www.youtube.com/watch?v=3aREXkfeWek
 
 <img src="/uploads/illo/comet.png" align="right" width="30%">
 
