@@ -18,7 +18,7 @@ is free, open, and well-supported. My wiki-timeline summarized:
 * **2012**: Attended my first Wikimedia Foundation hackathon, in San Francisco.
 * **2013**: Founded **[Hatnote][hatnote]**, with
     [Stephen LaPorte][stephen_twitter]. (Follow us on [our blog][hatnote_tumblr] or [Twitter][hatnote_twitter].)
-* **2017**: Still going strong, with *over 2 million* satisfied users
+* **2018**: Still going strong, with *over 2 million* satisfied users
     of Hatnote projects listed below.
 
 Today, I am still a student of Wikipedia. I use it dozens of times a

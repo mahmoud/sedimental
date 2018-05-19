@@ -4,9 +4,13 @@ field_label_map:
   est_date: Established
   gh_link: View on GitHub
   pypi_link: View on PyPI
+  site_link: Visit site
+  docs_link: View docs
 field_type_map:
   gh_link: link
   pypi_link: link
+  site_link: link
+  docs_link: link
 field_role_map:
   content: description
 
@@ -32,6 +36,81 @@ appreciate all this free software!
 [TOC]
 
 ---
+title: glom
+est_date: April 15, 2018
+release_status: Released
+gh_link: https://github.com/mahmoud/glom
+pypi_link: http://pypi.org/project/glom
+description: |
+  Nested data exists everywhere in the programming world these days,
+  from document databases to web APIs. I needed a way of working with
+  this structured and semi-structured data that was not a hack. I
+  wrote about it [here][glom_blog], and gave [a lightning talk about
+  it at PyCon 2018][glom_pycon]. I have never had a library go from
+  scratch to production to release so quickly, nor have I ever been
+  quite this happy, post-release to be one of my own users.
+
+  [glom_blog]: http://sedimental.org/glom_restructured_data.html
+  [glom_pycon]: https://www.youtube.com/watch?v=3aREXkfeWek
+
+---
+title: ZeroVer
+est_date: April 1, 2018
+release_status: Released, maintained
+gh_link: https://github.com/mahmoud/zerover/
+site_link: https://0ver.org
+description: |
+  Continuing my research into one of my favorite topics, [software
+  versioning][version], ZeroVer (aka 0ver) is a tongue-in-cheek
+  versioning scheme where projects stay version `0.x`. The joke was
+  pretty well-received, generating some laughs and discussion, with
+  only minimal [Poe's Law][poe] collateral damage.
+
+  Particularly good domains on this one
+  ([zerover.org](https://zerover.org) and
+  [0ver.org](https://0ver.org)).
+
+  [poe]: https://en.wikipedia.org/wiki/Poe's_law
+  [version]: http://sedimental.org/designing_a_version.html
+---
+title: Face
+est_date: January 20, 2018
+release_status: Pre-release, active development
+gh_link: https://github.com/mahmoud/face
+pypi_link: https://pypi.org/projects/face
+description: |
+  After working on URLs and Hyperlink, I had a pretty major
+  realization. Despite all our best intentions and standards, the
+  software world is mostly held together by conventions. Most
+  practical implementations out there pick and choose which
+  conventions they want to support, and drop the rest, even if they
+  are part of a standard.
+
+  Well, software does not get more conventional than command-line
+  interfaces. Sick and tired of problems with argparse and click, I
+  threw my hat into the ring with this entry. I have used it for Face
+  and Pocket Protector, and am very excited to extend it and use it
+  for more.
+
+---
+title: Pocket Protector
+est_date: November 7, 2017
+release_status: Soft release (pending documentation)
+gh_link: https://github.com/SimpleLegal/pocket_protector
+pypi_link: https://pypi.org/project/pocket-protector/
+description: |
+  Security is a tough topic for teams of all sizes, and secrets
+  management can present a challenge for projects, big and
+  small. Drawing on my team's experiences developing similar solutions
+  at PayPal, Pocket Protector provides a scalable, serverless secrets
+  management system for small-to-medium-sized teams. We use it
+  extensively and successfully at my office, to the point that I
+  open-sourced it, and even gave a (poorly-recorded-by-me) [talk on
+  it][pp_talk].
+
+  [pp_talk]: https://sedimental.org/talks.html#pocket-protector-secrets-as-code
+
+---
 title: Hyperlink
 est_date: February 14, 2017
 release_status: Released
@@ -55,6 +134,20 @@ description: |
   [hyper]: https://github.com/python-hyper
   [twisted_gh]: https://github.com/twisted/twisted
   [docs]: http://hyperlink.readthedocs.io/en/latest/
+
+---
+title: CalVer (Calendar Versioning)
+est_date: March 25, 2016
+release_status: Released
+gh_link: https://github.com/mahmoud/calver
+site_link: https://calver.org
+description: |
+  Partly an essay on software practices, partly a response to SemVer,
+  and most importantly a landing page for its users,
+  [calver.org](https://calver.org) documents the pattern of including
+  calendar dates in a project's version. I think a lot about [software
+  versioning](/designing_a_version.html), and have become a strong
+  proponent of CalVer in many if not most contexts.
 
 ---
 title: Boltons
@@ -153,7 +246,7 @@ description: |
 ---
 title: Lithoxyl
 est_date: June 18, 2013
-release_status: Active development
+release_status: Development paused
 gh_link: https://github.com/mahmoud/lithoxyl
 pypi_link: https://pypi.python.org/pypi/lithoxyl
 description: |
@@ -351,9 +444,13 @@ description: |
 
 These are projects close to my heart, projects I'm proud to have helped with.
 
+* [pyjks][pyjks]: Pure-Python implementation of Java KeyStores (used by Android and other Java services)
+* [twisted][twisted]: Concurrency and I/O library/framework for Python
 * [ufork][ufork]: Process management and server container, used by [SuPPort](#support)
 * [spyce][spyce] and [pepperbox][pepperbox]: Sandboxing with Python, FreeBSD, and Capsicum
 
+[pyjks]: https://github.com/doublereedkurt/pyjks
+[twisted]: https://github.com/twisted/twisted
 [ufork]: https://github.com/doublereedkurt/ufork
 [spyce]: https://github.com/markrwilliams/spyce
 [pepperbox]: https://github.com/markrwilliams/pepperbox
