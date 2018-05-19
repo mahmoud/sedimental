@@ -6,15 +6,18 @@ field_label_map:
   pypi_link: View on PyPI
   site_link: Visit site
   docs_link: View docs
+  announce_link: View announcement
 field_type_map:
   gh_link: link
   pypi_link: link
   site_link: link
   docs_link: link
+  announce_link: link
 field_role_map:
   content: description
 
 ---
+<img src="/uploads/illo/koi_fish_med.png" align="right" width="40%">
 
 I've had a lot of ideas over the years. Lucky as I am to be a
 programmer, I've been able to realize many of them in the form of
@@ -220,6 +223,44 @@ description: |
   [django_probs]: https://github.com/mahmoud/clastic#compared-to-django
   [hatnote_projects]: http://hatnote.com
   <!-- TODO hatnote project page -->
+---
+title: Chert
+est_date: October 19, 2014
+release_status: Active development
+gh_link: https://github.com/mahmoud/chert
+pypi_link: https://pypi.python.org/pypi/chert
+description: |
+
+  Chert is the static site generation system designed to fit the
+  workflow of modern digital written media. In addition to the
+  standard Markdown/YAML syntax and RSS/Atom feeds, Chert supports
+  automatic table of contents generation and structured list entry
+  formats. Eat your heart out, Buzzfeed.
+
+  Unlike most othe projects on this page, I did not intend Chert to be
+  particularly innovative or generally useful. That said, a lot of
+  people showed interest, maybe it was [the colophon][colophon]?
+
+  [colophon]: http://lithoxyl.readthedocs.org/en/latest/
+
+---
+title: EspyMetrics
+est_date: November 21, 2015
+release_status: Released, archival
+gh_link: http://github.com/mahmoud/espymetrics
+description: |
+  A Python runtime analytics server, written/released as a vehicle for
+  examples used in my [Enterprise Software with Python][esp] project,
+  published by O'Reilly.
+
+  It includes [a design doc][design_doc], fully-functioning server
+  (which my team ended up using for a little over a year at PayPal),
+  and even [a code review][code_review] redressing some antipatterns
+  in Python development.
+
+  [esp]: http://shop.oreilly.com/product/0636920047346.do
+  [design_doc]: https://github.com/mahmoud/espymetrics/blob/master/DESIGN.rst
+  [code_review]: https://github.com/mahmoud/espymetrics/pull/2
 
 ---
 title: SuPPort
@@ -227,7 +268,7 @@ est_date: August 20, 2012
 gh_link: https://github.com/paypal/support
 pypi_link: https://pypi.python.org/pypi/support
 announce_link: https://www.paypal-engineering.com/2015/03/17/introducing-support/
-release_status: Released
+release_status: Released, archival
 description: |
 
   SuPPort is PayPal's Python infrastructure minus all the
@@ -241,9 +282,31 @@ description: |
   of codified networking and robustness knowledge. It combines and
   builds on several of the other projects listed on this page.
 
+  Many patterns and components from SuPPort ended up back in core
+  gevent and used by other gevent users, achieving our original goal
+  of releasing a reference framework.
+
   [announce]: https://www.paypal-engineering.com/2015/03/17/introducing-support/
 
 ---
+title: Sky
+est_date: November 1, 2016
+gh_link: https://github.com/mahmoud/sky
+release_status: Soft-released, archival
+description: |
+  Sky was a developer tool designed to enable devs to build modern
+  Python applications and microservices, with built-in support for pip
+  packages, Anaconda dependencies, Docker packaging, and
+  DCOS/Kubernetes deployment.
+
+  Using sky, a small team of shopkick developers ported almost half of
+  shopkick services off of a Python 2.6 monolithic development and
+  release process in just a few months. I touched on sky usage in my
+  packaging talk at [AnacondaCon 2018][anacondacon].
+
+  [anacondacon]: https://sedimental.org/talks.html#production-grade-packaging-with-anaconda
+---
+
 title: Lithoxyl
 est_date: June 18, 2013
 release_status: Development paused
@@ -272,26 +335,6 @@ description: |
   [logging]: https://docs.python.org/2/library/logging.html
   [log4j]: http://logging.apache.org/log4j/2.x/
   [lithoxyl_docs]: http://lithoxyl.readthedocs.org/en/latest/
-
----
-title: Chert
-est_date: October 19, 2014
-release_status: Active development
-gh_link: https://github.com/mahmoud/chert
-pypi_link: https://pypi.python.org/pypi/chert
-description: |
-
-  Chert is the static site generation system designed to fit the
-  workflow of modern digital written media. In addition to the
-  standard Markdown/YAML syntax and RSS/Atom feeds, Chert supports
-  automatic table of contents generation and structured list entry
-  formats. Eat your heart out, Buzzfeed.
-
-  Unlike most othe projects on this page, I did not intend Chert to be
-  particularly innovative or generally useful. That said, a lot of
-  people showed interest, maybe it was [the colophon][colophon]?
-
-  [colophon]: http://lithoxyl.readthedocs.org/en/latest/
 
 ---
 title: Strata
