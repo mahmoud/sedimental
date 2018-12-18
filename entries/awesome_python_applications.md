@@ -24,29 +24,62 @@ and weeks, that's a special experience only a developer can enjoy. To
 prove its value to society, software finds another way: *the
 application*.
 
-# Criteria
+OR
 
-List members should be:
+---
 
-* Using Python for a considerable part of their functionality.
-* Well-known, or at least prominently used in an identifiable niche.
-* Maintained or otherwise demonstrably still functional on relevant platforms.
-* Available as source code, with a publicly-accessible source control repository.
+Pleased to announce the APA, a list approaching 200 hand-curated
+members, all of which are:
+
+1. An application, not a library.
+2. Free software, with an online source repository.
+3. Using Python for a considerable part of their functionality.
+4. Well-known, or at least prominently used in an identifiable niche.
+5. Maintained or otherwise demonstrably still functional on relevant platforms.
 
 Exceptions can be made within reason.
 
-# Motivation / Goals
+So why compile this list? Let me count the ways.
 
-The foremost goal of APA is to survey the wide range of Python's
-applicability, studying the architectures, dependencies, and design
-patterns that have worked in shipping and maintaining projects.
+# Goal #1: A New Development Flow
 
-A bonus goal is to close the Python production loop. Python developers
-know how to file issues and may even make significant contributions
-back to the application they use. And Python developers interested in
-developing their own application-development skills will find this
-development experience much more edifying than lower-level library
-work.
+Ever since I started talking about Python packaging, people have been
+asking me questions about which packaging technique is best for their
+software. I'd be struck, over and over again, how far people can get
+in developing an application before having such a fundamental
+question. Exploring this, I landed on a more basic question:
+
+> Why are so many people building applications from first
+> principles (blog posts and Stack Overflow)?
+
+Isn't Python one of the largest programming languages in the world?
+Aren't there dozens of successful, real-world applications written in
+Python? What are the chances your application is totally unique?
+
+So "Awesome Python Applications" is really an attempt to create a
+new flow for answering tough development questions. When seeking to
+build an application or solve a dev problem, scan the list for
+projects which most closely match your project's requirements. Then,
+see what architecture worked for them.
+
+No amount of blog research or Stack Overflowing will be able to capture the
+holistic education a working application can provide.
+
+Back in school, I learned more about architecture and software
+development from the MediaWiki source code than I did from any one
+class. APA is the next step in enabling this avenue of education.
+
+# Goal #2: Complete the Python Production Loop
+
+Python developers are also software users. Unlike other software
+users, we know how to file issues and may even make significant
+contributions back to the application we use. By preferring Python
+software, we take one step closer to pitching in. Not to mention,
+Python developers interested in developing their own
+application-development skills will find this experience much more
+edifying than lower-level library work.
+
+# Goal #3: Anchor the Python Ecosystem
 
 Finally, it is my sincere hope that the list helps anchor the Python
 community. With the pace of things, it can be easy to get ahead of
@@ -55,3 +88,22 @@ sum of all Python up until this point. All that designing, emailing,
 reading, documenting, coding, debugging, presenting, and publishing
 that we pour into open-source and reusability? That manifests here. We
 must do what we can to support and grow this list.
+
+# Criteria
+
+List members should be:
+
+
+# Motivation / Goals
+
+The foremost goal of APA is to survey the wide range of Python's
+applicability, studying the architectures, dependencies, and design
+patterns that have worked in shipping and maintaining projects. By
+compiling and categorizing a reference of architectures, we can answer
+a lot of questions and settle a lot of debates, especially for
+greenfield projects. Without a doubt, these are the patterns that have
+worked at the scale that matters to most new projects.
+
+
+
+"A production application worth a thousand blog posts"
