@@ -7,8 +7,11 @@ the excitement of software's abstraction, we can lose sight of where
 the rubber meets the road. Where our reusable modules and packages and
 frameworks turn into real-world applications.
 
-That's why I'm pleased to announce *Awesome Python Applications*, a
-hand-curated list of 180+ projects, all of which are:
+<img align=right width="40%" src="/uploads/illo/snake_cd.png">
+
+That's why I'm pleased to announce [*Awesome Python
+Applications*](https://github.com/mahmoud/awesome-python-applications),
+a hand-curated list of 180+ projects, all of which are:
 
 1. Free software with an online source repository.
 2. Using Python for a considerable part of their functionality.
@@ -16,13 +19,14 @@ hand-curated list of 180+ projects, all of which are:
 4. Maintained or otherwise demonstrably still functional on relevant platforms.
 5. Applications, not libraries or frameworks.
 
-Exceptions can be made within reason.
+With some exceptions, of course.
 
-This list predominantly focuses on software that installs without
-`pip` or PyPI, and whose audience is mostly *not* developers. There's
-still plenty of that in there, too, but the view taken is broader.
+The result is a list predominantly focused on software that installs
+without `pip` or PyPI, and whose audience is mostly *not*
+developers. There's still plenty of that in there, too, but the
+new breadth of the list speaks for itself.
 
-So why do we need a catalog of open-source Python applications?
+So why spend weeks compiling a catalog of open-source Python applications?
 
 [TOC]
 
