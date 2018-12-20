@@ -2,6 +2,8 @@
 title: Awesome Python Applications
 ---
 
+<!--
+
 Every day, you and I write code that someone else could probably
 use. Nothing quite matches that feeling of efficiency and
 elegance. Code reuse is truly is a marvel of software. So much so,
@@ -26,28 +28,43 @@ application*.
 
 OR
 
----
+-->
 
-Pleased to announce the APA, a list approaching 200 hand-curated
-members, all of which are:
+If you're reading this, you probably read and write code. Somehere in
+the excitement of software's abstraction, we can lose sight of where
+the rubber meets the road. Where our reusable modules and packages and
+frameworks turn into real-world applications.
 
-1. An application, not a library.
-2. Free software, with an online source repository.
-3. Using Python for a considerable part of their functionality.
-4. Well-known, or at least prominently used in an identifiable niche.
-5. Maintained or otherwise demonstrably still functional on relevant platforms.
+That's why I'm pleased to announce *Awesome Python Applications*, a
+hand-curated list of 180+ projects, all of which are:
+
+1. Free software with an online source repository.
+2. Using Python for a considerable part of their functionality.
+3. Well-known, or at least prominently used in an identifiable niche.
+4. Maintained or otherwise demonstrably still functional on relevant platforms.
+5. Applications, not libraries or frameworks.
 
 Exceptions can be made within reason.
 
-So why compile this list? Let me count the ways.
+This list predominantly focuses on software that installs without
+`pip` or PyPI, and whose audience is mostly *not* developers. There's
+still plenty of that in there, too, but the view taken is broader.
+
+So why do we need a catalog of open-source Python applications?
+
+[TOC]
 
 # Goal #1: A New Development Flow
 
-Ever since I started talking about Python packaging, people have been
-asking me questions about which packaging technique is best for their
-software. I'd be struck, over and over again, how far people can get
-in developing an application before having such a fundamental
-question. Exploring this, I landed on a more basic question:
+Ever since I started
+[talking](https://www.youtube.com/watch?v=iLVNWfPWAC8)
+[about](https://www.youtube.com/watch?v=tfI2hdK6vVY) [Python
+packaging](http://sedimental.org/the_packaging_gradient.html), people
+have been asking me questions about which packaging technique is best
+for their software. I was struck, over and over again, how far people
+can get in developing an application before reaching the fundamental
+question of delivery. Exploring this, I landed on a more basic
+question:
 
 > Why are so many people building applications from first
 > principles (blog posts and Stack Overflow)?
@@ -62,12 +79,12 @@ build an application or solve a dev problem, scan the list for
 projects which most closely match your project's requirements. Then,
 see what architecture worked for them.
 
-No amount of blog research or Stack Overflowing will be able to capture the
-holistic education a working application can provide.
+A production application worth a thousand blog posts.
 
 Back in school, I learned more about architecture and software
 development from the MediaWiki source code than I did from any one
-class. APA is the next step in enabling this avenue of education.
+class. APA is the next step in enabling the holistic education of a
+working application with real users.
 
 # Goal #2: Complete the Python Production Loop
 
@@ -81,18 +98,34 @@ edifying than lower-level library work.
 
 # Goal #3: Anchor the Python Ecosystem
 
-Finally, it is my sincere hope that the list helps anchor the Python
-community. With the pace of things, it can be easy to get ahead of
-ourselves. These projects represent the free and living portion of the
-sum of all Python up until this point. All that designing, emailing,
-reading, documenting, coding, debugging, presenting, and publishing
-that we pour into open-source and reusability? That manifests here. We
-must do what we can to support and grow this list.
+Finally, it is my sincere hope to help anchor the Python community in
+its real-world applications. With the pace and cerebrality of
+technology, it can be easy to get ahead of ourselves and our
+users. These projects represent the best of the free and living
+portion of Python up until this point. Not only is it something to use
+and be proud of, but it's something to support, in spirit and in practice.
 
-# Criteria
+A keen eye will notice how [the list is
+structured](https://github.com/mahmoud/awesome-python-applications/blob/master/projects.yaml). This
+isn't just for consistent rendering, but because I hope we will
+explore the ecosystem with the relationship between libraries and
+applications in mind. Metrics aren't everything, but it would be very
+interesting to see the Python FOSS ecosystem modeled in the scientific
+publishing framework. Can we get interesting metrics by treating
+libraries as "articles" and applications as "journals"? Application
+userbase approximations can give us much deeper insight into
+real-world impact than opaque package download counts.
 
-List members should be:
+# In short
 
+This essay may appear shorter than some of my others, but it's because
+you have a lot of reading ahead of you. The list is here...
+
+<!-- All that designing, emailing, reading, documenting, coding, debugging,
+presenting, and publishing that we pour into open-source and
+reusability? That manifests here. -->
+
+<!--
 
 # Motivation / Goals
 
@@ -104,6 +137,4 @@ a lot of questions and settle a lot of debates, especially for
 greenfield projects. Without a doubt, these are the patterns that have
 worked at the scale that matters to most new projects.
 
-
-
-"A production application worth a thousand blog posts"
+-->
