@@ -2,34 +2,6 @@
 title: Awesome Python Applications
 ---
 
-<!--
-
-Every day, you and I write code that someone else could probably
-use. Nothing quite matches that feeling of efficiency and
-elegance. Code reuse is truly is a marvel of software. So much so,
-that we scarcely think twice before writing code to be reused...
-
-OR
-
-Programming languages are great, but wow, there are quite a few. One
-of the best measures of success for an established technology is to
-survey successful applications. As it so happens, Python is quite the
-successful technology!
-
-OR
-
-Here in the software world, we focus a lot on code reuse and
-abstraction. So much so that our most famous celebrities are language
-creators and library maintainers. But while there's no better feeling
-than finding that library or language that saves you hours, months,
-and weeks, that's a special experience only a developer can enjoy. To
-prove its value to society, software finds another way: *the
-application*.
-
-OR
-
--->
-
 If you're reading this, you probably read and write code. Somehere in
 the excitement of software's abstraction, we can lose sight of where
 the rubber meets the road. Where our reusable modules and packages and
@@ -54,7 +26,7 @@ So why do we need a catalog of open-source Python applications?
 
 [TOC]
 
-# Goal #1: A New Development Flow
+# Goal #1: A Better Development Cycle
 
 Ever since I started
 [talking](https://www.youtube.com/watch?v=iLVNWfPWAC8)
@@ -73,68 +45,78 @@ Isn't Python one of the largest programming languages in the world?
 Aren't there dozens of successful, real-world applications written in
 Python? What are the chances your application is totally unique?
 
-So "Awesome Python Applications" is really an attempt to create a
-new flow for answering tough development questions. When seeking to
-build an application or solve a dev problem, scan the list for
-projects which most closely match your project's requirements. Then,
-see what architecture worked for them.
+So *Awesome Python Applications* is really an attempt to create a
+new flow for answering tough development questions.
 
-A production application worth a thousand blog posts.
+When building an application, scan the list to find projects which
+most closely match your project's requirements. Then, use that
+application as a guide for answering your own questions. This works
+especially well around abstract questions like architecture,
+deployment, and testing.
 
 Back in school, I learned more about architecture and software
-development from the MediaWiki source code than I did from any one
+development from the MediaWiki source code than I did from any
 class. APA is the next step in enabling the holistic education of a
 working application with real users.
 
-# Goal #2: Complete the Python Production Loop
+In short, a production application worth a thousand blog posts. The
+APA has over 180 applications already, so you do the math.
 
-Python developers are also software users. Unlike other software
-users, we know how to file issues and may even make significant
-contributions back to the application we use. By preferring Python
-software, we take one step closer to pitching in. Not to mention,
-Python developers interested in developing their own
-application-development skills will find this experience much more
-edifying than lower-level library work.
+# Goal #2: A More Complete Python Production Loop
 
-# Goal #3: Anchor the Python Ecosystem
+We Python programmers are also software *users*. But unlike other
+software users, we know how to file issues and may even make
+significant contributions back to our applications of choice.
 
-Finally, it is my sincere hope to help anchor the Python community in
-its real-world applications. With the pace and cerebrality of
-technology, it can be easy to get ahead of ourselves and our
-users. These projects represent the best of the free and living
-portion of Python up until this point. Not only is it something to use
-and be proud of, but it's something to support, in spirit and in practice.
+By choosing Python software when possible, we take one step closer to
+pitching in. Not to mention that Python developers interested in
+eventually developing their own application will find the experience
+much more edifying than lower-level library work.
 
-A keen eye will notice how [the list is
+I would love to see more developers connect with software they didn't
+realize was Python. My (minor) contributions to the
+[Twisted](https://github.com/twisted/twisted) were greatly energized
+by the knowledge that one of my favorite applications,
+[Deluge](https://github.com/deluge-torrent/deluge), heavily used the
+library.
+
+# Goal #3: Grounding for the Python Ecosystem
+
+With the pace and cerebrality of technology, it can be easy to get
+ahead of ourselves and our end users. Even widely-used applications
+garner few stars if their users are not developers, and they rarely go
+viral in software circles. Few major Python applications are
+distributed with PyPI, so download statistics can't help us
+either. Even if they did, lower-level libraries would blow them out of
+the water. And of course free software projects can't lay down big
+donations or conference sponsorships, so representation tends to be
+pretty sparse all around.
+
+These projects represent the best of the free and living portion of
+Python. Not only are they a source of utility and pride, but they need
+our support, in spirit and in practice. it is my sincere hope that the
+APA will help anchor the Python community in its real-world
+applications.
+
+There's a lot of directions and room for improvement! A keen eye will
+notice how [the list is
 structured](https://github.com/mahmoud/awesome-python-applications/blob/master/projects.yaml). This
-isn't just for consistent rendering, but because I hope we will
-explore the ecosystem with the relationship between libraries and
-applications in mind. Metrics aren't everything, but it would be very
-interesting to see the Python FOSS ecosystem modeled in the scientific
-publishing framework. Can we get interesting metrics by treating
-libraries as "articles" and applications as "journals"? Application
-userbase approximations can give us much deeper insight into
-real-world impact than opaque package download counts.
+isn't just for consistent rendering, but because I hope this can act
+as a sort of API for the dataset. We should explore our ecosystem with
+the relationship between libraries and applications in mind.
 
-# In short
+For example, I know metrics aren't everything, but it would be very
+interesting to see the Python FOSS ecosystem explored as an analogue
+of the scientific publishing framework. Can we get interesting metrics
+by treating libraries as "articles" and applications as "journals"?
+Adding in some application userbase approximations (via social
+altmetrics and other means) can give us much deeper insight into
+real-world impact.
 
-This essay may appear shorter than some of my others, but it's because
-you have a lot of reading ahead of you. The list is here...
+# Next steps
 
-<!-- All that designing, emailing, reading, documenting, coding, debugging,
-presenting, and publishing that we pour into open-source and
-reusability? That manifests here. -->
-
-<!--
-
-# Motivation / Goals
-
-The foremost goal of APA is to survey the wide range of Python's
-applicability, studying the architectures, dependencies, and design
-patterns that have worked in shipping and maintaining projects. By
-compiling and categorizing a reference of architectures, we can answer
-a lot of questions and settle a lot of debates, especially for
-greenfield projects. Without a doubt, these are the patterns that have
-worked at the scale that matters to most new projects.
-
--->
+If this essay seems shorter than [my usual](/archive.html), that's
+because it's really an introduction to [the list
+itself](https://github.com/mahmoud/awesome-python-applications). I got
+caught up in several projects' codebases while doing the research, and
+you will, too.
