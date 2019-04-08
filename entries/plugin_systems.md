@@ -11,6 +11,8 @@ publish_date: 11:00am July 11, 2017
 *"What are plugins?" and other proceedings of the inaugural PyCon
  Comparative Plugin Systems [BoF][bof].*
 
+*Update: This BoF and post inspired [a talk I gave at PyGotham 2017][pygotham2017].*
+
 Within the programming world, and the Python ecosystem in particular,
 there are a lot of presumptions around plugins. Specifically, we take
 them for granted. "It's *just* a plugin." "Oh, *another* plugin library?"
@@ -57,6 +59,7 @@ src="/uploads/pycon_2017_plugin_bof_crop.jpg">
 
 [bof]: https://en.wikipedia.org/wiki/Birds_of_a_feather_(computing)
 [pycon_2017]: https://us.pycon.org/2017/about/
+[pygotham_2017]: https://www.youtube.com/watch?v=GRXZKsrAVPI
 
 # Setting examples
 
@@ -182,7 +185,7 @@ sufficiently abstracted through a loading or namespacing system.
 Is [DNS][dns] a plugin system? It has names and namespaces galore. But
 no, because code is not being loaded *in*. Remote services in general
 are beyond the boundary of what a plugin can be. They exist out there,
-and we call out to them. They're plugins, not callouts.
+and we call out to them. They're callouts, not plugins.
 
 [dns]: https://en.wikipedia.org/wiki/Domain_Name_System
 
