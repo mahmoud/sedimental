@@ -19,10 +19,6 @@ Then, the free culture pillars:
 
 [<img title="w/ Brewster Kahle" src="/uploads/me/brewster.jpg" width="70%">](/uploads/me/brewster.jpg)
 
-[<img title="w/ Joi Ito" src="/uploads/me/joi_ito.jpg" width="70%">](/uploads/me/joi_ito.jpg)
-
-[<img title="w/ Lawrence Lessig" src="/uploads/me/lessig.jpg" width="70%">](/uploads/me/lessig.jpg)
-
 With crypto legends:
 
 [<img title="w/ Daniel J Bernstein" src="/uploads/me/djb.jpg" width="70%">](/uploads/me/djb.jpg)
