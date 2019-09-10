@@ -27,10 +27,25 @@ check out [Enterprise Software with Python](/esp.html), as well as my
 <img title="Me @ PyBay 2017" width="100%" src="/uploads/me/me_pybay2017.png">
 
 ---
+title: "Ask The Ecosystem: Lessons from 250+ FOSS Python Applications"
+_date: August 18, 2019
+duration: 45 minutes
+venue: PyBay 2019, San Francisco, CA
+slides: https://speakerdeck.com/mhashemi/ask-the-ecosystem-pybay-2019
+description: |
+  Building on [Awesome Python
+  Applications](/awesome_python_applications.html), this talk starts
+  and ends with the motivations of the project, with a sizable middle
+  presenting findings and case studies selected from the ~250 projects
+  featured in the APA. See trends and spotlights of architecture,
+  dependencies, licensing, and packaging for over 20 years of Python
+  application development.
+---
 title: "Restructuring Data in Python"
 _date: May 11, 2018
 duration: 5 minutes
 venue: PyCon 2018, Cleveland, OH
+slides: https://speakerdeck.com/mhashemi/restructuring-data-in-python
 video: https://www.youtube.com/watch?v=3aREXkfeWek
 description: |
   A companion to [this post](/glom_restructured_data.html), this
