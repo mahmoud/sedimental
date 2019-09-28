@@ -37,9 +37,25 @@ description: |
   Applications](/awesome_python_applications.html), this talk starts
   and ends with the motivations of the project, with a sizable middle
   presenting findings and case studies selected from the ~250 projects
-  featured in the APA. See trends and spotlights of architecture,
-  dependencies, licensing, and packaging for over 20 years of Python
-  application development.
+  featured in the APA at the time of writing. See trends and
+  spotlights of architecture, dependencies, licensing, and packaging
+  for over 20 years of Python application development.
+---
+title: "Nuances for Engineering Social Change"
+_date: July 31, 2019
+duration: 60 minutes
+venue: NATEG Days 2019, Tunis, Tunisia
+slides: https://speakerdeck.com/mhashemi/nuances-for-engineering-social-change
+description: |
+  It's a big world out there, what's one engineer supposed to do? This
+  talk starts with a technoparable about King Midas, then ties in
+  Society 5.0 (one theme of the conference), and rounds out with
+  lessons I learned to stay productive and keep growing as an
+  engineer.
+
+  This was my first keynote and my first time speaking at a
+  general engineering conference (by a show of hands, the audience was
+  less than 20% software engineers).
 ---
 title: "Restructuring Data in Python"
 _date: May 11, 2018
