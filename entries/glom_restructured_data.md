@@ -89,8 +89,6 @@ enabling total declarative transformation of the data.
 By way of introduction, let's start off with space-age access, the
 classic "deep-get":
 
-<img src="/uploads/illo/mjc/jupiter_med.png" align="right" width="30%">
-
 ```python
 from glom import glom
 
@@ -100,6 +98,7 @@ spec = 'galaxy.system.planet'
 output = glom(target, spec)
 # output = 'jupiter'
 ```
+<img src="/uploads/illo/mjc/jupiter_med.png" align="right" width="30%">
 
 Some quick terminology:
 

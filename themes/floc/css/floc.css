@@ -30,6 +30,17 @@ a { color: rgba(31, 157, 196, 0.85); }
 
 a:hover { color: rgba(31, 120, 148, 0.85); }
 
+/* reset for grid/flexbox (specifically prevents pre elements
+ from blowing out my page width on mobile */
+html, body, div, span, object, iframe, table, caption, tbody, tfoot,
+thead, tr, th, td, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend, article, main, nav, ins {
+    min-width: 0;
+}
+
+
 /* header specific stuff */
 
 #header {
@@ -132,20 +143,22 @@ div.footnote hr:after {
 /* code stuff */
 
 .codehilite {
-  padding: .2rem .5rem;
-  margin: 0 .2rem;
-  font-size: 135%;
-  white-space: nowrap;
-  background: #F1F1F1;
-  border: 1px solid #E1E1E1;
-  border-radius: 4px; }
-
-div.codehilite > pre {
-    max-width: 79ch;
-    overflow-x: auto;
+    padding: 0 0.5rem 0 .5rem;
+    font-size: 130%;
+    white-space: nowrap;
+    background: #F1F1F1;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+    letter-spacing: -0.04rem;
 }
 
-code { font-size: 115% }
+div.codehilite > pre {
+    overflow-x: auto;
+    padding: 10px 0 15px 0;
+    margin: 0;
+}
+
+code { font-size: 113% }
 
 /* quote stuff */
 
