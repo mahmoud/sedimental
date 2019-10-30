@@ -33,7 +33,7 @@ site:
   retarget_links: external
 
 theme:
-  name: sedimental
+  name: floc
 
 dev:
   server_host: 0.0.0.0

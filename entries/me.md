@@ -4,7 +4,7 @@ special: true
 entry_root: me
 ---
 
-> *If you're looking for press photos of me, I recommend the [About page](/about.html).*
+*If you're looking for press photos of me, I recommend the [About page](/about.html).*
 
 First, my CS heroes:
 

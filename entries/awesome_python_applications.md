@@ -17,11 +17,11 @@ abstraction, we can lose sight of what really matters, what makes our
 well-factored modules and packages and frameworks turn into real-world
 applications.
 
-<img align=right width="40%" src="/uploads/illo/snake_cd.png">
 
-That's why I'm pleased to announce [***Awesome Python
+That's why I'm announcing [***Awesome Python
 Applications***](https://github.com/mahmoud/awesome-python-applications),
 a hand-curated list of 180+ projects, all of which are:
+<img align=right width="40%" src="/uploads/illo/snake_cd.png">
 
 1. Free software with an online source repository.
 2. Using Python for a considerable part of their functionality.
@@ -60,8 +60,8 @@ Isn't Python one of the biggest names in the software world?  Aren't
 there dozens of successful, real-world applications written in Python?
 What are the chances your application is totally unique?
 
-So *Awesome Python Applications* is really an attempt to open up a new
-flow for answering tough development questions.
+*Awesome Python Applications* attempts to open up a new
+flow for answering the toughest development questions.
 
 When building an application, scan the list to find projects which
 most closely match your project's requirements. Then, use that
@@ -81,7 +81,7 @@ In short, while we may lack the time [to write
 them](http://aosabook.org/en/index.html), each production application
 is worth a thousand blog posts.
 
-# Goal #2: A More Complete Python Production Loop
+# Goal #2: A Complete Python Production Loop
 
 We Python programmers are also software *users*. But unlike other
 software users, we know how to file issues and may even make

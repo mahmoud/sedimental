@@ -4,7 +4,7 @@ publish_date: May 19, 2018
 special: true
 ---
 
-**sed·i·men·tal** /ˌsedəˈmen(t)əl/ *adjective* - of or relating to gradual accumulation of sentiments.
+**sed·i·men·tal** /ˌsedəˈmen(t)əl/ *adjective* - relating to gradual accumulation of sentiments.
 
 <a target="_blank" href="/uploads/me/me_2.jpg"><img title="Yours truly" src="/uploads/me/me_2.jpg" width=280></a>
 
