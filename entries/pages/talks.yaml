@@ -27,6 +27,18 @@ check out [Enterprise Software with Python](/esp.html), as well as my
 <img title="Me @ PyBay 2017" width="100%" src="/uploads/me/me_pybay2017.png">
 
 ---
+title: "Ask the Ecosystem: Lessons from 350+ FOSS Python Applications"
+_date: October 4, 2019
+duration: 40 minutes
+venue: PyGotham 2019, New York, NY
+slides: https://speakerdeck.com/mhashemi/ask-the-ecosystem-2019-10-04-pygotham-2019
+video: https://www.youtube.com/watch?v=t1lvsmcPEcE
+description: |
+  Continuing to build on [Awesome Python Applications](/awesome_python_applications.html),
+  this version of the talk expands the dataset to 350+ applications,
+  and generally improves data collection. All in all, 2,700 years of
+  living Python application maintenance time.
+---
 title: "Ask The Ecosystem: Lessons from 250+ FOSS Python Applications"
 _date: August 18, 2019
 duration: 45 minutes
