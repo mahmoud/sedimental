@@ -60,7 +60,7 @@ not enter into the purposes of Ramadan.
 
 Everyone has their reasons, but first off Ramadan is not some sort of
 collective diet. Yes, Ramadan is used by many as a springboard to
-stimy smoking, overeating, and other unhealthy physical habits. But
+stymie smoking, overeating, and other unhealthy physical habits. But
 for me, fasting is about building four virtues:
 
   * Empathy
