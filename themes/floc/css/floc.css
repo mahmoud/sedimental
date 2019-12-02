@@ -123,6 +123,7 @@ hr {
     border: none;
     border-top: 2px solid #E1E1E1;
     margin: 10px 0 5px 0;
+    text-align: center;
 }
 
 div.footnote hr {
@@ -134,9 +135,17 @@ div.footnote hr:after {
     content: "###";
     display: inline-block;
     position: relative;
-    top: -1.1rem;
+    top: -0.75rem;
     padding: 0 0.25rem;
     background: white;
+}
+
+div.footnote ol {
+    list-style: outside none decimal;
+}
+
+div.footnote p {
+    font-size: 85%;
 }
 
 
