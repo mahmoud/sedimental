@@ -1,12 +1,16 @@
 ---
 title: "Thanks, 201X!"
-publish_date: December 2, 2019
+publish_date: December 2, 2019 10:00am
+tags:
+    - life
+    - work
+    - python
 ---
-*Thought I'd take a moment to reflect on... as much as can be reflected in a Sunday afternoon.*
+*Thought I'd take a Sunday afternoon to reflect on, oh I don't know, a decade.*
 
 <img align="right" width="40%" src="/uploads/illo/legatree_med.png">
-Been a long decade, but it's flown past. This particular decade
-happens to coincide with my first decade of full-time professional
+Been a long ten years, but it's flown past. This particular decade
+happens to coincide with my first years of full-time professional
 software engineering.
 
 # The Quantity
@@ -29,7 +33,7 @@ artifacts I tried to leave along the way:
 * [Pyninsula](https://pyninsula.org/) (2017+) - [YouTube](https://www.youtube.com/c/Pyninsula), [Meetup](https://www.meetup.com/Pyninsula-Python-Peninsula-Meetup/), [Email Announce](https://mail.python.org/mailman3/lists/pyninsula-announce.python.org/)
 
 Taking a chronological look at each of the above, I'm relieved to see
-the growth is clear.
+obvious growth.
 
 If I were to highlight one resource, it would probably be the
 [talks](/talks.html). Despite the stress of preparation and delivery, I'm least
@@ -50,20 +54,24 @@ more than just those to show for the decade.
 
 On the more profit-driven side, I built tools and teams at PayPal, but
 once I could manage the risk, I got to dip into startups for the last
-few years. Lucky for me, it wasn't a total bust, and the wife and I bought a place
-in [my favorite neighborhood (in the
-USA)](https://en.wikipedia.org/wiki/Japantown,_San_Jose).
+few years. Lucky for me, it wasn't a total bust, and the wife and I
+bought a place in [my favorite neighborhood (in the
+USA)](https://en.wikipedia.org/wiki/Japantown,_San_Jose). Not a
+millionaire, but I'm hoping and working for a world where no one has
+to be.
 
 More recently, the Python Software Foundation [made me a
 Fellow](http://pyfound.blogspot.com/2019/11/python-software-foundation-fellow.html). This
 isn't something I can be nonchalant about, and I'm not going to
 understate how much this means, to me, working in a field like
 software, where concrete symbols of progress are alternatingly elusive
-and vanishing. I have hundreds of people to thank for helping me reach
-this point, and I have to thank the PSF for dedicating the time to
-ramping up these awards. They've convinced me more than ever that we
-need more institutions to build this sort of advancement. To all of
-you, thank you.
+and vanishing. Plus it's Python, and reciprocated love is nice. I have
+hundreds of people to thank for helping me reach this point, and I
+have to thank the PSF for dedicating the time to ramping up these
+awards. They've convinced me more than ever that we need more
+institutions to build this sort of advancement.
+
+To all of you, thank you.
 
 # The Struggle
 
@@ -81,14 +89,14 @@ you've felt that vision waver, let me tell you, you're not alone.
 In the past decade, I've seen too many engineers sucked in by new
 technologies and ventures, only to find themselves alienated from
 their work. Episodes ranging from an afternoon lost to debugging
-Docker/k8s clusters, to years of work disappearing at the end of
-a VC runway. Nothing has been harder to watch in the valley than those
+Docker/k8s clusters, to years of work disappearing at the end of a VC
+runway. Nothing has been harder to watch than those
 bedraggled-but-persistent idealists regroup, each time a bit more
 cynical than the last.
 
 Even if its seeming intractibility has taken it from the center stage,
 the burnout conversation continues to smolder, because there's no
-issue realer. I know; I made more ceramics than commits [back in
+issue realer. I know; I released more ceramics than software [back in
 2014](https://www.flickr.com/photos/mahmoudhashemi/albums/72157648555341327).
 
 Some problems can be solved by [paying the
@@ -110,7 +118,7 @@ There are some interesting prospects in the works, but I'm keeping
 this post retro. Besides, if 2029 rolls around and all I did was break
 even with 2009-19, I don't see how I can be disappointed.
 
-Thanks for everything in 201X, and for sticking with me in 202X.
+Thanks again for everything in 201X, and for sticking with me in 202X.
 
 [^1]: Despite using [Twitter](https://twitter.com/mhashemi) for over a
       decade, the process of tweeting feels so perfunctory, and the
