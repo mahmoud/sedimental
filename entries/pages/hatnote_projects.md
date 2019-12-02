@@ -103,6 +103,18 @@ not listed here can be found either on our [alpha test page][alpha],
 [stephen_gh]: https://github.com/slaporte
 
 ---
+title: PaceTrack
+gh_link: https://github.com/hatnote/pacetrack/
+project_link: https://tools-static.wmflabs.org/pacetrack/
+description: |
+
+  Track and publicize Wikipedia Improvement Drives: targeted,
+  time-limited efforts to improve a set of articles. Combines the best
+  parts of editathons and WikiProjects with elements of
+  crowdfunding. Started at WikiCite 2018 in collaboration with
+  [Pete Forsyth](https://twitter.com/peteforsyth).
+
+---
 title: Monumental
 gh_link: https://github.com/hatnote/monumental
 project_link: https://tools.wmflabs.org/monumental/
