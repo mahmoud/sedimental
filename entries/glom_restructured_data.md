@@ -255,7 +255,7 @@ Which gets us:
 Piping hot JSON into ``glom`` with a cool Python literal spec, with
 pretty-printed JSON out. A great way to process and filter API calls,
 and explore some data. Something genuinely enjoyable, because you know
-you won't be stuck in this pipe dream.
+you won't be stuck in a pipe dream.
 
 Everything on the command line ports directly into production-grade
 Python, complete with better error handling and limitless integration

@@ -27,7 +27,7 @@ artifacts I tried to leave along the way:
     * Not including [pythondoeswhat.com](https://www.pythondoeswhat.com/) or [blog.hatnote.com](https://blog.hatnote.com/)
     * (or other posts on the blogs only real heads know)
 * **~10** [Talks](/talks.html) (2016+)
-    * Lest I forget: [O'Reilly's Enterprist Software with Python](http://shop.oreilly.com/product/0636920047346.do?code=authd) (2016)
+    * Lest I forget: [O'Reilly's Enterprise Software with Python](http://shop.oreilly.com/product/0636920047346.do?code=authd) (2016)
     * And [several podcast/media appearances](/appearances.html)
 * [calver.org](https://calver.org/) (2016) and [0ver.org](https://0ver.org/) (2018) (Versioning is a fun pastime)
 * [Pyninsula](https://pyninsula.org/) (2017+) - [YouTube](https://www.youtube.com/c/Pyninsula), [Meetup](https://www.meetup.com/Pyninsula-Python-Peninsula-Meetup/), [Email Announce](https://mail.python.org/mailman3/lists/pyninsula-announce.python.org/)
