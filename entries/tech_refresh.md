@@ -354,7 +354,7 @@ The sole hiccup was [an AWS
 outage](https://www.zdnet.com/article/aws-outage-impacts-thousands-of-online-services/)
 Thanksgiving week. At this point we were ahead of schedule, and enough
 confidence had been built in our fast-fix workflow that we didn’t need
-our original holiday testing windows. And for that, mmany thanks were given.
+our original holiday testing windows. And for that, many thanks were given.
 
 We kept at the fast-fix crank until we were done. Done isn't when the
 new system has no errors, it's when traffic on the new system has
