@@ -1,18 +1,23 @@
 # user customization
 # TODO: document other hooks
 
+from __future__ import print_function
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.dirname(__file__)) + '/lib')
 
 import yaml
 
-print ' - custom module loaded.'
+print(' - custom module loaded.')
+
+
+import lithoxyl
+lithoxyl.get_context().note_handlers.append(lambda n, m: print(n, '-', m))
 
 
 def chert_post_load(chert_obj):
-    print ' - post_load hook: %s entries loaded' % len(chert_obj.entries)
-    print ' - post_load hook: %s drafts loaded' % len(chert_obj.draft_entries)
+    print(' - post_load hook: %s entries loaded' % len(chert_obj.entries))
+    print(' - post_load hook: %s drafts loaded' % len(chert_obj.draft_entries))
     _autotag_entries(chert_obj)
 
     for e in chert_obj.draft_entries:
@@ -52,7 +57,7 @@ def chert_post_render(chert_obj):
             if not is_potweet(s):
                 continue
             count += 1
-            print count, '-', s
+            print(count, '-', s)
 
 
 def _autotag_entries(chert_obj):
