@@ -1,5 +1,14 @@
 ---
 title: Intentional Creation
+tags:
+  - python
+  - code
+  - work
+  - hatnote
+  - life
+  - apa
+publish_date: January 4, 2023
+
 ---
  
 *Reliably tap into your creativity with the 4 Cs: Consume, critique, curate, create.*
@@ -16,7 +25,7 @@ In this guide, you'll see how to distill the elements of creativity into four de
 
 These 4 Cs comprise a straightforward, adaptable approach that works well in both group and solo settings. You've already started on step 1. Read on to find out what to do next.
 
-<a target="_blank" href="/uploads/cccc_2019.png"><img title="An image of the consumption-to-creation gradient, shaped as a pyramid. CC-BY-SA." width="100%" src="/uploads/cccc_gh.avif" /></a>
+<a target="_blank" href="/uploads/cccc_2019.png"><img title="An image of the consumption-to-creation gradient, shaped as a pyramid. CC-BY-SA." width="100%" src="/uploads/cccc_gh.png" /></a>
 
 # Consume
 

@@ -1,6 +1,8 @@
 ---
 title: 刻意创作 (Intentional Creation)
 entry_root: intentional_creation_zh
+publish_date: January 4, 2023
+special: true
 ---
 
 *(Originally published [in English](/intentional_creation.html), on [the GitHub ReadME blog](https://github.com/readme/guides/intentional-creation). Archived here from [the translation by Dominic Huang](https://dominich.notion.site/3fc11a85228a4df9bd69740d7ed90bbf).)*
@@ -14,7 +16,7 @@ entry_root: intentional_creation_zh
 这 4 个 C 形成了一个简单明了、适应性强的方法，团队和个人能能良好运用。
 此时阅读本文的你已经开始了第一个 C——消费。请继续。
 
-<img width="100%" src="/uploads/cccc_gh.avif" />
+<img width="100%" src="/uploads/cccc_gh.png" />
 
 # 消费（Consume）
 

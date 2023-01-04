@@ -4,6 +4,7 @@ entry_root: awesome_python_applications
 tags:
   - python
   - code
+  - apa
 publish_date: 11:20am December 20, 2018
 ---
 
