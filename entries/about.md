@@ -46,7 +46,7 @@ If that's still not enough, you can find some of my older posts on
 [pp_site]: https://paypal.com
 [sk_site]: https://shopkick.com
 [sl_site]: https://simplelegal.com
-[sl_site]: https://stripe.com
+[stripe_site]: https://stripe.com
 [pp_blog]: https://medium.com/paypal-tech/search?q=python
 [pdw]: https://www.pythondoeswhat.com/
 [tw]: https://twitter.com/mhashemi
