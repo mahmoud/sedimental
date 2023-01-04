@@ -5,11 +5,11 @@
   <title>{+head_title}{site.head_title}{/head_title}</title>
   <meta name="author" content="{site.author_name}">
   <meta name="description" content="{site.tagline}">
+  
   <link href="{site.atom_feed_url}" title="{site.head_title} Feed" type="application/atom+xml" rel="alternate" />
 
   <!-- Mobile Specific Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   {?site.dev_mode}{?site.dev_mode_refresh_seconds}
   <meta http-equiv="refresh" content="{site.dev_mode_refresh_seconds}" />
   {/site.dev_mode_refresh_seconds}{/site.dev_mode}
@@ -55,6 +55,8 @@
       {#site.secondary_links}
       <a {?is_external} target="_blank"{/is_external} title="{.desc}" href="{.href}">{.text}</a>&nbsp;
       {/site.secondary_links}
+      <!-- See Chert TODO for making this configurable -->
+      <a rel="me" target="_blank" href="https://qoto.org/@mahmoud">Mastodon</a>
     </p>{/site.secondary_links}
     <hr>
   </header>
