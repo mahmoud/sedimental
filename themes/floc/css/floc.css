@@ -150,10 +150,16 @@ div.footnote p {
 
 /* code stuff */
 
+p > code {
+    font-size: 95%;
+    font-weight: 600;
+    opacity: 80%;
+}
+
 .codehilite {
-    padding: 0 0.5rem 0 .5rem;
-    font-size: 130%;
-    white-space: nowrap;
+    padding: 0 1rem;
+    font-size: 113%;
+    white-space: pre;
     background: #F1F1F1;
     border: 1px solid #E1E1E1;
     border-radius: 4px;
@@ -162,11 +168,9 @@ div.footnote p {
 
 div.codehilite > pre {
     overflow-x: auto;
-    padding: 10px 0 15px 0;
+    padding: 10px 15px 10px;
     margin: 0;
 }
-
-code { font-size: 113% }
 
 /* quote stuff */
 
