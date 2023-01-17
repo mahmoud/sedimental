@@ -157,7 +157,7 @@ p > code {
 }
 
 .codehilite {
-    padding: 0 1rem;
+    padding: 0;
     font-size: 113%;
     white-space: pre;
     background: #F1F1F1;
@@ -168,7 +168,7 @@ p > code {
 
 div.codehilite > pre {
     overflow-x: auto;
-    padding: 10px 15px 10px;
+    padding: 10px 2.2% 10px;
     margin: 0;
 }
 
