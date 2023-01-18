@@ -157,7 +157,7 @@ Data validation fits nicely into spec format, and so glom's [`Match` specifier][
 target = [{'id': 1, 'email': 'alice@example.com'}, 
           {'id': 2, 'email': 'bob@example.com'}]
 
-# let's validate the data matches
+# let's validate that the data has the types we expect
 spec = Match([{'id': int, 'email': str}])
 
 result = glom(target, spec)
@@ -168,7 +168,7 @@ Glom's pattern matching now features its own shorthand [`M` spec][m_spec], which
 and a `Regex` helper, too:
 
 ```python
-# using the example data above, we can be more specific
+# using the example data above, we can also validate the contents of the data
 spec = Match([{'id': And(M > 0, int), 'email': Regex('[^@]+@[^@]+')}])
 
 result = glom(target, spec)
@@ -201,7 +201,7 @@ glom.matching.TypeMatchError: expected type int, not str
 
 The data trace gets even sweeter when we introduce flow control with Switch. 
 See the data trace in action in [this example][switch_err_ex].
-YUsers of shape-based typecheckers like [Flow][flow] will especially appreciate 
+Users of shape-based typecheckers like [Flow][flow] will especially appreciate 
 the specificity of glom's error messages in these validation cases.
 
 [switch_err_ex]: https://yak.party/glompad/#spec=%23+let%27s+classify+vowels+vs+consonants+to+show+off+Switch%27s+error+handling%0AMatch%28Switch%28%5B%28Or%28%27a%27%2C+%27e%27%2C+%27i%27%2C+%27o%27%2C+%27u%27%29%2C+Val%28%27vowel%27%29%29%2C%0A++++++++++++++%28And%28str%2C+M%2C+M%28T%5B2%3A%5D%29+%3D%3D+%27%27%29%2C+Val%28%27consonant%27%29%29%5D%29%29&target=%23+An+integer+will+cause+the+expected+failure%0A3&v=1
@@ -243,7 +243,7 @@ In short, endless possibilities for endless data.
 
 # Grouping
 
-So much data revolves around iterables that in 2019 glom grew the ability to "reduce" those iterables to flatter values, with the introduction of `Flatten` ([example][flatten_ex], [docs][flatten_docs]):
+So much data revolves around iterables that in 2019 glom introduced the ability to "reduce" those iterables to flatter values, with the introduction of `Flatten` ([example][flatten_ex], [docs][flatten_docs]):
 
 ```python
 list_of_iterables = [{0}, [1, 2, 3], (4, 5)]
@@ -291,7 +291,7 @@ The features above, and myriad others from [the changelog][changelog], required 
 Underneath glom's hood is a loop that interprets the spec against the target. 
 A simple, early version is preserved [here in the docs][glom_core]. 
 
-However, the inner workings of the core are not part of glom's API, which limited extensibility. 
+However, the inner workings of the core were not part of glom's API, which limited extensibility. 
 A lot of progress has been made in opening up glom internals for those use cases we couldn't predict.
 
 [glom_core]: https://glom.readthedocs.io/en/latest/faq.html#how-does-glom-work
@@ -299,45 +299,60 @@ A lot of progress has been made in opening up glom internals for those use cases
 
 ## Scope
 
-Most glom usage only requires a target and spec. Most, but not all.
+Most transformations only requires a target and spec. Most... but not all.
 
 For cases that needed additional state, like aggregation and multi-target glomming, 
 we added the glom `Scope` ([example][scope_ex], [docs][scope_docs]):
 
 ```python
-count_spec = T.count(S.search)
-glom(['a', 'c', 'a', 'b'], count_spec, scope={'search': 'a'})
+# Make a spec that uses the T singleton to call 
+# the target's count method using the search value in the scope (S)
+count_spec = T.count(S.search) 
+scope = {'search': 'a'}  # additional context we'll pass in
+glom(['a', 'c', 'a', 'b'], count_spec, scope=scope)
 # 2
 ```
 
-Here, the scope is used to pass in a `search` parameter which will be used against the target (`T`).
-Scope usage can get quite advanced, ([example][scope_update_ex]):
+Here, the scope is used to pass in a `search` parameter which will be used against the target ([`T`][t_docs]).
+Usage can get quite advanced, including specs that write to the scope ([example][scope_update_ex]):
 
 ```python
 target = {'data': {'val': 9}}
 
-spec = (S(value=T['data']['val']), {'result': S['value']})
+spec = (S(value=T['data']['val']), 
+        {'result': S['value']})
 
 glom(target, spec)
 # {'result': 9}
 ```
 
-Here we grab `'val'`, save it to the scope as `'value'`, then finally build our new result.
+Here we grab `'val'`, save it to the scope as `'value'`, then use it to build our new result.
 
 [scope_ex]: https://yak.party/glompad/#spec=T.count%28S.search%29&target=%5B%27a%27%2C+%27c%27%2C+%27a%27%2C+%27b%27%5D&scope=%7B%27search%27%3A+%27a%27%7D&v=1
 [scope_docs]: https://glom.readthedocs.io/en/latest/api.html#the-glom-scope
 [scope_update_ex]: https://yak.party/glompad/#spec=%23+save+val+to+the+scope%2C+then+build+a+new+result+dict%0A%28S%28value%3DT%5B%27data%27%5D%5B%27val%27%5D%29%2C+%7B%27result%27%3A+S%5B%27value%27%5D%7D%29&target=%7B%27data%27%3A+%7B%27val%27%3A+9%7D%7D&v=1
+[t_docs]: https://glom.readthedocs.io/en/latest/api.html#object-oriented-access-and-method-calls-with-t
 
 ## Modes
 
-As discussed in [pattern matching](#pattern-matching) above, in 2019, some applications seemed 
-to be outgrowing glom's initial data transformation behavior. 
+As discussed in [pattern matching](#pattern-matching) above,  
+some applications outgrew glom's initial data transformation behavior. 
 To handle these diverging behaviors, glom introduced the concept of *modes*.
 
 Glom specs stay succinct by using Python literals, and modes allow changing the interpretation of those objects. 
-Glom comes with two documented modes, the default `Auto()` and `Match()` ([example][modes_ex]), and we're working on adding more. You can easily add your own, too.
+Glom comes with two documented modes, the default `Auto()` and `Match()` ([example][modes_ex]), which can be interleaved as necessary:
+
+```
+spec = Auto([Match(int, default=SKIP)])
+target = [1, 'a', 2, 'c', 'a', 'b']
+glom(target, spec)
+# [1, 2]
+```
+
+We're working on adding more. You can easily [add your own][modes_doc], too.
 
 [modes_ex]: https://yak.party/glompad/#spec=Auto%28%5BMatch%28int%2C+default%3DSKIP%29%5D%29&target=%5B1%2C+%27a%27%2C+2%2C+%27c%27%2C+%27a%27%2C+%27b%27%5D&v=1
+[modes_doc]: https://glom.readthedocs.io/en/latest/modes.html
 
 ## Extensions
 
@@ -350,6 +365,8 @@ We solve this by making glom extensible in several ways:
 
 By understanding glom's scope and [its internals][scope_internals], 
 it becomes clear that most built-in glom functionality is implemented through these public interfaces.
+So while glom can feel magical at times, now you can extend glom without touching the core, 
+and be a part of the magic, too. ☄️
 
 [scope_internals]: https://glom.readthedocs.io/en/latest/custom_spec_types.html#the-glom-scope
 [mode_docs]: https://glom.readthedocs.io/en/latest/modes.html
@@ -358,5 +375,5 @@ it becomes clear that most built-in glom functionality is implemented through th
 
 ------
 
-Not bad for five years, and still, so much more to talk about. 
+Not bad for five years, and we haven't even scratched all the surfaces, yet.
 Hopefully the next showcase won't be quite so far out. 
