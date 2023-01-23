@@ -1,11 +1,19 @@
 ---
 title: Cruising through complex data 
 entry_root: cruising_through_data
+publish_date: 6:00am January 19, 2023
+tags:
+  - python
+  - glom
+  - data
+  - software
 ---
 
 *This post is a showcase of data wrangling techniques in Python, using [glom][glom]. 
 If you haven't heard of glom, it's a data transformation library and CLI designed for Python. 
 Think HTML templating, but for objects, dicts, and other data structures.*
+
+<img src="/uploads/illo/comet_multi.png" align="right" width="30%">
 
 It's been almost five years since [the first release of glom](/glom_restructured_data.html). 
 That version now looks quaint in comparison to the just-released glom 23. 
@@ -241,7 +249,7 @@ In short, endless possibilities for endless data.
 [split_docs]: https://glom.readthedocs.io/en/latest/streaming.html#glom.Iter.split
 [limit_docs]: https://glom.readthedocs.io/en/latest/streaming.html#glom.Iter.limit
 
-# Grouping
+# Flattening and Merging
 
 So much data revolves around iterables that in 2019 glom introduced the ability to "reduce" those iterables to flatter values, with the introduction of `Flatten` ([example][flatten_ex], [docs][flatten_docs]):
 

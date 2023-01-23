@@ -5,6 +5,8 @@ publish_date: 10:00am May 9, 2018
 tags:
   - python
   - data
+  - glom
+  - software
   - boltons
 ---
 
