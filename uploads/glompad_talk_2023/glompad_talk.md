@@ -604,6 +604,11 @@ For dashboarding, visualization.
 https://panel.holoviz.org/ 
 
 ---
+## Holoviz Panel demo
+
+<iframe src="https://portfolio-optimizer.pyviz.demo.anaconda.com" width="100%" frameborder="0" onload="this.parentNode.style.background = 'none'"></iframe>
+
+---
 # Keep in touch
 
 * https://yak.party/glompad
