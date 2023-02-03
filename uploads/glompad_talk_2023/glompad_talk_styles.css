@@ -1,0 +1,36 @@
+/* maybe not necessary now... */
+
+.reveal-viewport {
+    margin: 50px;
+    margin-top: 2vh;
+}
+
+.reveal.reveal img.mid
+{
+    border: none;
+    box-shadow: none;
+    max-height: calc(60vh);
+    max-width: calc(66vw);
+}
+
+.reveal.reveal img.small
+{
+    border: none;
+    max-height: calc(20vh);
+    max-width: calc(22vw);
+}
+
+.reveal pre code {
+    max-height: 500px !important;
+
+}
+
+:root {
+    --r-heading-margin: 2vh;
+    --r-block-margin: 3vh;
+    --r-main-font-size: 32px;
+}
+
+li { 
+    margin-top: 0.5em;
+}
