@@ -272,7 +272,8 @@ glom(range(5), Sum())
 ```
 
 And the generic [`Fold`][fold_docs], useful for some rare cases:
-```
+
+```python
 target = [set([1, 2]), set([3]), set([2, 4])]
 result = glom(target, Fold(T, init=frozenset, op=frozenset.union))
 # frozenset([1, 2, 3, 4])
