@@ -69,6 +69,10 @@ See also: CodeSandbox, JSFiddle, Regex101, Compiler Explorer.
   * It's not even that slow in prod (~5s to active)
   * Building and developing is tight, kudos to rollup and vite
 * It's way more fun than React
+* Can offer the full power of Python, as glom intended
+  * Running a backend would open up all sorts of security risk
+* So far the Python portion of the frontend, even though it's under very active development, is no less stable than the rest of the frontend ecosystem :P
+
 
 ## The bad
 
@@ -101,3 +105,28 @@ See also: CodeSandbox, JSFiddle, Regex101, Compiler Explorer.
 * Offline mode
 * Embedding
 * Autocompletion
+* Conversion to Pyodide
+
+# Conclusions
+
+## When/why to do this?
+
+* When page startup can take a little longer (SPA-style)
+* When security is a primary concern
+* When efficiency/high-perf is not a primary concern (graphics)
+* When you want to use the numerical/scientific Python stack
+
+## Is there an easier way?
+
+* JupyterLite -> JupyterLab in the browser
+* PyScript/Pyodide are still pretty general-purpose. If you want data visualization in particular, check out Holoviz Panel, which can run with a backend, or generate Pyodide SPAs with similar characteristics.
+
+## TBD: A bit of history
+
+* Pyjamas - Port of Google Web Toolkit (GWT) to Python. Became pyjs, no development since 2015.
+* Skulpt - 2009-ish? Python 2.
+* Silverlight + IronPython
+* Empythoned - Repl.it's emscripten CPython: https://github.com/replit-archive/empythoned
+* PyPy.js - PyPy compiled to JS via new RPython backend. Hiatus since 2019, points to Pyodide.
+* Transcrypt / RapydScript - Transpilers that don't ship the whole interpreter. Write Python, compile to JS, ship that. More about the language, less about the ecosystem.
+* Brython - Still updated, supports Python 3.11. Only supports pure-Python packages. Works via an autotranslation of CPython to JS, but not at the C level.
