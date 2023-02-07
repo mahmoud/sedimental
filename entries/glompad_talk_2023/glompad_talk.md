@@ -1,5 +1,5 @@
 ---
-title: Back to Front
+title: A Journey from Back to Front
 scripts: https://pyscript.net/latest/pyscript.js,glompad_talk_script.js
 # comment above and uncomment below to disable pyodide load time
 # scripts: glompad_talk_script.js
@@ -16,7 +16,11 @@ revealOptions:
 # built w `$ reveal-md --static ../../uploads/glompad_talk_2023 --static-dirs . `
 # some code from https://gist.github.com/mahmoud/5dbfcd40f00d9c15bfe514a91254f633
 ---
-## Back to Front <!-- .element: class="r-fit-text"  -->
+<div class="r-fit-text">
+<h2>A Journey from </h2>
+<h2>Back to Front</h2>
+</div>
+
 ### Python in the Browser
 
 <small>
@@ -30,7 +34,7 @@ Mahmoud Hashemi
 
 * I'm Mahmoud
 * Awesome Python Applications
-* calver.org/0ver.org
+* calver.org (and 0ver.org)
 * boltons and other Python libraries
 * On parental leave
 * Working on something new
