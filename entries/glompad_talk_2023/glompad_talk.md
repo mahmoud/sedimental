@@ -1,6 +1,7 @@
 ---
 title: Back to Front
 scripts: https://pyscript.net/latest/pyscript.js,glompad_talk_script.js
+# comment above and uncomment below to disable pyodide load time
 # scripts: glompad_talk_script.js
 css: https://pyscript.net/latest/pyscript.css,glompad_talk_styles.css
 theme: simple
@@ -10,6 +11,10 @@ revealOptions:
   transition: 'fade'
   # controls: true
   progress: true
+
+# developed w with `$ reveal-md glompad_talk.md -w `
+# built w `$ reveal-md --static ../../uploads/glompad_talk_2023 --static-dirs . `
+# some code from https://gist.github.com/mahmoud/5dbfcd40f00d9c15bfe514a91254f633
 ---
 ## Back to Front <!-- .element: class="r-fit-text"  -->
 ### Python in the Browser
@@ -24,6 +29,9 @@ Mahmoud Hashemi
 # Intro
 
 * I'm Mahmoud
+* Awesome Python Applications
+* calver.org/0ver.org
+* boltons and other Python libraries
 * On parental leave
 * Working on something new
 
@@ -77,9 +85,9 @@ Real data runs deep.
 
 ```python
 >>> from boltons.iterutils import get_path
->>> root = {'a': {'b': {'c': [[1], [2], [3]]}}}
+>>> root = {'a': {'b': {'c': [['d'], ['e'], ['f']]}}}
 >>> get_path(root, ('a', 'b', 'c', 2, 0))
-3
+'f'
 ```
 
 But why?
@@ -90,8 +98,8 @@ But why?
 
 Which would you rather debug?
 
-```
->>> root = {'a': {'b': {'c': [[1], [2], [3]]}}}
+```python
+>>> root = {'a': {'b': {'c': [['d'], ['e'], ['f']]}}}
 >>> root['a']['b']['c'][2][1]
 ...
 IndexError: list index out of range
@@ -121,14 +129,11 @@ glom(target, 'a.b.c')
 # 'd'
 ```
 
-Deep-get was just the beginning.
+But deep-get was just the beginning.
 
 ---
-## Declarative data transformation
 
-Like templates. But for your data.
----
-## Templating data
+## Beyond paths
 
 Multi deep-get
 
@@ -149,21 +154,25 @@ Output:
 ```
 ---
 
-## glom value prop
+## Declarative data transformation
 
-* Smaller, better code and fewer, better errors
----
-## Examples
-
-* Path
-* Dict
-* Error
+* Like templates. But for your data.
+* Smaller, better code
+* Fewer, better errors
 
 ---
 
 ## 2023: glom 23.1
 
-* So many new features
+So many new features
+
+* Star paths
+* Deep assignment / deletion
+* Streaming
+* Flattening
+* Pattern matching / validation
+* Errors 2.0
+
 
 ---
 ### Star paths
@@ -255,8 +264,14 @@ result = glom(target, spec)
 
 ---
 ### Even better errors
-```
+
+Add bad data:
+```python
 >>> target.append({"id": "3", "email": "charlie@example.com"})
+```
+
+Then: 
+```
 >>> result = glom(target, spec)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -306,9 +321,9 @@ OR try it in the browser with repl.it
 
 ## Friction
 
-* Density and context switching
 * Learning curve
 * Like regex
+* Density and context switching
 
 ---
 # glompad
@@ -606,7 +621,7 @@ https://panel.holoviz.org/
 ---
 ## Holoviz Panel demo
 
-<iframe src="https://portfolio-optimizer.pyviz.demo.anaconda.com" width="100%" frameborder="0" onload="this.parentNode.style.background = 'none'"></iframe>
+<iframe src="https://portfolio-optimizer.pyviz.demo.anaconda.com" width="100%" style="height: 70vh;" frameborder="0" onload="this.parentNode.style.background = 'none'"></iframe>
 
 ---
 # Keep in touch
