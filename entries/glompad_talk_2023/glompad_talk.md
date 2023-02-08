@@ -375,6 +375,9 @@ REPL -> Notebook
   * P0 for a dev tool
 * Optional black autoformatting
 * Curated examples
+---
+
+<img src="stack_glompad.png">
 
 ---
 # Highlights <!-- .element: class="r-fit-text"  -->
@@ -423,7 +426,7 @@ REPL -> Notebook
 ---
 ## Sentry
 
-Feel much more confident with mostly manual testing, slapping sentry on it, and fixing whatever comes up
+Manual test, add Sentry, ship.
 
 <img class="mid" src="glompad_sentry.png" />
 
@@ -449,13 +452,25 @@ From <em>"just OK"</em> to <em>"here be dragons."<em>
 ---
 ## Playwright
 
+<img src="stack_playwright.png">
+
 * Easy to get started
-* Slower than expected, esp with Firefox. Selenium might be faster based on open issues I found.
+* Slower than expected, esp with Firefox. 
+  * Selenium might be faster based on open issues I found.
 
 ---
 ## Docs
 
-Pyodide docs are OK for reference. PyScript docs have a good metastructure and some gems, but otherwise still lacking.
+* Pyodide docs are OK for reference
+* PyScript docs have a good metastructure, but lots of gaps.
+
+---
+## JS <-> Python communication
+
+* Everything gets wrapped in proxy objects
+* Careful to unwrap and rewrap appropriately
+* Glompad may have some memory leaks
+  * Frontend standard practice
 
 ---
 ## Interrupts
@@ -471,14 +486,21 @@ If you hit an infinite loop, refresh the page.
   * Using Pyodide directly is looking like the better investment if you care about control. 
   * PyScript feels like a bit of a demo vehicle.
   * Example: PyScript could make setting up a web worker easier: https://github.com/pyscript/pyscript/issues/808
-* Annoyingly PyScript chose the exact same tools I did?? Svelte and CodeMirror power the REPL and other components. This led to some very confusing errors that I thought were coming from my bugs, but were actually PyScript breakages.
+* Annoyingly PyScript chose the exact same tools I did?
+  * Svelte and CodeMirror power the REPL and other components. 
+  * This led to some very confusing errors that I thought were coming from my bugs, but were actually PyScript breakages.
 
 ---
 ## Ugly: Misc JS
 
-* Svelte stores are great, but a bit too basic. For debugging, I found myself missing Redux. There are a wide variety of alternative stores worth looking into.
-* CodeMirror 6 is way more complex than earlier versions. Powerful, but hard to find examples that do exactly what you want. Probably worth it, but be ready.
-* It's still frontend. You've got to be 2-3x as careful when you upgrade libraries.
+* Svelte stores are great, but a bit too basic. 
+  * For debugging, I found myself missing Redux. 
+  * There are a wide variety of alternative stores worth looking into.
+* CodeMirror 6 is way more complex than earlier versions. 
+  * Powerful, but hard to find examples that do exactly what you want. 
+  * Probably worth it, but be ready.
+* It's still frontend. 
+  * You've got to be 2-3x as careful when you upgrade packages.
 
 ---
 # Are we making progress?
@@ -492,9 +514,7 @@ Just for fun, let's see how far we've come.
 
 <img class="small" src="hist_pyjs.png" />
 
-FKA Pyjamas
-
-2009-2015
+2009-2015 (FKA Pyjamas)
 
 Transpiles Python to JS.
 
@@ -576,9 +596,17 @@ See also: Rapydscript
 ---
 # Worth it?
 
-Yes. 
+**Yes.**
 
-Pyodide really *does* feel different than past iterations.
+Pyodide really *is* different from past iterations.
+
+<ul class='checked-list'>
+  <li>Python syntax</li> 
+  <li>Python stdlib</li> 
+  <li>Python ecosystem (pip)</li> 
+  <li>DOM access</li> 
+  <li>Bidirectional JS interaction</li> 
+</ul>
 
 ---
 # When/why should you try it?
