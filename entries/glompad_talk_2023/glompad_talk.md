@@ -33,10 +33,10 @@ Mahmoud Hashemi
 # Intro
 
 * I'm Mahmoud
+* On parental leave
 * Awesome Python Applications
 * calver.org (and 0ver.org)
 * boltons and other Python libraries
-* On parental leave
 * Working on something new
 
 <img class="fragment" width="30%" align="right" src="me_mina.jpg">
@@ -69,9 +69,10 @@ Note: Audience Qs: Who knew this was possible? Who's done this before?
 # Roadmap
 
 1. Declarative data transformation
-2. glom in a not-shell
-3. Web history repeating itself?
-4. Key takeaways
+2. glompad: glom in a not-shell
+3. Learnings
+4. Web history repeating itself?
+5. Getting started
 
 ---
 # Transforming data
@@ -139,10 +140,10 @@ But deep-get was just the beginning.
 
 ## Beyond paths
 
-Multi deep-get
+*Multi* deep-get:
 
 ```python
-target = {'data': {'id': 2, 'date': '1999-01-01'}}
+target = {'data': {'id': 2, 'date': '1999-01-01', 'name': 'Foo'}}
 
 spec = {'id': 'data.id',
         'date': 'data.date'}
@@ -156,6 +157,8 @@ Output:
  'date': '1999-01-01'}
 
 ```
+
+*Recursively.*
 ---
 
 ## Declarative data transformation
@@ -202,14 +205,6 @@ assign(target, 'a.1.d', 'e')  # let's give 'd' a value of 'e'
 # {'a': [{'b': 'c'}, {'d': 'e'}]}
 ```
 
-With autocreation/backfill:
-
-```python
-target = {}
-assign(target, 'a.b.c', 'hi', missing=dict)
-# {'a': {'b': {'c': 'hi'}}}
-```
-
 Also deep deletion.
 
 ```python
@@ -228,25 +223,6 @@ target = [1, 2, None, None, 3, None, 3, None, 2, 4]
 spec = Iter().filter().unique()  # this gives a streaming generator when evaluated
 glom(target, spec.all())  # .all() converts the generator to a list
 # [1, 2, 3, 4]
-```
-
----
-### Flattening and Merging
-
-Combine mixed iterables with ease:
-
-```python
-list_of_iterables = [{0}, [1, 2, 3], (4, 5)]
-flatten(list_of_iterables)
-# [0, 1, 2, 3, 4, 5]
-```
-
-Also merge dictionaries:
-
-```python
-target = [{'a': 'alpha'}, {'b': 'B'}, {'a': 'A'}]
-merge(target)
-# {'a': 'A', 'b': 'B'}
 ```
 
 ---
@@ -337,11 +313,9 @@ A data transformation sandbox.
 ---
 ## Design
 
-REPL -> Notebook
+`>>>`
 
-* Audience Qs: 
-  * How many use notebooks daily? Weekly?
-  * Python -> IPython -> IPyNb (Jupyter) -> Observable, Zeppelin, etc.
+* REPL -> Notebook -> Sandbox
 
 ---
 ## Good company
@@ -465,12 +439,13 @@ From <em>"just OK"</em> to <em>"here be dragons."<em>
 * PyScript docs have a good metastructure, but lots of gaps.
 
 ---
-## JS <-> Python communication
+## JS <-> Python friction
 
 * Everything gets wrapped in proxy objects
 * Careful to unwrap and rewrap appropriately
 * Glompad may have some memory leaks
   * Frontend standard practice
+* Other constraints: https://pyodide.org/en/stable/usage/wasm-constraints.html
 
 ---
 ## Interrupts
@@ -588,8 +563,7 @@ Get Python syntax, but not the Python ecosystem. No `pip`.
 
 <img class="small" src="hist_transcrypt_pyreact.png" />
 
-
-https://pyreact.com/
+https://pyreact.com/ (not to be confused with PyReact/IDOM)
 
 See also: Rapydscript
 
@@ -617,7 +591,7 @@ Pyodide really *is* different from past iterations.
 * When you want to use the numerical/scientific Python stack (and the rest of the ecosystem)
 
 ---
-# Start <!-- .element: class="r-fit-text"  -->
+# Getting started <!-- .element: class="r-fit-text"  -->
 
 ---
 ## PyScript 
@@ -659,7 +633,9 @@ https://panel.holoviz.org/
 # Keep in touch
 
 * https://yak.party/glompad
+* https://sedimental.org
 * https://github.com/mahmoud
 * https://twitter.com/mhashemi
 * https://qoto.org/@mahmoud 
 
+✌️ Mahmoud Hashemi 2023
