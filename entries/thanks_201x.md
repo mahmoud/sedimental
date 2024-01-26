@@ -2,11 +2,12 @@
 title: "Thanks, 201X!"
 publish_date: December 2, 2019 10:00am
 tags:
-    - life
-    - work
-    - python
+  - life
+  - work
+  - python
 ---
-*Thought I'd take a Sunday afternoon to reflect on, oh I don't know, a decade.*
+
+_Thought I'd take a Sunday afternoon to reflect on, oh I don't know, a decade._
 
 <img align="right" width="40%" src="/uploads/illo/legatree_med.png">
 Been a long ten years, but it's flown past. This particular decade
@@ -19,18 +20,18 @@ I can't possibly summarize it all, and if I tried, it'd still be
 colored by what's on my mind right now. But I can point to the
 artifacts I tried to leave along the way:
 
-* [Twitter](https://twitter.com/mhashemi) FWIW[^1] (2008+)
-* **~20** [Open-Source Projects](/projects.html) (2012+)
-* **~15** [Hatnote Projects](/hatnote_projects.html) (2013+, [follow us](https://twitter.com/hatnotable))
-* **~25** entries on this blog (2015+)
-    * **+7** [here](https://medium.com/paypal-engineering/tagged/python) (2014-2016)
-    * Not including [pythondoeswhat.com](https://www.pythondoeswhat.com/) or [blog.hatnote.com](https://blog.hatnote.com/)
-    * (or other posts on the blogs only real heads know)
-* **~10** [Talks](/talks.html) (2016+)
-    * Lest I forget: [O'Reilly's Enterprise Software with Python](http://shop.oreilly.com/product/0636920047346.do?code=authd) (2016)
-    * And [several podcast/media appearances](/appearances.html)
-* [calver.org](https://calver.org/) (2016) and [0ver.org](https://0ver.org/) (2018) (Versioning is a fun pastime)
-* [Pyninsula](https://pyninsula.org/) (2017+) - [YouTube](https://www.youtube.com/c/Pyninsula), [Meetup](https://www.meetup.com/Pyninsula-Python-Peninsula-Meetup/), [Email Announce](https://mail.python.org/mailman3/lists/pyninsula-announce.python.org/)
+- [Twitter](https://twitter.com/mhashemi) FWIW[^1] (2008+)
+- **~20** [Open-Source Projects](/open_source_projects.html) (2012+)
+- **~15** [Hatnote Projects](/hatnote_projects.html) (2013+, [follow us](https://twitter.com/hatnotable))
+- **~25** entries on this blog (2015+)
+  - **+7** [here](https://medium.com/paypal-engineering/tagged/python) (2014-2016)
+  - Not including [pythondoeswhat.com](https://www.pythondoeswhat.com/) or [blog.hatnote.com](https://blog.hatnote.com/)
+  - (or other posts on the blogs only real heads know)
+- **~10** [Talks](/talks.html) (2016+)
+  - Lest I forget: [O'Reilly's Enterprise Software with Python](http://shop.oreilly.com/product/0636920047346.do?code=authd) (2016)
+  - And [several podcast/media appearances](/appearances.html)
+- [calver.org](https://calver.org/) (2016) and [0ver.org](https://0ver.org/) (2018) (Versioning is a fun pastime)
+- [Pyninsula](https://pyninsula.org/) (2017+) - [YouTube](https://www.youtube.com/c/Pyninsula), [Meetup](https://www.meetup.com/Pyninsula-Python-Peninsula-Meetup/), [Email Announce](https://mail.python.org/mailman3/lists/pyninsula-announce.python.org/)
 
 Taking a chronological look at each of the above, I'm relieved to see
 obvious growth.
@@ -120,12 +121,13 @@ even with 2009-19, I don't see how I can be disappointed.
 
 Thanks again for everything in 201X, and for sticking with me in 202X.
 
-[^1]: Despite using [Twitter](https://twitter.com/mhashemi) for over a
-      decade, the process of tweeting feels so perfunctory, and the
-      service itself so tenuous, that I still can't bring myself to
-      invest the time. I mostly use it to crosspost my blog posts or
-      help friends promote their posts/projects.
+[^1]:
+    Despite using [Twitter](https://twitter.com/mhashemi) for over a
+    decade, the process of tweeting feels so perfunctory, and the
+    service itself so tenuous, that I still can't bring myself to
+    invest the time. I mostly use it to crosspost my blog posts or
+    help friends promote their posts/projects.
 
-      But until I start an email newsletter, or really get on top of
-      [yak.party](https://yak.party), it's still the best I got for
-      announcing where I'm speaking next.
+    But until I start an email newsletter, or really get on top of
+    [yak.party](https://yak.party), it's still the best I got for
+    announcing where I'm speaking next.

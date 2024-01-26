@@ -8,12 +8,12 @@ tags:
 publish_date: 1:47pm May 9, 2017
 ---
 
-*The packaging gradient, and why PyPI isn't an app store.*
+_The packaging gradient, and why PyPI isn't an app store._
 
-*Update: I turned this post into a talk. The [video from PyBay is
- here][pybay_video], the [slides are available here][slides]. The
- long-cut video from [BayPiggies][bp_meetup] is coming, but [the
- "Extended Edition" slides are here][slides_ex].*
+_Update: I turned this post into a talk. The [video from PyBay is
+here][pybay_video], the [slides are available here][slides]. The
+long-cut video from [BayPiggies][bp_meetup] is coming, but [the
+"Extended Edition" slides are here][slides_ex]._
 
 [pybay_video]: https://www.youtube.com/watch?v=iLVNWfPWAC8
 [slides]: https://speakerdeck.com/mhashemi/the-packaging-gradient
@@ -21,20 +21,20 @@ publish_date: 1:47pm May 9, 2017
 [slides_ex]: https://speakerdeck.com/mhashemi/the-packaging-gradient-extended-edition
 
 One lesson threaded throughout
-[*Enterprise Software with Python*][esp] is that deployment is not the
+[_Enterprise Software with Python_][esp] is that deployment is not the
 last step of development. The mark of an experienced engineer is to
 work backwards from deployment, planning and designing for the reality
 of production environments.
 
 You could learn this the hard way. Or you could come on a journey into
-what I call *the packaging gradient*. It's a quick and easy decision
+what I call _the packaging gradient_. It's a quick and easy decision
 tree to figure out what you need to ship. You'll gain a trained eye,
 and an understanding as to why there seem to be so many conflicting
 opinions about how to package code.
 
 The first lesson on our adventure is:
 
-> *Implementation language does not define packaging solutions.*
+> _Implementation language does not define packaging solutions._
 
 <img align="right" width="40%" src="/uploads/illo/snake_box_sm.png">
 
@@ -55,7 +55,7 @@ that repeatable deployment process we crave. We save the most involved
 solutions for last, right before [the short version](#closing). Ready?
 Let's go!
 
-[esp]: http://shop.oreilly.com/product/0636920047346.do
+[esp]: https://www.oreilly.com/library/view/enterprise-software-with/9781491943755/
 [kivy_android]: https://kivy.org/docs/guide/android.html
 [pip_wp]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 
@@ -65,7 +65,7 @@ Let's go!
 
 Everyone's first exposure to Python deployment was something so
 innocuous you probably wouldn't remember. You copied a script from
-point *A* to point *B*. Chances are, whether *A* and *B* were separate
+point _A_ to point _B_. Chances are, whether _A_ and _B_ were separate
 directories or computers, your days of "just use `cp`" didn't last
 long.
 
@@ -74,10 +74,10 @@ doesn't work when that file has unmet dependencies at the destination.
 
 Even simple scripts end up depending on:
 
-* Python libraries - [boltons][boltons], [requests][requests], [NumPy][numpy]
-* Python, the runtime - [CPython][cpython], [PyPy][pypy]
-* System libraries - [glibc][glibc], [zlib][zlib], [libxml2][libxml2]
-* Operating system - [Ubuntu][ubuntu], [FreeBSD][freebsd], [Windows][windows]
+- Python libraries - [boltons][boltons], [requests][requests], [NumPy][numpy]
+- Python, the runtime - [CPython][cpython], [PyPy][pypy]
+- System libraries - [glibc][glibc], [zlib][zlib], [libxml2][libxml2]
+- Operating system - [Ubuntu][ubuntu], [FreeBSD][freebsd], [Windows][windows]
 
 [boltons]: https://github.com/mahmoud/boltons
 [requests]: https://github.com/kennethreitz/requests
@@ -90,7 +90,6 @@ Even simple scripts end up depending on:
 [ubuntu]: https://en.wikipedia.org/wiki/Ubuntu_(operating_system)
 [freebsd]: https://www.freebsd.org/
 [windows]: http://68.media.tumblr.com/e846f7ed786ead5cee6e4097b254b181/tumblr_mqfh4b0rV61sydj82o1_250.gif
-
 
 So every good packaging adventure always starts with the question:
 
@@ -133,7 +132,6 @@ For examples of libraries doing this, see [bottle.py][bottle.py],
 [boltons]: https://github.com/mahmoud/boltons
 [boltons_architecture]: http://boltons.readthedocs.io/en/latest/architecture.html
 [schema.py]: https://github.com/keleshev/schema
-
 
 # The pure-Python Package
 
@@ -216,13 +214,13 @@ developers, to distribute code and tools _to_ other developers.
 
 In other words:
 
-> *PyPI is not an app store.*
+> _PyPI is not an app store._
 
 PyPI, pip, wheels, and the underlying setuptools machinations are all
-designed for *libraries*. Code for developer reuse.
+designed for _libraries_. Code for developer reuse.
 
 Going back to our first example, a "script" is more accurately
-described as a command-line *application*. Command-line applications
+described as a command-line _application_. Command-line applications
 can have a Python-savvy audience, so it's not totally unreasonable to
 host them on PyPI and install them with pip (or [pipsi][pipsi]). But
 understand that we're approaching the limit for a good production and
@@ -233,19 +231,19 @@ user-facing experience.
 So let's get explicit. By default, the built-in packaging tools are
 designed to depend on:
 
-  * A working Python installation
-  * A network connection, probably to the Internet
-  * Pre-installed system libraries
-  * A developer who is willing to sit and watch dependencies
-    recursively download at install-time, and debug version conflicts,
-    build errors, and myriad other issues.
+- A working Python installation
+- A network connection, probably to the Internet
+- Pre-installed system libraries
+- A developer who is willing to sit and watch dependencies
+  recursively download at install-time, and debug version conflicts,
+  build errors, and myriad other issues.
 
 These are fine, and expected for development environments.
 Professionals are paid to do it, students pay to learn it, and there
 are even a few oddballs who enjoy this sort of thing.
 
 Going into our next options, notice how we have shifted gears to
-support *applications*. Remember that distributing applications is
+support _applications_. Remember that distributing applications is
 more a function of target platform than of implementation
 language. This is harder than library distribution because we stop
 depending on layers of the stack, and the developer who would be there
@@ -264,7 +262,7 @@ executable file, the kind that you can double click or run by
 prefixing with a `./`, anywhere on a Python-enabled
 host. [The PEX format][pex] gets us exactly this.
 
-[pex]: https://pex.readthedocs.io/en/stable/
+[pex]: https://pex.readthedocs.io/en/latest/
 
 The PEX, or Python EXecutable, is a carefully-constructed ZIP archive,
 with just a hint of bootstrapping. PEXs can be built for Linux, Mac,
@@ -299,7 +297,7 @@ Anaconda might seem like an innocent Python distribution from the
 outside, internally Anaconda blends in characteristics of a full-blown
 operating system, complete with its own package manager, [conda][conda].
 
-[anaconda]: https://www.continuum.io/downloads
+[anaconda]: https://www.anaconda.com/download
 [libxml2]: https://anaconda.org/anaconda/libxml2
 [postgres]: https://anaconda.org/anaconda/postgresql
 
@@ -349,9 +347,8 @@ host to such a rare breed.
 [steam]: https://en.wikipedia.org/wiki/Steam_(software)
 [nix]: https://en.wikipedia.org/wiki/Nix_package_manager
 [pkgsrc]: https://en.wikipedia.org/wiki/Pkgsrc
-[conda_pip_compare]: https://conda.io/docs/_downloads/conda-pip-virtualenv-translator.html
+[conda_pip_compare]: https://docs.conda.io/projects/conda/en/latest/commands/index.html#conda-vs-pip-vs-virtualenv-commands
 [paypal_conda]: https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/
-
 [pip_depres]: https://github.com/pypa/pip/issues/988
 [pycosat]: https://github.com/ContinuumIO/pycosat
 [conda_myths]: https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/
@@ -366,7 +363,7 @@ and it's ice cold. Freezing, in fact.
 
 When I wrote my first Python program, I naturally shared news of the
 accomplishment with my parents, who naturally wanted to experience
-this taste of *The Future* firsthand.
+this taste of _The Future_ firsthand.
 
 Of course all I had a .py file I wrote on [Knoppix][knoppix], and they
 were halfway around the world on a Windows 2000 machine. Luckily, this
@@ -376,7 +373,7 @@ no one told me, and the better part of a decade would pass before I
 learned how to use it.
 
 [knoppix]: https://en.wikipedia.org/wiki/Knoppix
-[cx_freeze]: https://anthony-tuininga.github.io/cx_Freeze/
+[cx_freeze]: https://github.com/marcelotduarte/cx_Freeze
 [cx_freeze_announce]: https://mail.python.org/pipermail/python-announce-list/2002-November/001824.html
 
 Fifteen years later, the process has evolved, but retained the same
@@ -534,8 +531,7 @@ running applications into separate [sandboxes][jessfraz_sandboxes].
 
 [namespaces]: https://en.wikipedia.org/wiki/Linux_namespaces#Mount_.28mnt.29
 [jessfraz_sandboxes]: https://blog.jessfraz.com/post/getting-towards-real-sandbox-containers/
-
-[flatpak_server]: http://flatpak.org/faq.html#Can_Flatpak_be_used_on_servers_too_
+[flatpak_server]: https://flatpak.org/faq/#Can_Flatpak_be_used_on_servers_too_
 
 I haven't actually seen these formats used for deploying server
 software. Flatpak might never support servers, Snappy is trying, but
@@ -637,7 +633,7 @@ deployment and runtime overhead, but have to balance that against half
 a dozen other concerns worthy of
 [a much longer discussion elsewhere][esp_9he].
 
-[esp_9he]: https://player.oreilly.com/videos/9781491943755
+[esp_9he]: https://www.oreilly.com/library/view/enterprise-software-with/9781491943755/
 
 # Bringing your own hardware
 
@@ -756,16 +752,17 @@ existing practices for shipping Python.
 
 <div style="text-align:center;"><img width="60%" src="/uploads/illo/snake_c_med.png"></div>
 
-[^pypi]: Despite being called the Python Package Index, PyPI does not
-         index packages. PyPI indexes distributions, which can contain
-         one or more packages. For instance, pip installing [Pillow][pillow]
-         allows you to import PIL. Pillow is the distribution, PIL is
-         the package. The Pillow-PIL example also demonstrates how the
-         distribution-package separation enables multiple
-         implementations of the same API. Pillow is a fork of [the
-         original PIL package][pil_orig]. Still, as most distributions only
-         provide one package, please name your distribution after the
-         package for consistency's sake.
+[^pypi]:
+    Despite being called the Python Package Index, PyPI does not
+    index packages. PyPI indexes distributions, which can contain
+    one or more packages. For instance, pip installing [Pillow][pillow]
+    allows you to import PIL. Pillow is the distribution, PIL is
+    the package. The Pillow-PIL example also demonstrates how the
+    distribution-package separation enables multiple
+    implementations of the same API. Pillow is a fork of [the
+    original PIL package][pil_orig]. Still, as most distributions only
+    provide one package, please name your distribution after the
+    package for consistency's sake.
 
-[pillow]: https://pillow.readthedocs.io/en/4.1.x/
+[pillow]: https://pillow.readthedocs.io/en/stable/
 [pil_orig]: https://pypi.python.org/pypi/PIL

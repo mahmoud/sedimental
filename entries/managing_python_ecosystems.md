@@ -14,7 +14,7 @@ title="Ecosystems as shimmery, shiny, scaley, and fishy as a koi.">
 
 You know that old quote:
 
->*The wider the net you cast, the wider the variety you catch.*
+> _The wider the net you cast, the wider the variety you catch._
 
 Was it a wise old fisherman? Or a dogged Python programmer? Either
 way, words don't come much truer than those.
@@ -25,7 +25,7 @@ applicability comes a wide variety in use -- and environments.
 
 Library and framework developers rarely get to control how their code
 is used, and thus have to think about how their code fits into the
-whole ecosystem. From writing hybrid code for Python 2 *and* 3 to
+whole ecosystem. From writing hybrid code for Python 2 _and_ 3 to
 inserting shims for Pythons without threading support, there's no rest
 for the rigorous. Until now.
 
@@ -43,13 +43,13 @@ Enter [`ecoutils`][ecoutils_rtd]. `ecoutils` is a pure-Python module
 that, using nothing but builtins, generates a semantic, Python-centric
 profile of the environment that's running it. This includes:
 
-* **Host operating system**: Windows, OS X, Ubuntu, Debian, CentOS, RHEL, etc.
-* **Language version**: 2.5, 2.6, 2.7, ..., 3.4, 3.5, ..., etc.
-* **Executable runtime**: CPython, PyPy, Jython, etc., (plus build date and compiler)
-* **Features**: 64-bit, IPv6, Unicode character support (UCS-2/UCS-4)
-* **Built-in library support**: OpenSSL, threading, SQLite, zlib, and more
-* **User environment**: umask, ulimit, working directory
-* **Machine info**: CPU count, hostname, filesystem encoding
+- **Host operating system**: Windows, OS X, Ubuntu, Debian, CentOS, RHEL, etc.
+- **Language version**: 2.5, 2.6, 2.7, ..., 3.4, 3.5, ..., etc.
+- **Executable runtime**: CPython, PyPy, Jython, etc., (plus build date and compiler)
+- **Features**: 64-bit, IPv6, Unicode character support (UCS-2/UCS-4)
+- **Built-in library support**: OpenSSL, threading, SQLite, zlib, and more
+- **User environment**: umask, ulimit, working directory
+- **Machine info**: CPU count, hostname, filesystem encoding
 
 <img width="40%" align="right" src="/uploads/illo/green_field_med.png"
 title="If only all fields were so green in software ecosystems.">
@@ -106,13 +106,7 @@ JSON-formatted profile. On my fully-updated Ubuntu 14.04LTS machine,
       "zlib": "1.2.8"
     },
     "version": "2.7.6 (default, Jun 22 2015, 17:58:13) [GCC 4.8.2]",
-    "version_info": [
-      2,
-      7,
-      6,
-      "final",
-      0
-    ]
+    "version_info": [2, 7, 6, "final", 0]
   },
   "time_utc": "2016-05-24 07:59:40.473140",
   "time_utc_offset": -8.0,
@@ -132,7 +126,7 @@ JSON-formatted profile. On my fully-updated Ubuntu 14.04LTS machine,
 ```
 
 Weighing in at just over 1KB, it's not too daunting! ecoutils is part
-of [the boltons package][boltons_rtd], so ``pip install boltons`` and
+of [the boltons package][boltons_rtd], so `pip install boltons` and
 see how yours compares.
 
 [boltons_rtd]: http://boltons.readthedocs.io/en/latest/
@@ -172,9 +166,10 @@ all started. Here's [an example of it][hashtags_meta] running in
 [managed Wikimedia environment][wm_labs], over which I have minimal
 control, and need maximum information.[^1]
 
-[^1]: When that server seems slow, remember to
-      [donate to Wikipedia][wp_donate]. And maybe volunteer, because
-      money alone does not make servers run fast.
+[^1]:
+    When that server seems slow, remember to
+    [donate to Wikipedia][wp_donate]. And maybe volunteer, because
+    money alone does not make servers run fast.
 
 [piwik]: http://piwik.org/
 [support]: https://github.com/paypal/support
@@ -183,7 +178,7 @@ control, and need maximum information.[^1]
 [hashtags]: http://tools.wmflabs.org/hashtags/
 [hashtags_meta]: http://tools.wmflabs.org/hashtags/meta/
 [wm_labs]: https://www.mediawiki.org/wiki/Wikimedia_Labs
-[wp_donate]: https://wikimediafoundation.org/wiki/Ways_to_Give
+[wp_donate]: https://donate.wikimedia.org/wiki/Ways_to_Give
 
 Push or pull, all the data is stored in a simple SQL (or JSONL)
 format, as demonstrated by [espymetrics][espymetrics], the example
@@ -198,7 +193,7 @@ something less identifiable. `get_profile` has a `scrub` flag that
 handles that. See [the docs][get_profile_docs] for details.
 
 [espymetrics]: https://github.com/mahmoud/espymetrics/
-[esp]: shop.oreilly.com/product/0636920047346.do
+[esp]: https://www.oreilly.com/library/view/enterprise-software-with/9781491943755/
 [get_profile_docs]: http://boltons.readthedocs.io/en/latest/ecoutils.html#boltons.ecoutils.get_profile
 
 ## Success stories
@@ -207,11 +202,11 @@ Originally designed for easier remote administration across multiple
 environments, a little bit of info has had far-reaching impacts. For a
 few examples from my work at PayPal, this approach enabled us to:
 
-* Deprecate and remove production Python 2.6 support from our
+- Deprecate and remove production Python 2.6 support from our
   framework, simplifying our build matrix without customer impact.
-* Actively engage new users attempting to use our framework with
+- Actively engage new users attempting to use our framework with
   unsupported Pythons or OSes.
-* Improve utilization through designing for observed CPU counts.
+- Improve utilization through designing for observed CPU counts.
 
 In practice, `ecoutils` combines well with [psutil][psutil] data to
 go even further in utilization.

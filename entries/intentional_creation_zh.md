@@ -5,7 +5,7 @@ publish_date: January 4, 2023
 special: true
 ---
 
-*(Originally published [in English](/intentional_creation.html), on [the GitHub ReadME blog](https://github.com/readme/guides/intentional-creation). Archived here from [the translation by Dominic Huang](https://dominich.notion.site/3fc11a85228a4df9bd69740d7ed90bbf).)*
+_(Originally published [in English](/intentional_creation.html), on [the GitHub ReadME blog](https://github.com/readme/guides/intentional-creation). Archived here from [the translation by Dominic Huang](https://dominich.notion.site/3fc11a85228a4df9bd69740d7ed90bbf).)_
 
 我们都有过这种感受。无论是早上起床还是晚上难眠，你都感受到了它的存在——潜伏的创造力。
 在源源不断诱惑消费的互联网中，将创造力转化为生产力，挑战很大。如何选择一个方向？
@@ -42,7 +42,7 @@ special: true
 
 # 策划（Curate）
 
-**第 3 步：将评论收录到储备库，以便创作参考** 
+**第 3 步：将评论收录到储备库，以便创作参考**
 
 评论只是初始的创作输出。写任何东西都能促进创作，不过，相较于评论，你需要一个润色过的综合体。当评论足够多，你就可以策划一个集合。
 
@@ -76,15 +76,15 @@ special: true
 [wlm]: https://www.wikilovesmonuments.org
 [clastic]: http://github.com/mahmoud/clastic
 [pytest]: http://pytest.org/
-[werkzeug]: https://werkzeug.palletsprojects.com/have
+[werkzeug]: https://werkzeug.palletsprojects.com
 
 # 调试过程
 
 我们很容易把我们欣赏的作品看成是作者的天才大作。要知道，创作是间歇性的。如果你的创作进展缓慢，这里有一些策略可以参考：
 
-* 在一个逐渐形成规模的集合中找出一个自然分割点，看看怎样做能让它变得有趣。
-* 回顾一个有争议的旧评论并重新回应——哪些是对的，哪些是错的？
-* 挑选一个典范并开展研究。开源项目的一个动人之处是，深入研究便意味着你能参与其中。没有什么比接近一个问题更能激发创造性思维了。
+- 在一个逐渐形成规模的集合中找出一个自然分割点，看看怎样做能让它变得有趣。
+- 回顾一个有争议的旧评论并重新回应——哪些是对的，哪些是错的？
+- 挑选一个典范并开展研究。开源项目的一个动人之处是，深入研究便意味着你能参与其中。没有什么比接近一个问题更能激发创造性思维了。
 
 一般来说，要警惕一刀切的解决方案。比如，卡片笔记法（[Zettelkasten Method][zettelkasten]）可能对某些人有用，对你却未必。创作具有特异性。你要找到属于你自己的方法。
 
@@ -95,9 +95,9 @@ special: true
 当灵感袭来时，不同想法连结得如此之快，让人觉得浑然天成。但当灵感被证明没用时，我们仍可维持 4 个 C 的平衡，从而维持创造力。
 刻意创作有几个明显好处：
 
-* 当你打造了一些东西，总能影响一些人。创意越清晰，别人越容易参与进来。
-* 分享你的评论和策划，就是在邀请其他创作者和策划人合作。
-* 自我意识。如果你发现你的评论没有为你的项目注入新想法，说明你走错路了。你是在追随你的兴趣还是被动地消费时下流行的内容？
+- 当你打造了一些东西，总能影响一些人。创意越清晰，别人越容易参与进来。
+- 分享你的评论和策划，就是在邀请其他创作者和策划人合作。
+- 自我意识。如果你发现你的评论没有为你的项目注入新想法，说明你走错路了。你是在追随你的兴趣还是被动地消费时下流行的内容？
 
 实事求是地讲，刻意创作意味着有意识地减少刷动态看新闻的消费时间，从而更多时间做笔记、标记书签、创建自己的知识库。少一些娱乐，多一些做自己，终将缩小你和创作目标之间的差距。
 如果这听起来太简单，那是因为它的确简单。为自己负起责任才是最难的。希望你能从上述简单的方法中找到价值，反思日常，并朝着更有创意的方向改进自己。少花时间消费，多花时间在另外 3 个 C 上吧，消费的时间够让自己评论、策划和创作就好。

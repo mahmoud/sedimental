@@ -8,14 +8,14 @@ tags:
 publish_date: 11:00am July 11, 2017
 ---
 
-*"What are plugins?" and other proceedings of the inaugural PyCon
- Comparative Plugin Systems [BoF][bof].*
+_"What are plugins?" and other proceedings of the inaugural PyCon
+Comparative Plugin Systems [BoF][bof]._
 
-*Update: This BoF and post inspired [a talk I gave at PyGotham 2017][pygotham2017].*
+_Update: This BoF and post inspired [a talk I gave at PyGotham 2017][pygotham2017]._
 
 Within the programming world, and the Python ecosystem in particular,
 there are a lot of presumptions around plugins. Specifically, we take
-them for granted. "It's *just* a plugin." "Oh, *another* plugin library?"
+them for granted. "It's _just_ a plugin." "Oh, _another_ plugin library?"
 
 So for PyCon 2017, I resolved to dismiss the dismissals by revisiting
 plugins, and it may have been the best programming decision I've made
@@ -36,7 +36,7 @@ broth.
 > **All growing projects need an API for code integration.**
 
 Call them plugins, modules, or extensions, from your browser to your
-kernel, they are *the* widely successful solution. Tellingly, the only
+kernel, they are _the_ widely successful solution. Tellingly, the only
 thing wider than the success of plugin-based architecture is the
 variety of implementations.
 
@@ -51,8 +51,8 @@ So when [PyCon 2017][pycon_2017] rolled around, I knew exactly what I
 wanted to do: call together a team of developers to get to the bottom
 of the above, or at the very least, answer the question,
 
-> *"What happens when you ask a dozen veteran Python programmers
-> to spill their guts about plugins?"*
+> _"What happens when you ask a dozen veteran Python programmers
+> to spill their guts about plugins?"_
 
 <img title="Our fearless band of extensionists" width="100%"
 src="/uploads/pycon_2017_plugin_bof_crop.jpg">
@@ -65,25 +65,25 @@ src="/uploads/pycon_2017_plugin_bof_crop.jpg">
 
 Our group leapt into action by listing off plugin systems as fast as we could:
 
-* [stevedore](https://docs.openstack.org/stevedore/latest/)
-* [twisted.plugin](http://twistedmatrix.com/documents/current/core/howto/plugin.html)
-* [Mercurial extensions](https://www.mercurial-scm.org/wiki/WritingExtensions)
-* [pytest plugins](https://docs.pytest.org/en/latest/plugins.html) ([pluggy](https://github.com/pytest-dev/pluggy))
-* [gather](http://gather.readthedocs.io/en/latest/)
-* [venusian](https://docs.pylonsproject.org/projects/venusian/en/latest/)
-* [pluginbase](http://pluginbase.pocoo.org/)
-* [straight.plugin](https://straightplugin.readthedocs.io/en/latest/)
-* [pylint plugins](https://docs.pylint.org/en/1.6.0/plugins.html)
-* [flake8 plugins](http://flake8.pycqa.org/en/latest/plugin-development/)
-* [raw setuptools entrypoints](http://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins)
-* [zope.component](https://docs.zope.org/zope.component/)
-* [Django command extensions](https://django-extensions.readthedocs.io/en/latest/)
-* [SQLAlchemy dialects/DBAPIs](http://docs.sqlalchemy.org/en/latest/dialects/index.html)
-* [Sphinx extensions](http://www.sphinx-doc.org/en/stable/extdev/index.html#dev-extensions)
-* [Buildout extensions](http://docs.buildout.org/en/latest/topics/extensions.html)
-* [Pike](http://pyarmory-pike.readthedocs.io/en/latest/)
-* [Dectate](http://dectate.readthedocs.io/en/latest/) and [Reg](http://reg.readthedocs.io/en/latest/index.html)
-* Others that came and went a little too fast to jot down
+- [stevedore](https://docs.openstack.org/stevedore/latest/)
+- [twisted.plugin](https://docs.twisted.org/en/stable/core/howto/plugin.html)
+- [Mercurial extensions](https://www.mercurial-scm.org/wiki/WritingExtensions)
+- [pytest plugins](https://docs.pytest.org/en/latest/plugins.html) ([pluggy](https://github.com/pytest-dev/pluggy))
+- [gather](http://gather.readthedocs.io/en/latest/)
+- [venusian](https://docs.pylonsproject.org/projects/venusian/en/latest/)
+- [pluginbase](http://pluginbase.pocoo.org/)
+- [straight.plugin](https://straightplugin.readthedocs.io/en/latest/)
+- [pylint plugins](https://docs.pylint.org/en/1.6.0/plugins.html)
+- [flake8 plugins](http://flake8.pycqa.org/en/latest/plugin-development/)
+- [raw setuptools entrypoints](http://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins)
+- [zope.component](https://zopecomponent.readthedocs.io/en/latest/)
+- [Django command extensions](https://django-extensions.readthedocs.io/en/latest/)
+- [SQLAlchemy dialects/DBAPIs](http://docs.sqlalchemy.org/en/latest/dialects/index.html)
+- [Sphinx extensions](http://www.sphinx-doc.org/en/stable/extdev/index.html#dev-extensions)
+- [Buildout extensions](http://docs.buildout.org/en/latest/topics/extensions.html)
+- [Pike](http://pyarmory-pike.readthedocs.io/en/latest/)
+- [Dectate](http://dectate.readthedocs.io/en/latest/) and [Reg](http://reg.readthedocs.io/en/latest/index.html)
+- Others that came and went a little too fast to jot down
 
 With our plate heaping with examples like these, we all felt ready to
 dig into our big questions.
@@ -151,7 +151,7 @@ that reusability doesn't make sense. But other approaches, like
 
 ## Dependency registration
 
-Almost all plugins work by providing some set of *hooks* which are
+Almost all plugins work by providing some set of _hooks_ which are
 findable and callable by the core. We found another differentiator in
 whether and how plugins could gain access to resources from the core,
 and even other plugins.
@@ -171,7 +171,7 @@ helps create a more maintainable application overall.
 # Drawing a line
 
 With our group feeling like we were approaching the nature of things,
-we reversed direction, asking instead: What *isn't* a plugin system?
+we reversed direction, asking instead: What _isn't_ a plugin system?
 
 Establishing explicit boundaries and specific counterexamples proved
 instrumental to producing a final definition.
@@ -183,7 +183,7 @@ sufficiently abstracted through a loading or namespacing system.
 [eval]: https://docs.python.org/2/library/functions.html#eval
 
 Is [DNS][dns] a plugin system? It has names and namespaces galore. But
-no, because code is not being loaded *in*. Remote services in general
+no, because code is not being loaded _in_. Remote services in general
 are beyond the boundary of what a plugin can be. They exist out there,
 and we call out to them. They're callouts, not plugins.
 
@@ -194,21 +194,21 @@ and we call out to them. They're callouts, not plugins.
 So with our boundaries established, we were ready to offer a
 definition:
 
-> *A plugin system is a software facility used by a running program to
+> _A plugin system is a software facility used by a running program to
 > discover and load code, often containing hooks called by the host
-> application*
+> application_
 
 But, by this definition, isn't Python's built-in `import`
 functionality a plugin system? Mostly, yes! Python's import system is
 a plugin system.
 
-* For discovery it uses [`sys.path`][sys_path], various "site"
+- For discovery it uses [`sys.path`][sys_path], various "site"
   directories and ".pth" files, and [much more][sys_path_hooks].
-* For installation, it uses `site-packages`,
+- For installation, it uses `site-packages`,
   [user `.local` directories][user_installs], and more.
-* As far as independent reusability, virtually every module
+- As far as independent reusability, virtually every module
   [can be made its own entrypoint][dash_m].
-* As for dependency registration, every module is tossed into
+- As for dependency registration, every module is tossed into
   [`sys.modules`][sys_modules] with the others, but also has access to
   `import` and `sys`, making roughly every module an equal partner in
   application state.
@@ -221,7 +221,7 @@ a plugin system.
 
 Python's import system is a powerful one, with a
 [plugin system][import_hooks] of its own. But finders, loaders, and
-import hooks aren't *Python's* plugin system. For that, you need to
+import hooks aren't _Python's_ plugin system. For that, you need to
 look to [the `site` module][site_mod].
 
 [import_hooks]: https://docs.python.org/3/reference/import.html#finders-and-loaders
@@ -268,14 +268,15 @@ well-factored code depends on it.[^further]
 
 <img width="50%" src="/uploads/illo/snake_puzzle_sm.png">
 
-[^further]: For additional reading, I recommend doing what we did
-            after our discussion, finding and reading
-            [this post from Eli Bendersky][bender_post]. While it
-            focuses more on specific implementations and less about
-            generalized systems, Eli's post overlaps in many very
-            reaffirming ways, much to our relief and
-            gratification. The worked example of building
-            ReStructured Text plugins is a perfect complement to the
-            post above.
+[^further]:
+    For additional reading, I recommend doing what we did
+    after our discussion, finding and reading
+    [this post from Eli Bendersky][bender_post]. While it
+    focuses more on specific implementations and less about
+    generalized systems, Eli's post overlaps in many very
+    reaffirming ways, much to our relief and
+    gratification. The worked example of building
+    ReStructured Text plugins is a perfect complement to the
+    post above.
 
 [bender_post]: http://eli.thegreenplace.net/2012/08/07/fundamental-concepts-of-plugin-infrastructures

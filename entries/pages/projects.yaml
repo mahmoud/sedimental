@@ -70,7 +70,7 @@ description: |
   only minimal [Poe's Law][poe] collateral damage.
 
   Particularly good domains on this one
-  ([zerover.org](https://zerover.org) and
+  ([zerover.org](http://zerover.org) and
   [0ver.org](https://0ver.org)).
 
   [poe]: https://en.wikipedia.org/wiki/Poe's_law
@@ -80,7 +80,7 @@ title: Face
 est_date: January 20, 2018
 release_status: Pre-release, active development
 gh_link: https://github.com/mahmoud/face
-pypi_link: https://pypi.org/projects/face
+pypi_link: https://pypi.org/project/face/
 description: |
   After working on URLs and Hyperlink, I had a pretty major
   realization. Despite all our best intentions and standards, the
@@ -192,7 +192,7 @@ description: |
   usually refer people to
   [the documentation of the complementary frontend implementation][dustjs_docs].
 
-  [dustjs]: http://www.dustjs.com/
+  [dustjs]: https://github.com/linkedin/dustjs
   [ashes_docs]: http://ashes.readthedocs.org/en/latest/
   [dustjs_docs]: http://akdubya.github.io/dustjs/
 ---
@@ -423,19 +423,6 @@ description: |
   Tectonic is a process management and IPC framework built on nothing
   but pure Python, pure POSIX, and pure potential. It's in very early
   phases, pending work queue clearance.
-
----
-title: Picritic
-est_date: May 16, 2015
-gh_link: https://github.com/mahmoud/picritic
-pypi_link: https://pypi.python.org/pypi/picritic
-release_status: Pending further development
-description: |
-
-  Developed for research into the Python software community, Picritic
-  scans the Python Package Index (PyPI) and computes statistics
-  ostensibly used to scrutinize package quality. Hence, Picritic is a
-  **P**ackage **I**ndex **Critic**.
 
 ---
 title: PythonDoesBlog
