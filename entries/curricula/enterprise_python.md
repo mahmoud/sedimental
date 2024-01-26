@@ -19,10 +19,10 @@ technical positions necessary to drive projects to success.
 
 These are questions I like to ask new hires. How many people have
 
-* Worked on a project with more than a thousand commits?
-* Worked on a project with more than one other collaborator?
-* Worked on a project for longer than one year?
-* Worked on a project with more than one year of commit history?
+- Worked on a project with more than a thousand commits?
+- Worked on a project with more than one other collaborator?
+- Worked on a project for longer than one year?
+- Worked on a project with more than one year of commit history?
 
 If you answered yes more than twice, then there's a good chance you've
 gotten a taste of enterprise development.
@@ -33,19 +33,19 @@ Beginners come from all walks. There are many ways to be prepared for
 this course. If you've done one of the following you're as ready as
 you need to be:
 
-  * Taken a Beginning Python course
-    * O'Reilly's [Introduction to Python](http://shop.oreilly.com/product/110000448.do)
-    * MIT's [Introduction to CS using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x7)
-    * A college or AP-level programming course that used Python
-  * Read a beginning Python book
-    * [Data Science from Scratch](http://www.amazon.com/Data-Science-Scratch-Principles-Python-ebook/dp/B00W4DTP2A/)
-    * [Automate Boring Stuff with Python](http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994/)
-    * Or any other book you may have read with Python in the title
-    * Topic-specific Python books tend to outshine the general ones
-  * Done an online tutorial
-    * [Python Tutorial](https://docs.python.org/2/tutorial/)
-    * [How to Think Like a Computer Scientist](http://interactivepython.org/runestone/static/thinkcspy/index.html)
-    * [Learn Python the Hard Way](http://learnpythonthehardway.org)
+- Taken a Beginning Python course
+  - O'Reilly's [Introduction to Python](http://shop.oreilly.com/product/110000448.do)
+  - MIT's [Introduction to CS using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x7)
+  - A college or AP-level programming course that used Python
+- Read a beginning Python book
+  - [Data Science from Scratch](http://www.amazon.com/Data-Science-Scratch-Principles-Python-ebook/dp/B00W4DTP2A/)
+  - [Automate Boring Stuff with Python](http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994/)
+  - Or any other book you may have read with Python in the title
+  - Topic-specific Python books tend to outshine the general ones
+- Done an online tutorial
+  - [Python Tutorial](https://docs.python.org/2/tutorial/)
+  - [How to Think Like a Computer Scientist](http://interactivepython.org/runestone/static/thinkcspy/index.html)
+  - [Learn Python the Hard Way](http://learnpythonthehardway.org)
 
 A single run through of one of the above and you're ready to benefit
 from this course. As a further recommendation, try applying new
@@ -85,9 +85,9 @@ Every good lesson starts with a review.
 
 ## What is Python?
 
-* Language
-* Runtime
-* Platform
+- Language
+- Runtime
+- Platform
 
 In enterprise environments these concepts often run together. It's
 possible to use the Python language without using one of the primary
@@ -116,17 +116,17 @@ general trend of acceleration. Customers expect usable results faster.
 
 ## When is the right time to use Python?
 
-*"Whenever you can!"*
+_"Whenever you can!"_
 
-Python is very much a general-purpose language. ([Run through list](https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/#python-is-for-scripting))
+Python is very much a general-purpose language. ([Run through list](/10_myths_of_enterprise_python.html#python-is-for-scripting)
 
 Within enterprise it has been well-accepted into most applications:
 
-  * Network Infrastructure (DNS)
-  * Cloud computing (OpenStack, Boto)
-  * Configuration management
-  * ETL and data analysis, including Big Data (Hadoop, Disco)
-  * Email and VoIP
+- Network Infrastructure (DNS)
+- Cloud computing (OpenStack, Boto)
+- Configuration management
+- ETL and data analysis, including Big Data (Hadoop, Disco)
+- Email and VoIP
 
 Notable exceptions are mobile and web frontend, where there are viable
 inroads being made, but just not in mainstream enterprise settings.
@@ -134,19 +134,19 @@ inroads being made, but just not in mainstream enterprise settings.
 Theoretical and aesthetic superiority arguments aside, there are many
 reasons why larger enterprises invest in Python.
 
-  * Technical
-      * Platform cross-compatibility
-      * Wide deployment
-      * Community
-  * Personal
-      * Popularity - A broad hiring base
-      * Learnability - Train when you can't hire
-      * Applicability - Many areas means easy cross-pollination
+- Technical
+  - Platform cross-compatibility
+  - Wide deployment
+  - Community
+- Personal
+  - Popularity - A broad hiring base
+  - Learnability - Train when you can't hire
+  - Applicability - Many areas means easy cross-pollination
 
 ### What is Python not? (Or, other myths of enterprise Python)
 
 Selections from
-[Myths of Enterprise Python](https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/)
+[Myths of Enterprise Python](/10_myths_of_enterprise_python.html)
 
 # Architecture and design
 
@@ -161,21 +161,21 @@ problem. And no, "everyone" is not a valid customer.
 Second, define the aspects of a software component. The vocabulary of
 requirements.
 
-  * Performance
-      * Latency
-      * Throughput
-      * Utilization and efficiency
-  * Security
-      * Preventing breaches
-      * Maintaining availability
-  * Monitoring
-      * Discovering that there *is* a problem
-  * Transparency
-      * Finding the root cause of acute problems
-      * Avoiding acute problems before they happen
-      * Improving other aspects when there are no other problems
-  * Agility (Maintenance, Development, and Deployment speed)
-  * Reliability and predictability
+- Performance
+  - Latency
+  - Throughput
+  - Utilization and efficiency
+- Security
+  - Preventing breaches
+  - Maintaining availability
+- Monitoring
+  - Discovering that there _is_ a problem
+- Transparency
+  - Finding the root cause of acute problems
+  - Avoiding acute problems before they happen
+  - Improving other aspects when there are no other problems
+- Agility (Maintenance, Development, and Deployment speed)
+- Reliability and predictability
 
 All forms of testing is a process to improve one or more aspects of the above.
 
@@ -185,15 +185,15 @@ A stakeholder, presented with a simple checklist of the above will
 check off every aspect without exception. Every aspect is desirable,
 but time and resources are inevitably limited.
 
-  * HLD template
-    * Stakeholders
-    * Timelines
-    * Environment
-    * Requirements (SLAs, etc.)
-    * Dependencies
-    * Architecture
-    * Testing strategy
-    * Contacts
+- HLD template
+  - Stakeholders
+  - Timelines
+  - Environment
+  - Requirements (SLAs, etc.)
+  - Dependencies
+  - Architecture
+  - Testing strategy
+  - Contacts
 
 Work grows to fill the time you give it, but there is still such a
 thing as too little time.
@@ -207,10 +207,10 @@ developers be working on this?"
 
 At PayPal:
 
-  * Local development
-      * 64-bit (Linux, Mac) and 32-bit (Windows)
-  * Staging and production
-      * 32-bit Linux
+- Local development
+  - 64-bit (Linux, Mac) and 32-bit (Windows)
+- Staging and production
+  - 32-bit Linux
 
 At PayPal, 2.7 across the board. Basic in-house analytics service to
 track outliers and changing environment choices of developer
@@ -221,9 +221,9 @@ is a solid practice to avoid whole classes of surprises.
 
 For each environment have an answer for:
 
-  * Who controls this environment?
-  * Who else has access?
-  * How frequently can deployments be made?
+- Who controls this environment?
+- Who else has access?
+- How frequently can deployments be made?
 
 The answers to these questions have more important implications for
 your architectural priorities than any particular library
@@ -232,8 +232,8 @@ succeed through concrete specifications.
 
 ## Choosing dependencies
 
-* How to identify a good library
-* How to gauge risk
+- How to identify a good library
+- How to gauge risk
 
 ## Designing an architecture
 
@@ -241,8 +241,8 @@ succeed through concrete specifications.
 
 Software architecture boils down to balancing two mantras:
 
-  * Keep it simple (KISS)
-  * Don't repeat yourself (DRY)
+- Keep it simple (KISS)
+- Don't repeat yourself (DRY)
 
 Software is inherently about automating tedious tasks: avoiding
 repetition. To what extents should you go to avoid repeating
@@ -254,11 +254,10 @@ unfinishable or unmaintainable.
 Python provides a fixed set of conceptual tools for reducing code
 redundancy:
 
-  * Functions
-  * Classes
-  * Modules
-  * Packages
-
+- Functions
+- Classes
+- Modules
+- Packages
 
 We'll talk about packages and packaging more later.
 
@@ -266,10 +265,10 @@ Python has been built to closely match the underpinnings of modern
 operating systems. Clean-running code depends on robust support for
 the fundamentals:
 
-  * Processes
-  * Threads
-  * Files, all types
-  * Memory
+- Processes
+- Threads
+- Files, all types
+- Memory
 
 The OS's abstractions provide us the tools to effective resource
 usage. Small imperfections get magnified at scale, which is why
@@ -277,8 +276,8 @@ CPython's consistency is the key to its success at these scales.
 
 ### Lifetimes and contexts
 
-* Shortlived vs longlived processes (batch vs server)
-* Within the process, use explicit contexts instead of mutating global
+- Shortlived vs longlived processes (batch vs server)
+- Within the process, use explicit contexts instead of mutating global
   state.
 
 ### Technology and Architectural Review
@@ -298,7 +297,7 @@ project or prototype to help build buy-in.
 
 ## Development environments
 
-* Approximate production
+- Approximate production
 
 ### Choosing a development environment
 
@@ -309,20 +308,20 @@ Python leans toward simpler environments. So, I recommend a text
 editors which are highly extensible. This way you can start simple and
 customize for your workflows as you discover them.
 
-* Text editors
-    * emacs
-    * SublimeText
-* IDEs
-    * PyCharm
-    * WingIDE
-* Alternatives
-    * IPython Notebook
-    * IDLE
+- Text editors
+  - emacs
+  - SublimeText
+- IDEs
+  - PyCharm
+  - WingIDE
+- Alternatives
+  - IPython Notebook
+  - IDLE
 
 ## Source control, issue tracking, and continuous integration
 
-* TODO: does source control go into development environments
-* Your CI system is like an extra team member that never tires or
+- TODO: does source control go into development environments
+- Your CI system is like an extra team member that never tires or
   holds a grudge because you pushed broken code that once.
 
 Generally teams in enterprise don't have much control over what
@@ -335,7 +334,7 @@ A centralized mirroring service such as the Enterprise version of
 Github or Bitbucket is strongly recommended. Avoid issue tracking
 systems which do not tightly integrate with your version control. Less
 is more. Stick to the issue tracker built into your version control as
-long as possible. Separate systems *will* result in out of date
+long as possible. Separate systems _will_ result in out of date
 information, miscommunications, and release delays.
 
 Continuous integration takes many forms. Python has a good native
@@ -351,11 +350,11 @@ stuck with ClearCase and ClearQuest, maybe it's a devop's life for you.
 You can't automate what you haven't done at least twice
 manually. Iterate by interaction
 
-  * REPL
-  * pdb
-  * Source (`module.__file__`)
-  * inspect
-  * dis
+- REPL
+- pdb
+- Source (`module.__file__`)
+- inspect
+- dis
 
 None of these is a security risk. Trying to obfuscate this is security by obscurity.
 
@@ -363,32 +362,33 @@ None of these is a security risk. Trying to obfuscate this is security by obscur
 
 Python-flavored Python.
 
-  * Modules
-  * Types
-  * What is self?
-  * Inheritance
-  * 3 Everythings
-    * Everything is an object
-    * Everything is a dict
-    * Everything is public (everything is an interface)
+- Modules
+- Types
+- What is self?
+- Inheritance
+- 3 Everythings
+  - Everything is an object
+  - Everything is a dict
+  - Everything is public (everything is an interface)
 
 Design Patterns are presented as applicable to every object-oriented
 language. In reality design patterns are very language-oriented.
 
-  * Specifically created to work around the design gaps of Java and C++ (and Smalltalk, I suppose)
-  * Technically they can be applied to Python. You can see a wide
-    selection in the [python-patterns](https://github.com/faif/python-patterns) repo
-  * However, most design patterns are superseded by design in Python
-  * To the degree that seeing traditional design patterns in a Python codebase is a warning flag
-  * Python introduces its own language-tailored design idioms:
-    * Decorator
-    * Context manager
-    * Descriptor protocol
-    * Iterators/generators
+- Specifically created to work around the design gaps of Java and C++ (and Smalltalk, I suppose)
+- Technically they can be applied to Python. You can see a wide
+  selection in the [python-patterns](https://github.com/faif/python-patterns) repo
+- However, most design patterns are superseded by design in Python
+- To the degree that seeing traditional design patterns in a Python codebase is a warning flag
+- Python introduces its own language-tailored design idioms:
 
-* decorator tutorial
+  - Decorator
+  - Context manager
+  - Descriptor protocol
+  - Iterators/generators
 
-* TODO: refactoring advice
+- decorator tutorial
+
+- TODO: refactoring advice
 
 ## Debugging
 
@@ -396,7 +396,7 @@ There are two types of debugging. The kind that happens before
 committing/deployment and the kind that comes after
 committing/deployment.
 
-* pdb tutorial
+- pdb tutorial
 
 ## Security
 
@@ -407,7 +407,7 @@ limited, but this is actually a security benefit, as building security
 promises in is a good way to get in hot water (see Java and Flash
 security disclosures).
 
-* Python Fortify certification
+- Python Fortify certification
 
 Automated security analysis of Python projects depends more on the
 type of project than the particular detail that it's written in
@@ -415,7 +415,7 @@ Python. Python websites receive different attacks than GUI
 
 ## Code Review
 
-* PEP8
+- PEP8
 
 Code review often, bout by request of the author only. The author must
 exercise judgement as to which commits need review and who should
@@ -430,13 +430,13 @@ significant backtracking and rearchitecture. As a result, suggested
 changes tend to stay the same size, regardless of the size of code
 being reviewed.
 
-* Code review tutorial
+- Code review tutorial
 
 ## Testing
 
-* unittest
-* py.test
-* doctest
+- unittest
+- py.test
+- doctest
 
 ### When to Test
 
@@ -460,16 +460,16 @@ when errors are found.
 
 ## Logging and monitoring
 
-* logging and Log4J-style logging
-* structured logging
+- logging and Log4J-style logging
+- structured logging
 
 ## Profiling
 
-* cProfile
-* lineprof
-* Sampling profilers
+- cProfile
+- lineprof
+- Sampling profilers
 
-* cProfile tutorial
+- cProfile tutorial
 
 ## Documentation
 
@@ -480,11 +480,11 @@ It should live next to the code. Always have a README.
 Packaging starts by looking at your environment's existing deployment
 options. Here are some non-enterprise options we can rule out:
 
-  1. Push from local machine using FTP/SSH/etc.
-  2. Trigger the deployment machine to pull from version control
-  3. Pull from remote PyPI (pypi.python.org)
+1. Push from local machine using FTP/SSH/etc.
+2. Trigger the deployment machine to pull from version control
+3. Pull from remote PyPI (pypi.python.org)
 
-Pay particular attention to the most *reliable* means of publishing
+Pay particular attention to the most _reliable_ means of publishing
 and deploying packages and target that.
 
 # Next steps
@@ -493,44 +493,44 @@ and deploying packages and target that.
 
 ## Evangelism
 
-* Passion projects. Niche, but targetted at an underserved group that
+- Passion projects. Niche, but targetted at an underserved group that
   will appreciate the work, not "the crowd" or hypothetical users
-* Stickers and other branding
-* Python Day
+- Stickers and other branding
+- Python Day
 
 ## Other Resources
 
-  * Guides
-      * David Goodger's [brief guide to fundamental Python idioms](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#the-zen-of-python-1)
-  * Blogs
-      * pythontesting.net
-      * pythondoeswhat.blogspot.com
-      * Planet Python
-  * Podcasts
-      * Talk Python to Me
-      * From python import podcast
-      * podcast `__init__`
-  * Interactive
-      * http://www.pythontutor.com/
-      * http://interactivepython.org/runestone/static/thinkcspy/index.html
-      * Jupyter
-      * bitbucket.org/gregmalcolm/python_koans
+- Guides
+  - David Goodger's [brief guide to fundamental Python idioms](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#the-zen-of-python-1)
+- Blogs
+  - pythontesting.net
+  - pythondoeswhat.blogspot.com
+  - Planet Python
+- Podcasts
+  - Talk Python to Me
+  - From python import podcast
+  - podcast `__init__`
+- Interactive
+  - http://www.pythontutor.com/
+  - http://interactivepython.org/runestone/static/thinkcspy/index.html
+  - Jupyter
+  - bitbucket.org/gregmalcolm/python_koans
 
 # Cellar
 
 ## What this course is not
 
-  * An in-depth analysis and comparison of frameworks used by large enterprises
-      * Large enterprises are often marked by their proprietary
-      technologies, tailored to their use case. Portability and
-      cross-applicability are not a given.
-  * An abstract cookbook of challenges and architectures which may or
-    may not apply to enterprise work.
-      * Same as above, use cases vary widely, and so must solutions.
-      * Object Relational Mappings, Asynchronous IO, WSGI, and a
-        thousand other relevant technologies may be relevant in your
-        current position, but even just a brief summary of each would
-        be as long as the rest of the course. Better to search out
-        blog posts and other detailed sources.
-      * By focusing on developing good fundamentals, intuitions and
-        habits, we aim to ensure you get the most out of the course
+- An in-depth analysis and comparison of frameworks used by large enterprises
+  - Large enterprises are often marked by their proprietary
+    technologies, tailored to their use case. Portability and
+    cross-applicability are not a given.
+- An abstract cookbook of challenges and architectures which may or
+  may not apply to enterprise work.
+  - Same as above, use cases vary widely, and so must solutions.
+  - Object Relational Mappings, Asynchronous IO, WSGI, and a
+    thousand other relevant technologies may be relevant in your
+    current position, but even just a brief summary of each would
+    be as long as the rest of the course. Better to search out
+    blog posts and other detailed sources.
+  - By focusing on developing good fundamentals, intuitions and
+    habits, we aim to ensure you get the most out of the course

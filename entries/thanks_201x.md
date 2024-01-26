@@ -24,7 +24,7 @@ artifacts I tried to leave along the way:
 - **~20** [Open-Source Projects](/open_source_projects.html) (2012+)
 - **~15** [Hatnote Projects](/hatnote_projects.html) (2013+, [follow us](https://twitter.com/hatnotable))
 - **~25** entries on this blog (2015+)
-  - **+7** [here](https://medium.com/paypal-engineering/tagged/python) (2014-2016)
+  - **+7** [here](https://medium.com/paypal-tech/search?q=python) (2014-2016)
   - Not including [pythondoeswhat.com](https://www.pythondoeswhat.com/) or [blog.hatnote.com](https://blog.hatnote.com/)
   - (or other posts on the blogs only real heads know)
 - **~10** [Talks](/talks.html) (2016+)

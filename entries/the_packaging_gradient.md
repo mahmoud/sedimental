@@ -173,7 +173,7 @@ fail without the tools, will take time and resources if it succeeds,
 and generally involve more intermediary languages and four-letter
 keywords than Python devs thought should be necessary.
 
-[c]: https://www.paypal-engineering.com/2016/09/22/python-by-the-c-side/
+[c]: /python_by_the_c_side.html
 [cython]: https://en.wikipedia.org/wiki/Cython
 
 When you have a library that requires compilation, then it's
@@ -348,7 +348,7 @@ host to such a rare breed.
 [nix]: https://en.wikipedia.org/wiki/Nix_package_manager
 [pkgsrc]: https://en.wikipedia.org/wiki/Pkgsrc
 [conda_pip_compare]: https://docs.conda.io/projects/conda/en/latest/commands/index.html#conda-vs-pip-vs-virtualenv-commands
-[paypal_conda]: https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/
+[paypal_conda]: https://medium.com/paypal-tech/python-packaging-at-paypal-4a90352a7ca2
 [pip_depres]: https://github.com/pypa/pip/issues/988
 [pycosat]: https://github.com/ContinuumIO/pycosat
 [conda_myths]: https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/

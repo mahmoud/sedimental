@@ -23,7 +23,7 @@ Software with Python">
 3. And, as with all the best, [a few flamewars](https://news.ycombinator.com/item?id=9256082).
 
 [10moep]: /10_myths_of_enterprise_python.html
-[10moep_pp]: https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/
+[10moep_pp]: https://medium.com/paypal-tech/10-myths-of-enterprise-python-8302b8f21f82
 
 But there was one I missed: new developers interested in professional
 software development.

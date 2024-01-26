@@ -6,19 +6,20 @@ tags:
   - python
   - life
   - meta
-
 ---
+
 <!-- aka "Disclaimer: You may have read this before"-->
 
 Bad things happen when we don't repeat the obvious.
 
 <!-- <a href=""><img height="300px" src="/uploads/repetition/blocks.jpg"></a> -->
+
 It's 9pm and I'm writing a post for [the company engineering
 blog][pp_eng_blog]. Every sentence is a slog. Not because I'm exacting and
 conciseness isn't my strong suit. My writing is slow because every
 word is obvious, almost patronizing.
 
-[pp_eng_blog]: https://www.paypal-engineering.com/tag/python/
+[pp_eng_blog]: https://medium.com/paypal-tech/search?q=python
 
 <a href="https://en.wikipedia.org/wiki/Sierpinski_triangle"><img width="80%" src="/uploads/repetition/800px-Sierpinski_triangle_evolution.svg.png"></a>
 
@@ -61,11 +62,9 @@ things happen when we don't repeat the obvious.
 [hard_way]: http://learncodethehardway.org/
 [obama_code]: http://recode.net/2015/02/14/obama-everybodys-got-to-learn-how-to-code/
 [code_8weeks]: http://lifehacker.com/how-i-taught-myself-to-code-in-eight-weeks-511615189
-
 [event_loop]: https://en.wikipedia.org/wiki/Event_loop
 [node]: https://en.wikipedia.org/wiki/Node.js
 
 <!-- https://www.flickr.com/photos/ryan_orr/467847865 -->
-
 
 <!-- TODO: -->

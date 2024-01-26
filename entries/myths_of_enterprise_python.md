@@ -12,7 +12,7 @@ edits:
 _(Originally posted [on the PayPal Engineering blog][orig_post], reproduced here
 with minor updates, link fixes, etc.)_
 
-[orig_post]: https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/
+[orig_post]: https://medium.com/paypal-tech/search?q=python
 
 PayPal enjoys a remarkable amount of linguistic pluralism in its
 programming culture. In addition to the long-standing popularity of C++

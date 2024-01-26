@@ -4,7 +4,7 @@ title: Python by the C side
 
 *Note: This will be my last post on the PayPal Engineering blog. If
  you've enjoyed
- [this sort of content](https://www.paypal-engineering.com/tag/python/)
+ [this sort of content](https://medium.com/paypal-tech/search?q=python)
  subscribe to
  [my blog](http://sedimental.org)/[pythondoeswhat.com](http://pythondoeswhat.com/)
  or [follow me on Twitter](https://twitter.com/mhashemi). It's been
@@ -110,7 +110,7 @@ severe, too, as
 [a segmentation fault](https://en.wikipedia.org/wiki/Segmentation_fault)
 that kills the whole process is much worse than a Python exception,
 especially in
-[an asynchronous environment](https://www.paypal-engineering.com/2015/03/17/introducing-support/)
+[an asynchronous environment](https://medium.com/paypal-tech/introducing-support-98945f023a8e)
 with hundreds of requests being handled within the same process. Not
 to mention that the glove is also tailored to CPython, and won’t fit
 quite right, or at all, in other execution environments.

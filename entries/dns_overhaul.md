@@ -237,7 +237,7 @@ avoidable problems. Quality enterprise engineering means taking a
 microscope to libraries, with deliberate overhauling for your
 organization's needs.
 
-[support]: https://www.paypal-engineering.com/2015/03/17/introducing-support/
+[support]: https://medium.com/paypal-tech/introducing-support-98945f023a8e
 
 <!-- "DNS + HTTP: The Reliability and Performance of the Internet,
 Inside the Datacenter!" - Too many might not get the joke. -->

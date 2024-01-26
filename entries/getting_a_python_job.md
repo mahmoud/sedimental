@@ -22,11 +22,11 @@ careers:
 2. What is the most important piece of experience that you look for in a candidate?
 3. If someone is applying for their first job with you, what can they
    present to show they have the right skillset/education?
-    * Open-source contributions
-    * Side projects
-    * Mobile phone apps
-    * Websites
-    * Code competitions
+   - Open-source contributions
+   - Side projects
+   - Mobile phone apps
+   - Websites
+   - Code competitions
 4. If you are presented with two candidates, one with a solid CS
    degree, and the other with 1-2 years of experience, which would
    you value more?
@@ -41,7 +41,7 @@ from my parts of [the panel discussion][full_ep].
 
 Hi my name is Mahmoud Hashemi. I'm lead developer of Python
 Infrastructure
-[at PayPal](https://www.paypal-engineering.com/tag/python/), and I'm
+[at PayPal](https://medium.com/paypal-tech/search?q=python), and I'm
 also the presenter of Enterprise Software with Python, coming soon
 [from O'Reilly](http://www.oreilly.com/pub/au/6849). Dedicated listeners may recognize my voice from
 [episode #4 of Talk Python to Me](https://talkpython.fm/episodes/show/4/enterprise-python-and-large-scale-projects),
@@ -49,7 +49,7 @@ and it's great to be back on the show.
 
 # My type of hiring
 
-***What kind of Python devs do you work with and interview?***
+**_What kind of Python devs do you work with and interview?_**
 
 I work with Python infrastructure engineers. Software infrastructure
 is the foundation of all sorts of software development, from web to
@@ -67,7 +67,7 @@ looking to expand their Python talent through hiring.
 
 # The most important experience
 
-***What is the most important piece of experience that you look for in a candidate?***
+**_What is the most important piece of experience that you look for in a candidate?_**
 
 The most important fundamental skills I look for are closely related
 to experience: environmental fluidity and personal learning abilty.
@@ -82,7 +82,7 @@ As for environmental fluidity, specifically, PayPal uses a lot of
 Linux, so I look for candidates that can demonstrate familiarity at
 the console, interacting with the operating system. So while I don't
 usually give candidates complex algorithmic questions on the spot, I
-*do* log them into one of PayPal's test servers and have them do some
+_do_ log them into one of PayPal's test servers and have them do some
 basic debugging. For the experienced, you can almost feel them
 relaxing into a familiar environment. For the inexperienced, the
 terminal can be an aptly named dark and scary place. Either way, the
@@ -111,8 +111,8 @@ of things that others will upvote.
 
 # Side experience
 
-***If someone is applying for their first job with you, what can they
-present to show they have the right skillset/education?***
+**_If someone is applying for their first job with you, what can they
+present to show they have the right skillset/education?_**
 
 When it comes to first jobs and concrete projects, I'll look at
 anything and everything. With new developers it's just so rare to get
@@ -142,9 +142,9 @@ or even get on IRC and answer questions, that could be great!
 
 # Formal education
 
-***If you are presented with two candidates, one with a solid CS
+**_If you are presented with two candidates, one with a solid CS
 degree, and the other with 1-2 years of experience, which would
-you value more?***
+you value more?_**
 
 Of the three hires I'd truly consider my "star" hires, none of them
 had a CS degree. Electrical engineering, math, and comparative
@@ -181,7 +181,7 @@ about those experiences in interviews.
 
 # Last hire
 
-***Why did you hire the last person you hired?***
+**_Why did you hire the last person you hired?_**
 
 I gave my most recent thumbs up to a developer who knew Django and was
 willing to continue working with it, but most importantly he could
@@ -203,14 +203,14 @@ me! :)
 
 Reduced to a few bullet points, here are the key characteristics:
 
-* Environmental fluidity
-* Reading ability and conceptual familiarity
-* Command line comfort
-* Not HackerNewsy
-* Dedication. No technical butterflies here, please.
-* Pragmatism, lack of frustration
-* Management marketability
-* Ability/willingness to work/train/visit onsite
+- Environmental fluidity
+- Reading ability and conceptual familiarity
+- Command line comfort
+- Not HackerNewsy
+- Dedication. No technical butterflies here, please.
+- Pragmatism, lack of frustration
+- Management marketability
+- Ability/willingness to work/train/visit onsite
 
 The other interviewees had some interesting things to say, as well. I
 recommend checking out [the full podcast][full_ep], now featuring

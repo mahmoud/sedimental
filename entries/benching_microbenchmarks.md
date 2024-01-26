@@ -7,8 +7,8 @@ tags:
   - work
 ---
 
-In under one week, [*Statistics for Software*][s4s] flew past
-[*10 Myths for Enterprise Python*][10moep] to become the most visited
+In under one week, [_Statistics for Software_][s4s] flew past
+[_10 Myths for Enterprise Python_][10moep] to become the most visited
 post in the history of the PayPal Engineering blog. And that's not
 counting [the Japanese translation][s4s_jp]. Taken as an indicator of
 increased interest in software quality, this really floats all boats.
@@ -16,8 +16,8 @@ increased interest in software quality, this really floats all boats.
 That said, there were enough emails and comments to call for a
 quick followup about one particularly troubling area.
 
-[s4s]: https://www.paypal-engineering.com/2016/04/11/statistics-for-software/
-[10moep]: https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/
+[s4s]: https://medium.com/paypal-tech/statistics-for-software-e395ca08005d
+[10moep]: https://medium.com/paypal-tech/10-myths-of-enterprise-python-8302b8f21f82
 [s4s_jp]: http://postd.cc/statistics-for-software/
 
 # Statistics for benchmarks
@@ -29,7 +29,7 @@ The saying in software goes that there are lies, damned lies, and
 software benchmarks.
 
 Yes, quantiles, histograms, and other fundamentals covered in
-[*Statistics for Software*][s4s] can certainly be applied to improve
+[_Statistics for Software_][s4s] can certainly be applied to improve
 benchmarking. One of the timely inspirations for the post was our
 experience with a major network appliance vendor selling 5-figure
 machines, without providing or even measuring latency in
@@ -55,7 +55,7 @@ to a more modern view.
 
 # Performance as a feature
 
-Any framework or application branding itself as performant *must*
+Any framework or application branding itself as performant _must_
 include measurement instrumentation as an active interface. One cannot
 simply benchmark once and claim performance forever.[^1] Applications
 vary widely. There is no performance-critical situation where
@@ -74,7 +74,7 @@ century. So it goes with software.
 [f1_telemetry]: https://www.metasphere.co.uk/telemetry-data-journey-f1/
 
 To honestly claim performance on a featuresheet, a modern framework
-*must* provide a fast, reliable, and resource-conscious measurement
+_must_ provide a fast, reliable, and resource-conscious measurement
 subsystem, as well as a clear API for accessing the
 measurements. These are good uses of your server cycles. PayPal's
 internal Python framework does all of this on top of [SuPPort][support],
@@ -102,8 +102,9 @@ provisional and temporary. Today, we need software that provides
 idiomatic facilities for live measurement every individual system's
 true performance.
 
-[^1]: I'm not naming names. Yet. You can
-      [follow me on Twitter][mhashemi_tw] in case that changes.
+[^1]:
+    I'm not naming names. Yet. You can
+    [follow me on Twitter][mhashemi_tw] in case that changes.
 
 [esp]: http://shop.oreilly.com/product/0636920047346.do
 [mhashemi_tw]: https://twitter.com/mhashemi
