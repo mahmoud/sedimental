@@ -6,11 +6,11 @@ tags:
   - work
   - python
 edits:
-  - ['2015-08-25', 'Retired eBay Now link and swapped Balanced link for Venmo']
+  - ["2015-08-25", "Retired eBay Now link and swapped Balanced link for Venmo"]
 ---
 
-*(Originally posted [on the PayPal Engineering blog][orig_post], reproduced here
- with minor updates, link fixes, etc.)*
+_(Originally posted [on the PayPal Engineering blog][orig_post], reproduced here
+with minor updates, link fixes, etc.)_
 
 [orig_post]: https://www.paypal-engineering.com/2014/12/10/10-myths-of-enterprise-python/
 
@@ -32,14 +32,14 @@ production PayPal Python code from nearly **15 years ago**.
 
 Today, Python powers **over 50 projects**, including:
 
-  * **Features and products**, such as **eBay Now** and [RedLaser][redlaser]
-  * **Operations and infrastructure**, both [OpenStack][openstack] and proprietary
-  * **Mid-tier services and applications**, like the one used to set
-    PayPal's prices and check customer feature eligibility
-  * **Monitoring agents and interfaces**, used for several deployment and
-    security use cases
-  * **Batch jobs for data import**, price adjustment, and more
-  * And far too many developer tools to count
+- **Features and products**, such as **eBay Now** and [RedLaser][redlaser]
+- **Operations and infrastructure**, both [OpenStack][openstack] and proprietary
+- **Mid-tier services and applications**, like the one used to set
+  PayPal's prices and check customer feature eligibility
+- **Monitoring agents and interfaces**, used for several deployment and
+  security use cases
+- **Batch jobs for data import**, price adjustment, and more
+- And far too many developer tools to count
 
 In the coming series of posts I'll detail the initiatives and
 technologies that led the eBay/PayPal Python community to grow from
@@ -50,11 +50,11 @@ debunk the most in eBay and PayPal's enterprise environments.
 [braintree]: https://www.braintreepayments.com/
 [python]: https://www.python.org/
 [ebay_local]: http://www.ebay.com/lcl/
-[redlaser]: http://redlaser.com/
+[redlaser]: https://www.crunchbase.com/organization/redlaser
 [openstack]: http://www.openstack.org/
 
-
 <a name="myth-1"></a>
+
 ## <a href="#python-is-new" name="python-is-new">Myth #1</a>: Python is a new language
 
 What with all the startups using it and [kids learning it
@@ -73,8 +73,8 @@ story][python_history].
 [guido_wp]: https://en.wikipedia.org/wiki/Guido_van_Rossum
 [python_history]: http://python-history.blogspot.com/2009/01/introduction-and-overview.html
 
-
 <a name="myth-2"></a>
+
 ## <a href="#python-is-not-compiled" name="python-is-not-compiled">Myth #2</a>: Python is not compiled
 
 While not requiring a separate compiler toolchain like C++, Python is
@@ -98,8 +98,8 @@ state. See the next myth for even more Python security implications.
 [c_intercept]: http://www.opensourceforu.com/2011/08/lets-hook-a-library-function/
 [java_intercept]: http://docs.oracle.com/javase/6/docs/api/java/lang/instrument/Instrumentation.html
 
-
 <a name="myth-3"></a>
+
 ## <a href="#python-is-not-secure" name="python-is-not-secure">Myth #3</a>: Python is not secure
 
 Python's affinity for the lightweight may not make it seem formidable,
@@ -125,13 +125,13 @@ adoption at PayPal (and eBay) within the application security
 group. Here are just a few security-based applications utilizing
 Python for PayPal's security-first environment:
 
-  * Creating security agents for facilitating key rotation and
-    consolidating cryptographic implementations
-  * Integrating with industry-leading
-    <acronym title="Hardware Security Module">[HSM][hsm]</acronym> technologies
-  * Constructing TLS-secured wrapper proxies for less-compliant stacks
-  * Generating keys and certificates for our internal mutual-authentication schemes
-  * Developing active vulnerability scanners
+- Creating security agents for facilitating key rotation and
+  consolidating cryptographic implementations
+- Integrating with industry-leading
+  <acronym title="Hardware Security Module">[HSM][hsm]</acronym> technologies
+- Constructing TLS-secured wrapper proxies for less-compliant stacks
+- Generating keys and certificates for our internal mutual-authentication schemes
+- Developing active vulnerability scanners
 
 Plus, myriad Python-built operations-oriented systems with security
 implications, such as firewall and connection management. In the
@@ -148,8 +148,8 @@ Python security particulars.
 [hashlib]: https://docs.python.org/2/library/hashlib.html
 [hsm]: https://en.wikipedia.org/wiki/Hardware_security_module
 
-
 <a name="myth-4"></a>
+
 ## <a href="#python-is-for-scripting" name="python-is-for-scripting">Myth #4</a>: Python is a scripting language
 
 Python can indeed be used for scripting, and is one of the forerunners
@@ -159,20 +159,20 @@ ubiquity among Linux, Macs, and other Unix machines.
 In fact, Python may be one of the most flexible technologies among
 general-use programming languages. To list just a few:
 
-  1. Telephony infrastructure ([Twilio][twilio])
-  2. Payments systems ([PayPal][paypal], [Venmo](venmo))
-  3. Neuroscience and psychology ([citation][neuroscience])
-  4. Numerical analysis and engineering ([numpy][numpy], [numba][numba], and [many more][numerical])
-  5. Animation ([LucasArts][lucasarts], [Disney][disneytech], [Dreamworks][dreamworks])
-  6. Gaming backends ([Eve Online][eve_online], [Second Life][second_life], [Battlefield][battlefield], and [so many others][other_games])
-  7. Email infrastructure ([Mailman][mailman], [Mailgun][mailgun])
-  8. Media storage and processing ([YouTube][youtube], [Instagram][instagram], [Dropbox][dropboxtech])
-  9. Operations and systems management ([Rackspace][rackspace], [OpenStack][openstack])
-  10. Natural language processing ([NLTK][nltk])
-  11. Machine learning and computer vision ([scikit-learn][scikit], [Orange][orange], [SimpleCV][simplecv])
-  12. Security and penetration testing ([so many][pentest])
-  13. Big Data ([Disco][disco], [Hadoop support][hadoop])
-  14. Internet infrastructure (DNS) ([BIND 10][bind10])
+1. Telephony infrastructure ([Twilio][twilio])
+2. Payments systems ([PayPal][paypal], [Venmo][venmo])
+3. Neuroscience and psychology ([citation][neuroscience])
+4. Numerical analysis and engineering ([numpy][numpy], [numba][numba], and [many more][numerical])
+5. Animation ([LucasArts][lucasarts], [Disney][disneytech], [Dreamworks][dreamworks])
+6. Gaming backends ([Eve Online][eve_online], [Second Life][second_life], [Battlefield][battlefield], and [so many others][other_games])
+7. Email infrastructure ([Mailman][mailman], [Mailgun][mailgun])
+8. Media storage and processing ([YouTube][youtube], [Instagram][instagram], [Dropbox][dropboxtech])
+9. Operations and systems management ([Rackspace][rackspace], [OpenStack][openstack])
+10. Natural language processing ([NLTK][nltk])
+11. Machine learning and computer vision ([scikit-learn][scikit], [Orange][orange], [SimpleCV][simplecv])
+12. Security and penetration testing ([so many][pentest])
+13. Big Data ([Disco][disco], [Hadoop support][hadoop])
+14. Internet infrastructure (DNS) (BIND 10)
 
 Not to mention websites and web services aplenty. In fact, PayPal
 engineers seem to have a penchant for going on to start Python-based
@@ -183,17 +183,17 @@ web properties. [YouTube][youtube] and [Yelp][yelp], for instance.
 [paypal]: https://en.wikipedia.org/wiki/PayPal
 [balanced]: https://www.balancedpayments.com/
 [numpy]: https://en.wikipedia.org/wiki/NumPy
-[numba]: http://numba.pydata.org/
+[numba]: http://numba.pydata.org/bin
 [numerical]: https://wiki.python.org/moin/NumericAndScientific
 [lucasarts]: https://en.wikipedia.org/wiki/LucasArts
-[disneytech]: http://www.disneyanimation.com/technology/opensource
+[disneytech]: https://disneyanimation.com/open-source/
 [dreamworks]: https://en.wikipedia.org/wiki/DreamWorks_Animation
 [eve_online]: https://en.wikipedia.org/wiki/Eve_Online
 [second_life]: https://en.wikipedia.org/wiki/Second_Life
 [battlefield]: https://en.wikipedia.org/wiki/Battlefield_(series)
 [other_games]: https://wiki.python.org/moin/PythonGames
 [mailman]: https://en.wikipedia.org/wiki/GNU_Mailman
-[mailgun]: http://www.rackspace.com/mailgun
+[mailgun]: https://www.mailgun.com/
 [youtube]: https://en.wikipedia.org/wiki/YouTube
 [instagram]: http://instagram-engineering.tumblr.com/post/13649370142/what-powers-instagram-hundreds-of-instances
 [dropboxtech]: https://tech.dropbox.com/
@@ -208,8 +208,8 @@ web properties. [YouTube][youtube] and [Yelp][yelp], for instance.
 [hadoop]: http://blog.cloudera.com/blog/2013/01/a-guide-to-python-frameworks-for-hadoop/
 [yelp]: http://yelp.com
 
-
 <a name="myth-5"></a>
+
 ## <a href="#python-is-weakly-typed" name="python-is-weakly-typed">Myth #5</a>: Python is weakly-typed
 
 Python's type system is characterized by strong, dynamic
@@ -217,9 +217,9 @@ typing. [Wikipedia can explain more][type_systems].
 
 Not that it is a competition, but as a fun fact, Python is more
 strongly-typed than Java. Java has a split type system for primitives
-and objects, with ``null`` lying in a sort of gray area. On the other
+and objects, with `null` lying in a sort of gray area. On the other
 hand, modern Python has a unified strong type system, where the type
-of ``None`` is well-specified. Furthermore, the JVM itself is also
+of `None` is well-specified. Furthermore, the JVM itself is also
 dynamically-typed, as it [traces its roots back][jvm_history] to an
 implemention of a Smalltalk VM acquired by Sun.
 
@@ -230,20 +230,20 @@ enterprise use there are much bigger concerns at hand.
 [jvm_history]: https://en.wikipedia.org/wiki/HotSpot#History
 [python_data_model]: https://docs.python.org/2/reference/datamodel.html
 
-
 <a name="myth-6"></a>
+
 ## <a href="#python-is-slow" name="python-is-slow">Myth #6</a>: Python is slow
 
 First, a critical distinction: Python is a programming language, not a
 runtime. There are several Python implementations:
 
-  1. [**CPython**][cpython] is the reference implementation, and also the most widely
-     distributed and used.
-  2. [**Jython**][jython] is a mature implementation of Python for usage with the JVM.
-  3. [**IronPython**][ironpython] is Microsoft's Python for the Common Language Runtime, aka .NET.
-  4. [**PyPy**][pypy] is an up-and-coming implementation of Python, with advanced
-     features such as JIT compilation, incremental garbage collection,
-     and more.
+1. [**CPython**][cpython] is the reference implementation, and also the most widely
+   distributed and used.
+2. [**Jython**][jython] is a mature implementation of Python for usage with the JVM.
+3. [**IronPython**][ironpython] is Microsoft's Python for the Common Language Runtime, aka .NET.
+4. [**PyPy**][pypy] is an up-and-coming implementation of Python, with advanced
+   features such as JIT compilation, incremental garbage collection,
+   and more.
 
 Each runtime has its own performance characteristics, and none of them
 are slow per se. The more important point here is that it is a mistake
@@ -254,11 +254,11 @@ use case.
 Having cleared that up, here is a small selection of cases where
 Python has offered significant performance advantages:
 
-  1. Using [NumPy][numpy] as [an interface to Intel's MKL SIMD][intel_mkl]
-  2. [PyPy][pypy]'s JIT compilation [achieves faster-than-C performance][pypy_c]
-  3. [Disqus][disqus] scales from [250 to 500 million users on the same 100 boxes][disqus_scale]
+1. Using [NumPy][numpy] as [an interface to Intel's MKL SIMD][intel_mkl]
+2. [PyPy][pypy]'s JIT compilation [achieves faster-than-C performance][pypy_c]
+3. [Disqus][disqus] scales from [250 to 500 million users on the same 100 boxes][disqus_scale]
 
-Admittedly these are not the newest examples, just my favorites.  It
+Admittedly these are not the newest examples, just my favorites. It
 would be easy to get side-tracked into the wide world of
 high-performance Python and the unique offerings of runtimes. Instead
 of addressing individual special cases, attention should be drawn to
@@ -268,10 +268,10 @@ performance, especially in an enterprise setting.
 Given enough time, a disciplined developer can execute the only proven
 approach to achieving accurate and performant software:
 
-  1. **Engineer** for correct behavior, including the development of respective tests
-  2. **Profile** and measure performance, identifying bottlenecks
-  3. **Optimize**, paying proper respect to the test suite and [Amdahl's Law][amdahls],
-  and taking advantage of Python's strong roots in C.
+1. **Engineer** for correct behavior, including the development of respective tests
+2. **Profile** and measure performance, identifying bottlenecks
+3. **Optimize**, paying proper respect to the test suite and [Amdahl's Law][amdahls],
+   and taking advantage of Python's strong roots in C.
 
 It might sound simple, but even for seasoned engineers, this can be a
 very time-consuming process. Python was designed from the ground up
@@ -293,9 +293,9 @@ careful tailoring and optimization. You know, the fun stuff.
 [intel_mkl]: https://software.intel.com/en-us/articles/numpyscipy-with-intel-mkl
 [amdahls]: https://en.wikipedia.org/wiki/Amdahl%27s_law
 
-
 <a name="myth-7"></a>
-## <a href="python-does-not-scale" name="python-does-not-scale">Myth #7</a>: Python does not scale
+
+## <a href="#python-does-not-scale" name="python-does-not-scale">Myth #7</a>: Python does not scale
 
 Scale has many definitions, but by any definition, [YouTube is a web
 site at scale][youtube_scale]. More than 1 billion unique visitors per
@@ -334,11 +334,11 @@ is built with [profiling][profilers] and optimization in mind. See
 [bittorrent]: http://bittorrent.cvs.sourceforge.net/viewvc/bittorrent/BitTorrent/
 [profilers]: https://docs.python.org/2/library/profile.html
 
-
 <a name="myth-8"></a>
+
 ## <a href="#python-lacks-concurrency" name="python-lacks-concurrency">Myth #8</a>: Python lacks good concurrency support
 
-Occasionally debunking [performance](#myth-6) and [scaling](myth-7)
+Occasionally debunking [performance](#myth-6) and [scaling](#myth-7)
 myths, and someone tries to get technical, "Python lacks concurrency,"
 or, "What about the GIL?" If dozens of counterexamples are
 insufficient to bolster one's confidence in Python's ability to scale
@@ -378,17 +378,16 @@ still see millions of requests per machine per day, handled with ease.
 [greenlet]: https://greenlet.readthedocs.org/en/latest/
 [deferred]: https://twistedmatrix.com/documents/14.0.0/core/howto/defer.html
 [futures]: http://pythonhosted.org/futures/
-[eventlet]: http://eventlet.net/
+[eventlet]: https://eventlet.readthedocs.io/en/latest/
 [gevent]: http://www.gevent.org/
 [greenthreads]: https://en.wikipedia.org/wiki/Green_threads
-[twisted]: https://twistedmatrix.com/trac/
+[twisted]: https://twisted.org/
 [stackless]: http://www.stackless.com/
-
 [why_gil]: http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil
 [conc_overview]: https://docs.python.org/3/library/concurrency.html
 
-
 <a name="myth-9"></a>
+
 ## <a href="#python-programmers-scarce" name="python-programmers-scarce">Myth #9</a>: Python programmers are scarce
 
 There is some truth to this myth. There are not as many Python web
@@ -423,12 +422,12 @@ experience at eBay and PayPal.
 [python_kids]: http://www.nostarch.com/pythonforkids
 [python_google_class]: https://developers.google.com/edu/python/?csw=1
 
-
 <a name="myth-10"></a>
+
 ## <a href="#python-not-for-big-projects" name="python-not-for-big-projects">Myth #10</a>: Python is not for big projects
 
 [Myth #7](#myth-7) discussed running Python projects at scale, but
-what about *developing* Python projects at scale? As mentioned in
+what about _developing_ Python projects at scale? As mentioned in
 [Myth #9](#myth-9), most Python projects tend not to be
 people-hungry. while Instagram reached hundreds of millions of hits a
 day at the time of their [billion dollar acquisition][instagram_acq],
@@ -457,7 +456,7 @@ Finally, it should be noted that, in addition to the scheduling
 speedups mentioned in [Myth #6](#myth-6) and [#7](#myth-7), projects
 using Python generally require fewer developers, as well. Our most
 common success story starts with a Java or C++ project slated to take
-a team of 3-5 developers somewhere between 2-6 *months*, and ends with
+a team of 3-5 developers somewhere between 2-6 _months_, and ends with
 a single motivated developer completing the project in 2-6
 **weeks**. It's not unheard of for some projects to take hours instead
 of weeks, as well.
@@ -482,7 +481,7 @@ externally, because implied in every myth is a recognition of Python's
 strengths. Also, remember that the appearance of these seemingly tedious
 and troublesome concerns is a sign of steadily growing interest, and
 with steady influx of interested parties comes the constant job of
-education.  Here's hoping that this post manages to extinguish a flame
+education. Here's hoping that this post manages to extinguish a flame
 war and enable a project or two to talk about the real work that can
 be achieved with Python.
 
