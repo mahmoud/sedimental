@@ -8,7 +8,6 @@ tags:
   - education
   - esp
 publish_date: 4:04AM March 22, 2016
-
 ---
 
 When I first published [10 Myths of Enterprise Python][10moep] on
@@ -31,7 +30,7 @@ software development.
 
 Really I should have seen it coming. For the better part of a decade,
 Python has provided me the best vocabulary for answering questions
-from motivated individuals looking for programming productivity.  It's
+from motivated individuals looking for programming productivity. It's
 only logical that once they got the basics down, they'd want to take
 it to the next level.
 
@@ -43,26 +42,28 @@ from beginner to pro[^1], brought to you by
 It's got something for everyone, but really it's designed with three
 groups in mind:
 
-[^1]: This link has a 50% off coupon code, applied at checkout. Check
-      if your organization has Safari, first. If not, use
-      [this coupon-less link][esp_nocoup] and expense it! :) Safari
-      users, try [Techbus][tbs] or [the SBO site][sbo]. If you're not
-      sure if you have Safari access, contact your technology
-      education and training department.
+[^1]:
+    This link has a 50% off coupon code, applied at checkout. Check
+    if your organization has Safari, first. If not, use
+    [this coupon-less link][esp_nocoup] and expense it! :) Safari
+    users, try [the SBO site][sbo]. If you're not
+    sure if you have Safari access, contact your technology
+    education and training department.
 
-* **Recently-graduated and self-taught developers**, looking for a holistic
+- **Recently-graduated and self-taught developers**, looking for a holistic
   introduction to enterprise software.
-* **Experienced developers at large organizations**, looking for a relatable
+- **Experienced developers at large organizations**, looking for a relatable
   orientation to Python industry standards.
-* **Technical team leaders with priorities**, looking to quickly get
+- **Technical team leaders with priorities**, looking to quickly get
   groups on the same page of vocabulary, expectations, and practice.[^4me]
 
-[^4me]: This target audience is me, but I know there are others out
-        there. *Send me your tiring, huddled masses yearning to learn
-        Python.* Seriously though, I can't fully quantify how much
-        time it saves me to send a new Python initiate to a video,
-        then have them come back with the foundations necessary to
-        have a productive conversation.
+[^4me]:
+    This target audience is me, but I know there are others out
+    there. _Send me your tiring, huddled masses yearning to learn
+    Python._ Seriously though, I can't fully quantify how much
+    time it saves me to send a new Python initiate to a video,
+    then have them come back with the foundations necessary to
+    have a productive conversation.
 
 As the title suggests, ESP is more than a Python class. While the
 perspective is Pythonic and there are several examples in Python, this
@@ -75,47 +76,43 @@ good table of contents, so this is how the course is factored to
 address all of these:
 
 1. **Introductions and definitions** - A bit about me, a bunch about the course.
-    1. [Overview][samp_overview]
-    2. [Prerequisites and viewing guide][samp_prereqs]
+   1. Overview
+   2. Prerequisites and viewing guide
 2. **Definitions and foundations** - Know your domain, know your platform.
-    1. [What is Enterprise Software?][samp_es] - 9 Hallmarks of the Enterprise
-    2. What is Python? 3 Perspectives for the Organization
-    3. What is Python *Not*? 4 Common Misconceptions
-    4. When to Use Python? Motivations and Applications
+   1. What is Enterprise Software? - 9 Hallmarks of the Enterprise
+   2. What is Python? 3 Perspectives for the Organization
+   3. What is Python _Not_? 4 Common Misconceptions
+   4. When to Use Python? Motivations and Applications
 3. **Architecture and design** - Do your research, present your findings.
-    1. Designing Architectures: Professional Planning
-    2. Gathering Requirements: Understanding the 6 Aspects of Software
-    3. Researching Environments: From Production to Development
-    4. Choosing Dependencies: Evaluating Building Blocks
-    5. Getting Assistance: Finding Help in the Software World
-    6. Presenting Designs: Navigating the Organizational and Interpersonal
+   1. Designing Architectures: Professional Planning
+   2. Gathering Requirements: Understanding the 6 Aspects of Software
+   3. Researching Environments: From Production to Development
+   4. Choosing Dependencies: Evaluating Building Blocks
+   5. Getting Assistance: Finding Help in the Software World
+   6. Presenting Designs: Navigating the Organizational and Interpersonal
 4. **Engineering practices** - Execution and delivery with minimal regret.
-    1. Development Environments: Editors and Dev Tools
-    2. Source Control, Issue Tracking, and Continuous Integration
-    3. Workflow: Starting a Python Project
-    4. Design Patterns: Idioms for Python Projects
-    5. Debugging: Solving Problems in Python projects
-    6. Security: Software Risk Management Fundamentals
-    7. Code Review: Python Antipatterns and Collaboration
-    8. Testing: Practical Python Quality Engineering
-    9. Logging and Monitoring: Introspectable Python Projects
-    10. Profiling and Performance: Strategies for High-Speed Python
-    11. Documentation: Preserving the Legacy
-    12. Packaging and Deployment: Going Live
+   1. Development Environments: Editors and Dev Tools
+   2. Source Control, Issue Tracking, and Continuous Integration
+   3. Workflow: Starting a Python Project
+   4. Design Patterns: Idioms for Python Projects
+   5. Debugging: Solving Problems in Python projects
+   6. Security: Software Risk Management Fundamentals
+   7. Code Review: Python Antipatterns and Collaboration
+   8. Testing: Practical Python Quality Engineering
+   9. Logging and Monitoring: Introspectable Python Projects
+   10. Profiling and Performance: Strategies for High-Speed Python
+   11. Documentation: Preserving the Legacy
+   12. Packaging and Deployment: Going Live
 5. **Career development and further study** - A good end offers a dozen new beginnings.
-    1. Project Ideas: Building Experience
-    2. Technology Evangelism: Building a Community
-    3. Other Resources: Building Skills
-    4. Closing
-
-[samp_overview]: http://player.oreilly.com/videos/9781491943755?toc_id=239870
-[samp_prereqs]: http://player.oreilly.com/videos/9781491943755?toc_id=239871
-[samp_es]: http://player.oreilly.com/videos/9781491943755?toc_id=239872
+   1. Project Ideas: Building Experience
+   2. Technology Evangelism: Building a Community
+   3. Other Resources: Building Skills
+   4. Closing
 
 Yes, it is a lot. I never pass on an opportunity to give a
 comprehensive treatment, but I'll save the whole motivation and process
 essay for later. For now, keep in mind that most segments are under 20
-minutes, and the longest, *Profiling and Performance*, is only 45
+minutes, and the longest, _Profiling and Performance_, is only 45
 minutes — shorter than most orgs' tech talks. It's all compact and
 practical, right down to [the example repo][espymetrics].
 
@@ -141,12 +138,9 @@ reach out [to me][tw_me], [personally][about], or
 [I hope you'll take a look][esp]! It's already making waves at PayPal,
 and chances are there's someone you know who could use it, too.
 
-[esp]: http://shop.oreilly.com/product/0636920047346.do?code=authd
+[esp]: https://www.oreilly.com/library/view/enterprise-software-with/9781491943755/
 [esp_nocoup]: http://shop.oreilly.com/product/0636920047346.do
-
-[tbs]: http://techbus.safaribooksonline.com/video/programming/python/9781491943755
 [sbo]: https://www.safaribooksonline.com/library/view/enterprise-software-with/9781491943755/
-
 [espymetrics]: https://github.com/mahmoud/espymetrics/
 
 <!--

@@ -2,9 +2,9 @@
 title: "Enterprise Overhaul: Resolving DNS"
 publish_date: 3:13am December 21, 2015
 tags:
- - python
- - code
- - work
+  - python
+  - code
+  - work
 ---
 
 <!-- Enterprise Overhaul: Resolving DNS -->
@@ -13,14 +13,11 @@ tags:
 <!-- aka Using DNS in Enterprise Environments -->
 <!-- aka "In With The Old: Enterprise DNS Considerations" -->
 
-*Originally published on
- [the PayPal Engineering blog][pp_eng_blog]. Republished here with
- minor modifications and updates. If you find these sorts of systems
- interesting and know some security, too,
- [consider working with us][job_desc]!*
+_Originally published on
+[the PayPal Engineering blog][pp_eng_blog]. Republished here with
+minor modifications and updates._
 
-[pp_eng_blog]: https://www.paypal-engineering.com/2015/12/16/enterprise-overhaul-resolving-dns/
-[job_desc]: https://www.python.org/jobs/734/
+[pp_eng_blog]: https://medium.com/paypal-tech/enterprise-overhaul-resolving-dns-521dac3ab601
 
 Everyone assumes all software engineers are great with numbers. If
 only they knew the truth. How many people's phone numbers can you
@@ -30,9 +27,9 @@ day: How many sites' IP addresses can you name? No pinging and local
 subnets don't count!
 
 <img width="50%" title="Most telephones still looked like this when
-DNS was invented." src="/uploads/illo/mjc/telephone.png"><br/>*Most
+DNS was invented." src="/uploads/illo/mjc/telephone.png"><br/>_Most
 telephones still looked like this when DNS was invented. Not pictured:
-the phonebook.*
+the phonebook._
 
 Back in the mid-1980s, the first Domain Name System ([DNS][dns])
 implementations started putting our IP addresses into server-based
@@ -56,7 +53,7 @@ reliability and performance.
 
 ## A protocol precaution
 
-The client side of DNS, *resolution*, is virtually all
+The client side of DNS, _resolution_, is virtually all
 [UDP][udp]. This is interesting because UDP is designed as a
 lightweight, [unreliable][net_reliability] transport. However, in many
 of the most common use cases, DNS calls precede [TCP][tcp]-backed
@@ -116,9 +113,9 @@ citizens, not reliable and performant enterprise foundations.
 <a target="_blank"
 href="https://en.wikipedia.org/wiki/Domain_Name_System#Client_lookup"><img
 width="50%" title="The hops Internet applications make for you."
-src="/uploads/DNS_in_the_real_world.svg.png"></a><br/>*The hops Internet-connected
+src="/uploads/DNS_in_the_real_world.svg.png"></a><br/>_The hops Internet-connected
 applications make for you. It's no wonder the default timeout is 5000
-milliseconds.*
+milliseconds._
 
 The first difference is name resolution timeouts. By default,
 [resolve.conf][resolv_conf], [netty][netty_dns], and
@@ -206,10 +203,10 @@ tighter reliability requirements.
 [hosts_file]: https://en.wikipedia.org/wiki/Hosts_%28file%29
 
 <img title="A little peek at PayPal's midtier-to-midtier traffic."
-width="50%" src="/uploads/pp_midtier.png"><br/> *A little peek at
+width="50%" src="/uploads/pp_midtier.png"><br/> _A little peek at
 PayPal's midtier-to-midtier traffic. Each shrunken line of text is a
 service endpoint. It looks like a lot, but each endpoint only talks to
-a few others.*
+a few others._
 
 Whether or not your system uses DNS, when you own the entire network
 it's still best practice to maintain a central, version-controlled,
@@ -229,11 +226,11 @@ designing your service ecosystem.
 
 So, to sum it all up, here are the key takeaways:
 
-* Beware the pitfalls of stateful load-balancing for DNS and UDP.
-* Tighten up your timeouts according to your SLAs.
-* Consider an in-application DNS cache with explicit resolution.
-* The fastest and most reliable request is the request you don't have to make.
-* A datacenter is not the Internet.
+- Beware the pitfalls of stateful load-balancing for DNS and UDP.
+- Tighten up your timeouts according to your SLAs.
+- Consider an in-application DNS cache with explicit resolution.
+- The fastest and most reliable request is the request you don't have to make.
+- A datacenter is not the Internet.
 
 If you're not careful, out-of-box solutions will fill your inbox with
 avoidable problems. Quality enterprise engineering means taking a

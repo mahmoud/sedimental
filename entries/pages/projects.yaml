@@ -265,9 +265,8 @@ description: |
 ---
 title: SuPPort
 est_date: August 20, 2012
-gh_link: https://github.com/paypal/support
 pypi_link: https://pypi.python.org/pypi/support
-announce_link: https://www.paypal-engineering.com/2015/03/17/introducing-support/
+announce_link: https://medium.com/paypal-tech/introducing-support-98945f023a8e
 release_status: Released, archival
 description: |
 

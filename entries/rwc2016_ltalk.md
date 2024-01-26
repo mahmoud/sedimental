@@ -8,9 +8,9 @@ tags:
   - security
 ---
 
-> *Today I had the pleasure of talking on stage for ~2 minutes at the
->  [Real World Crypto 2016 conference][rwc2016] in Stanford, CA. This
->  is a pseudotranscript of that lightning talk.*
+> _Today I had the pleasure of talking on stage for ~2 minutes at the
+> [Real World Crypto 2016 conference][rwc2016] in Stanford, CA. This
+> is a pseudotranscript of that lightning talk._
 
 [rwc2016]: http://www.realworldcrypto.com/
 
@@ -23,7 +23,7 @@ integration, in Python.
 
 These days I work on PayPal's comprehensive key management (and HSM
 integration) system. Suffice to say, we work a lot with encryption and
-secure sockets. *Also* suffice to say, we're a bit nervous about
+secure sockets. _Also_ suffice to say, we're a bit nervous about
 [OpenSSL][openssl]. With all the news lately we've started design
 discussions with regard to how we can hedge our OpenSSL bets.
 
@@ -47,16 +47,13 @@ the implementations. Design for replaceability, to avoid having
 can contact me at [github.com/mahmoud][gh],
 [twitter.com/mhashemi][tw], or [mahmoud@paypal.com][pp].
 
-[pp_blog]: https://www.paypal-engineering.com/tag/python/
-
+[pp_blog]: https://medium.com/paypal-tech/search?q=python
 [openssl]: https://www.openssl.org/
 [libressl]: http://www.libressl.org/
-
 [dbapi2]: https://www.python.org/dev/peps/pep-0249/
 [orm]: https://en.wikipedia.org/wiki/Object-relational_mapping
 [sqla]: http://www.sqlalchemy.org/
 [wolfssl]: https://www.wolfssl.com/wolfSSL/Home.html
-
 [gh]: https://github.com/mhamoud
 [tw]: https://twitter.com/mhashemi
 [pp]: mailto:mahmoud@paypal.com
@@ -64,4 +61,4 @@ can contact me at [github.com/mahmoud][gh],
 <img title="A partially obfuscated view from the stage of RWC2016"
 width="70%" src="/uploads/rwc2016_stage.jpg">
 
-*A partially obfuscated view from the stage of RWC2016*
+_A partially obfuscated view from the stage of RWC2016_
