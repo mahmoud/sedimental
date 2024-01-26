@@ -29,9 +29,9 @@ As we near the end of Ramadan [1436][islamic_calendar], this year has
 proven that even in modern and diverse environs, every year brings the
 same reactions and questions as 1435. Mostly boiling down to:
 
-  * ["What? Not even water?"](#what-not-even-water)
-  * ["Why?"](#why)
-  * ["How?"](#how)
+- ["What? Not even water?"](#what-not-even-water)
+- ["Why?"](#why)
+- ["How?"](#how)
 
 [ramadan]: https://en.wikipedia.org/wiki/Ramadan
 [islamic_calendar]: https://en.wikipedia.org/wiki/Islamic_calendar
@@ -63,10 +63,10 @@ collective diet. Yes, Ramadan is used by many as a springboard to
 stymie smoking, overeating, and other unhealthy physical habits. But
 for me, fasting is about building four virtues:
 
-  * Empathy
-  * Reflection
-  * Discipline
-  * Confidence
+- Empathy
+- Reflection
+- Discipline
+- Confidence
 
 Not exactly the stuff of classrooms and annual compliance
 trainings. And yet people are expected to just find these
@@ -126,6 +126,7 @@ rises to the occasion][discipline], grateful for the opportunity to push through
 and grow.
 
 <!-- It's a bit crude for direct linking, but I didn't have time to find a better one -->
+
 [discipline]: http://www.wisdomination.com/screw-motivation-what-you-need-is-discipline/
 
 All of the above pours into the last attribute. Confidence is deeply
@@ -141,18 +142,17 @@ winners-to-be Germany. People thirst for confidence, not
 water. Ramadan is a reminder that personal excess breeds
 anxiety. Consumerism's advertising immerses us in false
 dependence. Ramadan is the gentle reaffirmation you send yourself
-that, yes, *you* can do more with less.
+that, yes, _you_ can do more with less.
 
 [trago]: https://www.kickstarter.com/projects/905031711/trago-the-worlds-first-smart-water-bottle
 [hidrate]: https://www.kickstarter.com/projects/582920317/hidrateme-smart-water-bottle?ref=video
-[vessyl]: https://www.myvessyl.com/
-
+[vessyl]: https://en.wikipedia.org/wiki/Vessyl
 [hakeem]: http://www.thenational.ae/sport/north-american-sport/ramadan-or-not-hakeem-olajuwon-a-dominant-force-in-nba
 [algeria]: http://www.ibtimes.co.uk/ramadan-2014-did-algeria-lose-germany-because-their-players-were-fasting-1454792
 
 # How?
 
-At this point, the *how* is more of a logistical appendix, but this
+At this point, the _how_ is more of a logistical appendix, but this
 year's approach was particularly successful. Each year, Ramadan's
 approach gets me nervous. No matter how many times I fast, despite
 having survived and thrived not one year ago, I still get skittish at
@@ -162,9 +162,9 @@ and can't help tweaking my design.
 Everyone has different lives and schedules, but my Ramadan unfolds in
 three phases:
 
-  * Phase 1: Just make it through in one piece. The first 4-5 days.
-  * Phase 2: Requires a conscious and concerted effort. The middle twenty days or so.
-  * Phase 3: The fast is the new normal. Usually just the last few days of the month.
+- Phase 1: Just make it through in one piece. The first 4-5 days.
+- Phase 2: Requires a conscious and concerted effort. The middle twenty days or so.
+- Phase 3: The fast is the new normal. Usually just the last few days of the month.
 
 My Ramadan technique goes into effect from day 1. It can be a rough
 transition, involving some falling asleep while eating cereal, but the
@@ -174,27 +174,27 @@ engineer. Not everyone can switch away from a standard
 work-a-day-sleep-at-night schedule. The median practicing Western
 Muslim probably approaches Ramadan like this:
 
-  * Get to work at 9am.
-  * Work til 5pm.
-  * Get home at 6pm. Cook, clean, tend to kids.
-  * Eat at 9pm.
-  * Sleep around midnight.
-  * Wake up before 4am, eat again.
-  * Sleep until 6-8am.
+- Get to work at 9am.
+- Work til 5pm.
+- Get home at 6pm. Cook, clean, tend to kids.
+- Eat at 9pm.
+- Sleep around midnight.
+- Wake up before 4am, eat again.
+- Sleep until 6-8am.
 
 Straightforward enough, but far from optimal. There's no period
 of sleep longer than 4 hours, which leaves my energy on a different
 valence altogether. For the last three years, I've improved on the
 naïve solution, by switching to a [bimodal sleep schedule][bimodal_sleep]:
 
-  * Get to work around 11am.
-  * Skip lunch, hit the books til 5-6pm.
-  * Get home, take a long nap at 7pm. This last bit would just be
-    clockwatching anyways.
-  * Wake up at 9pm. Dinner for breakfast!
-  * Read, write, and code for the next 6 hours.
-  * 3:45am. Eat breakfast, taking care not to fall asleep.
-  * Sleep through til 10am and repeat.
+- Get to work around 11am.
+- Skip lunch, hit the books til 5-6pm.
+- Get home, take a long nap at 7pm. This last bit would just be
+  clockwatching anyways.
+- Wake up at 9pm. Dinner for breakfast!
+- Read, write, and code for the next 6 hours.
+- 3:45am. Eat breakfast, taking care not to fall asleep.
+- Sleep through til 10am and repeat.
 
 It's a fun change of pace. If the workday seems short, keep in mind
 that there are no meal or snack breaks, so it evens out. Similarly,
@@ -213,7 +213,6 @@ thirst. Oh, and
 <img src="/uploads/bubble_water.jpg" width="100%"
 title="Bubble water: It's good for sippin!™"
 /></a>
-
 
 [bimodal_sleep]: https://en.wikipedia.org/wiki/Segmented_sleep
 
