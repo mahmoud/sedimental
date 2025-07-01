@@ -20,7 +20,8 @@ When I'm not doing that, [I make a lot][gh] of
 [open-source software][osp]. I'm [an avid Wikipedian][hn], too. I
 really can't imagine such a thing as too much [free culture][fc]!
 
-Professionally, I'm building [FinFam][finfam]. In the past I've built
+Professionally, I'm building [FinFam][finfam], [a platform for
+collaborative financial planning][finfam]. In the past I've built
 software and led teams at [PayPal][pp_site], [Shopkick][sk_site],
 [SimpleLegal][sl_site], and [Stripe][stripe_site]. For a number of
 years I focused on Python frameworks, with emphasis on robustness,
