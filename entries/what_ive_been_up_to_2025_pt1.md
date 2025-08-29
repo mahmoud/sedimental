@@ -11,7 +11,7 @@ tags:
 
 Been quiet around here. Time to change that!
 
-<img src="/uploads/illo/rocketing.png" alt="We're going on a ride." align="right" width="30%">
+<img src="/uploads/illo/rocketing_sm.png" alt="We're going on a ride." align="right" width="30%">
 
 
 The short version up front:
@@ -97,12 +97,16 @@ We just need to open more fronts to navigate what's in store.
 
 ## Showing vs Telling
 
-My favorite David Lynch (RIP) output isn't one of his films, it's this quote:
+Lately I've been thinking a lot about my favorite David Lynch (RIP) scene.
+It isn't from one of his films, it's this quote:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oQqp8DZ0pSg?si=dhsCqqxPMbEIsbPZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+> "The film is the talking."
+
 I think it perfectly captures the auteur mindset.
-Words are extraneous because the consummate creative expresses themselves better in their native medium.
+Words are extraneous.
+The consummate creative expresses themselves better in their native medium.
 
 Not that I mind words as a medium.
 After years of blogging and speaking, I've grown confident in my ability to tell.
