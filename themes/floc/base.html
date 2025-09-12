@@ -5,7 +5,7 @@
   <title>{+head_title}{site.head_title}{/head_title}</title>
   <meta name="author" content="{site.author_name}">
   <meta name="description" content="{site.tagline}">
-  
+
   <link href="{site.atom_feed_url}" title="{site.head_title} Feed" type="application/atom+xml" rel="alternate" />
 
   <!-- Mobile Specific Meta -->
@@ -64,7 +64,28 @@
   {+content}Page content{/content}
   </main>
   <footer id="footer">
-    {site.copyright_notice|s} <a href="{site.atom_feed_url}"><img height="14" src="/img/feed.png"></a>
+    <div class="newsletter-signup">
+      <h3 id="subscribe-to-the-newsletter">Get updates in your inbox</h3>
+      <p class="newsletter-tagline">Much love to <a href="{site.atom_feed_url}">RSS</a>, but past is present, and email is forever.</p>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/sedimental"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/sedimental', 'popupwindow')"
+        class="embeddable-buttondown-form"
+      >
+        <div class="form-group">
+          <label for="bd-email" class="sr-only">Enter your email</label>
+          <div class="form-input-row">
+            <input type="email" name="email" id="bd-email" placeholder="you@example.com" required />
+            <input type="submit" value="Subscribe" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="footer-content">
+      {site.copyright_notice|s} <a href="{site.atom_feed_url}"><img height="14" src="/img/feed.png"></a>
+    </div>
   </footer>
   <!-- Last generated: {site.last_generated_utc} -->
 </body>

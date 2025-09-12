@@ -12,10 +12,10 @@ site:
       href: /archive.html
     - text: GitHub
       href: https://github.com/mahmoud
-    - text: Twitter
-      href: https://twitter.com/mhashemi
     - text: Feed
       href: /atom.xml
+    - text: Subscribe
+      href: https://buttondown.com/sedimental
   secondary_links:
     - text: Hatnote
       href: /hatnote_projects.html

@@ -33,6 +33,7 @@ took me on a scenic route through [enterprise software](/about.html), [free cult
 
 That very same reality has since conspired to convince me to return to my original aspirations.
 I've lived through some exciting times in software, but nothing like now.
+This isn't something I imagined I'd be working on 10 years ago, but then again it's not something I thought possible even 3 years ago.
 What better time to be building and launching my most ambitious project ever?
 
 Full details on that are coming soon[^soon].
