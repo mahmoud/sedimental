@@ -69,7 +69,7 @@ Millions of people are already collaborating on financial decisions.
 Privately on WhatsApp, obscurely on Discord, and full-blown publicly on Reddit:
 
 - [/r/personalfinance](https://reddit.com/r/personalfinance) - 21 million members
-- [/r/financialindependence](https://reddit.com/r/personalfinance) - 2.3 million
+- [/r/financialindependence](https://reddit.com/r/financialindependence) - 2.3 million
 - [/r/financialplanning](https://reddit.com/r/financialplanning) - 1 million
 
 And dozens more subreddits and Internet forums (shoutout Bogleheads and [Refinery29's Money Diaries](https://www.refinery29.com/en-us/money-diary)).
@@ -82,10 +82,10 @@ For now, suffice to say, we need the tools to catch up to the times.
 
 ## Enter FinFam
 
-FinFam lets families and friends collaborate on financial decisions with each other,
+FinFam[^name] lets families and friends collaborate on financial decisions with each other,
 using expert information without any commitments to said experts.
 
-<img width="100%" src="/uploads/finfam_logo_medium.png" />
+<img width="100%" alt="The FinFam logo." src="/uploads/finfam_logo_medium.png" />
 
 We want to holistically solve the problem of financial decisionmaking
 using interaction models proven by GitHub + StackOverflow + app stores.
@@ -106,7 +106,7 @@ We scale the expert knowledge while embracing the fundamentals of human social t
 My years of work in open-source and wiki ecosystems showed me the power of collaborative, transparent tools.
 FinFam brings that same philosophy to personal finance.
 
-To further scale the knowledge, we make it possible for anyone can create a View.
+To further scale the knowledge, we make it possible for anyone to create a View.
 [The View "source" format](https://docs.finfam.app/guides/basic_view/) is XLSX, and can be edited with Google Sheets, Excel, or LibreOffice.
 Any published View can also be open-sourced.
 Just like with code, financial models are now reviewable, forkable,
@@ -130,3 +130,5 @@ But this feels like we're off to a good start.
 ---
 
 *Want to follow along? [Subscribe to FinFam here](https://finfam.app/blog) and [Sedimental here](https://buttondown.com/sedimental).*
+
+[^name]: If you're wondering about the name, just log in, go to your default space, create a thread, and ask Finn.
