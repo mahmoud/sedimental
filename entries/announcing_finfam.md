@@ -1,12 +1,12 @@
 ---
 title: Announcing FinFam
-publish_date: September 19, 2025
+entry_root: announcing_finfam
+publish_date: 12:00pm September 19, 2025
 tags:
-  - life
   - work
-  - money
-  - startups
+  - finfam
   - fintech
+  - life
 ---
 
 In my [last post](/what_ive_been_up_to_2025_pt1.html), I mentioned founding a startup.
