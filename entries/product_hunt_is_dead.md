@@ -14,7 +14,7 @@ First, the good news.
 It's been one week since [FinFam](https://finfam.app)'s [beta launch](/announcing_finfam.html)!
 The [Show HN post](https://news.ycombinator.com/item?id=45252031) trended nicely,
 netting enough eyeballs to make me confident that FinFam's the world's first and only [collaborative financial planner with a marketplace of interactive, open-source expert opinions](https://finfam.app).
-Especially gratified from the users I'm meeting _through_ the product.
+I'm especially gratified by the users I'm meeting _through_ the product.
 Nothing like it.
 
 So, launch is great, no regrets, right?
@@ -34,7 +34,7 @@ I didn't want others repeating my mistake.
 
 After all, [my launch post on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7373298636744617984/)
 mentioned our ProductHunt launch.
-And now I'm cringing thinking about how I even sent an email out to a few product-oriented friends with a link to our post on ProductHunt.
+And now I'm cringing thinking about how I even sent an email out to few product-oriented friends linking them to our launch, perpetuating to myth.
 
 Hours later I would realize that Product Hunt is sadly no more.
 Gone was the site I knew from my days on [Stripe Invoicing](https://www.producthunt.com/products/stripe/launches/stripe-invoicing).
@@ -64,9 +64,9 @@ But how does a dead platform appear to live on?
 
 ## The Zombie Grift
 
-ProductHunt has a weird quirk where it resets every day at midnight Pacific time.
+Product Hunt has a weird quirk where it resets every day at midnight Pacific time.
 Unlike Hacker News, Reddit, etc.,
-due to this fixed daily scheduling idiosyncrasy, a platform originating in Silicon Valley is unlikely to have its front page content by anyone in the American hemisphere.
+due to this fixed daily scheduling idiosyncrasy, a platform originating in Silicon Valley is unlikely to have its front page content meaningfully decided by anyone in the American hemisphere.
 
 Much like with Hacker News, the first few hours of a post determine its impact.
 Instead, Europe, APAC, and in particular India have an outsized influence.
@@ -86,7 +86,7 @@ Well, your LinkedIn inbox turns into this:
 
 I was taken by surprise.
 What hurt the most was these midnight solicitors sharing screenshots of success stories.
-They'd been instrumental in "launching" apps that I respect, and I'd hoped wouldn't have to stoop to this.
+They'd been instrumental in "launching" apps that I respect, and I'd hoped they wouldn't have to stoop to this.
 I even had personal connections to some of these founders.
 
 Curiosity beckoned, and I engaged with a couple. Here's how their process looks:
@@ -103,9 +103,8 @@ One has to admit, it's tempting. If you've spent months building, $100 feels lik
 **It _is_ nothing.** These aren't real users and PH's audience has never been a source of sticky users.
 $100 is too much to spend on vanity.
 
-If you're curious, you can see the paid votes landing via spikes in
-upvotes speed on [hunted.space](https://hunted.space/).
-It's not hard to eyeball products which get more upvotes in the first two hours than they do the next twenty two.
+If you're curious, you can see the paid votes landing via spikes in upvote speed on [hunted.space](https://hunted.space/).
+It's not hard to eyeball products which get more upvotes in the first two hours than they do in the next twenty-two.
 
 ## Can Product Hunt be revived?
 
@@ -138,7 +137,7 @@ Contrast this with [Indie Hackers](https://www.indiehackers.com/), which is unit
 Or contrast to one of my personal faves: [AlternativeTo](https://alternativeto.net/),
 which takes a wiki approach toward the mission of cataloging all software, not just the newest.
 
-## Goodbye ProductHunt
+## Goodbye Product Hunt
 
 I guess if this ends up being PH's epitaph I should get this out of my system:
 
