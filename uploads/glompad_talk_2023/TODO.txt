@@ -1,0 +1,36 @@
+* [x] Add libraries to Intro
+* Add boltons slide
+* [x] adjust get_path example to not use numbers
+* [x] Move multi-deep get before declarative transformation slide (15)
+* [x] split adding bad data and pattern matching into separate code blocks
+* [x] context switching move down the bullet list
+* >>> <- Design slide
+* additional design inspiration
+* glompad demo before features?
+* Say I not we
+* zoom in
+* Playwright logo / desc
+* [x] fix panel demo height
+* Design slide needs fix
+
+----
+
+
+
+* quick demo
+* glom history
+* glompad  
+* learnings from building glompad
+* historical attempts
+* how to get started
+* conclusion 
+
+* add reactpy (IDOM) to pyreact slide 
+* Architecture summary + diagram
+  * Best of both ecosystems (e.g., CodeMirror only in JS)
+* Python Syntax, Python stdlib, Python ecosystem, DOM access, and JS interaction (bidirectional communication)
+  * Careful: Proxy objects
+  * Careful: Full stdlib (e.g., ssl)
+* The reason we're late to the party isn't Python.
+  * JS has been the only game in town for a reason
+* You can build a SPA (Single-Page Application) in Python in 2023

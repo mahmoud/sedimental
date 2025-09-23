@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>A Journey from Back to Front</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/simple.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/atom-one-light.css" />
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <link rel="stylesheet" href="./_assets/glompad_talk_styles.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+<div class="r-fit-text">
+<h2>A Journey from </h2>
+<h2>Back to Front</h2>
+</div>
+
+### Python in the Browser
+
+<small>
+Mahmoud Hashemi
+| SF Python
+| 2023-02-08
+</small></script></section><section  data-markdown><script type="text/template">
+# Intro
+
+* I'm Mahmoud
+* On parental leave
+* Awesome Python Applications
+* calver.org (and 0ver.org)
+* boltons and other Python libraries
+* Working on something new
+
+<img class="fragment" width="30%" align="right" src="me_mina.jpg">
+</script></section><section  data-markdown><script type="text/template">## Something completely different
+
+* Started a project last year.
+* Launched it... today!
+* Here: https://yak.party/glompad
+</script></section><section  data-markdown><script type="text/template"># Demo <!-- .element: class="r-fit-text"  --></script></section><section  data-markdown><script type="text/template">
+## PyScript demo
+
+<div style="font-size: 20px !important; text-align: left;">
+  <py-repl id="my-repl" output="demo-1-output">
+  # this is definitely not JS/TS
+  import sys
+  list(sys.modules.keys())[:15]
+  </py-repl>
+  <div id="demo-1-output"></div>
+</div>
+
+<aside class="notes"><p>Audience Qs: Who knew this was possible? Who&#39;s done this before?</p>
+</aside></script></section><section  data-markdown><script type="text/template"># Roadmap
+
+1. Declarative data transformation
+2. glompad: glom in a not-shell
+3. Learnings
+4. Web history repeating itself?
+5. Getting started
+</script></section><section  data-markdown><script type="text/template"># Transforming data</script></section><section  data-markdown><script type="text/template">## Real world data 
+
+It doesn't fit on slides.
+
+<img class="mid" src="real_world_data.png"></script></section><section  data-markdown><script type="text/template">
+## Deep-get
+
+Real data runs deep.
+
+```python
+>>> from boltons.iterutils import get_path
+>>> root = {'a': {'b': {'c': [['d'], ['e'], ['f']]}}}
+>>> get_path(root, ('a', 'b', 'c', 2, 0))
+'f'
+```
+
+But why?
+</script></section><section  data-markdown><script type="text/template">
+## Better errors
+
+Which would you rather debug?
+
+```python
+>>> root = {'a': {'b': {'c': [['d'], ['e'], ['f']]}}}
+>>> root['a']['b']['c'][2][1]
+...
+IndexError: list index out of range
+```
+
+Or:
+
+```
+PathAccessError: could not access 2 from path ('a', 'b', 'c', 2, 1), 
+  got error: IndexError('list index out of range')
+```
+</script></section><section  data-markdown><script type="text/template">## That was 2015. 
+
+We were just getting started.</script></section><section  data-markdown><script type="text/template"></script></section><section  data-markdown><script type="text/template">## 2018: glom 0.1
+
+Concept outgrew boltons.
+
+```python
+target = {'a': {'b': {'c': 'd'}}}
+glom(target, 'a.b.c')
+# 'd'
+```
+
+But deep-get was just the beginning.
+</script></section><section  data-markdown><script type="text/template">
+## Beyond paths
+
+*Multi* deep-get:
+
+```python
+target = {'data': {'id': 2, 'date': '1999-01-01', 'name': 'Foo'}}
+
+spec = {'id': 'data.id',
+        'date': 'data.date'}
+
+glom(target, spec)
+```
+
+Output:
+```python
+{'id': 2,
+ 'date': '1999-01-01'}
+
+```
+
+*Recursively.*</script></section><section  data-markdown><script type="text/template">
+## Declarative data transformation
+
+* Like templates. But for your data.
+* Smaller, better code
+* Fewer, better errors
+</script></section><section  data-markdown><script type="text/template">
+## 2023: glom 23.1
+
+So many new features
+
+* Star paths
+* Deep assignment / deletion
+* Streaming
+* Flattening
+* Pattern matching / validation
+* Errors 2.0
+
+</script></section><section  data-markdown><script type="text/template">### Star paths
+
+Wildcard selectors, both recursive and not.
+
+```python
+glom({'a': [{'k': 'v1'}, {'k': 'v2'}]}, 'a.*.k')  # * is single-level
+# ['v1', 'v2']
+
+glom({'a': [{'k': 'v3'}, {'k': 'v4'}]}, '**.k')  # ** is recursive
+# ['v3', 'v4']
+```
+</script></section><section  data-markdown><script type="text/template">### Deep assignment
+
+Not just for immutable transformation anymore!
+
+```python
+target = {'a': [{'b': 'c'}, {'d': None}]}
+assign(target, 'a.1.d', 'e')  # let's give 'd' a value of 'e'
+# {'a': [{'b': 'c'}, {'d': 'e'}]}
+```
+
+Also deep deletion.
+
+```python
+target = {'a': [{'b': 'c'}, {'d': None}]}
+delete(target, 'a.0.b')
+# {'a': [{}, {'d': None}]}
+```
+
+<!-- ^ TOO LONG --></script></section><section  data-markdown><script type="text/template">### Streaming
+
+```python
+target = [1, 2, None, None, 3, None, 3, None, 2, 4]
+
+spec = Iter().filter().unique()  # this gives a streaming generator when evaluated
+glom(target, spec.all())  # .all() converts the generator to a list
+# [1, 2, 3, 4]
+```
+</script></section><section  data-markdown><script type="text/template">### Pattern matching
+
+Not just for transformation anymore! Also validation:
+
+```python
+# load some data
+target = [{'id': 1, 'email': 'alice@example.com'}, 
+          {'id': 2, 'email': 'bob@example.com'}]
+
+# let's validate that the data has the types we expect
+spec = Match([{'id': int, 'email': str}])
+
+result = glom(target, spec)
+# result here is equal to the data itself
+```
+</script></section><section  data-markdown><script type="text/template">### Even better errors
+
+Add bad data:
+```python
+>>> target.append({"id": "3", "email": "charlie@example.com"})
+```
+
+Then: 
+```
+>>> result = glom(target, spec)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "../glom/core.py", line 2294, in glom
+    raise err
+glom.matching.TypeMatchError: error raised while processing, details below.
+ Target-spec trace (most recent last):
+ - Target: [{"email": "alice@example.com", "id": 1}, {"email": "bob@example.com", "id": 2}, (len=3)
+ - Spec: Match([{"email": str, "id": int}])
+ - Spec: [{"email": str, "id": int}]
+ - Target: {"email": "charlie@example.com", "id": "3"}
+ - Spec: {"email": str, "id": int}
+ - Target: "id"
+ - Spec: "id"
+ - Target: "3"
+ - Spec: int
+glom.matching.TypeMatchError: expected type int, not str
+```
+</script></section><section  data-markdown><script type="text/template">### Errors: Before and After
+
+<img src="https://sedimental.org/uploads/data_trace_before_after.png" />
+</script></section><section  data-markdown><script type="text/template">
+## Docs
+
+<img class="mid" height="65%" src="glom_docs.png" />
+
+<a href="https://glom.rtfd.io">glom.rtfd.io</a></script></section><section  data-markdown><script type="text/template">
+## Embedded tutorial
+
+Try in the REPL:
+
+```python
+from glom import tutorial
+```
+
+OR try it in the browser with repl.it
+
+<iframe height="400px" width="100%" src="https://repl.it/@mhashemi/glom-basic-deep-get?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Friction
+
+* Learning curve
+* Like regex
+* Density and context switching
+</script></section><section  data-markdown><script type="text/template"># glompad
+
+A data transformation sandbox.
+</script></section><section  data-markdown><script type="text/template">## Design
+
+`>>>`
+
+* REPL -> Notebook -> Sandbox
+</script></section><section  data-markdown><script type="text/template">## Good company
+
+<div style="display: flex; flex-wrap: wrap; flex: 1; height: 100%; align-items: center;">
+<img class="fragment" src="comp_jsfiddle.png">
+<img class="" src="comp_comp_explorer.png">
+<img class="" width="30%" src="comp_regex101.png">
+<img class="" width="60%" src="comp_codesandbox.jpg">
+</div>
+</script></section><section  data-markdown><script type="text/template"># Features <!-- .element: class="r-fit-text"  --></script></section><section  data-markdown><script type="text/template">
+## Mobile first
+
+<div style="display: flex; align-items: center; justify-content: space-evenly;">
+<img class="mid" src="glompad_mobile.png">
+<div>=</div>
+<img class="fragment mid" src="glompad_desktop.png">
+</div>
+</script></section><section  data-markdown><script type="text/template">
+## Other features
+
+* Shareable URL
+* Copy to clipboard
+* Dark mode
+  * P0 for a dev tool
+* Optional black autoformatting
+* Curated examples</script></section><section  data-markdown><script type="text/template">
+<img src="stack_glompad.png">
+</script></section><section  data-markdown><script type="text/template"># Highlights <!-- .element: class="r-fit-text"  --></script></section><section  data-markdown><script type="text/template">## It works!
+
+<div style="display: flex; flex-wrap: wrap; flex: 1; height: 100%; justify-content: space-evenly;">
+<img class="fragment" src="stack_pyodide.png">
+<img class="" src="stack_pyscript.png">
+<img class="" src="stack_svelte.png">
+<img class="" src="stack_ts.png">
+<img class=""  src="stack_python.png">
+</div>
+</script></section><section  data-markdown><script type="text/template">## More fun than React
+
+<div style="display: flex; flex-direction: column; flex: 1; height: 100%; align-items: center; justify-content: space-evenly;">
+<p>Development loop is tight.</p>
+<img class="small" src="stack_rollup.jpg">
+<img class="small" src="stack_vite.jpg">
+</div>
+</script></section><section  data-markdown><script type="text/template">
+## Secure
+
+* Full power of Python, no worry about compromising the backend
+</script></section><section  data-markdown><script type="text/template">
+## Relatively stable
+
+* This is the node ecosystem we're talking here.
+* Three big upgrades over the course of three months, JS broke twice, Python once
+</script></section><section  data-markdown><script type="text/template"># Protips <!-- .element: class="r-fit-text"  --></script></section><section  data-markdown><script type="text/template">
+## Build script
+
+* Write your own, wrapping vite and rollup
+* Will come in handy
+</script></section><section  data-markdown><script type="text/template">## Sentry
+
+Manual test, add Sentry, ship.
+
+<img class="mid" src="glompad_sentry.png" />
+</script></section><section  data-markdown><script type="text/template">## Debug mode
+
+<img class="mid" src="glompad_debug.png" />
+
+Inspect page state, quickly test bad examples, and trigger sample errors.
+</script></section><section  data-markdown><script type="text/template"># Lowlights <!-- .element: class="r-fit-text"  -->
+
+From <em>"just OK"</em> to <em>"here be dragons."<em>
+</script></section><section  data-markdown><script type="text/template">## Package support
+
+* Only supports wheels
+* If it's not pure Python, needs to target emscripten
+* Anaconda backing this via PyScript is promising; math-related packages can be some of the hardest-to-build
+</script></section><section  data-markdown><script type="text/template">## Playwright
+
+<img src="stack_playwright.png">
+
+* Easy to get started
+* Slower than expected, esp with Firefox. 
+  * Selenium might be faster based on open issues I found.
+</script></section><section  data-markdown><script type="text/template">## Docs
+
+* Pyodide docs are OK for reference
+* PyScript docs have a good metastructure, but lots of gaps.
+</script></section><section  data-markdown><script type="text/template">## JS <-> Python friction
+
+* Everything gets wrapped in proxy objects
+* Careful to unwrap and rewrap appropriately
+* Glompad may have some memory leaks
+  * Frontend standard practice
+* Other constraints: https://pyodide.org/en/stable/usage/wasm-constraints.html
+</script></section><section  data-markdown><script type="text/template">## Interrupts
+
+Setting up interruptible execution is involved (Web Workers).
+
+If you hit an infinite loop, refresh the page.
+</script></section><section  data-markdown><script type="text/template">## PyScript
+
+* PyScript was easy to get started
+  * Using Pyodide directly is looking like the better investment if you care about control. 
+  * PyScript feels like a bit of a demo vehicle.
+  * Example: PyScript could make setting up a web worker easier: https://github.com/pyscript/pyscript/issues/808
+* Annoyingly PyScript chose the exact same tools I did?
+  * Svelte and CodeMirror power the REPL and other components. 
+  * This led to some very confusing errors that I thought were coming from my bugs, but were actually PyScript breakages.
+</script></section><section  data-markdown><script type="text/template">## Ugly: Misc JS
+
+* Svelte stores are great, but a bit too basic. 
+  * For debugging, I found myself missing Redux. 
+  * There are a wide variety of alternative stores worth looking into.
+* CodeMirror 6 is way more complex than earlier versions. 
+  * Powerful, but hard to find examples that do exactly what you want. 
+  * Probably worth it, but be ready.
+* It's still frontend. 
+  * You've got to be 2-3x as careful when you upgrade packages.
+</script></section><section  data-markdown><script type="text/template"># Are we making progress?
+
+Python in the browser over the years
+
+Just for fun, let's see how far we've come.
+</script></section><section  data-markdown><script type="text/template">## PyJS
+
+<img class="small" src="hist_pyjs.png" />
+
+2009-2015 (FKA Pyjamas)
+
+Transpiles Python to JS.
+
+Included Qt/GTK-style widgets.
+</script></section><section  data-markdown><script type="text/template">## Silverlight
+
+<img class="small" src="hist_silverlight.png" />
+
+2010 - 2019/2021
+
+IronPython
+
+Died with IE11
+</script></section><section  data-markdown><script type="text/template">## Skulpt
+
+<img class="small" src="hist_skulpt.png" />
+
+2009 - Today
+
+Transpiler + runtime.
+
+Still struggling to make the 2->3 jump (on 3.7 now)
+
+Partial stdlib.
+</script></section><section  data-markdown><script type="text/template">## Empythoned
+
+<img class="small" src="hist_replit.png" />
+
+2011-2012
+
+Repl.it's emscripten CPython: https://github.com/replit-archive/empythoned
+
+Same basic approach as Pyodide
+</script></section><section  data-markdown><script type="text/template">## PyPy.js
+
+<img class="small" src="hist_pypy.png" />
+
+2013 - 2019
+
+Now points to Pyodide
+</script></section><section  data-markdown><script type="text/template">## Brython
+
+<img class="small" src="hist_brython.png" />
+
+2014 - Today
+
+Still updated, supports Python 3.11
+
+Works via an autotranslation of CPython to JS, but not at the assembly level.
+</script></section><section  data-markdown><script type="text/template">## Transcrypt
+
+Active-ish transpiler (Python 3.9).
+
+Like PyJS, Doesn't ship the whole interpreter.
+
+Write Python compile to JS, ship that. No `eval()`.
+
+Get Python syntax, but not the Python ecosystem. No `pip`.
+
+<img class="small" src="hist_transcrypt_pyreact.png" />
+
+https://pyreact.com/ (not to be confused with PyReact/IDOM)
+
+See also: Rapydscript
+</script></section><section  data-markdown><script type="text/template"># Worth it?
+
+**Yes.**
+
+Pyodide really *is* different from past iterations.
+
+<ul class='checked-list'>
+  <li>Python syntax</li> 
+  <li>Python stdlib</li> 
+  <li>Python ecosystem (pip)</li> 
+  <li>DOM access</li> 
+  <li>Bidirectional JS interaction</li> 
+</ul>
+</script></section><section  data-markdown><script type="text/template"># When/why should you try it?
+
+* When page startup can take a little longer (SPA-style)
+* When sandboxing/security is a primary concern
+* When efficiency/high-perf is not a primary concern (graphics)
+* When you want to use the numerical/scientific Python stack (and the rest of the ecosystem)
+</script></section><section  data-markdown><script type="text/template"># Getting started <!-- .element: class="r-fit-text"  -->
+</script></section><section  data-markdown><script type="text/template">## PyScript 
+
+<img class="" src="stack_pyscript.png">
+
+Easiest for a totally custom app like glompad.
+
+http://pyscript.net
+</script></section><section  data-markdown><script type="text/template">## JupyterLite 
+
+<img class="small" src="start_jupyterlite.png">
+
+There if you just want to say you ran Python in the browser.
+
+https://jupyter.org/try-jupyter/lab/
+
+Also good for docs: REPLite
+
+https://github.com/jtpio/replite 
+</script></section><section  data-markdown><script type="text/template">## Holoviz Panel
+
+<img class="small" src="start_panel.png">
+
+For dashboarding, visualization.
+
+https://panel.holoviz.org/ 
+</script></section><section  data-markdown><script type="text/template">## Holoviz Panel demo
+
+<iframe src="https://portfolio-optimizer.pyviz.demo.anaconda.com" width="100%" style="height: 70vh;" frameborder="0" onload="this.parentNode.style.background = 'none'"></iframe>
+</script></section><section  data-markdown><script type="text/template"># Keep in touch
+
+* https://yak.party/glompad
+* https://sedimental.org
+* https://github.com/mahmoud
+* https://twitter.com/mhashemi
+* https://qoto.org/@mahmoud 
+
+✌️ Mahmoud Hashemi 2023</script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"disableLayout":true,"transition":"fade","progress":true}, queryOptions);
+    </script>
+
+    <script src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="./_assets/glompad_talk_script.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
