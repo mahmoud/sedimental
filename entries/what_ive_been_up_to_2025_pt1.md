@@ -7,6 +7,7 @@ tags:
   - money
   - startups
   - python
+  - finfam
 ---
 
 Been quiet around here. Time to change that!
