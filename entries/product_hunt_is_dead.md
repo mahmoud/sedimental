@@ -47,7 +47,7 @@ Just last year, Fabian Maume asked, ["Is Product Hunt Dying?"](https://www.tetri
 He's got lots of data and background, so I'll stick to filling in the now-obvious answer:
 **Yes. Product Hunt is dead.**
 
-<a href="/uploads/ph_cat_zombie.jpg" target="_blank"><img src="/uploads/ph_cat_zombie.jpg" alt="We're going on a ride." align="right" width="30%"></a>
+<a href="/uploads/ph_cat_zombie.jpg" target="_blank"><img src="/uploads/ph_cat_zombie.jpg" alt="Product Hunt has zombified" align="right" width="30%"></a>
 
 And Fabian's not alone.
 A quick search will [reveal][web-designer] [dozens][saas-analysis] of [nails][startup-value] in [the][hacker-news] [coffin][creative-coder].
@@ -123,6 +123,9 @@ They've killed Ship and [other features](https://www.producthunt.com/p/general/p
 
 At the crux, I just don't think a "launch" or a "product" is enough to tie together a community to develop a healthy ecosystem.
 The focus on the _new_ draws a fast flow of products and builders that erodes the core community.
+
+<a href="/uploads/ph_cat_x_eyes.jpg" target="_blank"><img src="/uploads/ph_cat_x_eyes.jpg" alt="RIP kitty" align="right" width="30%"></a>
+
 
 Alternatives exist, but if Product Hunt suffers from the above, I suspect these do, too:
 
