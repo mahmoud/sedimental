@@ -35,8 +35,25 @@ Its greatest strengths as a product have now become major weaknesses:
 
 - Gamification has been gamed
 
+There are alternatives, but it's not clear which is worthwhile:
+
+- https://www.indiehackers.com/
+- Betalist
+- Peerlist
+- https://pitchwall.co/
+- https://www.sideprojectors.com/
+- http://uneed.best/
+
+With all of these, the community element seems to be anemic.
+Something about the focus on the new nets a fast flow of products and builders.
+This erodes at the core.
+Indie Hackers is an exception because they're united by more than just the idea of a product or a launch.
+
+My favorite is still alternativeto.net, as its mission is to catalog all software, not just the newest.
+
 ## Goodbye ProductHunt
 
 I suspect we won't see the likes of you again, it was fun while it lasted.
+
 
 Google Glass Cat is so last decade. Besides, if you're looking for a "hunt" mascot, the obvious choice is a duck.
