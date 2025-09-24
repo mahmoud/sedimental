@@ -2,7 +2,7 @@
 site:
   title: Sedimental
   author: Mahmoud Hashemi
-  tagline: Accretionary thoughts by Mahmoud Hashemi
+  tagline: Thoughts on FOSS and fintech, layered by Mahmoud Hashemi
   copyright: >-
     &copy; 2025 <a href="http://sedimental.org/about.html">Mahmoud Hashemi</a> <a title="FinFam" href="https://finfam.app"><img src="/uploads/ff_icon_sm.png" alt="FinFam" /></a> <img height="14" src="/img/by-sa.png" />
   primary_links:
