@@ -13,11 +13,11 @@ First, the good news.
 
 It's been one week since [FinFam](https://finfam.app)'s [beta launch](/announcing_finfam.html)!
 The [Show HN post](https://news.ycombinator.com/item?id=45252031) trended nicely,
-netting enough eyeballs to make me confident that FinFam's the world's first and only [collaborative financial planner with a marketplace of interactive, open-source expert opinions](https://finfam.app).
+netting enough eyeballs to make me confident that FinFam is the world's first and only [collaborative financial planner with a marketplace of interactive, open-source expert opinions](https://finfam.app).
 I'm especially gratified by the users I'm meeting _through_ the product.
 Nothing like it.
 
-So, launch is great, no regrets, right?
+So, launch is going great, no regrets, right?
 
 ## My one regret
 
@@ -25,7 +25,7 @@ So, launch is great, no regrets, right?
 
 That brings us to the subject of today's PSA.
 
-**[Product Hunt](https://en.wikipedia.org/wiki/Product_Hunt) is dead.**
+**[Product Hunt](https://en.wikipedia.org/wiki/Product_Hunt) is _dead_.**
 
 I wasn't planning this post.
 PH wasn't even much of a launch priority for FinFam.
@@ -34,7 +34,7 @@ I didn't want others repeating my mistake.
 
 After all, [my launch post on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7373298636744617984/)
 mentioned our ProductHunt launch.
-And now I'm cringing thinking about how I even sent an email out to few product-oriented friends linking them to our launch, perpetuating to myth.
+And now I'm cringing thinking about how I even sent an email out to few product-oriented friends linking them to our launch, perpetuating the myth.
 
 Hours later I would realize that Product Hunt is sadly no more.
 Gone was the site I knew from my days on [Stripe Invoicing](https://www.producthunt.com/products/stripe/launches/stripe-invoicing).
@@ -65,8 +65,9 @@ But how does a dead platform appear to live on?
 ## The Zombie Grift
 
 Product Hunt has a weird quirk where it resets every day at midnight Pacific time.
-Unlike Hacker News, Reddit, etc.,
-due to this fixed daily scheduling idiosyncrasy, a platform originating in Silicon Valley is unlikely to have its front page content meaningfully decided by anyone in the American hemisphere.
+Unlike Hacker News, Reddit, etc., PH doesn't have a rolling front page.
+This fixed daily scheduling idiosyncrasy leads to [all-nighters as launch best practice](https://byvi.co/2022/04/19/how-to-launch-on-product-hunt-step-by-step-guide-with-tips-and-best-practices/),
+and systemically, this means a platform originating in Silicon Valley is unlikely to have its front page content meaningfully decided by anyone in the western hemisphere.
 
 Much like with Hacker News, the first few hours of a post determine its impact.
 Instead, Europe, APAC, and in particular India have an outsized influence.
@@ -85,11 +86,12 @@ Well, your LinkedIn inbox turns into this:
 
 
 I was taken by surprise.
-What hurt the most was these midnight solicitors sharing screenshots of success stories.
+What hurt the most was these midnight solicitors sharing screenshots of success stories from companies I recognized.
 They'd been instrumental in "launching" apps that I respect, and I'd hoped they wouldn't have to stoop to this.
 I even had personal connections to some of these founders.
 
-Curiosity beckoned, and I engaged with a couple. Here's how their process looks:
+It was 4am, but I put on my investigative hat and I engaged with a couple.
+Here's how their process looks:
 
 <div style="text-align: center;">
   <a href="/uploads/ph_the_price_and_process_redacted.png" target="_blank">
@@ -98,13 +100,18 @@ Curiosity beckoned, and I engaged with a couple. Here's how their process looks:
 </div>
 
 $100 is all it takes to make it into the Top 5 for a weekday.
-One has to admit, it's tempting. If you've spent months building, $100 feels like nothing.
+One has to admit, it's tempting.
+If you've spent months building, $100 feels like nothing.
 
 **It _is_ nothing.** These aren't real users and PH's audience has never been a source of sticky users.
 $100 is too much to spend on vanity.
+And it's predatory to foster a "community" where clout peddlers can predate on a
 
 If you're curious, you can see the paid votes landing via spikes in upvote speed on [hunted.space](https://hunted.space/).
 It's not hard to eyeball products which get more upvotes in the first two hours than they do in the next twenty-two.
+
+Suffice to say I didn't get any emails or LinkedIn invites from HN vote peddlers,
+despite HN sending us more than 10x the traffic.
 
 ## Can Product Hunt be revived?
 
@@ -148,4 +155,4 @@ Google Glass Kitty has always been a terrible mascot.
 
 The obvious choice for an iconic hunt has always been the duck:
 
-<a href="/uploads/ph_produckhunt.jpg" target="_blank"><img src="/uploads/ph_produckhunt.jpg" alt="Pro-Duck Hunt" /></a>
+<a href="/uploads/ph_produckhunt.jpg" target="_blank"><img src="/uploads/ph_produckhunt.jpg" alt="Pro-Duck Hunt" width="100%"/></a>
