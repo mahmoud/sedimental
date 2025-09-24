@@ -29,8 +29,8 @@ That brings us to the subject of today's PSA.
 
 I wasn't planning this post.
 PH wasn't even much of a launch priority for FinFam.
-But after seeing what I saw, I knew I had to bump this one up the queue.
-I didn't want others repeating my mistake.
+But after seeing what I saw, I knew this had to skip the queue.
+The world had to know.
 
 After all, [my launch post on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7373298636744617984/)
 mentioned our ProductHunt launch.
@@ -105,7 +105,7 @@ If you've spent months building, $100 feels like nothing.
 
 **It _is_ nothing.** These aren't real users and PH's audience has never been a source of sticky users.
 $100 is too much to spend on vanity.
-And it's predatory to foster a "community" where clout peddlers can predate on a
+And it's predatory to foster a "community" where clout peddlers can prey on susceptible, good-faith founders.
 
 If you're curious, you can see the paid votes landing via spikes in upvote speed on [hunted.space](https://hunted.space/).
 It's not hard to eyeball products which get more upvotes in the first two hours than they do in the next twenty-two.
@@ -142,7 +142,10 @@ Alternatives exist, but if Product Hunt suffers from the above, I suspect these 
 - [Side Projectors](https://www.sideprojectors.com/)
 - [uneed.best](http://uneed.best/)
 
-Contrast this with [Indie Hackers](https://www.indiehackers.com/), which is united by at least one value.
+_Edit: Someone even made a [directory of directories](https://launchdirectories.com/).
+Early reports are not promising!_
+
+Contrast this with [Indie Hackers](https://www.indiehackers.com/), which is united by at least one value / work ethic.
 
 Or contrast to one of my personal faves: [AlternativeTo](https://alternativeto.net/),
 which takes a wiki approach toward the mission of cataloging all software, not just the newest.
