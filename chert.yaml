@@ -29,7 +29,8 @@ site:
     - text: Me
       href: /me.html
       desc: Some photos of me
-  analytics_code: UA-63517417-1
+  analytics_code: G-6K0NLLXZFD
+  enable_analytics: true
   retarget_links: external
 
 theme:
