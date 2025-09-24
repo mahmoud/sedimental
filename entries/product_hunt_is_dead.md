@@ -33,8 +33,8 @@ But after seeing what I saw, I knew this had to skip the queue.
 The world had to know.
 
 After all, [my launch post on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7373298636744617984/)
-mentioned our ProductHunt launch.
-And now I'm cringing thinking about how I even sent an email out to few product-oriented friends linking them to our launch, perpetuating the myth.
+mentioned our Product Hunt launch.
+And now I'm cringing thinking about how I even sent an email out to a few product-oriented friends linking them to our launch, perpetuating the myth.
 
 Hours later I would realize that Product Hunt is sadly no more.
 Gone was the site I knew from my days on [Stripe Invoicing](https://www.producthunt.com/products/stripe/launches/stripe-invoicing).
