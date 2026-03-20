@@ -159,3 +159,5 @@ Google Glass Kitty has always been a terrible mascot.
 The obvious choice for an iconic hunt has always been the duck:
 
 <a href="/uploads/ph_produckhunt.jpg" target="_blank"><img src="/uploads/ph_produckhunt.jpg" alt="Pro-Duck Hunt" width="100%"/></a>
+
+*Edit (2025-09-25): [Hacker News seems to agree](https://news.ycombinator.com/item?id=45362569).*
