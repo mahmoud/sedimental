@@ -2,6 +2,7 @@ nohup.out
 # custom ignores
 
 entries/esp/*
+entries/g2g_browser_python/_output/
 
 # Chert ignores
 

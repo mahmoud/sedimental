@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="880" height="340">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Cascadia Code', monospace; }
+    .state { font-size: 16px; font-weight: 600; fill: #1a1917; }
+    .state-active { font-size: 16px; font-weight: 700; fill: #1a7a3a; }
+    .state-error { font-size: 16px; font-weight: 600; fill: #c0392b; }
+    .label { font-size: 11px; fill: #8a8782; }
+    .title { font-size: 18px; font-weight: 700; fill: #1a1917; }
+    .subtitle { font-size: 12px; fill: #8a8782; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a1917"/>
+    </marker>
+    <marker id="arrow-err" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c0392b"/>
+    </marker>
+    <marker id="arrow-ok" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a7a3a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="440" y="28" text-anchor="middle" class="title">Worker State Machine</text>
+  <text x="440" y="46" text-anchor="middle" class="subtitle">Six explicit states. Not two booleans.</text>
+
+  <!-- State nodes -->
+  <!-- idle -->
+  <rect x="30" y="100" width="110" height="44" rx="22" fill="#fafaf7" stroke="#1a1917" stroke-width="2"/>
+  <text x="85" y="127" text-anchor="middle" class="state">idle</text>
+
+  <!-- loading -->
+  <rect x="200" y="100" width="130" height="44" rx="22" fill="#fff5e5" stroke="#e8a020" stroke-width="2"/>
+  <text x="265" y="127" text-anchor="middle" class="state">loading</text>
+
+  <!-- ready -->
+  <rect x="390" y="100" width="120" height="44" rx="22" fill="#f0faf0" stroke="#1a7a3a" stroke-width="2"/>
+  <text x="450" y="127" text-anchor="middle" class="state-active">ready</text>
+
+  <!-- running -->
+  <rect x="570" y="100" width="130" height="44" rx="22" fill="#f0faf0" stroke="#1a7a3a" stroke-width="2"/>
+  <text x="635" y="127" text-anchor="middle" class="state-active">running</text>
+
+  <!-- error -->
+  <rect x="340" y="240" width="110" height="44" rx="22" fill="#fef0f0" stroke="#c0392b" stroke-width="2"/>
+  <text x="395" y="267" text-anchor="middle" class="state-error">error</text>
+
+  <!-- restarting -->
+  <rect x="540" y="240" width="150" height="44" rx="22" fill="#fef0f0" stroke="#c0392b" stroke-width="2"/>
+  <text x="615" y="267" text-anchor="middle" class="state-error">restarting</text>
+
+  <!-- Arrows -->
+  <!-- idle -> loading -->
+  <line x1="140" y1="122" x2="198" y2="122" stroke="#1a1917" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- loading -> ready -->
+  <line x1="330" y1="122" x2="388" y2="122" stroke="#1a7a3a" stroke-width="2" marker-end="url(#arrow-ok)"/>
+
+  <!-- ready -> running -->
+  <line x1="510" y1="115" x2="568" y2="115" stroke="#1a7a3a" stroke-width="2" marker-end="url(#arrow-ok)"/>
+
+  <!-- running -> ready -->
+  <line x1="568" y1="135" x2="510" y2="135" stroke="#1a7a3a" stroke-width="2" marker-end="url(#arrow-ok)"/>
+
+  <!-- ready -> error -->
+  <line x1="430" y1="144" x2="405" y2="238" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrow-err)"/>
+
+  <!-- running -> error -->
+  <line x1="620" y1="144" x2="440" y2="250" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrow-err)"/>
+
+  <!-- running -> restarting -->
+  <line x1="650" y1="144" x2="630" y2="238" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrow-err)"/>
+
+  <!-- restarting -> loading (curved path) -->
+  <path d="M 540 262 C 520 340, 260 340, 240 146" fill="none" stroke="#e8a020" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="380" y="328" class="label">restart</text>
+
+  <!-- Labels on arrows -->
+  <text x="170" y="112" text-anchor="middle" class="label">start</text>
+  <text x="360" y="112" text-anchor="middle" class="label">loaded</text>
+  <text x="540" y="106" text-anchor="middle" class="label">exec</text>
+  <text x="540" y="150" text-anchor="middle" class="label">done</text>
+</svg>

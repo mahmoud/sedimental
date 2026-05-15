@@ -1,0 +1,7 @@
+title: Slide Templates
+author: Mahmoud Hashemi
+version: 1.0.0
+quarto-required: ">=1.4"
+contributes:
+  shortcodes:
+    - slide-templates.lua

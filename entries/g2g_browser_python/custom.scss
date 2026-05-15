@@ -1,0 +1,783 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Lora:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+
+/*-- scss:defaults --*/
+
+// Palette
+$paper:    #fafaf7;
+$ink:      #1a1917;
+$ink-soft:  #3a3835;
+$ink-ghost: #8a8782;
+$orange:   #e8a020;
+$rule:     #e3e0d8;
+$cream:    #f1f0eb;
+$code-bg:  #f4f1e8;
+
+// Fonts
+$presentation-heading-font: 'Fraunces', 'Lora', Georgia, serif;
+$font-family-sans-serif: 'Lora', 'Fraunces', Georgia, serif;
+$code-font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+$presentation-font-size-root: 42px;
+$presentation-heading-color: $ink;
+$body-color: $ink-soft;
+$link-color: $orange;
+
+/*-- scss:rules --*/
+
+.reveal {
+
+  // ── 0. Layout — top-aligned slides with consistent heading position
+  // Matches reference design: 96px pad-top (below frame rule), 128px pad-x.
+  // center: false in YAML; we handle vertical alignment here.
+  .slides section {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 96px 128px 64px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  // Title slide + dark dividers: vertically centered instead
+  .slides section#title-slide,
+  .slides section.has-dark-background,
+  .slides section.has-dark-background > section {
+    justify-content: center;
+    text-align: center;
+    padding-top: 64px;
+  }
+
+  // ── 1. Frame rule — orange bar at top of every slide ─────
+  // Placed on .slides which shares the slide coordinate system
+  // (1920×1080), so top: 56px maps correctly.
+  .slides::after {
+    content: '';
+    position: absolute;
+    top: 56px;
+    left: 128px;
+    right: 128px;
+    height: 4px;
+    background: $orange;
+    pointer-events: none;
+    z-index: 20;
+  }
+
+  // ── 2. Title slide ─────────────────────────────────────────
+  .slides section#title-slide {
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.4em;
+      font-weight: 800;
+      color: $ink;
+    }
+
+    .subtitle {
+      color: $orange;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1em;
+      font-style: italic;
+    }
+
+    .author, .date {
+      color: $ink-ghost;
+      font-family: 'Lora', Georgia, serif;
+    }
+  }
+
+  // ── 3. Dark background slides ──────────────────────────────
+
+  .has-dark-background {
+    &, h2, h3, p, li, span, code {
+      color: $cream;
+    }
+
+    // Force dark Monaco theme
+    .qpyodide-cell-wrapper {
+      .monaco-editor,
+      .monaco-editor .view-lines,
+      .monaco-editor .margin {
+        background-color: #1e1e1e !important;
+      }
+      .monaco-editor .view-line span {
+        color: #d4d4d4 !important;
+      }
+      .monaco-editor .mtk1  { color: #d4d4d4 !important; }
+      .monaco-editor .mtk3  { color: #6a9955 !important; }  // comments
+      .monaco-editor .mtk5  { color: #ce9178 !important; }  // strings
+      .monaco-editor .mtk6  { color: #b5cea8 !important; }  // numbers
+      .monaco-editor .mtk8  { color: #569cd6 !important; }  // keywords
+      .monaco-editor .mtk10 { color: #4ec9b0 !important; }  // types
+      .monaco-editor .mtk22 { color: #c586c0 !important; }  // control
+      .monaco-editor .line-numbers {
+        color: #858585 !important;
+      }
+      .monaco-editor .cursor {
+        border-left-color: #d4d4d4 !important;
+      }
+    }
+
+    // Pyodide output: dark text on light background
+    .qpyodide-output-code-area pre,
+    .qpyodide-output-code-area pre div {
+      color: $ink;
+      background-color: $paper;
+    }
+  }
+
+  // ── 4. Typography ──────────────────────────────────────────
+  code, pre {
+    font-family: $code-font-family;
+  }
+
+  section.center h2 {
+    color: $ink;
+  }
+
+  // ── 5. Code blocks ─────────────────────────────────────────
+  pre.code, pre > code {
+    background: $code-bg;
+    border-left: 4px solid $orange;
+    padding: 0.8em 1em;
+    border-radius: 0 4px 4px 0;
+  }
+
+  // ── 6. Money line ──────────────────────────────────────────
+  .money-line {
+    font-size: 1.1em;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Lora', Georgia, serif;
+    color: $ink;
+    border-left: 5px solid $orange;
+    padding-left: 0.6em;
+    margin: 0.5em 0;
+  }
+
+  // ── 7. Tables ──────────────────────────────────────────────
+  table {
+    border-collapse: collapse;
+    font-size: 0.85em;
+
+    th {
+      background: $cream;
+      border-bottom: 2px solid $ink;
+      font-weight: 600;
+    }
+
+    td, th {
+      padding: 0.35em 0.6em;
+      border-bottom: 1px solid $rule;
+    }
+
+    a {
+      color: $orange;
+    }
+  }
+
+  // ── 8. Graveyard slides ────────────────────────────────────
+  .graveyard h3 {
+    color: $ink-ghost;
+    font-style: italic;
+  }
+
+  .graveyard .year-range {
+    font-size: 0.7em;
+    color: $ink-ghost;
+  }
+
+  // ── 9. Glory slides ────────────────────────────────────────
+  .glory h3 {
+    color: $orange;
+  }
+
+  .glory .stat {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: $orange;
+  }
+
+  // ── 10. Functional classes ─────────────────────────────────
+
+  .stat {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: $orange;
+  }
+
+  .illo img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: none;
+    box-shadow: none;
+  }
+
+  .gap-slide h2 {
+    color: $orange;
+  }
+
+  .gap-slide .gap-num {
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.4em;
+    text-align: center;
+    background: $orange;
+    color: $paper;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 0.3em;
+  }
+
+  .gap-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.6em 0;
+  }
+
+  .gap-list li {
+    margin-bottom: 0.55em;
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+
+  .gap-list .gap-sub {
+    color: $ink-ghost;
+    font-style: italic;
+    font-size: 0.78em;
+    margin-left: 0.5em;
+    letter-spacing: 0.01em;
+  }
+
+  .pyodide-code-output {
+    font-size: 0.7em;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .speaker-info {
+    font-size: 0.6em;
+    color: $ink-ghost;
+  }
+
+  .demo-iframe {
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .columns-tight {
+    display: flex;
+    gap: 1em;
+  }
+
+  .col-left, .col-right {
+    flex: 1;
+  }
+
+  .links-slide a {
+    display: block;
+    margin: 0.3em 0;
+    font-size: 0.9em;
+  }
+
+  .rapid-fire li {
+    margin-bottom: 0.3em;
+  }
+
+  .section-divider {
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  .conviction {
+    text-align: center;
+    font-size: 1.15em;
+    font-style: italic;
+    color: $ink;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  // ── Aside box ──────────────────────────────────────────────
+  .aside-box {
+    margin-top: 1.2em;
+    padding: 0.7em 1em;
+    background: $cream;
+    border-left: 5px solid $orange;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.85em;
+    color: $ink-soft;
+
+    .aside-label {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: $orange;
+      margin-right: 0.6em;
+    }
+  }
+
+  // ── 11. Dither ornament ────────────────────────────────────
+  .dither-ornament {
+    background-image:
+      radial-gradient(circle at 1px 1px, $ink 1px, transparent 1.2px),
+      radial-gradient(circle at 5px 5px, $ink 1px, transparent 1.2px);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+  }
+
+  // ── 12. Hide Pyodide startup message ───────────────────────
+  .qpyodide-status-text {
+    display: none !important;
+  }
+
+  // ── 13. Global footer ──────────────────────────────────────
+  // Uses .slides::before so it lives in the 1920×1080 slide
+  // coordinate system (like the frame rule on ::after), ensuring
+  // correct scaling and PDF/image export.
+  .slides::before {
+    content: 'G2G: PYTHON IN THE BROWSER';
+    position: absolute;
+    bottom: 44px;
+    left: 128px;
+    right: 128px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 24px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $ink-ghost;
+    text-align: left;
+    pointer-events: none;
+    z-index: 20;
+    transition: color 0.3s, opacity 0.3s;
+  }
+  .footer-right {
+    position: absolute;
+    bottom: 44px;
+    left: 128px;
+    right: 128px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 24px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $ink-ghost;
+    text-align: right;
+    pointer-events: none;
+    z-index: 20;
+    transition: color 0.3s, opacity 0.3s;
+  }
+  .slides.footer-dark::before { color: rgba($cream, 0.5); }
+  .slides.footer-dark .footer-right { color: rgba($cream, 0.5); }
+  .slides.footer-hidden::before { opacity: 0; }
+  .slides.footer-hidden .footer-right { opacity: 0; }
+
+  // ── 14. Eyebrow text ───────────────────────────────────────
+  .eyebrow {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 14;
+    font-size: 0.57em;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $ink;
+    margin-bottom: 0.5em;
+
+    .sep { color: $orange; margin: 0 14px; font-weight: 400; }
+  }
+
+  // Prevent eyebrows from inheriting Reveal fragment fade-in
+  .slides section .eyebrow {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  // ── 15. Big dithered numerals ──────────────────────────────
+  .big-dither {
+    position: absolute;
+    top: 110px;
+    right: 128px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+    font-weight: 500;
+    font-size: 880px;
+    line-height: 0.78;
+    letter-spacing: -0.06em;
+    background-image:
+      radial-gradient(circle at 1.5px 1.5px, $ink 1.4px, transparent 1.6px),
+      radial-gradient(circle at 6px 6px, $ink 1.4px, transparent 1.6px);
+    background-size: 11px 11px;
+    background-position: 0 0, 5.5px 5.5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    pointer-events: none;
+
+    &.warm {
+      background-image:
+        radial-gradient(circle at 1.5px 1.5px, $orange 1.5px, transparent 1.7px),
+        radial-gradient(circle at 6px 6px, $orange 1.5px, transparent 1.7px);
+    }
+  }
+
+  // ── 16. Section divider title slides ────────────────────────
+  // Slides with .big-dither: eyebrow pinned top-left, section title
+  // pushed to bottom-left in large display type. Uses :has() to
+  // override the dark-bg centering rule above.
+  .slides section:has(.big-dither) {
+    justify-content: flex-end !important;
+    text-align: left !important;
+    padding-bottom: 96px;
+
+    > .eyebrow {
+      position: absolute;
+      top: 88px;
+      left: 128px;
+      z-index: 10;
+    }
+
+    .section-divider {
+      text-align: left;
+      font-size: 1em;
+      position: relative;
+      margin-bottom: 0;
+
+      h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-variation-settings: "opsz" 144;
+        font-size: 132px;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      p {
+        font-family: 'Lora', Georgia, serif;
+        font-style: italic;
+        font-size: 42px;
+        line-height: 1.25;
+        margin: 32px 0 0;
+        max-width: 26ch;
+      }
+    }
+  }
+
+  // ── 17. Two-column helpers ─────────────────────────────────
+  .row {
+    display: flex;
+    gap: 64px;
+    flex: 1;
+    align-items: flex-start;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .grow { flex: 1; }
+  .col-weight-major { flex: 1.1; }
+  .col-weight-minor { flex: 0.9; }
+
+  // ── 18. Numbered & dot lists ───────────────────────────────
+  ol.numbered {
+    list-style: none;
+    padding: 0; margin: 0;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      align-items: baseline;
+      font-size: 1em;
+      line-height: 1.4;
+
+      &::before {
+        content: counter(step, decimal-leading-zero);
+        font-family: 'Fraunces', Georgia, serif;
+        font-style: italic;
+        color: $orange;
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+
+  ul.dots {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: baseline;
+      line-height: 1.4;
+
+      &::before {
+        content: "\00B7";
+        color: $orange;
+        font-size: 48px;
+        line-height: 0.5;
+      }
+    }
+  }
+
+  // ── 19. Dither sheet utility ───────────────────────────────
+  .dither-sheet {
+    background-color: $paper;
+    background-image:
+      radial-gradient(circle at 1px 1px, $ink 1.1px, transparent 1.3px),
+      radial-gradient(circle at 5px 5px, $ink 1.1px, transparent 1.3px);
+    background-size: 9px 9px;
+    background-position: 0 0, 4.5px 4.5px;
+    pointer-events: none;
+
+    &.fade-right { mask-image: linear-gradient(to right, black 30%, transparent 100%); }
+    &.fade-left  { mask-image: linear-gradient(to left, black 30%, transparent 100%); }
+    &.fade-down  { mask-image: linear-gradient(to bottom, black 30%, transparent 100%); }
+    &.radial     { mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%); }
+  }
+
+  // ── 20. Big Words — magazine-impact typography ──────────────
+  // .bigword: heavy Fraunces, uppercase, left-aligned — Bloomberg cover line
+  // .bigword-reflect: Lora italic, centered — editorial pull-quote
+  // Pair with background-color attributes for saturated accent slides.
+
+  .slides section.bigword,
+  .slides section.bigword-reflect {
+    justify-content: center !important;
+    padding: 64px 128px;
+  }
+
+  // ── Bold variant ──
+  .slides section.bigword {
+    text-align: center;
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1;
+      font-weight: 550;
+      font-size: 140px;
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+      color: $ink;
+      margin: 0;
+    }
+
+    p {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 42px;
+      color: $ink-soft;
+      margin-top: 40px;
+    }
+
+    .accent { color: $orange; }
+
+    &.has-dark-background h2 { color: $cream; }
+    &.has-dark-background .accent { color: $paper; }
+  }
+
+  // ── Reflective variant ──
+  .slides section.bigword-reflect {
+    text-align: center !important;
+
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 120px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: $ink;
+      margin: 0;
+      max-width: 22ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 36px;
+      color: $ink-ghost;
+      margin-top: 24px;
+    }
+
+    &.has-dark-background h2 { color: rgba($cream, 0.85); }
+  }
+
+  // ── iframe demo slides ──────────────────────────────────
+  .slides section.iframe-demo {
+    text-align: center;
+    padding: 16px 32px 0;
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 400;
+      color: $ink-soft;
+      letter-spacing: 0.02em;
+      margin: 0 0 12px;
+    }
+
+    h2 code {
+      background: none;
+      color: $link-color;
+      font-size: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  // ── 22. Scribble-out slides ──────────────────────────────
+  // Two-slide auto-animate pair: clean → struck.
+  // Typography matches .bigword exactly so the transition is seamless.
+  .slides section.scribble-slide {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 64px 128px;
+  }
+
+  .scribble-block {
+    position: relative;
+  }
+
+  // ── Headline — matches .bigword h2 exactly ──
+  .scribble-head {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+    font-weight: 900;
+    font-size: 148px;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: $ink;
+    margin: 0 auto;
+    position: relative;
+    width: fit-content;
+  }
+
+  // ── Subtitle — matches .bigword p ──
+  .scribble-sub {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 42px;
+    color: $ink-ghost;
+    margin: 40px auto 0;
+    position: relative;
+    width: fit-content;
+  }
+
+  // ── Struck state — faded text + marker line ──
+  .scribble-head.struck {
+    color: rgba($ink, 0.4);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -1%;
+      right: 3%;
+      top: 52%;
+      height: 8px;
+      background: $ink;
+      opacity: 0.5;
+      transform: rotate(-0.7deg);
+      border-radius: 2px;
+    }
+  }
+
+  .scribble-sub.struck {
+    color: rgba($ink-ghost, 0.55);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -1%;
+      right: 3%;
+      top: 52%;
+      height: 4px;
+      background: $ink;
+      opacity: 0.45;
+      transform: rotate(-0.5deg);
+      border-radius: 2px;
+    }
+  }
+
+  // ── Scribbled annotation ──
+  .scribble-note {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 68px;
+    line-height: 1.2;
+    color: $orange;
+    transform: rotate(-2deg);
+    transform-origin: center;
+    margin: 8px 0;
+  }
+
+  // ── 21. Prompt display — Claude Code terminal prompt ──────
+  // Rounded ANSI-style box, ">" prefix, blinking block cursor.
+  .slides section.prompt-display {
+    justify-content: center !important;
+    text-align: left !important;
+    padding: 64px 160px;
+
+    .prompt-text {
+      position: relative;
+      font-family: $code-font-family;
+      font-size: 34px;
+      line-height: 1.55;
+      color: $ink;
+      background: $paper;
+      border: 2px solid $orange;
+      border-radius: 12px;
+      padding: 44px 56px 44px 100px;
+      max-width: 1600px;
+      box-shadow: 0 12px 32px rgba($ink, 0.08);
+
+      // ">" prompt prefix sits in the left gutter so wrapped
+      // lines hang flush under the first line of text.
+      &::before {
+        content: '>';
+        position: absolute;
+        left: 56px;
+        top: 44px;
+        color: $orange;
+        font-weight: 700;
+      }
+
+      // Blinking block cursor at the end of the prompt.
+      &::after {
+        content: '▍';
+        display: inline-block;
+        margin-left: 6px;
+        color: $orange;
+        animation: prompt-cursor-blink 1.1s steps(2, start) infinite;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+@keyframes prompt-cursor-blink {
+  to { visibility: hidden; }
+}
+
+// ── Print-view fix ────────────────────────────────────────────
+// reveal.css sets `html.reveal-print .reveal .slides section`
+// to `display: block !important`, killing flex layout.
+// Match that specificity to restore flex on section dividers.
+html.reveal-print .reveal .slides section:has(.big-dither) {
+  display: flex !important;
+  flex-direction: column !important;
+}

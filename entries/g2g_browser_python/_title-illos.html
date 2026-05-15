@@ -1,0 +1,30 @@
+<script>
+// Inject gravestone + phoenix illustrations onto the title slide
+// Uses DOM injection because CSS url() in Quarto RevealJS SCSS resolves
+// relative to compiled theme path, not HTML root.
+// GoodTurn: https://goodturn.ai/p/gtp_01krdg2r2tf639rsaw1q97zqmk
+document.addEventListener('DOMContentLoaded', function() {
+  const titleSlide = document.getElementById('title-slide');
+  if (!titleSlide) return;
+
+  const illos = [
+    { src: 'images/illo_gravestone2.png', bottom: '60px', left: '80px', width: '280px' },
+    { src: 'images/illo_phoenix2.png', top: '40px', right: '80px', width: '320px' },
+  ];
+
+  illos.forEach(function(cfg) {
+    const img = document.createElement('img');
+    img.src = cfg.src;
+    img.style.position = 'absolute';
+    img.style.width = cfg.width;
+    img.style.opacity = '0.85';
+    img.style.pointerEvents = 'none';
+    img.style.zIndex = '1';
+    if (cfg.bottom) img.style.bottom = cfg.bottom;
+    if (cfg.top) img.style.top = cfg.top;
+    if (cfg.left) img.style.left = cfg.left;
+    if (cfg.right) img.style.right = cfg.right;
+    titleSlide.appendChild(img);
+  });
+});
+</script>

@@ -1,0 +1,36 @@
+<script>
+(function() {
+  const slides = document.querySelector('.reveal .slides');
+  if (!slides) return;
+
+  // Inject right-side footer
+  const footerRight = document.createElement('div');
+  footerRight.className = 'footer-right';
+  footerRight.textContent = 'PyCon 2026 + Mahmoud Hashemi';
+  slides.appendChild(footerRight);
+
+  function updateFooter(currentSlide) {
+    const bg = document.querySelector('.slide-background.present');
+    const isDark = bg?.classList.contains('has-dark-background');
+    const isTitle = currentSlide?.id === 'title-slide';
+    slides.classList.toggle('footer-dark', isDark);
+    slides.classList.toggle('footer-hidden', isTitle);
+  }
+
+  Reveal.on('slidechanged', event => updateFooter(event.currentSlide));
+  Reveal.on('ready', event => updateFooter(event.currentSlide));
+})();
+
+// Disable ctrl-click zoom plugin
+Reveal.on('ready', function() {
+  var zoomPlugin = Reveal.getPlugin('zoom');
+  if (zoomPlugin && zoomPlugin.destroy) {
+    zoomPlugin.destroy();
+  } else {
+    // Fallback: intercept zoom mouse events
+    document.querySelector('.reveal').addEventListener('mousedown', function(e) {
+      if (e.altKey || e.ctrlKey) { e.stopImmediatePropagation(); }
+    }, true);
+  }
+});
+</script>

@@ -1,0 +1,30 @@
+<script>
+// Preserve current slide across Quarto live-reloads.
+// Saves Reveal.js indices to sessionStorage on beforeunload;
+// restores on 'ready' if the save is recent (< 10 s).
+(function () {
+  var KEY = 'reveal-slide-position';
+
+  window.addEventListener('beforeunload', function () {
+    if (typeof Reveal !== 'undefined' && Reveal.isReady()) {
+      var idx = Reveal.getIndices();
+      idx._t = Date.now();
+      sessionStorage.setItem(KEY, JSON.stringify(idx));
+    }
+  });
+
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('ready', function () {
+      var raw = sessionStorage.getItem(KEY);
+      if (!raw) return;
+      try {
+        var idx = JSON.parse(raw);
+        // Only restore if saved within 10 s (i.e. a live-reload, not a fresh tab)
+        if (Date.now() - idx._t < 10000) {
+          Reveal.slide(idx.h || 0, idx.v || 0, idx.f == null ? -1 : idx.f);
+        }
+      } catch (e) {}
+    });
+  }
+})();
+</script>

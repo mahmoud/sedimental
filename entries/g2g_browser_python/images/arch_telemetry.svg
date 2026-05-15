@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="880" height="360">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Cascadia Code', monospace; }
+    .title { font-size: 16px; font-weight: 700; fill: #1a1917; }
+    .box-label { font-size: 14px; fill: #1a1917; font-weight: 600; }
+    .box-detail { font-size: 11px; fill: #5a5852; }
+    .blocked { fill: #fef0f0; stroke: #c0392b; }
+    .blocked-text { fill: #c0392b; font-weight: 700; }
+    .ok { fill: #f0faf0; stroke: #1a7a3a; }
+    .ok-text { fill: #1a7a3a; }
+    .label { font-size: 11px; fill: #8a8782; }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a1917"/>
+    </marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c0392b"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a7a3a"/>
+    </marker>
+  </defs>
+
+  <!-- BEFORE: Direct to Sentry (blocked) -->
+  <text x="440" y="28" text-anchor="middle" class="title">Without Tunnel</text>
+
+  <!-- Browser -->
+  <rect x="40" y="60" width="160" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="120" y="87" text-anchor="middle" class="box-label">Browser App</text>
+
+  <!-- Arrow to ad blocker -->
+  <line x1="200" y1="82" x2="308" y2="82" stroke="#1a1917" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Ad Blocker -->
+  <rect x="310" y="52" width="200" height="60" rx="4" class="blocked" stroke-width="2"/>
+  <text x="410" y="78" text-anchor="middle" class="blocked-text" style="font-size: 14px;">Ad Blocker</text>
+  <text x="410" y="98" text-anchor="middle" class="box-detail">blocks sentry.io, posthog.com</text>
+
+  <!-- Blocked arrow -->
+  <line x1="510" y1="82" x2="618" y2="82" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arr-red)"/>
+  <text x="564" y="72" text-anchor="middle" class="blocked-text" style="font-size: 18px;">X</text>
+
+  <!-- Sentry (unreachable) -->
+  <rect x="620" y="60" width="220" height="44" rx="4" fill="#fafaf7" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="730" y="87" text-anchor="middle" class="box-label" style="fill: #c0392b; opacity: 0.6;">Sentry / PostHog</text>
+
+  <!-- ~30% lost label -->
+  <text x="410" y="140" text-anchor="middle" class="blocked-text" style="font-size: 13px;">~30% of errors silently lost</text>
+
+  <!-- AFTER: Tunnel -->
+  <text x="440" y="190" text-anchor="middle" class="title">With Telemetry Tunnel</text>
+
+  <!-- Browser -->
+  <rect x="40" y="220" width="160" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="120" y="247" text-anchor="middle" class="box-label">Browser App</text>
+
+  <!-- Arrow to your server -->
+  <line x1="200" y1="242" x2="308" y2="242" stroke="#1a7a3a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="254" y="232" text-anchor="middle" class="label">your domain</text>
+
+  <!-- Your Server (tunnel) -->
+  <rect x="310" y="220" width="200" height="44" rx="4" class="ok" stroke-width="2"/>
+  <text x="410" y="247" text-anchor="middle" class="box-label ok-text">Your Server</text>
+
+  <!-- Arrow to Sentry -->
+  <line x1="510" y1="242" x2="618" y2="242" stroke="#1a7a3a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="564" y="232" text-anchor="middle" class="label">forwards</text>
+
+  <!-- Sentry (reachable) -->
+  <rect x="620" y="220" width="220" height="44" rx="4" class="ok" stroke-width="2"/>
+  <text x="730" y="247" text-anchor="middle" class="box-label ok-text">Sentry / PostHog</text>
+
+  <!-- Ad blocker bypassed note -->
+  <text x="410" y="296" text-anchor="middle" class="ok-text" style="font-size: 13px;">Ad blockers don't block your domain</text>
+
+  <!-- Bottom note -->
+  <text x="440" y="340" text-anchor="middle" class="label" style="font-size: 12px;">The browser is an environment. Treat it like one.</text>
+</svg>

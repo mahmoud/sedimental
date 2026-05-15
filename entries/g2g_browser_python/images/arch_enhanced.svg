@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Cascadia Code', monospace; }
+    .title { font-size: 22px; font-weight: 700; fill: #1a1917; }
+    .subtitle { font-size: 14px; fill: #8a8782; }
+    .box-label { font-size: 15px; fill: #1a1917; font-weight: 600; }
+    .box-detail { font-size: 12px; fill: #5a5852; }
+    .arrow-label { font-size: 12px; fill: #1a7a3a; font-weight: 600; }
+    .zone-label { font-size: 13px; fill: #8a8782; font-weight: 600; letter-spacing: 1.5px; }
+    .gap-label { font-size: 11px; fill: #e8a020; font-weight: 700; letter-spacing: 0.5px; }
+    .enhanced { fill: #f0faf0; stroke: #1a7a3a; }
+    .enhanced-text { fill: #1a7a3a; }
+  </style>
+
+  <defs>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a7a3a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="32" text-anchor="middle" class="title">What We Added</text>
+  <text x="480" y="52" text-anchor="middle" class="subtitle">glompad - production browser Python</text>
+
+  <!-- Zone labels -->
+  <text x="240" y="82" text-anchor="middle" class="zone-label">MAIN THREAD</text>
+  <text x="720" y="82" text-anchor="middle" class="zone-label">WEB WORKER</text>
+
+  <!-- Divider -->
+  <line x1="480" y1="70" x2="480" y2="560" stroke="#e3e0d8" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Main Thread: Svelte UI (enhanced - interop win) -->
+  <rect x="40" y="96" width="400" height="44" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="240" y="123" text-anchor="middle" class="box-label enhanced-text">Svelte UI + shadcn components</text>
+
+  <!-- Svelte Stores (enhanced - interop win) -->
+  <rect x="40" y="156" width="400" height="44" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="240" y="183" text-anchor="middle" class="box-label enhanced-text">Svelte Stores (reactive state)</text>
+
+  <!-- Comlink wrapper (enhanced) -->
+  <rect x="40" y="216" width="400" height="80" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="54" y="234" class="gap-label">GAP 2</text>
+  <text x="240" y="248" text-anchor="middle" class="box-label enhanced-text">worker-client.ts - Comlink RPC</text>
+  <text x="240" y="268" text-anchor="middle" class="box-detail">Typed interface, auto-reconnect</text>
+
+  <!-- State Machine (enhanced) -->
+  <rect x="50" y="316" width="380" height="50" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="64" y="334" class="gap-label">GAP 4</text>
+  <text x="240" y="350" text-anchor="middle" class="box-label enhanced-text">Worker State Machine</text>
+
+  <!-- Worker: Comlink (enhanced) -->
+  <rect x="520" y="96" width="400" height="44" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="720" y="123" text-anchor="middle" class="box-label enhanced-text">glom-worker.ts (Comlink.expose)</text>
+
+  <!-- Pyodide -->
+  <rect x="520" y="156" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="183" text-anchor="middle" class="box-label">Pyodide (CPython to WASM)</text>
+
+  <!-- Packages -->
+  <rect x="520" y="216" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="243" text-anchor="middle" class="box-label">glom + black via micropip</text>
+
+  <!-- Python runner -->
+  <rect x="520" y="276" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="303" text-anchor="middle" class="box-label">glom_runner.py</text>
+
+  <!-- ES module worker -->
+  <rect x="520" y="336" width="400" height="36" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="360" text-anchor="middle" class="box-detail">ES module worker (type: 'module')</text>
+
+  <!-- Comlink typed channel arrow -->
+  <line x1="440" y1="256" x2="520" y2="256" stroke="#1a7a3a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <line x1="520" y1="246" x2="440" y2="246" stroke="#1a7a3a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <text x="480" y="234" text-anchor="middle" class="arrow-label">Comlink</text>
+
+  <!-- SharedArrayBuffer (enhanced) -->
+  <rect x="370" y="388" width="220" height="36" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="384" y="404" class="gap-label">GAP 4</text>
+  <text x="480" y="414" text-anchor="middle" class="box-label enhanced-text" style="font-size: 13px;">SharedArrayBuffer</text>
+  <line x1="440" y1="370" x2="468" y2="388" stroke="#1a7a3a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="520" y1="370" x2="492" y2="388" stroke="#1a7a3a" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- Bottom: Production enhancements -->
+  <rect x="40" y="448" width="280" height="58" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="54" y="466" class="gap-label">GAP 3</text>
+  <text x="180" y="480" text-anchor="middle" class="box-label enhanced-text">Telemetry Tunnel</text>
+  <text x="180" y="496" text-anchor="middle" class="box-detail">Bypass ad blockers for error reports</text>
+
+  <rect x="340" y="448" width="280" height="58" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="354" y="466" class="gap-label">GAP 4</text>
+  <text x="480" y="480" text-anchor="middle" class="box-label enhanced-text">COOP / COEP Headers</text>
+  <text x="480" y="496" text-anchor="middle" class="box-detail">Required for SharedArrayBuffer</text>
+
+  <rect x="640" y="448" width="280" height="58" rx="4" class="enhanced" stroke-width="2"/>
+  <text x="654" y="466" class="gap-label">GAP 1</text>
+  <text x="780" y="480" text-anchor="middle" class="box-label enhanced-text">Playwright + CI</text>
+  <text x="780" y="496" text-anchor="middle" class="box-detail">E2E browser tests, CI, git hooks</text>
+
+  <!-- Build chain -->
+  <rect x="40" y="520" width="880" height="44" rx="4" fill="#f0faf0" stroke="#1a7a3a" stroke-width="1.5"/>
+  <text x="54" y="538" class="gap-label">GAP 5</text>
+  <text x="480" y="548" text-anchor="middle" class="box-label enhanced-text">Vite + TypeScript + Svelte + Rollup + PWA</text>
+</svg>

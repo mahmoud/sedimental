@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440">
+  <style>
+    text { font-family: 'JetBrains Mono', 'Cascadia Code', monospace; }
+    .title { font-size: 22px; font-weight: 700; fill: #1a1917; }
+    .subtitle { font-size: 14px; fill: #8a8782; }
+    .box-label { font-size: 15px; fill: #1a1917; font-weight: 600; }
+    .box-detail { font-size: 12px; fill: #5a5852; }
+    .arrow-label { font-size: 12px; fill: #c0392b; font-weight: 600; }
+    .zone-label { font-size: 13px; fill: #8a8782; font-weight: 600; letter-spacing: 1.5px; }
+    .state-label { font-size: 12px; fill: #c0392b; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="32" text-anchor="middle" class="title">What the Agent Built</text>
+  <text x="480" y="52" text-anchor="middle" class="subtitle">vanilla-browser-python / PyRegex</text>
+
+  <!-- Zone labels -->
+  <text x="240" y="82" text-anchor="middle" class="zone-label">MAIN THREAD</text>
+  <text x="720" y="82" text-anchor="middle" class="zone-label">WEB WORKER</text>
+
+  <!-- Divider -->
+  <line x1="480" y1="70" x2="480" y2="420" stroke="#e3e0d8" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Main Thread boxes -->
+  <rect x="40" y="96" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="240" y="123" text-anchor="middle" class="box-label">Vanilla DOM + CodeMirror</text>
+
+  <rect x="40" y="160" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="240" y="187" text-anchor="middle" class="box-label">main.js</text>
+
+  <rect x="40" y="224" width="400" height="80" rx="4" fill="#fff5e5" stroke="#e8a020" stroke-width="1.5"/>
+  <text x="240" y="250" text-anchor="middle" class="box-label">bridge.js - Manual postMessage RPC</text>
+  <text x="240" y="270" text-anchor="middle" class="box-detail">Promise map + ID tracking</text>
+  <text x="240" y="288" text-anchor="middle" class="box-detail">Timeout: terminate + respawn</text>
+
+  <rect x="80" y="324" width="320" height="44" rx="4" fill="#fef0f0" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="240" y="350" text-anchor="middle" class="state-label">State: 2 booleans (ready, initializing)</text>
+
+  <!-- Worker boxes -->
+  <rect x="520" y="96" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="123" text-anchor="middle" class="box-label">pyodide-worker.js</text>
+
+  <rect x="520" y="160" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="187" text-anchor="middle" class="box-label">Pyodide (CPython to WASM)</text>
+
+  <rect x="520" y="224" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="251" text-anchor="middle" class="box-label">regex_engine.py</text>
+
+  <rect x="520" y="288" width="400" height="44" rx="4" fill="#fafaf7" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="720" y="315" text-anchor="middle" class="box-detail">Classic worker (importScripts)</text>
+
+  <!-- Arrow: bridge to worker -->
+  <line x1="440" y1="264" x2="520" y2="264" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="520" y1="254" x2="440" y2="254" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="480" y="242" text-anchor="middle" class="arrow-label">postMessage</text>
+</svg>

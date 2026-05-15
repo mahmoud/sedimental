@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="talk_files/libs/clipboard/clipboard.min.js"></script>
+<script src="talk_files/libs/quarto-html/tabby.min.js"></script>
+<script src="talk_files/libs/quarto-html/popper.min.js"></script>
+<script src="talk_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="talk_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="talk_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="talk_files/libs/quarto-html/quarto-syntax-highlighting-958fc32383290b5ef6234cdb9c3ce2d8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.29">
+
+  <meta name="author" content="Mahmoud Hashemi">
+  <title>From Graveyard to Glory</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="talk_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="talk_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #383a42;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #383a42; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #50a14f; } /* Annotation */
+    code span.at { color: #a626a4; } /* Attribute */
+    code span.bn { color: #986801; } /* BaseN */
+    code span.bu { color: #a626a4; } /* BuiltIn */
+    code span.cf { color: #a626a4; } /* ControlFlow */
+    code span.ch { color: #50a14f; } /* Char */
+    code span.cn { color: #986801; } /* Constant */
+    code span.co { color: #a0a1a7; font-style: italic; } /* Comment */
+    code span.cv { color: #e45649; font-style: italic; } /* CommentVar */
+    code span.do { color: #e45649; } /* Documentation */
+    code span.dt { color: #a626a4; } /* DataType */
+    code span.dv { color: #986801; } /* DecVal */
+    code span.er { color: #f44747; text-decoration: underline; } /* Error */
+    code span.ex { color: #4078f2; font-weight: bold; } /* Extension */
+    code span.fl { color: #986801; } /* Float */
+    code span.fu { color: #4078f2; } /* Function */
+    code span.im { color: #50a14f; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #a626a4; } /* Keyword */
+    code span.op { color: #a626a4; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #a626a4; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #0184bc; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #50a14f; } /* String */
+    code span.va { color: #e45649; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="talk_files/libs/revealjs/dist/theme/quarto-a36d5b1fd193061ea9bbc6b65fcdd39d.css">
+  <link href="talk_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="talk_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="talk_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="talk_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#fafaf7" class="quarto-title-block center">
+  <h1 class="title">From Graveyard to Glory</h1>
+  <p class="subtitle">Production Python in the Browser</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Mahmoud Hashemi 
+</div>
+</div>
+</div>
+
+  <p class="date">PyCon US 2026</p>
+</section>
+<section id="a-deep-dive-on-hand-building-a-browser-python-app-byte-by-byte" class="slide level2 bigword-reflect">
+<h2>A deep dive on <br><b>hand-building</b> <br>a browser Python app,<br> <b>byte by byte</b></h2>
+</section>
+<section id="jk" class="slide level2 bigword">
+<h2>JK</h2>
+</section>
+<section id="section" class="slide level2 prompt-display">
+<h2></h2>
+<div class="prompt-text">
+<p>/plan i’d like to have a “python-in-browser” setup that lets me test regexes using python’s re module, for regex testing with python’s regex specifically. research and propose the best architecture for this in 2026. apply the color scheme #FDA500 for accent, #3FABCC for action (light) and #3F8BA3 for action (darker, for like hover). We want a dark mode, so invert and convert as necessary.</p>
+</div>
+</section>
+<section id="one-prompt.-one-plan.-16-in-tokens." class="slide level2 bigword-reflect">
+<h2>One prompt.<br>One plan.<br>$16 in tokens.</h2>
+<p><img data-src="images/token_cost.png" class="" style="margin-top: 20px;;width:100.0%"></p>
+</section>
+<section id="yak.partypyregex" class="slide level2 iframe-demo" data-background-color="#f8fafc">
+<h2><code>yak.party/pyregex</code></h2>
+<iframe src="https://yak.party/pyregex" width="1840" height="880" scrolling="no" style="border: none; border-radius: 8px; display: block; margin: 0 auto; overflow: hidden;">
+</iframe>
+</section>
+<section id="what-just-happened" class="slide level2" data-background-color="#f8fafc">
+<h2>What Just Happened?</h2>
+<p><img data-src="images/arch_vanilla.svg" style="display: block; margin: 0 auto;;width:100.0%"> <!--=========================================================--> <!-- SECTION 2: "TALK OVER?" PIVOT (3:00-4:30)                --> <!--=========================================================--></p>
+</section>
+<section id="talk-over" class="slide level2 bigword">
+<h2>Talk over?</h2>
+<p>Have I been replaced by AI?</p>
+</section>
+<section id="section-1" class="slide level2 bigword">
+<h2>😂</h2>
+<p>Agents don’t give you the most important parts.</p>
+</section>
+<section id="this-talk" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">This Talk</h2>
+<div class="eyebrow">What's coming up</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; max-width: 1500px;">
+<div style="padding: 28px 0; border-top: 2px solid #1a1917; display: grid; grid-template-columns: 90px 1fr;">
+<div class="eyebrow" style="color: #e8a020;">
+01
+</div>
+<div>
+<div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; line-height: 1.1;">
+The WHY
+</div>
+<div style="color: #8a8782; font-size: 0.62em; margin-top: 8px;">
+Neither syntax nor dogma.
+</div>
+</div>
+</div>
+<div style="padding: 28px 0; border-top: 2px solid #1a1917; display: grid; grid-template-columns: 90px 1fr;">
+<div class="eyebrow" style="color: #e8a020;">
+02
+</div>
+<div>
+<div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; line-height: 1.1;">
+The History
+</div>
+<div style="color: #8a8782; font-size: 0.62em; margin-top: 8px;">
+A decade of attempts. What changed.
+</div>
+</div>
+</div>
+<div style="padding: 28px 0; border-top: 1px solid #e3e0d8; display: grid; grid-template-columns: 90px 1fr;">
+<div class="eyebrow" style="color: #e8a020;">
+03
+</div>
+<div>
+<div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; line-height: 1.1;">
+Five Gaps
+</div>
+<div style="color: #8a8782; font-size: 0.62em; margin-top: 8px;">
+What the agent doesn’t know about production.
+</div>
+</div>
+</div>
+<div style="padding: 28px 0; border-top: 1px solid #e3e0d8; display: grid; grid-template-columns: 90px 1fr;">
+<div class="eyebrow" style="color: #e8a020;">
+04
+</div>
+<div>
+<div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; line-height: 1.1;">
+The Future
+</div>
+<div style="color: #8a8782; font-size: 0.62em; margin-top: 8px;">
+A glimpse at what’s coming.
+</div>
+</div>
+</div>
+<div style="padding: 28px 0; border-top: 1px solid #e3e0d8; display: grid; grid-template-columns: 90px 1fr;">
+<div class="eyebrow" style="color: #e8a020;">
+05
+</div>
+<div>
+<div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; line-height: 1.1;">
+Reflections
+</div>
+<div style="color: #8a8782; font-size: 0.62em; margin-top: 8px;">
+What this all adds up to.
+</div>
+</div>
+</div>
+</div>
+<!--=========================================================-->
+<!-- SECTION 3: WHY (4:30-7:30)                               -->
+<!--=========================================================-->
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="eyebrow">Part One <span class="sep">·</span> of Four</div>
+
+<div class="big-dither">01</div>
+
+<div class="section-divider">
+<h3>The WHY</h3>
+<p>Not syntax. Not dogma.</p>
+</div>
+</section>
+<section id="section-3" class="slide level2 scribble-slide scribble-clean" data-auto-animate="true" data-auto-animate-easing="ease-out" data-auto-animate-duration="0.4">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="scribble-block" data-id="b1">
+<div class="scribble-head" data-id="h1">
+Python is awesome!
+</div>
+<div class="scribble-sub fragment" data-id="s1">
+(and JavaScript is terrible)
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2 scribble-slide" data-auto-animate="true" data-auto-animate-easing="ease-out" data-auto-animate-duration="0.4">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="scribble-block" data-id="b1">
+<div class="scribble-note">
+syntax isn’t a reason
+</div>
+<div class="scribble-head struck" data-id="h1">
+Python is awesome!
+</div>
+<div class="scribble-sub struck" data-id="s1">
+(and JavaScript is terrible)
+</div>
+<div class="scribble-note">
+and neither is dogma or aesthetics
+</div>
+</div>
+</section>
+<section id="why-browser-python" class="slide level2">
+<h2>Why Browser Python?</h2>
+<div class="eyebrow">§1 WHY</div>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_why_browser.png" style="width: 260px; opacity: 0.8;"></div>
+<p>Actually good reasons:</p>
+<ul>
+<li class="fragment"><strong>Budget</strong> - free compute on every device</li>
+<li class="fragment"><strong>Sandboxing + Security</strong> - no server compromise</li>
+<li class="fragment"><strong>Reproducibility</strong> - same results, client-side</li>
+<li class="fragment"><strong>Python is Awesome!!</strong> - The <em>ecosystem</em></li>
+</ul>
+<!--=========================================================-->
+<!-- SECTION 4: HISTORY - 2 SLIDES (7:30-11:00)               -->
+<!--=========================================================-->
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div class="eyebrow">Part Two <span class="sep">·</span> of Four</div>
+
+<div class="big-dither">02</div>
+
+<div class="section-divider">
+<h3>The Graveyard</h3>
+<p>A brief, honest history of Python in the browser</p>
+</div>
+</section>
+<section id="the-graveyard" class="slide level2 graveyard">
+<h2>The Graveyard</h2>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_gravestone2.png" style="width: 200px; opacity: 0.8;"></div>
+<div style="font-size: 0.85em;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 34%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Years</th>
+<th>Project</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2009-2015</td>
+<td><img data-src="images/hist_pyjs.png" style="vertical-align: middle;;height:1.2em"> <strong>PyJS / Pyjamas</strong></td>
+<td>Transpiler + Qt/GTK widgets</td>
+</tr>
+<tr class="even">
+<td>2010-2021</td>
+<td><img data-src="images/hist_silverlight.png" style="vertical-align: middle;;height:1.2em"> <strong>Silverlight / IronPython</strong></td>
+<td>Browser plugin</td>
+</tr>
+<tr class="odd">
+<td>2013-2019</td>
+<td><img data-src="images/hist_pypy.png" style="vertical-align: middle;;height:1.2em"> <strong>PyPy.js</strong></td>
+<td>Compile PyPy to JS</td>
+</tr>
+<tr class="even">
+<td>2013-2021</td>
+<td><strong>RapydScript</strong></td>
+<td>Python-like to JS compiler</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="still-kicking" class="slide level2 graveyard">
+<h2>Still Kicking</h2>
+<div style="font-size: 0.85em;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 34%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Years</th>
+<th>Project</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2009-present</td>
+<td><img data-src="images/hist_skulpt.png" style="vertical-align: middle;;height:1.2em"></td>
+<td>JS reimplementation, still chasing Python 3</td>
+</tr>
+<tr class="even">
+<td>2014-present</td>
+<td><img data-src="images/hist_brython.png" style="vertical-align: middle;;height:1.2em"></td>
+<td>Runtime transpiler, maintained (Python 3.14), no C extensions</td>
+</tr>
+<tr class="odd">
+<td>2016-present</td>
+<td><img data-src="images/hist_transcrypt_pyreact.png" style="vertical-align: middle;;height:1.2em"> <strong>Transcrypt</strong></td>
+<td>Python-to-JS transpiler, active (v3.9.4)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Alive, but still niche.</p>
+</section>
+<section id="what-was-missing" class="slide level2">
+<h2>What Was Missing?</h2>
+<div class="columns">
+<div class="column" style="width:72%;">
+<p>Every previous attempt lacked at least one of:</p>
+<ol type="1">
+<li class="fragment">Python <strong>syntax</strong></li>
+<li class="fragment">Python <strong>stdlib</strong></li>
+<li class="fragment">Python <strong>ecosystem</strong> (<code>pip install</code>)</li>
+<li class="fragment"><strong>DOM</strong> access</li>
+<li class="fragment"><strong>Bidirectional</strong> JavaScript interop</li>
+</ol>
+</div><div class="column" style="width:28%;">
+<p><img data-src="images/illo_python.png" style="margin-top: 40px;;width:100.0%"></p>
+</div></div>
+</section>
+<section id="then-webassembly-pyodide" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Then: WebAssembly + Pyodide</h2>
+<div class="columns">
+<div class="column" style="width:72%;">
+<div class="fragment">
+<p><strong>2011</strong> - Empythoned (Replit <img data-src="images/hist_replit.png" style="vertical-align: middle;;height:1.4em">): Emscripten + CPython.</p>
+</div>
+<div class="fragment">
+<p><strong>2017</strong> - WebAssembly ships in all four browsers (overtaking Emscripten in Google Search results)</p>
+</div>
+<div class="fragment">
+<p><strong>2019</strong> - Pyodide: CPython compiled to WASM (Mozilla Research)</p>
+</div>
+<div class="fragment">
+<p><strong>2020</strong> - micropip: <code>pip install</code> in the browser (Pyodide 0.15)</p>
+</div>
+<div class="fragment">
+<p><strong>2026</strong> - v0.29. CPython Tier 3 WASM support (PEP 816)</p>
+</div>
+</div><div class="column" style="width:28%;">
+<p><img data-src="images/pyodide_logo.png" style="margin-top: 40px;;width:80.0%"></p>
+</div></div>
+</section>
+<section id="built-on" class="slide level2 glory">
+<h2>Built on <img data-src="images/pyodide_logo.png" style="vertical-align: sub; margin-bottom: -0.35em;;height:1.5em"></h2>
+<div style="margin-bottom: 24px;">
+
+</div>
+<div style="font-size: 0.78em;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Project</th>
+<th>What</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img data-src="images/logo_jupyterlite.svg" style="vertical-align: middle;;height:1.2em"> <strong>JupyterLite</strong></td>
+<td>Full Jupyter in browser (official subproject, Feb 2026)</td>
+<td><a href="https://jupyterlite.readthedocs.io">jupyterlite.readthedocs.io</a></td>
+</tr>
+<tr class="even">
+<td><img data-src="images/logo_marimo.svg" style="vertical-align: middle;;height:1.2em"> <strong>Marimo</strong></td>
+<td>Reactive notebooks, WASM export</td>
+<td><a href="https://marimo.io">marimo.io</a></td>
+</tr>
+<tr class="odd">
+<td><img data-src="images/logo_gradio.svg" style="vertical-align: middle;;height:1.2em"> <strong>Gradio-Lite</strong></td>
+<td>ML demos in browser (Hugging Face)</td>
+<td><a href="https://huggingface.co/blog/gradio-lite">huggingface.co</a></td>
+</tr>
+<tr class="even">
+<td><img data-src="images/logo_stlite.svg" style="vertical-align: middle;;height:1.2em"> <strong>Stlite</strong></td>
+<td>Streamlit → WASM, PWA, Electron</td>
+<td><a href="https://github.com/whitphx/stlite">github.com/whitphx/stlite</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p>Common thread: Mostly directly about <strong>Python</strong> in the user’s browser. <!--=========================================================--> <!-- SECTION 6: FIVE GAPS (14:00-20:00)                      --> <!--=========================================================--></p>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div class="eyebrow">Part Three <span class="sep">·</span> of Four</div>
+
+<div class="big-dither">03</div>
+
+<div class="section-divider">
+<h3>What the agent doesn't know</h3>
+<p>What we built (and what the agent didn't give us).</p>
+</div>
+</section>
+<section id="production-python-in-the-browser" class="slide level2 gap-slide">
+<h2>Production Python in the browser</h2>
+<p>A couple projects I’ve shipped.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/glompad_logo.png" style="vertical-align: middle;;height:1.4em"> <strong>glompad</strong>: <a href="https://yak.party/glompad">yak.party/glompad</a></p>
+<p>Side project: Data exploration with <a href="https://github.com/mahmoud/glom">glom</a></p>
+</div><div class="column fragment" style="width:50%;">
+<p><img data-src="images/finfam_logo.png" style="vertical-align: middle;;height:1.4em"> <strong>FinFam</strong>: <a href="https://finfam.app">finfam.app</a></p>
+<p>Work: Like GitHub for consumer finance.</p>
+</div></div>
+<div class="aside-box fragment">
+<p><span class="aside-label">NB</span> “Python” isn’t the point, it’s just the best tool for this job.</p>
+</div>
+</section>
+<section id="what-the-agent-built" class="slide level2 gap-slide">
+<h2>What the Agent Built</h2>
+<p>The architecture</p>
+
+<img data-src="images/arch_vanilla.svg" style="display: block; margin: 0 auto;;width:100.0%" class="r-stretch"></section>
+<section id="whats-missing" class="slide level2 gap-slide">
+<h2>What’s Missing?</h2>
+<p></p><div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_five_gaps.png" style="width: 260px; opacity: 0.8;"></div> Five gaps to close<p></p>
+<div class="gap-list">
+<ul>
+<li class="fragment"><span class="gap-num">1</span> <strong>Testing</strong> <span class="gap-sub">Playwright, CI, and git hooks</span></li>
+<li class="fragment"><span class="gap-num">2</span> <strong>UI Framework</strong> <span class="gap-sub">Svelte, compilers, and linters</span></li>
+<li class="fragment"><span class="gap-num">3</span> <strong>Typed boundaries</strong> <span class="gap-sub">Comlink and worker RPC</span></li>
+<li class="fragment"><span class="gap-num">4</span> <strong>Telemetry</strong> <span class="gap-sub">error reporting and closeable loops</span></li>
+<li class="fragment"><span class="gap-num">5</span> <strong>Worker State Management</strong> <span class="gap-sub">state machine + interrupts</span></li>
+</ul>
+</div>
+</section>
+<section id="gap-1-playwright-ci" class="slide level2 gap-slide">
+<h2>Gap 1: Playwright + CI</h2>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/logo_playwright.svg" style="width: 250px; opacity: 0.8;"></div>
+<p>Browser Python apps need <strong>browser tests</strong>.</p>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Playwright</strong>: E2E across 3 browsers</li>
+<li class="fragment"><strong>GitHub Actions</strong>: CI on every push</li>
+<li class="fragment"><strong>Pre-commit hooks</strong>: catch problems before they hit CI</li>
+</ul>
+</div>
+</section>
+<section id="gap-2-ui-framework" class="slide level2 gap-slide">
+<h2>Gap 2: UI Framework</h2>
+<p>Compilers, linters, and plugins the agent left out</p>
+<div class="fragment">
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/logo_svelte.svg" style="width: 400px; opacity: 0.8;"></div>
+<ul>
+<li class="fragment"><strong>Svelte</strong>: compiler catches errors at build time, not runtime</li>
+<li class="fragment"><strong>Plugins</strong>: TypeScript, ESLint, Prettier in the pipeline</li>
+<li class="fragment">Hook into <strong>pre-commit + CI</strong> (the agent didn’t wire these up)</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Every layer of the build is a verification step.</p>
+</div>
+</section>
+<section id="gap-3-comlink" class="slide level2 gap-slide" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Gap 3: Comlink</h2>
+<p>Typed boundaries are your friends.</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>What the agent builds:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// Manual postMessage RPC</span></span>
+<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pending <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> nextId <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">execute</span>(code) {</span>
+<span id="cb1-6"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> id <span class="op">=</span> nextId<span class="op">++;</span></span>
+<span id="cb1-7"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Promise</span>((resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-8"><a href="" aria-hidden="true" tabindex="-1"></a>    pending<span class="op">.</span><span class="fu">set</span>(id<span class="op">,</span> { resolve<span class="op">,</span> reject })<span class="op">;</span></span>
+<span id="cb1-9"><a href="" aria-hidden="true" tabindex="-1"></a>    worker<span class="op">.</span><span class="fu">postMessage</span>({ id<span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">'exec'</span><span class="op">,</span> code })<span class="op">;</span></span>
+<span id="cb1-10"><a href="" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-11"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="" aria-hidden="true" tabindex="-1"></a>worker<span class="op">.</span><span class="at">onmessage</span> <span class="op">=</span> (e) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-14"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { id<span class="op">,</span> result<span class="op">,</span> error } <span class="op">=</span> e<span class="op">.</span><span class="at">data</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> p <span class="op">=</span> pending<span class="op">.</span><span class="fu">get</span>(id)<span class="op">;</span></span>
+<span id="cb1-16"><a href="" aria-hidden="true" tabindex="-1"></a>  pending<span class="op">.</span><span class="fu">delete</span>(id)<span class="op">;</span></span>
+<span id="cb1-17"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (error) p<span class="op">.</span><span class="fu">reject</span>(error)<span class="op">;</span></span>
+<span id="cb1-18"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> p<span class="op">.</span><span class="fu">resolve</span>(result)<span class="op">;</span></span>
+<span id="cb1-19"><a href="" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:45%;">
+<p><strong>What production uses:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// Comlink - 4KB</span></span>
+<span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { wrap } <span class="im">from</span> <span class="st">'comlink'</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> api <span class="op">=</span> <span class="fu">wrap</span>(</span>
+<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span> <span class="bu">Worker</span>(<span class="st">'./worker.js'</span>)</span>
+<span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb2-7"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">// That's it. Call Python like a function.</span></span>
+<span id="cb2-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> result <span class="op">=</span> <span class="cf">await</span> api<span class="op">.</span><span class="fu">execute</span>(code)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p><strong>Comlink</strong> turns <code>postMessage</code> into transparent function calls.</p>
+<p>4KB. Zero boilerplate.</p>
+</div></div>
+</section>
+<section id="gap-4-telemetry" class="slide level2 gap-slide">
+<h2>Gap 4: Telemetry</h2>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_closed_loops.png" style="width: 320px; opacity: 0.8;"></div>
+<p>Closeable loops: The browser is an environment. Treat it like one. <img data-src="images/arch_telemetry.svg" style="display: block; margin: 0 auto;;width:100.0%"></p>
+</section>
+<section id="gap-5-worker-state-management" class="slide level2 gap-slide">
+<h2>Gap 5: Worker State Management</h2>
+<p>Interop and architecture</p>
+<p>The agent gives you <code>isReady</code> and <code>isLoading</code>. Production needs a <strong>state machine</strong>:</p>
+
+<img data-src="images/arch_state_machine.svg" style="display: block; margin: 0 auto;;width:100.0%" class="r-stretch"><p><code>SharedArrayBuffer</code> enables fast interrupts like Ctrl-C (but requires COOP/COEP headers).</p>
+</section>
+<section id="section-7" class="slide level2 gap-slide">
+<h2></h2>
+
+<!--=========================================================-->
+<!-- SECTION 7: THE FUTURE (20:00-22:30)                      -->
+<!--=========================================================-->
+<img data-src="images/arch_enhanced.svg" style="display: block; margin: 0 auto;;width:100.0%" class="r-stretch"></section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<div class="eyebrow">Part Four <span class="sep">·</span> of Four</div>
+
+<div class="big-dither">04</div>
+
+<div class="section-divider">
+<h3>The Future</h3>
+<p>A glimpse of what's coming.</p>
+</div>
+</section>
+<section id="whats-coming" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">What’s Coming</h2>
+<div class="eyebrow">§4 THE FUTURE</div>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_future.png" style="width: 260px; opacity: 0.8;"></div>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CPython Tier 3 WASM</strong> (PEP 816)</td>
+<td>Official upstream support</td>
+</tr>
+<tr class="even">
+<td><strong>emscripten-forge</strong></td>
+<td>Recreating conda in WASM</td>
+</tr>
+<tr class="odd">
+<td><strong>Cloudflare</strong></td>
+<td>Pyodide in V8 isolates. <br>Web UX doesn’t stop at the browser.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="edge-computing" class="slide level2">
+<h2>Edge Computing</h2>
+<div class="eyebrow">§4 THE FUTURE</div>
+<div style="text-align: center; font-size: 1.4em; margin: 1em 0;">
+<p><strong>server → edge → browser</strong></p>
+</div>
+<p>Cloudflare Workers: Pyodide at the edge - <strong>~1s cold starts</strong> via memory snapshots</p>
+<p></p><div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_edge_nodes.png" style="width: 300px; opacity: 0.8;"></div> <!--=========================================================--> <!-- SECTION 8: REFLECTIONS (22:30-25:00)                     --> <!--=========================================================--><p></p>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div class="eyebrow">Part Five <span class="sep">·</span> of Four</div>
+
+<div class="big-dither">05</div>
+
+<div class="section-divider">
+<h3>Reflections</h3>
+<p>What this all adds up to.</p>
+</div>
+</section>
+<section id="ps-and-qs" class="slide level2">
+<h2>Ps and Qs</h2>
+<div class="eyebrow">§5 REFLECTIONS</div>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_verifiability.png" style="width: 240px; opacity: 0.8;"></div>
+<p><strong>Verifiability</strong>: the thread that tied our five gaps together</p>
+<ul>
+<li class="fragment"><strong>Tests</strong> - Playwright E2E, not just unit tests</li>
+<li class="fragment"><strong>Types</strong> - Comlink typed boundaries</li>
+<li class="fragment"><strong>Compilers</strong> - Svelte, TypeScript, Rollup</li>
+<li class="fragment"><strong>Linters</strong> - ESLint, Prettier, CI checks</li>
+</ul>
+<div class="fragment">
+<p>Close your loops so you can focus on creating.</p>
+</div>
+</section>
+<section id="building-in-the-age-of-plastic-software" class="slide level2">
+<h2>Building in the age of plastic software</h2>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_plastic_software.png" style="width: 280px; opacity: 0.8;"></div>
+<div class="eyebrow">§5 REFLECTIONS</div>
+<div class="fragment">
+<p>Python won. The language of <em>good enough</em>.</p>
+</div>
+<div class="fragment">
+<div class="money-line">
+<p>Good enough is glorious.</p>
+</div>
+</div>
+<div class="fragment">
+<p>What hasn’t changed: Reach <strong>correctness</strong> first. Optimize later.</p>
+</div>
+<div class="fragment">
+<p>With every passing release, Python is becoming less and less the bottleneck.</p>
+</div>
+<div class="fragment">
+<p>The prototype <strong>is</strong> the product.</p>
+</div>
+</section>
+<section id="go-forth-and-build" class="slide level2">
+<h2>Go forth and build</h2>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_go_build.png" style="width: 280px; opacity: 0.8;"></div>
+<div class="eyebrow">§5 REFLECTIONS</div>
+<p>Now is the time to build first-class apps around Python’s top-notch libraries.</p>
+<div class="fragment">
+<p>Got a favorite Python library? Build a web application around it.</p>
+</div>
+<div class="fragment">
+<p>Beautiful, interactive web UX.</p>
+<p>Rock-solid Python business logic.</p>
+</div>
+</section>
+<section id="learning-in-the-age-of-agents" class="slide level2">
+<h2>Learning in the age of agents</h2>
+<div style="position: absolute; bottom: 100px; right: 128px;"><img src="images/illo_ai_postscript.png" style="width: 280px; opacity: 0.8;"></div>
+<p>Python may be the language agents are best at writing.</p>
+<div class="fragment">
+<p>Python may have won, but what about us?</p>
+</div>
+<div class="fragment">
+<p>An agent-assisted human beats a pure agent. Every time.</p>
+</div>
+<div class="fragment">
+<p>Ecosystem and community are real advantages. Don’t let them disappear.</p>
+<p>If you believe one good turn deserves another…</p>
+<p><strong>goodturn.ai</strong></p>
+</div>
+</section>
+<section id="links-resources" class="slide level2 links-slide">
+<h2>Links &amp; Resources</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Projects shown today:</strong></p>
+<ul>
+<li><a href="https://yak.party/glompad">glompad</a> - Production browser-Python app</li>
+<li><a href="https://finfam.app">FinFam</a> - Production browser-Python at work</li>
+<li><a href="https://yak.party/pyregex">PyRegex</a> - State of agents in 2026</li>
+<li><a href="https://pyodide.org">Pyodide</a> - The runtime</li>
+<li><a href="https://goodturn.ai">GoodTurn</a> - If one good turn deserves another</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Learn more:</strong></p>
+<ul>
+<li><a href="https://sedimental.org">sedimental.org</a> - Blog</li>
+<li><a href="https://github.com/mahmoud">github.com/mahmoud</a> - Code</li>
+<li><a href="https://www.youtube.com/watch?v=r-A78RgMhZU">A Talk Near the Future of Python</a> - dabeaz’s 2019 byte-by-byte version</li>
+</ul>
+<p><img data-src="images/qr_talk.png" class="qr-code" width="200"></p>
+</div></div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="talk_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="talk_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="talk_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="talk_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 4.0e-2,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 2,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    (function() {
+      const slides = document.querySelector('.reveal .slides');
+      if (!slides) return;
+
+      // Inject right-side footer
+      const footerRight = document.createElement('div');
+      footerRight.className = 'footer-right';
+      footerRight.textContent = 'PyCon 2026 + Mahmoud Hashemi';
+      slides.appendChild(footerRight);
+
+      function updateFooter(currentSlide) {
+        const bg = document.querySelector('.slide-background.present');
+        const isDark = bg?.classList.contains('has-dark-background');
+        const isTitle = currentSlide?.id === 'title-slide';
+        slides.classList.toggle('footer-dark', isDark);
+        slides.classList.toggle('footer-hidden', isTitle);
+      }
+
+      Reveal.on('slidechanged', event => updateFooter(event.currentSlide));
+      Reveal.on('ready', event => updateFooter(event.currentSlide));
+    })();
+
+    // Disable ctrl-click zoom plugin
+    Reveal.on('ready', function() {
+      var zoomPlugin = Reveal.getPlugin('zoom');
+      if (zoomPlugin && zoomPlugin.destroy) {
+        zoomPlugin.destroy();
+      } else {
+        // Fallback: intercept zoom mouse events
+        document.querySelector('.reveal').addEventListener('mousedown', function(e) {
+          if (e.altKey || e.ctrlKey) { e.stopImmediatePropagation(); }
+        }, true);
+      }
+    });
+    </script>
+    <script>
+    // Inject gravestone + phoenix illustrations onto the title slide
+    // Uses DOM injection because CSS url() in Quarto RevealJS SCSS resolves
+    // relative to compiled theme path, not HTML root.
+    // GoodTurn: https://goodturn.ai/p/gtp_01krdg2r2tf639rsaw1q97zqmk
+    document.addEventListener('DOMContentLoaded', function() {
+      const titleSlide = document.getElementById('title-slide');
+      if (!titleSlide) return;
+
+      const illos = [
+        { src: 'images/illo_gravestone2.png', bottom: '60px', left: '80px', width: '280px' },
+        { src: 'images/illo_phoenix2.png', top: '40px', right: '80px', width: '320px' },
+      ];
+
+      illos.forEach(function(cfg) {
+        const img = document.createElement('img');
+        img.src = cfg.src;
+        img.style.position = 'absolute';
+        img.style.width = cfg.width;
+        img.style.opacity = '0.85';
+        img.style.pointerEvents = 'none';
+        img.style.zIndex = '1';
+        if (cfg.bottom) img.style.bottom = cfg.bottom;
+        if (cfg.top) img.style.top = cfg.top;
+        if (cfg.left) img.style.left = cfg.left;
+        if (cfg.right) img.style.right = cfg.right;
+        titleSlide.appendChild(img);
+      });
+    });
+    </script>
+    <script>
+    // Preserve current slide across Quarto live-reloads.
+    // Saves Reveal.js indices to sessionStorage on beforeunload;
+    // restores on 'ready' if the save is recent (< 10 s).
+    (function () {
+      var KEY = 'reveal-slide-position';
+
+      window.addEventListener('beforeunload', function () {
+        if (typeof Reveal !== 'undefined' && Reveal.isReady()) {
+          var idx = Reveal.getIndices();
+          idx._t = Date.now();
+          sessionStorage.setItem(KEY, JSON.stringify(idx));
+        }
+      });
+
+      if (typeof Reveal !== 'undefined') {
+        Reveal.on('ready', function () {
+          var raw = sessionStorage.getItem(KEY);
+          if (!raw) return;
+          try {
+            var idx = JSON.parse(raw);
+            // Only restore if saved within 10 s (i.e. a live-reload, not a fresh tab)
+            if (Date.now() - idx._t < 10000) {
+              Reveal.slide(idx.h || 0, idx.v || 0, idx.f == null ? -1 : idx.f);
+            }
+          } catch (e) {}
+        });
+      }
+    })();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
