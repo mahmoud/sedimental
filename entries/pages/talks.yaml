@@ -26,6 +26,20 @@ check out [Enterprise Software with Python](/esp.html), as well as my
 
 <img title="Me @ PyBay 2017" width="100%" src="/uploads/me/me_pybay2017.png">
 
+
+---
+title: "A Journey from Back to Front: Python in the Browser"
+_date: February 8, 2023
+venue: SF Python @ Sentry, San Francisco, CA
+slides: https://sedimental.org/uploads/glompad_talk_2023/glompad_talk.html
+video: https://www.youtube.com/watch?v=ks24SpWwRmg
+description: |
+  An introduction to building real applications with Python in the
+  browser, centered on [glompad](https://yak.party/glompad): a data transformation sandbox built
+  with Pyodide, Svelte, and TypeScript. Covers glom's evolution from
+  deep-get to full declarative data transformation, the glompad
+  architecture, and lessons learned shipping browser Python with
+  PyScript, CodeMirror, Playwright, and Sentry.
 ---
 title: "Ask the Ecosystem: Lessons from 350+ FOSS Python Applications"
 _date: October 4, 2019
