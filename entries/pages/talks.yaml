@@ -28,6 +28,17 @@ check out [Enterprise Software with Python](/esp.html), as well as my
 
 
 ---
+title: "From Graveyard to Glory: Production Python in the Browser"
+_date: May 15, 2026
+venue: PyCon US 2026, Long Beach, CA
+slides: https://sedimental.org/uploads/g2g_browser_python/
+description: |
+  Everything you need to know about building a production-grade, browser-based
+  Python app, covering the history of Python-in-browser attempts,
+  what changed with WebAssembly and Pyodide, and five production gaps that
+  AI agents don't close for you: testing, UI frameworks, typed worker boundaries,
+  telemetry, and worker state management. Plus, musings about building in the age of agents.
+---
 title: "A Journey from Back to Front: Python in the Browser"
 _date: February 8, 2023
 venue: SF Python @ Sentry, San Francisco, CA

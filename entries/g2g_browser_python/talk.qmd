@@ -169,28 +169,36 @@ Actually good reasons:
 
 {{< illo src="images/illo_gravestone2.png" width="200px" >}}
 
-::::: {style="font-size: 0.85em;"}
+::: {.fragment}
+**2009–2015** - ![](images/hist_pyjs.png){height="1.2em" style="vertical-align: middle;"} **PyJS / Pyjamas**: Transpiler + Qt/GTK widgets
+:::
 
-| Years | Project | Approach |
-|-------|---------|----------|
-| 2009-2015 | ![](images/hist_pyjs.png){height="1.2em" style="vertical-align: middle;"} **PyJS / Pyjamas** | Transpiler + Qt/GTK widgets |
-| 2010-2021 | ![](images/hist_silverlight.png){height="1.2em" style="vertical-align: middle;"} **Silverlight / IronPython** | Browser plugin |
-| 2013-2019 | ![](images/hist_pypy.png){height="1.2em" style="vertical-align: middle;"} **PyPy.js** | Compile PyPy to JS |
-| 2013-2021 | **RapydScript** | Python-like to JS compiler |
-:::::
+::: {.fragment}
+**2010–2021** - ![](images/hist_silverlight.png){height="1.2em" style="vertical-align: middle;"} **Silverlight / IronPython**: Browser plugin
+:::
+
+::: {.fragment}
+**2013–2019** - ![](images/hist_pypy.png){height="1.2em" style="vertical-align: middle;"} **PyPy.js**: Compile PyPy to JS
+:::
+
+::: {.fragment}
+**2013–2021** - **RapydScript**: Python-like to JS compiler
+:::
 
 
 ## Still Kicking {.graveyard}
 
-::::: {style="font-size: 0.85em;"}
+::: {.fragment}
+**2009–present** - ![](images/hist_skulpt.png){height="1.2em" style="vertical-align: middle;"} **Skulpt**: JS reimplementation, still chasing Python 3
+:::
 
-| Years | Project | Approach |
-|-------|---------|----------|
-| 2009-present | ![](images/hist_skulpt.png){height="1.2em" style="vertical-align: middle;"} | JS reimplementation, still chasing Python 3 |
-| 2014-present | ![](images/hist_brython.png){height="1.2em" style="vertical-align: middle;"} | Runtime transpiler, maintained (Python 3.14), no C extensions |
-| 2016-present | ![](images/hist_transcrypt_pyreact.png){height="1.2em" style="vertical-align: middle;"} **Transcrypt** | Python-to-JS transpiler, active (v3.9.4) |
+::: {.fragment}
+**2014–present** - ![](images/hist_brython.png){height="1.2em" style="vertical-align: middle;"} **Brython**: Runtime transpiler, maintained (Python 3.14), no C extensions
+:::
 
-:::::
+::: {.fragment}
+**2016–present** - ![](images/hist_transcrypt_pyreact.png){height="1.2em" style="vertical-align: middle;"} **Transcrypt**: Python-to-JS transpiler, active (v3.9.4)
+:::
 
 Alive, but still niche.
 

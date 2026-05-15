@@ -781,3 +781,14 @@ html.reveal-print .reveal .slides section:has(.big-dither) {
   display: flex !important;
   flex-direction: column !important;
 }
+
+// ── Mobile: disable incremental/fragment scroll stops ─────────
+// On narrow viewports, Reveal scroll-view turns every .fragment
+// into its own scroll stop — way too much scrolling.  Show all
+// items at once so the slide reads as a single block.
+@media (max-width: 768px) {
+  .reveal .slides section .fragment {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
