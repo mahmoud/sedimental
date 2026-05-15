@@ -159,7 +159,7 @@ worked for well over a decade and is still supported by `pip` and the
 [Python Package Index][pypi] (PyPI)[^pypi].
 
 [sdist]: https://docs.python.org/2/distutils/sourcedist.html
-[pypi]: https://pypi.python.org/pypi
+[pypi]: https://pypi.org/pypi
 
 # The Python Package
 
@@ -399,10 +399,10 @@ more. There is even a conda-native option called
 
 [pyinstaller]: http://www.pyinstaller.org/
 [osnap]: https://github.com/jamesabel/osnap
-[bbfreeze]: https://pypi.python.org/pypi/bbfreeze
+[bbfreeze]: https://pypi.org/pypi/bbfreeze
 [py2exe]: http://www.py2exe.org/
 [py2app]: https://py2app.readthedocs.io/en/latest/
-[pynsist]: https://pypi.python.org/pypi/pynsist
+[pynsist]: https://pypi.org/pypi/pynsist
 [nuitka]: http://nuitka.net/pages/overview.html
 [constructor]: https://github.com/conda/constructor
 [freezer_matrix]: http://python-guide.readthedocs.io/en/latest/shipping/freezing/
@@ -445,7 +445,7 @@ agent. [GitLab][gitlab]'s [on-premise solution][gitlab_ce] is perhaps the
 largest open-source usage, and has been a joy to install and upgrade.
 
 [gitlab]: https://about.gitlab.com/
-[gitlab_ce]: https://about.gitlab.com/downloads/
+[gitlab_ce]: https://about.gitlab.com/install/
 
 Unlike our multitude of freezers, Omnibus is uniquely elegant and
 mature. No other system has natively shipped
@@ -765,4 +765,4 @@ existing practices for shipping Python.
     package for consistency's sake.
 
 [pillow]: https://pillow.readthedocs.io/en/stable/
-[pil_orig]: https://pypi.python.org/pypi/PIL
+[pil_orig]: https://pypi.org/pypi/PIL

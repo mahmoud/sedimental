@@ -482,7 +482,7 @@ options. Here are some non-enterprise options we can rule out:
 
 1. Push from local machine using FTP/SSH/etc.
 2. Trigger the deployment machine to pull from version control
-3. Pull from remote PyPI (pypi.python.org)
+3. Pull from remote PyPI (pypi.org)
 
 Pay particular attention to the most _reliable_ means of publishing
 and deploying packages and target that.

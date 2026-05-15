@@ -197,7 +197,7 @@ randomly-selected jurors. This spreads the load for those early, large
 rounds.
 
 For more in-depth detail about the research and design behind
-Montage's voting system, [see this post](http://sedimental.org/wikilectioneering.html).
+Montage's voting system, [see this post](https://sedimental.org/wikilectioneering.html).
 
 [quorum_def]: https://en.wiktionary.org/wiki/quorum
 
@@ -230,9 +230,9 @@ user experience with a familiar feel.
 The code is free and open to contributions and issue reports
 [on GitHub][montage_gh], of course.
 
-[tool_labs]: https://tools.wmflabs.org/
+[tool_labs]: https://toolforge.org/
 [oauth]: https://www.mediawiki.org/wiki/Help:OAuth
-[montage_beta]: http://tools.wmflabs.org/montage-beta/
+[montage_beta]: https://montage-beta.toolforge.org/
 [montage_gh]: https://github.com/hatnote/montage
 [clastic_gh]: https://github.com/mahmoud/clastic
 [werkzeug_gh]: https://github.com/pallets/werkzeug
@@ -282,7 +282,7 @@ Monuments organizers and jurors. We couldn't have done it without you!
 We hope this peek behind the scenes of the contest has been
 enlightening. For more details and updates, feel free to
 [watch the repo on GitHub](http://github.com/hatnote/montage), follow
-[Hatnote on Twitter](http://twitter.com/hatnotable), and of course,
+[Hatnote on Twitter](https://twitter.com/hatnotable), and of course,
 watch/update/discuss via
 [our Commons page](https://commons.wikimedia.org/wiki/Commons:Montage). We
 look forward to hearing from you, and seeing your 2017 contest submissions!

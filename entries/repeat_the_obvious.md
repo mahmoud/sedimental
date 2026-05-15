@@ -60,7 +60,7 @@ can help by writing about something painfully obvious to you. Bad
 things happen when we don't repeat the obvious.
 
 [hard_way]: http://learncodethehardway.org/
-[obama_code]: http://recode.net/2015/02/14/obama-everybodys-got-to-learn-how-to-code/
+[obama_code]: https://web.archive.org/web/2023/http://recode.net/2015/02/14/obama-everybodys-got-to-learn-how-to-code/
 [code_8weeks]: http://lifehacker.com/how-i-taught-myself-to-code-in-eight-weeks-511615189
 [event_loop]: https://en.wikipedia.org/wiki/Event_loop
 [node]: https://en.wikipedia.org/wiki/Node.js

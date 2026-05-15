@@ -45,7 +45,7 @@ customers will probably get the fixes in a few weeks, too. Meanwhile,
 we're still waiting on our gourmet cheese basket.
 
 [jupyter]: http://jupyter.org/
-[perf_nb]: https://github.com/paypal/support/blob/master/notebooks/benchmarking_servers_before_and_after.ipynb
+[perf_nb]: https://web.archive.org/web/20201129194705/https://github.com/paypal/support
 
 Even though our benchmarks were simple, they were specific to the use
 case, and utilized robust statistics. But even the most robust
@@ -80,7 +80,7 @@ measurements. These are good uses of your server cycles. PayPal's
 internal Python framework does all of this on top of [SuPPort][support],
 [faststat][faststat], and [lithoxyl][lithoxyl].
 
-[support]: https://github.com/paypal/support
+[support]: https://web.archive.org/web/20201129194705/https://github.com/paypal/support
 [faststat]: https://github.com/doublereedkurt/faststat
 [lithoxyl]: https://github.com/mahmoud/lithoxyl
 

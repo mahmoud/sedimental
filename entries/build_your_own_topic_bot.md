@@ -13,7 +13,7 @@ Recipe updates, from *tens of thousands* of unique users. In this post
 we wanted to do a quick hands-on guide showing one way IFTTT helps
 Wikipedians reach a wider web.
 
-[launch]: https://blog.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/
+[launch]: https://diff.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/
 
 From [drones][eg_drones_twitter] to [Florida news][eg_florida_news] to
 [aesthetic][eg_aesthetic_blog_1] [blogs][eg_aesthetic_blog_2] to
@@ -39,7 +39,7 @@ selection from the last week:
 [eg_aesthetic_blog_2]: http://seapunkscully.tumblr.com/
 [eg_florida_news]: https://twitter.com/_floridaman
 [eg_fake_news]: http://literallyunbelievable.org/
-[eg_drones_tumblr]: http://faildrone.com/
+[eg_drones_tumblr]: https://web.archive.org/web/20201108143325/https://faildrone.com/
 
 [wp_ifttt]: http://blog.hatnote.com/post/124069724187/wikipedia-and-ifttt-a-technical-guide
 

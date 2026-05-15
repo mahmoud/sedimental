@@ -152,8 +152,8 @@ First, let's import the modules and data we'll need.
 
 ```python
 import json
-import yaml  # https://pypi.python.org/pypi/PyYAML
-from boltons.iterutils import remap  # https://pypi.python.org/pypi/boltons
+import yaml  # https://pypi.org/pypi/PyYAML
+from boltons.iterutils import remap  # https://pypi.org/pypi/boltons
 
 review_map = yaml.load(media_reviews)
 

@@ -6,7 +6,7 @@ title: Python by the C side
  you've enjoyed
  [this sort of content](https://medium.com/paypal-tech/search?q=python)
  subscribe to
- [my blog](http://sedimental.org)/[pythondoeswhat.com](http://pythondoeswhat.com/)
+ [my blog](https://sedimental.org)/[pythondoeswhat.com](http://pythondoeswhat.com/)
  or [follow me on Twitter](https://twitter.com/mhashemi). It's been
  fun!*
 

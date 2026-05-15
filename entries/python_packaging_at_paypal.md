@@ -100,7 +100,7 @@ doing, but for free, for everyone, for
 [hundreds of libraries][anaconda_lib]. Finally, there was a standard
 option that made Python even simpler for our developers.
 
-[anaconda_over]: https://www.continuum.io/anaconda-overview
+[anaconda_over]: https://www.anaconda.com/download
 [anaconda_lib]: https://docs.continuum.io/anaconda/pkg-docs
 
 # Adopting and adapting
@@ -152,7 +152,7 @@ containerized environments.
 [minic]: http://conda.pydata.org/miniconda.html
 [calver]: http://calver.org/
 [conda_nonet]: https://docs.continuum.io/anaconda/faq#how-do-i-install-packages-on-a-non-networked-machine
-[minic_code]: https://github.com/paypal/support/blob/master/examples/miniconda/activate
+[minic_code]: https://web.archive.org/web/20211103123607/https://github.com/paypal/support/blob/master/examples/miniconda/activate
 
 # Packages to come
 
@@ -164,5 +164,5 @@ We sincerely thank [the Anaconda contributors][anaconda_gh] for their open-sourc
 contributions, and hope that their reach spreads to ever more
 environments and runtimes.
 
-[esp]: http://sedimental.org/esp.html
+[esp]: https://sedimental.org/esp.html
 [anaconda_gh]: https://github.com/ContinuumIO

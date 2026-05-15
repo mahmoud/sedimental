@@ -60,8 +60,8 @@ version was all the way up to 595.
 -->
 
 [semverorg]: http://semver.org/
-[pypi40]: https://pypi.python.org/pypi?%3Aaction=rss
-[pypi]: https://pypi.python.org/pypi
+[pypi40]: https://pypi.org/pypi?%3Aaction=rss
+[pypi]: https://pypi.org/pypi
 
 So, if SemVer is so popular, it must be easy, right? Follow
 [a couple straightforward steps][semver_process]. Pick a number, add
@@ -304,7 +304,7 @@ project users and maintainers.
 
 
 *If you're into enterprise software considerations like these,
- [subscribe](http://sedimental.org/atom.xml) or
+ [subscribe](https://sedimental.org/atom.xml) or
  [follow me on Twitter](https://twitter.com/mhashemi) for some
  details about my upcoming O'Reilly project.*
 
@@ -357,7 +357,7 @@ including it.
       examples of calendar versioning we take for granted. Off the top
       of my head I could think of Twisted, Windows 95/98/2000, and
       probably most ubiquitous: every mainstream car in
-      circulation. <a href="http://sedimental.org/about.html"
+      circulation. <a href="https://sedimental.org/about.html"
       target="_blank">Email me</a> with more examples and I'll compile
       them somewhere.
 

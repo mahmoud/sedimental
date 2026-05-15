@@ -1,9 +1,9 @@
 ---
 title: A Journey from Back to Front
-scripts: https://pyscript.net/latest/pyscript.js,glompad_talk_script.js
+scripts: https://pyscript.net/releases/2024.11.1/core.js,glompad_talk_script.js
 # comment above and uncomment below to disable pyodide load time
 # scripts: glompad_talk_script.js
-css: https://pyscript.net/latest/pyscript.css,glompad_talk_styles.css
+css: https://pyscript.net/releases/2024.11.1/core.css,glompad_talk_styles.css
 theme: simple
 highlightTheme: atom-one-light
 revealOptions:

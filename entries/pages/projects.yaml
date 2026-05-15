@@ -53,7 +53,7 @@ description: |
   scratch to production to release so quickly, nor have I ever been
   quite this happy, post-release to be one of my own users.
 
-  [glom_blog]: http://sedimental.org/glom_restructured_data.html
+  [glom_blog]: https://sedimental.org/glom_restructured_data.html
   [glom_pycon]: https://www.youtube.com/watch?v=3aREXkfeWek
 
 ---
@@ -74,7 +74,7 @@ description: |
   [0ver.org](https://0ver.org)).
 
   [poe]: https://en.wikipedia.org/wiki/Poe's_law
-  [version]: http://sedimental.org/designing_a_version.html
+  [version]: https://sedimental.org/designing_a_version.html
 ---
 title: Face
 est_date: January 20, 2018
@@ -98,9 +98,10 @@ description: |
 ---
 title: Pocket Protector
 est_date: November 7, 2017
-release_status: Soft release (pending documentation)
+release_status: Released
 gh_link: https://github.com/SimpleLegal/pocket_protector
 pypi_link: https://pypi.org/project/pocket-protector/
+docs_link: https://pocket-protector.readthedocs.io/en/latest/index.html
 description: |
   Security is a tough topic for teams of all sizes, and secrets
   management can present a challenge for projects, big and
@@ -118,7 +119,7 @@ title: Hyperlink
 est_date: February 14, 2017
 release_status: Released
 gh_link: https://github.com/python-hyper/hyperlink
-pypi_link: https://pypi.python.org/pypi/hyperlink
+pypi_link: https://pypi.org/pypi/hyperlink
 description: |
 
   Hyperlink provides a pure-Python implementation of immutable
@@ -157,7 +158,7 @@ title: Boltons
 est_date: February 19, 2013
 release_status: Released
 gh_link: https://github.com/mahmoud/boltons
-pypi_link: https://pypi.python.org/pypi/boltons
+pypi_link: https://pypi.org/pypi/boltons
 description: |
 
   Boltons is an expansive collection of 160+ Python types and
@@ -180,7 +181,7 @@ title: Ashes
 est_date: January 11, 2013
 release_status: Soft release, pending documentation
 gh_link: https://github.com/mahmoud/ashes
-pypi_link: https://pypi.python.org/pypi/ashes
+pypi_link: https://pypi.org/pypi/ashes
 description: |
 
   Ashes is a small and scrutable HTML templating library with a
@@ -200,7 +201,7 @@ title: Clastic
 est_date: November 8, 2012
 release_status: Soft release, pending branding
 gh_link: https://github.com/mahmoud/clastic
-pypi_link: https://pypi.python.org/pypi/clastic
+pypi_link: https://pypi.org/pypi/clastic
 description: |
 
   Clastic is a web site and service microframework built for high
@@ -228,7 +229,7 @@ title: Chert
 est_date: October 19, 2014
 release_status: Active development
 gh_link: https://github.com/mahmoud/chert
-pypi_link: https://pypi.python.org/pypi/chert
+pypi_link: https://pypi.org/pypi/chert
 description: |
 
   Chert is the static site generation system designed to fit the
@@ -265,7 +266,7 @@ description: |
 ---
 title: SuPPort
 est_date: August 20, 2012
-pypi_link: https://pypi.python.org/pypi/support
+pypi_link: https://pypi.org/pypi/support
 announce_link: https://medium.com/paypal-tech/introducing-support-98945f023a8e
 release_status: Released, archival
 description: |
@@ -310,7 +311,7 @@ title: Lithoxyl
 est_date: June 18, 2013
 release_status: Development paused
 gh_link: https://github.com/mahmoud/lithoxyl
-pypi_link: https://pypi.python.org/pypi/lithoxyl
+pypi_link: https://pypi.org/pypi/lithoxyl
 description: |
 
   Lithoxyl is a full-featured instrumentation framework encompassing
@@ -340,7 +341,7 @@ title: Strata
 est_date: June 21, 2013
 release_status: On hiatus
 gh_link: https://github.com/mahmoud/strata
-pypi_link: https://pypi.python.org/pypi/strata
+pypi_link: https://pypi.org/pypi/strata
 description: |
 
   Strata is a holistic configuration framework. Strata came into
@@ -368,7 +369,7 @@ description: |
 title: Cronfed
 est_date: August 20, 2014
 gh_link: https://github.com/hatnote/cronfed
-pypi_link: https://pypi.python.org/pypi/cronfed
+pypi_link: https://pypi.org/pypi/cronfed
 release_status: Released
 description: |
 
@@ -387,15 +388,15 @@ description: |
 ---
 title: ETAVTA
 est_date: November 8, 2012
-release_status: Soft release, pending announcement
+release_status: Discontinued
 gh_link: https://github.com/mahmoud/etavta
 description: |
 
-  [ETAVTA](http://etavta.com/) is my answer to the Valley Transit
+  [ETAVTA](https://web.archive.org/web/20211203085354/http://etavta.com/) was my answer to the Valley Transit
   Authority's ([VTA][vta]) complicated light rail schedule and Google
-  Maps' inaccurate estimates. It computes a full weeklong schedule for
-  all trains and tells you the next five trains going north and south
-  at any of the 62 VTA stations. It's pretty simple, and serves as the
+  Maps' inaccurate estimates. It computed a full weeklong schedule for
+  all trains and told you the next five trains going north and south
+  at any of the 62 VTA stations. It was pretty simple, and served as the
   earliest example of how to use [Clastic](#clastic).
 
   [vta]: https://en.wikipedia.org/wiki/VTA_light-rail
@@ -404,7 +405,7 @@ description: |
 title: Hematite
 est_date: May 19, 2013
 gh_link: https://github.com/mahmoud/hematite
-pypi_link: https://pypi.python.org/pypi/hematite
+pypi_link: https://pypi.org/pypi/hematite
 release_status: On hiatus
 description: |
 
@@ -416,7 +417,7 @@ description: |
 title: Tectonic
 est_date: February 21, 2014
 gh_link: https://github.com/mahmoud/tectonic
-pypi_link: https://pypi.python.org/pypi/tectonic
+pypi_link: https://pypi.org/pypi/tectonic
 release_status: On hiatus
 description: |
 

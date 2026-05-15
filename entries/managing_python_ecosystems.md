@@ -172,11 +172,11 @@ control, and need maximum information.[^1]
     money alone does not make servers run fast.
 
 [piwik]: http://piwik.org/
-[support]: https://github.com/paypal/support
+[support]: https://web.archive.org/web/20201129194705/https://github.com/paypal/support
 [clastic]: https://github.com/mahmoud/clastic#clastic
 [meta_app]: https://github.com/mahmoud/clastic/blob/master/clastic/meta.py
-[hashtags]: http://tools.wmflabs.org/hashtags/
-[hashtags_meta]: http://tools.wmflabs.org/hashtags/meta/
+[hashtags]: https://hashtags.toolforge.org/
+[hashtags_meta]: https://hashtags.toolforge.org/
 [wm_labs]: https://www.mediawiki.org/wiki/Wikimedia_Labs
 [wp_donate]: https://donate.wikimedia.org/wiki/Ways_to_Give
 

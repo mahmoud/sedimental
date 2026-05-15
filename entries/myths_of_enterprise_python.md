@@ -183,7 +183,7 @@ web properties. [YouTube][youtube] and [Yelp][yelp], for instance.
 [paypal]: https://en.wikipedia.org/wiki/PayPal
 [balanced]: https://www.balancedpayments.com/
 [numpy]: https://en.wikipedia.org/wiki/NumPy
-[numba]: http://numba.pydata.org/bin
+[numba]: https://numba.pydata.org/
 [numerical]: https://wiki.python.org/moin/NumericAndScientific
 [lucasarts]: https://en.wikipedia.org/wiki/LucasArts
 [disneytech]: https://disneyanimation.com/open-source/
@@ -471,7 +471,7 @@ necessity for a competitive business.
 [dropbox_lean]: http://www.forbes.com/sites/victoriabarret/2011/10/18/dropbox-the-inside-story-of-techs-hottest-startup/
 [pep8]: https://www.python.org/dev/peps/pep-0008/
 [pyflakes]: https://github.com/pyflakes/pyflakes/
-[flake8]: https://pypi.python.org/pypi/flake8
+[flake8]: https://pypi.org/pypi/flake8
 
 ## A clean slate
 

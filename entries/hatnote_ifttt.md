@@ -4,7 +4,7 @@ title: "Wikipedia and IFTTT: A Technical Guide"
 
 Here at Hatnote we build on Wikipedia a lot. And while we love building projects like [Listen to Wikipedia](http://listen.hatnote.com/) and [The Weeklypedia](http://weekly.hatnote.com/), we have to admit programming, integrating, and maintaining reliable services can be [a lot of work](https://github.com/hatnote/). Creating cool and functional Wikipedia projects remains out of reach of most busy Internet denizens. Until today.
 
-With the aim of bringing Wikipedia to the wider web, [Stephen](https://twitter.com/sklaporte) and [I](https://twitter.com/mhashemi) are pleased to have worked with [Wikimedia](https://en.wikipedia.org/wiki/Wikimedia_Foundation) and [IFTTT](https://en.wikipedia.org/wiki/IFTTT) to build [the brand-new Wikipedia IFTTT channel](https://ifttt.com/wikipedia). This post is your 10-minute usage and technical guide to all things Wikipedia+IFTTT. For the official announcement, [see the Wikimedia blog](http://blog.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/).
+With the aim of bringing Wikipedia to the wider web, [Stephen](https://twitter.com/sklaporte) and [I](https://twitter.com/mhashemi) are pleased to have worked with [Wikimedia](https://en.wikipedia.org/wiki/Wikimedia_Foundation) and [IFTTT](https://en.wikipedia.org/wiki/IFTTT) to build [the brand-new Wikipedia IFTTT channel](https://ifttt.com/wikipedia). This post is your 10-minute usage and technical guide to all things Wikipedia+IFTTT. For the official announcement, [see the Wikimedia blog](https://diff.wikimedia.org/2015/07/14/wikipedia-recipes-with-ifttt/).
 
 ![IFTTT Logo](https://40.media.tumblr.com/c9936d5d5f024d3d9be123c86c336794/tumblr_nrhes0PCQW1r07l56o1_1280.png)
 
@@ -40,7 +40,7 @@ If you’re learning new things from the facts and think you might have some bet
 
 Editors write articles. You don’t need to be logged in to edit Wikipedia, but it helps with site customizations and better edit history maintenance. Now, using **[the Edits from a User Trigger](https://ifttt.com/channels/wikipedia/triggers/447356988-new-edit-from-specific-user)** you can easily connect a given user’s edit activity with other social sites, making Wikipedia more personal than ever.
 
-Other than[ Stephen](https://en.wikipedia.org/wiki/User:Slaporte) and [me](https://en.wikipedia.org/wiki/User:MahmoudHashemi), finding interesting users to follow is a topic for another post. But there is one type of user that has garnered a lot of attention in the past: the Bots. Wikipedia’s Bots are more administrative power tool than autonomous overlord, but people [are](http://www.bbc.com/news/magazine-18892510) [still](http://news.discovery.com/tech/robotics/wikipedia-bot-writes-10000-articles-a-day-140715.htm) [obsessed](http://www.technologyreview.com/view/524751/the-shadowy-world-of-wikipedias-editing-bots/). Just as well, because this brings us to the next fact.
+Other than[ Stephen](https://en.wikipedia.org/wiki/User:Slaporte) and [me](https://en.wikipedia.org/wiki/User:MahmoudHashemi), finding interesting users to follow is a topic for another post. But there is one type of user that has garnered a lot of attention in the past: the Bots. Wikipedia’s Bots are more administrative power tool than autonomous overlord, but people [are](http://www.bbc.com/news/magazine-18892510) [still](https://web.archive.org/web/20171108144053/http://news.discovery.com/tech/robotics/wikipedia-bot-writes-10000-articles-a-day-140715.htm) [obsessed](http://www.technologyreview.com/view/524751/the-shadowy-world-of-wikipedias-editing-bots/). Just as well, because this brings us to the next fact.
 
 > **Fact #4: Wikipedia grows at different speeds.** Some pages change quickly, some slowly. Generally the larger the item, the faster it changes, unless it’s brand new. This is even visible at the site level: [English](https://en.wikipedia.org/wiki/Main_Page) Wikipedia sees about [100,000 changes per day](http://weekly.hatnote.com/archive/en/20150710/weeklypedia_20150710.html), [French](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal) has [20,000](http://weekly.hatnote.com/archive/fr/20150710/weeklypedia_20150710.html), and [Farsi](https://fa.wikipedia.org/wiki/%D8%B5%D9%81%D8%AD%D9%87%D9%94_%D8%A7%D8%B5%D9%84%DB%8C) has [200](http://weekly.hatnote.com/archive/fa/20150710/weeklypedia_20150710.html). If your Trigger event is too high-velocity, occurring more than 50 times per hour, it is likely not a good fit for IFTTT, and you could get temporarily blocked by a Recipe’s Action’s service. If it’s too low-velocity, you might be disappointed with an otherwise sound recipe.
 
@@ -82,7 +82,7 @@ Add in the Talk-page caveat from the previous Trigger and it’s been a long roa
 
 * [@LISedits](https://twitter.com/LISEdits): Tweets about Library Sciences. [We’ve heard librarians love Wikipedia.](https://www.youtube.com/watch?v=gZKkIsWJOt8)
 * [@medstubs](https://twitter.com/medstubs): Tweets about newly posted medical articles that could use contributions
-* [@wikibreakfast](http://wikibreakfast): Tweets about the most important meal of the day.
+* [@wikibreakfast](https://twitter.com/wikibreakfast): Tweets about the most important meal of the day.
 
 When it’s this easy, one might wonder where all the complexity went. Well, if you’re really curious about the technical details, read on.
 

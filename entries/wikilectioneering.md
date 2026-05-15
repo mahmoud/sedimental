@@ -3,7 +3,7 @@ title: Wikilectioneering
 ---
 
 *This entry is a work in progress, but is up in draft form. Check
- back, [subscribe](http://sedimental.org/atom.xml), or
+ back, [subscribe](https://sedimental.org/atom.xml), or
  [follow](https://twitter.com/mhashemi) to see when it goes up.*
 
 Over the last several months, I've been busy-busy helping with
@@ -14,7 +14,7 @@ and one of the most pleasant of which was the opportunity to research
 voting systems.
 
 [hatnote]: http://hatnote.com
-[montage_process]: https://blog.wikimedia.org/2016/12/22/montage-platform-wiki-loves-monuments/
+[montage_process]: https://diff.wikimedia.org/2016/12/22/montage-platform-wiki-loves-monuments/
 [wlm]: http://wikilovesmonuments.org
 
 At the time, the topic of voting systems seemed niche, but as November

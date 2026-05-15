@@ -613,7 +613,7 @@ correlations.
 [pypl]: https://www.google.com/finance?q=NASDAQ:PYPL
 [tsdb]: http://opentsdb.net/
 <!-- pandas linked from above -->
-[pandas_stock]: http://pandas.pydata.org/pandas-docs/stable/remote_data.html
+[pandas_stock]: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html
 
 [**Moving metrics**][moving], sometimes called rolling or windowed
 metrics, are another powerful class of calculation that can combine
@@ -693,9 +693,9 @@ measurement floats all software engineering boats.
 [dep]: http://shop.oreilly.com/product/0636920044932.do
 [thinkstats]: http://greenteapress.com/thinkstats/
 [thinkbayes]: http://greenteapress.com/wp/think-bayes/
-[esp]: http://sedimental.org/esp.html
+[esp]: https://sedimental.org/esp.html
 [esp_oreilly]: http://shop.oreilly.com/product/0636920047346.do
-[esp_safari]: http://techbus.safaribooksonline.com/video/programming/python/9781491943755
+[esp_safari]: https://www.oreilly.com/library/view/enterprise-software-with/9781491943755/
 
 [p2_impl]: https://github.com/mahmoud/lithoxyl/blob/master/lithoxyl/p_squared.py
 [p2_paper]: http://www.cs.wustl.edu/~jain/papers/ftp/psqr.pdf

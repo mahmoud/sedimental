@@ -47,7 +47,7 @@ Aside from holiday cheer, three big reasons.
 Ever since I started
 [talking](https://www.youtube.com/watch?v=iLVNWfPWAC8)
 [about](https://www.youtube.com/watch?v=tfI2hdK6vVY) [Python
-packaging](http://sedimental.org/the_packaging_gradient.html), people
+packaging](https://sedimental.org/the_packaging_gradient.html), people
 have been asking me questions about which packaging technique is best
 for their software. I was struck, over and over again, how far people
 can get in developing an application before reaching the fundamental
@@ -74,7 +74,7 @@ Back in school, I learned more about architecture and software
 development from [the MediaWiki source
 code](https://github.com/wikimedia/mediawiki) than I did from any
 class. It continues to inspire me [to this
-day](http://sedimental.org/hatnote_projects.html). APA is the next
+day](https://sedimental.org/hatnote_projects.html). APA is the next
 step in enabling the holistic education of a working application with
 real users.
 

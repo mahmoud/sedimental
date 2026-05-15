@@ -132,7 +132,7 @@ reach out [to me][tw_me], [personally][about], or
 [O'Reilly Media][tw_orm].
 
 [tw_me]: https://twitter.com/mhashemi
-[about]: http://sedimental.org/about.html
+[about]: https://sedimental.org/about.html
 [tw_orm]: https://twitter.com/OReillyMedia
 
 [I hope you'll take a look][esp]! It's already making waves at PayPal,

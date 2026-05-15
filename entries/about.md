@@ -41,18 +41,18 @@ If that's still not enough, you can find some of my older posts on
 
 [esp]: https://www.oreilly.com/library/view/enterprise-software-with/9781491943755/
 [gh]: https://github.com/mahmoud
-[osp]: http://sedimental.org/open_source_projects.html
-[hn]: http://sedimental.org/hatnote_projects.html
+[osp]: https://sedimental.org/open_source_projects.html
+[hn]: https://sedimental.org/hatnote_projects.html
 [fc]: https://en.wikipedia.org/wiki/Free_culture_movement
 [finfam]: https://finfam.app
 [pp_site]: https://paypal.com
-[sk_site]: https://shopkick.com
+[sk_site]: https://en.wikipedia.org/wiki/Shopkick
 [sl_site]: https://simplelegal.com
 [stripe_site]: https://stripe.com
 [pp_blog]: https://medium.com/paypal-tech/search?q=python
 [pdw]: https://www.pythondoeswhat.com/
 [tw]: https://twitter.com/mhashemi
-[feed]: http://sedimental.org/atom.xml
+[feed]: https://sedimental.org/atom.xml
 
 <!--
 

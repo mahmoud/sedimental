@@ -117,7 +117,7 @@ description: |
 ---
 title: Monumental
 gh_link: https://github.com/hatnote/monumental
-project_link: https://tools.wmflabs.org/monumental/
+project_link: https://monumental.toolforge.org/
 description: |
 
   Monumental is Hatnote's most recent project, building on our interest in
@@ -136,7 +136,7 @@ description: |
 
 ---
 title: Data Waltz
-project_link: https://woodbury.edu/event/data-waltz-wuho/
+project_link: https://web.archive.org/web/20201201022703/https://woodbury.edu/event/data-waltz-wuho/
 description: |
 
   While Hatnote has inspired and supported some amazing installations
@@ -171,12 +171,12 @@ description: |
   [ncsu_l2w]: https://www.youtube.com/watch?v=gZKkIsWJOt8
   [eventstreams_api]: https://wikitech.wikimedia.org/wiki/EventStreams
   [dw_360]: https://vimeo.com/208084520
-  [eventstreams_blog]: https://blog.wikimedia.org/2017/03/20/eventstreams/
+  [eventstreams_blog]: https://diff.wikimedia.org/2017/03/20/eventstreams/
 
 ---
 title: Montage
 gh_link: https://github.com/hatnote/montage
-project_link: https://tools.wmflabs.org/montage-beta/
+project_link: https://montage-beta.toolforge.org/
 description: |
 
   <img width="100px" title="Montage Logo" src="/uploads/hatnote/montage_intro/montage_logo_01.png">
@@ -203,9 +203,9 @@ description: |
   media contests, such as Wiki Loves Earth, Wiki Loves Folk, and more!
 
 
-  [wlm_montage_blog]: https://blog.wikimedia.org/2016/12/22/montage-platform-wiki-loves-monuments/
+  [wlm_montage_blog]: https://diff.wikimedia.org/2016/12/22/montage-platform-wiki-loves-monuments/
 
-  <a target="_blank" href="https://tools.wmflabs.org/montage-beta/">
+  <a target="_blank" href="https://montage-beta.toolforge.org/">
   <img width="100%" title="The beautiful background greeting new visitors to the site"
   src="/uploads/hatnote/montage_intro/montage_announce_banner_med.jpg"></a>
 
@@ -288,7 +288,7 @@ description: |
 ---
 title: Wikipedia Social Search
 gh_link: https://github.com/hatnote/hashtag-search
-project_link: http://tools.wmflabs.org/hashtags/
+project_link: https://hashtags.toolforge.org/
 description: |
 
   Wikipedia's community is unlike any other online. Something about
@@ -309,7 +309,7 @@ description: |
   appearance in the IFTTT channel, with
   [the hashtags trigger][hashtag_trigger].
 
-  [wss]: http://tools.wmflabs.org/hashtags/
+  [wss]: https://hashtags.toolforge.org/
   [hashtags_batch_gh]: https://github.com/hatnote/hashtags
   [hashtag_trigger]: https://ifttt.com/channels/wikipedia/triggers/1023086349-new-edit-with-hashtag
 
@@ -336,7 +336,7 @@ description: |
 
   [weeklypedia]: http://weekly.hatnote.com
   [weeklypedia_data]: https://github.com/hatnote/weeklypedia-history/
-  [cronfed]: http://sedimental.org/open_source_projects.html#cronfed
+  [cronfed]: https://sedimental.org/open_source_projects.html#cronfed
 
 ---
 
@@ -381,7 +381,7 @@ description: |
 
   [see_also_wp]: https://en.wikipedia.org/wiki/Wikipedia#See_also
   [see_also]: http://seealso.org/
-  [chert]: http://sedimental.org/open_source_projects.html#chert
+  [chert]: https://sedimental.org/open_source_projects.html#chert
   [rcmap]: #recent_changes_map
   [l2w]: #listen_to_wikipedia
 
