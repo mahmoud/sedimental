@@ -188,19 +188,19 @@ Actually good reasons:
 
 ## Still Kicking {.graveyard}
 
+Still alive, but still niche.
+
 ::: {.fragment}
-**2009–present** - ![](images/hist_skulpt.png){height="1.2em" style="vertical-align: middle;"} **Skulpt**: JS reimplementation, still chasing Python 3
+**2009–** ![](images/hist_skulpt.png){height="1.2em" style="vertical-align: middle;"} - JS reimplementation, still chasing Python 3
 :::
 
 ::: {.fragment}
-**2014–present** - ![](images/hist_brython.png){height="1.2em" style="vertical-align: middle;"} **Brython**: Runtime transpiler, maintained (Python 3.14), no C extensions
+**2014–** ![](images/hist_brython.png){height="1.2em" style="vertical-align: middle;"} - Runtime transpiler, maintained (Python 3.14), no C extensions
 :::
 
 ::: {.fragment}
-**2016–present** - ![](images/hist_transcrypt_pyreact.png){height="1.2em" style="vertical-align: middle;"} **Transcrypt**: Python-to-JS transpiler, active (v3.9.4)
+**2016–** ![](images/hist_transcrypt_pyreact.png){height="1.2em" style="vertical-align: middle;"} **Transcrypt** - Python-to-JS transpiler, active (v3.9.4)
 :::
-
-Alive, but still niche.
 
 ## What Was Missing?
 
@@ -275,7 +275,7 @@ Every previous attempt lacked at least one of:
 | ![](images/logo_marimo.svg){height="1.2em" style="vertical-align: middle;"} **Marimo** | Reactive notebooks, WASM export | [marimo.io](https://marimo.io) |
 | ![](images/logo_gradio.svg){height="1.2em" style="vertical-align: middle;"} **Gradio-Lite** | ML demos in browser (Hugging Face) | [huggingface.co](https://huggingface.co/blog/gradio-lite) |
 | ![](images/logo_stlite.svg){height="1.2em" style="vertical-align: middle;"} **Stlite** | Streamlit → WASM, PWA, Electron | [github.com/whitphx/stlite](https://github.com/whitphx/stlite) |
-
+| ![](images/logo_pyscript.svg){height="1.2em" style="vertical-align: middle;"} **PyScript** | Python in the browser platform (Anaconda) | [pyscript.com](https://pyscript.com/) |
 ::::
 
 . . .
@@ -299,7 +299,7 @@ A couple projects I've shipped.
 
 ![](images/glompad_logo.png){height="1.4em" style="vertical-align: middle;"} **glompad**: <a href="https://yak.party/glompad">yak.party/glompad</a>
 
-Side project: Data exploration with [glom](https://github.com/mahmoud/glom)
+Data exploration with [glom](https://github.com/mahmoud/glom)
 
 :::::
 
@@ -307,7 +307,7 @@ Side project: Data exploration with [glom](https://github.com/mahmoud/glom)
 
 ![](images/finfam_logo.png){height="1.4em" style="vertical-align: middle;"} **FinFam**: <a href="https://finfam.app">finfam.app</a>
 
-Work: Like GitHub for consumer finance.
+Like GitHub for consumer finance.
 
 :::::
 
@@ -557,7 +557,7 @@ Got a favorite Python library? Build a web application around it.
 
 . . .
 
-Beautiful, interactive web UX. 
+Beautiful, interactive web UX.
 
 Rock-solid Python business logic.
 
@@ -574,11 +574,11 @@ Python may have won, but what about us?
 
 . . .
 
-An agent-assisted human beats a pure agent. Every time.
+An agent-assisted human beats a pure agent.
 
 . . .
 
-Ecosystem and community are real advantages. Don't let them disappear.
+Ecosystem and community are real advantages.
 
 If you believe one good turn deserves another...
 
@@ -612,4 +612,3 @@ If you believe one good turn deserves another...
 :::
 
 :::
-
