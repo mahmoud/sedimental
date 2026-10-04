@@ -11,12 +11,14 @@
 </header>
 {entry.content_html|s}
 
-<a href="/{entry_root}{site.export_html_ext}" title="{publish_timestamp_local}" class="post-timestamp">{headers.publish_date}</a>
-{?headers.tags}
-<span class="tags">
-  {#headers.tags}<a href="/tagged/{.}">#{.}</a> {/headers.tags}
-</span>
-{/headers.tags}
+<div class="entry-metadata">
+  <a href="/{entry_root}{site.export_html_ext}" title="{publish_timestamp_local}" class="post-timestamp">{headers.publish_date}</a>
+  {?headers.tags}
+  <span class="tags">
+    {#headers.tags}<a href="/tagged/{.}">#{.}</a> {/headers.tags}
+  </span>
+  {/headers.tags}
+</div>
 {?prev_entries}
 <div id="previously-div">
   <h5>Previously</h5>
@@ -26,5 +28,4 @@
 </div>
 {/prev_entries}
 {/entry}
-
 {/content}

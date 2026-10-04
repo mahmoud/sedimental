@@ -29,12 +29,23 @@ site:
     - text: Me
       href: /me.html
       desc: Some photos of me
+    - text: Mastodon
+      href: https://qoto.org/@mahmoud
+      desc: Mastodon
+      rel: me
+  newsletter:
+    action: https://buttondown.com/api/emails/embed-subscribe/sedimental
+    popup_url: https://buttondown.com/sedimental
+    heading: Get updates in your inbox
+    tagline: Much love to <a href="/atom.xml">RSS</a>, but past is present, and email is forever.
+    button: Subscribe
+    placeholder: you@example.com
   analytics_code: G-6K0NLLXZFD
   enable_analytics: true
   retarget_links: external
 
 theme:
-  name: floc
+  name: varve
 
 dev:
   server_host: 0.0.0.0
