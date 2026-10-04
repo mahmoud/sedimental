@@ -1,5 +1,5 @@
 ---
-title: CalVer 26.0
+title: "CalVer 26.0: 10th Anniversary Edition"
 entry_root: calver_26
 tags:
   - python
@@ -7,6 +7,8 @@ tags:
   - code
 draft: true
 ---
+
+<img align="right" width="35%" src="/uploads/illo/calver26_cal_stack_med.png">
 
 A decade ago, a little bit of history was made. I didn't realize it, but a colleague made a great point, one of those real mind-changing points that seem too obvious to admit same-day. But, the next day, [calver.org][calver] was born.
 
@@ -105,7 +107,7 @@ Much of the thinking behind these changes happened in the [GitHub issue tracker]
 
 [MH: name contributors to thank? hugovk, issue reporters, translators.]
 
-Thanks to all, but especially Mark, Glyph, Hugo, issue reporters, translators, and maintainers) for making the most timely versioning system, CalVer, a timeless classic.
+In closing, I can't believe I still love belaboring these numbers so much. Thanks to all, but especially Mark, Glyph, Hugo, issue reporters, translators, and maintainers) for the discussion, and ultimately making the most timely versioning system a timeless classic.
 
 # See also
 
