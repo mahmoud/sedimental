@@ -59,7 +59,7 @@ But I don't think I got every detail right from day 1. That's the main motivator
 
 ## Seeing double
 
-First, the doubled letters. From the first version (16.6), `MM` and `DD` meant the *unpadded* month and day, which reads backwards to anyone who knows date formats (ISO 8601's `YYYY-MM-DD`, Java, moment.js, day.js), as some community members [correctly pointed out][hn2020]. I was ready to flip them, until I checked what people actually use: most projects with a `YY.MM.MICRO` badge (conda, Twisted, Ansible's tooling) don't pad, and bumpver, bump-my-version, and more than a dozen other tools implement the old meaning. 
+First, the doubled letters. From the first version (16.6), `MM` and `DD` meant the *unpadded* month and day, which reads backwards to anyone who knows date formats (ISO 8601's `YYYY-MM-DD`, Java, moment.js, day.js), as some community members [correctly pointed out][hn2020]. I was ready to flip them, until I checked what people actually use: most projects with a `YY.MM.MICRO` badge (conda, Twisted, Ansible's tooling) don't pad, and more than a dozen other version management tools (like bumpver and bump-my-version) implement the old meaning.
 
 So, it's too late to flip MM's meaning. Instead, 26.0 deprecates it and offers a more explicit and hopefully clearer option: `M` is the short month, `0M` the padded one, and `MM` is a technically-retired synonym for `M`. In case you're wondering, the explicit `0M` was me being overinspired by Ubuntu's approach, perhaps: `6.06` pads its month but not its year, and `YY.0M` says exactly that. 
 
@@ -105,9 +105,7 @@ Much of the thinking behind these changes happened in the [GitHub issue tracker]
 [faq_cv]: https://calver.org/#frequently-asked-questions
 [issues]: https://github.com/mahmoud/calver/issues
 
-[MH: name contributors to thank? hugovk, issue reporters, translators.]
-
-In closing, I can't believe I still love belaboring these numbers so much. Thanks to all, but especially Mark, Glyph, Hugo, issue reporters, translators, and maintainers) for the discussion, and ultimately making the most timely versioning system a timeless classic.
+In closing, I can't believe I still love belaboring these numbers so much. Thanks to all (but especially Mark, Glyph, Hugo, issue reporters, translators, and maintainers) for the discussion, and ultimately making the most timely versioning system a timeless classic.
 
 # See also
 
